@@ -19,13 +19,13 @@
   <meta property="og:description" content="Formatação, conserto, upgrade e muito mais. Atendimento em Valinhos e região. Agende pelo WhatsApp.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.paulofagoto.com.br">
-  <meta property="og:image" content="https://i.imgur.com/L0N6wVZ.jpeg">
+  <meta property="og:image" content="https://i.imgur.com/1jWgsjm.jpeg">
   <meta property="og:locale" content="pt_BR">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Paulo Fagoto - Técnico em Informática em Valinhos">
   <meta name="twitter:description" content="Formatação, conserto, upgrade e muito mais.">
-  <meta name="twitter:image" content="https://i.imgur.com/L0N6wVZ.jpeg">
+  <meta name="twitter:image" content="https://i.imgur.com/1jWgsjm.jpeg">
   <!-- Fontes e ícones (CDN rápida) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +68,7 @@
     .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; color: #334155; }
     .hero-image { text-align: center; }
     .hero-image img {
-      max-width: 400px;  /* Tamanho máximo controlado */
+      max-width: 400px;
       width: 100%;
       height: auto;
       border-radius: 24px;
@@ -83,7 +83,7 @@
       .hero .container { grid-template-columns: 1fr; text-align: center; } 
       .hero-content h2:after { margin-left: auto; margin-right: auto; }
       .hero-image img {
-        max-width: 80%;  /* Em telas pequenas, ocupa 80% da largura disponível */
+        max-width: 80%;
       }
     }
 
@@ -110,8 +110,25 @@
     .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
     .about-text p { margin-bottom: 1.2rem; font-size: 1.1rem; }
     .about-text i { width: 1.8rem; color: #0f3b5e; }
+    .about-text a {
+      color: #0f3b5e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .about-text a:hover {
+      color: #1a4f7a;
+    }
     .about-image { text-align: center; }
-    .about-image i { font-size: 14rem; color: #0f3b5e; opacity: 0.6; }
+    .about-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .about-image img:hover {
+      transform: scale(1.02);
+    }
     .note { background: #fffbeb; border-left: 6px solid #f59e0b; padding: 1.5rem; border-radius: 18px; margin: 2rem 0 0; font-weight: 500; }
     .note i { color: #b45309; margin-right: 0.8rem; }
     @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; } }
@@ -190,7 +207,7 @@
       <li><a href="#contato">Contato</a></li>
       <li><a href="#horarios">Horários</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="blog.html">Blog</a></li> <!-- Link alterado para página externa -->
+      <li><a href="blog.html">Blog</a></li>
     </ul>
   </nav>
 
@@ -203,8 +220,7 @@
         <a href="https://wa.me/5519971014540?text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20informática%20com%20Paulo%20Fagoto." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar via WhatsApp</a>
       </div>
       <div class="hero-image">
-        <!-- Imagem otimizada para SEO local e responsiva, com tamanho controlado -->
-        <img src="https://i.imgur.com/L0N6wVZ.jpeg" 
+        <img src="https://i.imgur.com/1jWgsjm.jpeg" 
              alt="Técnico em informática Paulo Fagoto em Valinhos - assistência e formatação de computadores" 
              title="Paulo Fagoto - Técnico em Informática em Valinhos"
              loading="eager" 
@@ -265,7 +281,8 @@
       <h2>Sobre Paulo Fagoto</h2>
       <div class="about-content">
         <div class="about-text">
-          <p><i class="fas fa-user-tie"></i> <strong>Técnico responsável:</strong> Paulo Fagoto, experiência em manutenção de computadores e notebooks.</p>
+          <p><i class="fas fa-user-tie"></i> <strong>Paulo Fagoto, 35 anos, com 17 anos de experiência em informática.</strong> Comecei minha carreira como professor em escolas profissionalizantes de Valinhos (People, Microcamp, Aveha), onde ensinava informática e hardware. Também atuei como suporte técnico e trabalhei por mais de 2 anos como técnico registrado em uma empresa da cidade.</p>
+          <p><i class="fab fa-youtube"></i> <strong><a href="https://www.youtube.com/@PauloFagoto" target="_blank" rel="noopener">Canal no YouTube com mais de 105 mil seguidores</a>,</strong> onde compartilho dicas e tutoriais sobre tecnologia. Minha paixão pela área e o contato constante com o público me mantêm atualizado sobre as necessidades e dúvidas mais comuns.</p>
           <p><i class="fas fa-home"></i> <strong>Atendimento:</strong> Oficina própria na minha residência (Jardim dos Manacás, Valinhos). <strong><u>É obrigatório agendar horário antes de vir</u></strong> – não recebo sem agendamento.</p>
           <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> Rua Santo Tordin, 185 - Jardim dos Manacás, Valinhos/SP, CEP 13273-091</p>
           <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 64.383.742/0001-26</p>
@@ -274,7 +291,12 @@
           </div>
         </div>
         <div class="about-image">
-          <i class="fas fa-user-cog"></i>
+          <img src="https://i.imgur.com/yD6pZmQ.jpeg" 
+               alt="Paulo Fagoto - Técnico em Informática" 
+               title="Paulo Fagoto"
+               loading="lazy"
+               width="500"
+               height="500">
         </div>
       </div>
     </div>
@@ -332,17 +354,17 @@
         <article class="blog-post">
           <h3>Quando formatar o PC? 5 sinais de que está na hora</h3>
           <p>Seu computador está lento, travando ou aparecendo erros frequentes? Pode ser hora de formatar. Explicamos os principais sintomas e como a formatação pode resolver. Em Valinhos, agende uma avaliação gratuita.</p>
-          <a href="blog.html#formatacao" class="btn-small">Leia mais</a> <!-- Link para página externa com âncora -->
+          <a href="blog.html#formatacao" class="btn-small">Leia mais</a>
         </article>
         <article class="blog-post">
           <h3>SSD vs HD: Vale a pena o upgrade?</h3>
           <p>Trocar o HD por um SSD é o upgrade que dá mais desempenho ao computador. Descubra as diferenças e por que clientes em Vinhedo e Campinas têm feito essa troca comigo.</p>
-          <a href="blog.html#ssd" class="btn-small">Leia mais</a> <!-- Link para página externa com âncora -->
+          <a href="blog.html#ssd" class="btn-small">Leia mais</a>
         </article>
         <article class="blog-post">
           <h3>Manutenção preventiva: como evitar problemas</h3>
           <p>Limpeza interna, verificação de cabos e atualizações evitam dores de cabeça. Saiba como a manutenção periódica pode aumentar a vida útil do seu PC. Atendo também em Itatiba e Louveira.</p>
-          <a href="blog.html#manutencao" class="btn-small">Leia mais</a> <!-- Link para página externa com âncora -->
+          <a href="blog.html#manutencao" class="btn-small">Leia mais</a>
         </article>
       </div>
     </div>
@@ -362,13 +384,13 @@
     </div>
   </footer>
 
-  <!-- SCHEMA.ORG JSON-LD (LOCALBUSINESS + FAQ) - (ARTICLE REMOVIDO POIS ARTIGOS FORAM PARA OUTRA PÁGINA) -->
+  <!-- SCHEMA.ORG JSON-LD (LOCALBUSINESS + FAQ) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Paulo Fagoto - Técnico em Informática",
-    "image": "https://i.imgur.com/L0N6wVZ.jpeg",
+    "image": "https://i.imgur.com/1jWgsjm.jpeg",
     "url": "https://www.paulofagoto.com.br",
     "telephone": "+5519971014540",
     "email": "adm@paulofagoto.com.br",
@@ -416,10 +438,9 @@
   }
   </script>
 
-  <!-- Script para cookie consent e scroll suave (apenas para âncoras internas) -->
+  <!-- Script para cookie consent e scroll suave -->
   <script>
     (function() {
-      // Scroll suave com ajuste do nav fixo (apenas para links internos que não sejam para blog.html)
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const href = this.getAttribute('href');
@@ -434,7 +455,6 @@
         });
       });
 
-      // Cookie consent
       if (!localStorage.getItem('cookieConsent')) {
         document.getElementById('cookieBanner').style.display = 'block';
       }
