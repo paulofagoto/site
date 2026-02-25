@@ -48,6 +48,8 @@
     .btn-whatsapp { background: #25D366; }
     .btn-whatsapp:hover { background: #128C7E; }
     .btn-whatsapp i { margin-right: 0.6rem; }
+    .btn-small { background: #0f3b5e; color: white; padding: 0.5rem 1.5rem; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 600; transition: 0.2s; border: none; cursor: pointer; }
+    .btn-small:hover { background: #1a4f7a; }
 
     /* ----- HEADER ----- */
     .header { background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 100%); color: white; padding: 1.8rem 0; text-align: center; }
@@ -135,13 +137,12 @@
     .faq-item { background: #f1f5f9; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
     .faq-item h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #0f3b5e; }
 
-    /* ----- BLOG / ARTIGOS ----- */
+    /* ----- BLOG / CARDS APENAS (ARTIGOS FORAM PARA BLOG.HTML) ----- */
     .blog { background: white; }
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .blog-post { background: #f8fafc; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
     .blog-post h3 { font-size: 1.8rem; color: #0f3b5e; margin-bottom: 1rem; }
     .blog-post p { margin-bottom: 1rem; }
-    .blog-post .btn-small { background: #0f3b5e; color: white; padding: 0.5rem 1.5rem; border-radius: 40px; text-decoration: none; display: inline-block; margin-top: 0.5rem; }
 
     /* ----- COOKIE BANNER ----- */
     .cookie-banner {
@@ -189,7 +190,7 @@
       <li><a href="#contato">Contato</a></li>
       <li><a href="#horarios">Horários</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#blog">Blog</a></li>
+      <li><a href="blog.html">Blog</a></li> <!-- Link alterado para página externa -->
     </ul>
   </nav>
 
@@ -323,7 +324,7 @@
     </div>
   </section>
 
-  <!-- BLOG / ARTIGOS (CONTEÚDO RICO E EXPANDIDO) -->
+  <!-- BLOG / CARDS (APENAS CHAMADAS) - CONTEÚDO COMPLETO AGORA EM BLOG.HTML -->
   <section id="blog" class="blog">
     <div class="container">
       <h2>Dicas e novidades em informática</h2>
@@ -331,106 +332,18 @@
         <article class="blog-post">
           <h3>Quando formatar o PC? 5 sinais de que está na hora</h3>
           <p>Seu computador está lento, travando ou aparecendo erros frequentes? Pode ser hora de formatar. Explicamos os principais sintomas e como a formatação pode resolver. Em Valinhos, agende uma avaliação gratuita.</p>
-          <a href="#formatação-dica" class="btn-small">Leia mais</a>
+          <a href="blog.html#formatacao" class="btn-small">Leia mais</a> <!-- Link para página externa com âncora -->
         </article>
         <article class="blog-post">
           <h3>SSD vs HD: Vale a pena o upgrade?</h3>
           <p>Trocar o HD por um SSD é o upgrade que dá mais desempenho ao computador. Descubra as diferenças e por que clientes em Vinhedo e Campinas têm feito essa troca comigo.</p>
-          <a href="#ssd-dica" class="btn-small">Leia mais</a>
+          <a href="blog.html#ssd" class="btn-small">Leia mais</a> <!-- Link para página externa com âncora -->
         </article>
         <article class="blog-post">
           <h3>Manutenção preventiva: como evitar problemas</h3>
           <p>Limpeza interna, verificação de cabos e atualizações evitam dores de cabeça. Saiba como a manutenção periódica pode aumentar a vida útil do seu PC. Atendo também em Itatiba e Louveira.</p>
-          <a href="#manutencao-dica" class="btn-small">Leia mais</a>
+          <a href="blog.html#manutencao" class="btn-small">Leia mais</a> <!-- Link para página externa com âncora -->
         </article>
-      </div>
-
-      <!-- ARTIGO 1 COMPLETO (FORMATAÇÃO) -->
-      <div id="formatação-dica" style="margin-top: 3rem; background: #f1f5f9; padding: 2rem; border-radius: 28px;">
-        <h3>Quando formatar o PC? 5 sinais de que está na hora</h3>
-        <p>A formatação é o processo de reinstalar completamente o sistema operacional, removendo todos os arquivos, programas e configurações anteriores. É como dar um "reset" no computador. Mas como saber se chegou a hora? Abaixo, detalhamos os cinco sinais mais comuns e o que fazer em cada caso.</p>
-        
-        <h4>1. Lentidão excessiva ao abrir programas ou arquivos</h4>
-        <p>Se o Windows demora minutos para iniciar, os aplicativos abrem com delay e até mesmo o Explorador de Arquivos trava, isso indica acúmulo de softwares desnecessários, registros corrompidos ou fragmentação extrema. Uma formatação remove todo o "lixo digital" e devolve a velocidade original.</p>
-        
-        <h4>2. Travamentos e telas azis frequentes (BSOD)</h4>
-        <p>Telas azuis podem ser causadas por drivers conflitantes, arquivos de sistema corrompidos ou malware. Quando o problema persiste mesmo após tentativas de reparo, a formatação é a solução definitiva para restaurar a estabilidade.</p>
-        
-        <h4>3. Propagandas e pop-ups mesmo sem navegar</h4>
-        <p>Se você vê anúncios em lugares inesperados ou seu navegador redireciona para sites estranhos, provavelmente há adware ou extensões maliciosas. Muitas vezes esses programas não são removidos por antivírus comuns. A formatação garante a eliminação total.</p>
-        
-        <h4>4. Superaquecimento sem motivo aparente</h4>
-        <p>Processos em segundo plano (malware ou softwares mal otimizados) podem forçar a CPU constantemente, gerando calor excessivo. Após formatar, o sistema fica limpo e o processador volta a trabalhar normalmente.</p>
-        
-        <h4>5. Infecção por vírus que não sai com antivírus</h4>
-        <p>Certos vírus se alojam em setores de inicialização ou se escondem de programas de segurança. Nesses casos, a formatação de baixo nível (com remoção de todas as partições) é a única garantia de um PC limpo.</p>
-        
-        <p><strong>Importante:</strong> Antes de formatar, faça backup de seus arquivos! Ofereço o serviço de formatação com backup incluso (R$150) ou sem backup (R$100). Após a formatação, ainda instalo os drivers e programas essenciais. Agende uma avaliação sem compromisso.</p>
-        
-        <a href="https://wa.me/5519971014540" class="btn btn-whatsapp">Agendar formatação</a>
-      </div>
-
-      <!-- ARTIGO 2 COMPLETO (SSD VS HD) -->
-      <div id="ssd-dica" style="margin-top: 2rem; background: #f1f5f9; padding: 2rem; border-radius: 28px;">
-        <h3>SSD vs HD: Vale a pena o upgrade?</h3>
-        <p>O disco rígido (HD) é a tecnologia tradicional de armazenamento, com partes móveis e pratos magnéticos. O SSD (Solid State Drive) é mais moderno, usa memória flash e não tem partes mecânicas. A diferença de desempenho é gritante.</p>
-        
-        <h4>Vantagens do SSD</h4>
-        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-          <li><strong>Velocidade:</strong> Um SSD pode ser até 10x mais rápido na leitura/gravação. O Windows inicia em 15 segundos, programas abrem instantaneamente.</li>
-          <li><strong>Consumo de energia:</strong> SSDs consomem menos bateria em notebooks.</li>
-          <li><strong>Silêncio e resistência:</strong> Sem partes móveis, são à prova de choques e vibrações.</li>
-          <li><strong>Menor aquecimento:</strong> Ideais para equipamentos compactos.</li>
-        </ul>
-        
-        <h4>Desvantagens do SSD</h4>
-        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-          <li><strong>Preço por GB:</strong> Ainda mais caro que o HD, mas os valores caíram muito nos últimos anos.</li>
-          <li><strong>Capacidade máxima:</strong> Para grandes volumes (acima de 2 TB), o HD ainda é mais acessível.</li>
-          <li><strong>Vida útil de gravação:</strong> SSDs têm número limitado de ciclos de gravação, mas para uso doméstico duram muitos anos.</li>
-        </ul>
-        
-        <h4>Como é feito o upgrade?</h4>
-        <p>O procedimento é simples: substituo o HD antigo pelo SSD, realizo a clonagem (cópia exata) do sistema e arquivos ou instalo o Windows do zero. Em notebooks, muitas vezes é possível manter o HD original na baia do DVD (com adaptador) e usar o SSD como sistema. Em desktops, basta conectar o SSD e configurar a inicialização.</p>
-        
-        <h4>Vale a pena?</h4>
-        <p>Sem dúvida! É o upgrade de maior custo-benefício. Um computador com 5 anos de idade pode ficar como novo apenas com a troca do HD por um SSD. Meus clientes em Vinhedo, Campinas e região têm feito essa melhoria e se surpreendido com o ganho de performance.</p>
-        
-        <p>Faço o upgrade com instalação e configuração. Entre em contato para um orçamento personalizado – o valor varia conforme a capacidade do SSD escolhido.</p>
-        
-        <a href="https://wa.me/5519971014540" class="btn btn-whatsapp">Consultar upgrade</a>
-      </div>
-
-      <!-- ARTIGO 3 COMPLETO (MANUTENÇÃO PREVENTIVA) -->
-      <div id="manutencao-dica" style="margin-top: 2rem; background: #f1f5f9; padding: 2rem; border-radius: 28px;">
-        <h3>Manutenção preventiva: como evitar problemas</h3>
-        <p>A manutenção preventiva em informática consiste em um conjunto de procedimentos periódicos que visam evitar falhas, aumentar a vida útil do equipamento e garantir o máximo desempenho. Diferente da manutenção corretiva (que conserta algo que já quebrou), a preventiva é feita com o PC funcionando bem.</p>
-        
-        <h4>Principais procedimentos realizados</h4>
-        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-          <li><strong>Limpeza interna:</strong> Remoção de poeira de coolers, fonte, placa-mãe e gabinete. O acúmulo de poeira prejudica a dissipação de calor e pode causar superaquecimento.</li>
-          <li><strong>Troca da pasta térmica:</strong> A pasta entre o processador e o cooler resseca com o tempo. A troca reduz a temperatura da CPU.</li>
-          <li><strong>Verificação de cabos e conexões:</strong> Checagem de cabos SATA, energia e periféricos para evitar mau contato.</li>
-          <li><strong>Atualizações de software:</strong> Atualização do sistema operacional, drivers e programas de segurança.</li>
-          <li><strong>Testes de disco e memória:</strong> Diagnóstico para detectar setores defeituosos ou falhas incipientes.</li>
-          <li><strong>Backup de dados:</strong> Orientação e execução de cópias de segurança de arquivos importantes.</li>
-        </ul>
-        
-        <h4>Frequência recomendada</h4>
-        <p>Para computadores de uso doméstico moderado, recomendo uma revisão a cada 6 meses. Para uso intenso (escritório, jogos) ou ambientes com muita poeira, a cada 3 a 4 meses. Notebooks, por serem mais compactos, acumulam sujeira mais rapidamente e exigem atenção redobrada.</p>
-        
-        <h4>Benefícios da manutenção preventiva</h4>
-        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-          <li>Evita perda de dados por falha de hardware.</li>
-          <li>Reduz o risco de superaquecimento e danos permanentes.</li>
-          <li>Mantém o desempenho consistente por mais tempo.</li>
-          <li>Prolonga a vida útil do equipamento (economia a longo prazo).</li>
-          <li>Detecta possíveis falhas antes que se tornem emergências.</li>
-        </ul>
-        
-        <p>Ofereço pacotes de manutenção preventiva com agendamento. Clientes de Valinhos, Itatiba e Louveira podem trazer o equipamento até minha oficina. Aproveite para incluir uma limpeza e garantir que seu PC esteja sempre pronto.</p>
-        
-        <a href="https://wa.me/5519971014540" class="btn btn-whatsapp">Agendar manutenção</a>
       </div>
     </div>
   </section>
@@ -449,7 +362,7 @@
     </div>
   </footer>
 
-  <!-- SCHEMA.ORG JSON-LD (LOCALBUSINESS + FAQ + ARTICLE) -->
+  <!-- SCHEMA.ORG JSON-LD (LOCALBUSINESS + FAQ) - (ARTICLE REMOVIDO POIS ARTIGOS FORAM PARA OUTRA PÁGINA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -503,10 +416,10 @@
   }
   </script>
 
-  <!-- Script para cookie consent e scroll suave -->
+  <!-- Script para cookie consent e scroll suave (apenas para âncoras internas) -->
   <script>
     (function() {
-      // Scroll suave com ajuste do nav fixo
+      // Scroll suave com ajuste do nav fixo (apenas para links internos que não sejam para blog.html)
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const href = this.getAttribute('href');

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Blog - Dicas e Novidades em Informática | Paulo Fagoto</title>
+  <!-- META TAGS SEO -->
+  <meta name="description" content="Artigos completos sobre formatação, upgrade SSD, manutenção preventiva e outras dicas de informática. Técnico em Valinhos e região.">
+  <meta name="keywords" content="blog informática, dicas formatação, upgrade SSD, manutenção preventiva, técnico Valinhos">
+  <meta name="author" content="Paulo Fagoto">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.paulofagoto.com.br/blog.html">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Blog - Dicas e Novidades em Informática | Paulo Fagoto">
+  <meta property="og:description" content="Artigos completos sobre formatação, upgrade SSD, manutenção preventiva e outras dicas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.paulofagoto.com.br/blog.html">
+  <meta property="og:image" content="https://i.imgur.com/L0N6wVZ.jpeg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog - Dicas e Novidades em Informática | Paulo Fagoto">
+  <meta name="twitter:description" content="Artigos completos sobre formatação, upgrade SSD, manutenção preventiva.">
+  <meta name="twitter:image" content="https://i.imgur.com/L0N6wVZ.jpeg">
+  <!-- Fontes e ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1e293b; background: #f8fafc; }
+    .container { width: 90%; max-width: 1280px; margin: 0 auto; padding: 2rem 0; }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+    h1 { font-size: 2.8rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    h2 { font-size: 2.4rem; margin-bottom: 1.5rem; color: #0f3b5e; position: relative; display: inline-block; }
+    h2:after { content: ''; display: block; width: 80px; height: 4px; background: #0f3b5e; margin-top: 0.5rem; border-radius: 2px; }
+    h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #0f3b5e; }
+    @media (max-width: 768px) { h1 { font-size: 2.2rem; } h2 { font-size: 2rem; } }
+    .btn { display: inline-block; background: #0f3b5e; color: white; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.25s; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .btn:hover { background: #1a4f7a; transform: translateY(-2px); box-shadow: 0 8px 12px rgba(0,0,0,0.15); }
+    .btn-whatsapp { background: #25D366; }
+    .btn-whatsapp:hover { background: #128C7E; }
+    .btn-whatsapp i { margin-right: 0.6rem; }
+    .btn-small { background: #0f3b5e; color: white; padding: 0.5rem 1.5rem; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 600; transition: 0.2s; border: none; cursor: pointer; }
+    .btn-small:hover { background: #1a4f7a; }
+
+    /* ----- HEADER ----- */
+    .header { background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 100%); color: white; padding: 1.5rem 0; text-align: center; }
+    .header p { font-size: 1.2rem; opacity: 0.95; }
+
+    /* ----- NAVEGAÇÃO SIMPLES ----- */
+    .nav { background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 0.8rem 0; }
+    .nav .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 0; }
+    .nav a { color: #1e293b; text-decoration: none; font-weight: 600; margin-right: 1.5rem; }
+    .nav a:hover { color: #0f3b5e; text-decoration: underline; }
+    .nav .btn-home { background: #0f3b5e; color: white; padding: 0.5rem 1.2rem; border-radius: 40px; }
+    .nav .btn-home:hover { background: #1a4f7a; text-decoration: none; }
+
+    /* ----- ARTIGOS ----- */
+    .artigo-completo { background: white; margin: 2rem 0; padding: 2.5rem; border-radius: 32px; box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1); border: 1px solid #e9eef3; scroll-margin-top: 80px; }
+    .artigo-completo h2 { font-size: 2.2rem; margin-bottom: 1.5rem; display: block; }
+    .artigo-completo h2:after { margin-left: 0; }
+    .artigo-completo h4 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; color: #1e293b; }
+    .artigo-completo p { margin-bottom: 1.2rem; font-size: 1.1rem; }
+    .artigo-completo ul, .artigo-completo ol { margin-left: 2rem; margin-bottom: 1.5rem; }
+    .artigo-completo li { margin-bottom: 0.5rem; }
+    .artigo-completo .btn { margin-top: 1rem; }
+
+    /* ----- AVISOS ----- */
+    .agendamento-obrigatorio { background: #dcfce7; color: #166534; padding: 1rem; border-radius: 40px; text-align: center; font-weight: 700; margin-bottom: 1rem; border: 1px solid #86efac; }
+
+    /* ----- FOOTER ----- */
+    .footer { background: #0f3b5e; color: white; text-align: center; padding: 2.5rem 0; margin-top: 2rem; }
+    .footer a { color: white; text-decoration: underline; font-weight: 500; }
+    .footer p { margin-bottom: 0.5rem; opacity: 0.9; }
+    .footer .legal-links { margin-top: 1.5rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .footer .legal-links a { color: white; text-decoration: underline; font-weight: 400; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <h1>Blog - Dicas e Novidades em Informática</h1>
+      <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Artigos completos sobre manutenção, upgrades e boas práticas</p>
+    </div>
+  </header>
+
+  <!-- NAVEGAÇÃO SIMPLES -->
+  <nav class="nav">
+    <div class="container">
+      <div>
+        <a href="index.html"><i class="fas fa-home"></i> Início</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#contato">Contato</a>
+      </div>
+      <a href="https://wa.me/5519971014540" class="btn-small btn-whatsapp" target="_blank" style="background:#25D366;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- AVISO DE AGENDAMENTO (reforço) -->
+    <div class="agendamento-obrigatorio">
+      <i class="fas fa-calendar-check"></i> Atendimento somente com horário agendado em Valinhos/SP
+    </div>
+
+    <!-- ARTIGO 1: Formatação (âncora #formatacao) -->
+    <section id="formatacao" class="artigo-completo">
+      <h2>Quando formatar o PC? 5 sinais de que está na hora</h2>
+      <p>A formatação é o processo de reinstalar completamente o sistema operacional, removendo todos os arquivos, programas e configurações anteriores. É como dar um "reset" no computador. Mas como saber se chegou a hora? Abaixo, detalhamos os cinco sinais mais comuns e o que fazer em cada caso.</p>
+      
+      <h4>1. Lentidão excessiva ao abrir programas ou arquivos</h4>
+      <p>Se o Windows demora minutos para iniciar, os aplicativos abrem com delay e até mesmo o Explorador de Arquivos trava, isso indica acúmulo de softwares desnecessários, registros corrompidos ou fragmentação extrema. Uma formatação remove todo o "lixo digital" e devolve a velocidade original.</p>
+      
+      <h4>2. Travamentos e telas azuis frequentes (BSOD)</h4>
+      <p>Telas azuis podem ser causadas por drivers conflitantes, arquivos de sistema corrompidos ou malware. Quando o problema persiste mesmo após tentativas de reparo, a formatação é a solução definitiva para restaurar a estabilidade.</p>
+      
+      <h4>3. Propagandas e pop-ups mesmo sem navegar</h4>
+      <p>Se você vê anúncios em lugares inesperados ou seu navegador redireciona para sites estranhos, provavelmente há adware ou extensões maliciosas. Muitas vezes esses programas não são removidos por antivírus comuns. A formatação garante a eliminação total.</p>
+      
+      <h4>4. Superaquecimento sem motivo aparente</h4>
+      <p>Processos em segundo plano (malware ou softwares mal otimizados) podem forçar a CPU constantemente, gerando calor excessivo. Após formatar, o sistema fica limpo e o processador volta a trabalhar normalmente.</p>
+      
+      <h4>5. Infecção por vírus que não sai com antivírus</h4>
+      <p>Certos vírus se alojam em setores de inicialização ou se escondem de programas de segurança. Nesses casos, a formatação de baixo nível (com remoção de todas as partições) é a única garantia de um PC limpo.</p>
+      
+      <p><strong>Importante:</strong> Antes de formatar, faça backup de seus arquivos! Ofereço o serviço de formatação com backup incluso (R$150) ou sem backup (R$100). Após a formatação, ainda instalo os drivers e programas essenciais. Agende uma avaliação sem compromisso.</p>
+      
+      <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20uma%20formatação%20após%20ler%20o%20artigo%20sobre%20sinais." class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Agendar formatação</a>
+      <a href="index.html" class="btn" style="margin-left: 1rem; background: #64748b;">← Voltar para página inicial</a>
+    </section>
+
+    <!-- ARTIGO 2: SSD vs HD (âncora #ssd) -->
+    <section id="ssd" class="artigo-completo">
+      <h2>SSD vs HD: Vale a pena o upgrade?</h2>
+      <p>O disco rígido (HD) é a tecnologia tradicional de armazenamento, com partes móveis e pratos magnéticos. O SSD (Solid State Drive) é mais moderno, usa memória flash e não tem partes mecânicas. A diferença de desempenho é gritante.</p>
+      
+      <h4>Vantagens do SSD</h4>
+      <ul>
+        <li><strong>Velocidade:</strong> Um SSD pode ser até 10x mais rápido na leitura/gravação. O Windows inicia em 15 segundos, programas abrem instantaneamente.</li>
+        <li><strong>Consumo de energia:</strong> SSDs consomem menos bateria em notebooks.</li>
+        <li><strong>Silêncio e resistência:</strong> Sem partes móveis, são à prova de choques e vibrações.</li>
+        <li><strong>Menor aquecimento:</strong> Ideais para equipamentos compactos.</li>
+      </ul>
+      
+      <h4>Desvantagens do SSD</h4>
+      <ul>
+        <li><strong>Preço por GB:</strong> Ainda mais caro que o HD, mas os valores caíram muito nos últimos anos.</li>
+        <li><strong>Capacidade máxima:</strong> Para grandes volumes (acima de 2 TB), o HD ainda é mais acessível.</li>
+        <li><strong>Vida útil de gravação:</strong> SSDs têm número limitado de ciclos de gravação, mas para uso doméstico duram muitos anos.</li>
+      </ul>
+      
+      <h4>Como é feito o upgrade?</h4>
+      <p>O procedimento é simples: substituo o HD antigo pelo SSD, realizo a clonagem (cópia exata) do sistema e arquivos ou instalo o Windows do zero. Em notebooks, muitas vezes é possível manter o HD original na baia do DVD (com adaptador) e usar o SSD como sistema. Em desktops, basta conectar o SSD e configurar a inicialização.</p>
+      
+      <h4>Vale a pena?</h4>
+      <p>Sem dúvida! É o upgrade de maior custo-benefício. Um computador com 5 anos de idade pode ficar como novo apenas com a troca do HD por um SSD. Meus clientes em Vinhedo, Campinas e região têm feito essa melhoria e se surpreendido com o ganho de performance.</p>
+      
+      <p>Faço o upgrade com instalação e configuração. Entre em contato para um orçamento personalizado – o valor varia conforme a capacidade do SSD escolhido.</p>
+      
+      <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20um%20orçamento%20para%20upgrade%20de%20SSD%20após%20ler%20o%20artigo." class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Consultar upgrade</a>
+      <a href="index.html" class="btn" style="margin-left: 1rem; background: #64748b;">← Voltar para página inicial</a>
+    </section>
+
+    <!-- ARTIGO 3: Manutenção preventiva (âncora #manutencao) -->
+    <section id="manutencao" class="artigo-completo">
+      <h2>Manutenção preventiva: como evitar problemas</h2>
+      <p>A manutenção preventiva em informática consiste em um conjunto de procedimentos periódicos que visam evitar falhas, aumentar a vida útil do equipamento e garantir o máximo desempenho. Diferente da manutenção corretiva (que conserta algo que já quebrou), a preventiva é feita com o PC funcionando bem.</p>
+      
+      <h4>Principais procedimentos realizados</h4>
+      <ul>
+        <li><strong>Limpeza interna:</strong> Remoção de poeira de coolers, fonte, placa-mãe e gabinete. O acúmulo de poeira prejudica a dissipação de calor e pode causar superaquecimento.</li>
+        <li><strong>Troca da pasta térmica:</strong> A pasta entre o processador e o cooler resseca com o tempo. A troca reduz a temperatura da CPU.</li>
+        <li><strong>Verificação de cabos e conexões:</strong> Checagem de cabos SATA, energia e periféricos para evitar mau contato.</li>
+        <li><strong>Atualizações de software:</strong> Atualização do sistema operacional, drivers e programas de segurança.</li>
+        <li><strong>Testes de disco e memória:</strong> Diagnóstico para detectar setores defeituosos ou falhas incipientes.</li>
+        <li><strong>Backup de dados:</strong> Orientação e execução de cópias de segurança de arquivos importantes.</li>
+      </ul>
+      
+      <h4>Frequência recomendada</h4>
+      <p>Para computadores de uso doméstico moderado, recomendo uma revisão a cada 6 meses. Para uso intenso (escritório, jogos) ou ambientes com muita poeira, a cada 3 a 4 meses. Notebooks, por serem mais compactos, acumulam sujeira mais rapidamente e exigem atenção redobrada.</p>
+      
+      <h4>Benefícios da manutenção preventiva</h4>
+      <ul>
+        <li>Evita perda de dados por falha de hardware.</li>
+        <li>Reduz o risco de superaquecimento e danos permanentes.</li>
+        <li>Mantém o desempenho consistente por mais tempo.</li>
+        <li>Prolonga a vida útil do equipamento (economia a longo prazo).</li>
+        <li>Detecta possíveis falhas antes que se tornem emergências.</li>
+      </ul>
+      
+      <p>Ofereço pacotes de manutenção preventiva com agendamento. Clientes de Valinhos, Itatiba e Louveira podem trazer o equipamento até minha oficina. Aproveite para incluir uma limpeza e garantir que seu PC esteja sempre pronto.</p>
+      
+      <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20uma%20manutenção%20preventiva%20após%20ler%20o%20artigo." class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Agendar manutenção</a>
+      <a href="index.html" class="btn" style="margin-left: 1rem; background: #64748b;">← Voltar para página inicial</a>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Paulo Fagoto - Técnico em Informática</strong></p>
+      <p>CNPJ: 64.383.742/0001-26 | Rua Santo Tordin, 185 - Jardim dos Manacás - Valinhos/SP - CEP 13273-091</p>
+      <p>WhatsApp: <a href="https://wa.me/5519971014540">(19) 97101-4540</a> | E-mail: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+      <div class="legal-links">
+        <a href="politicaetermos.html#privacidade">Política de Privacidade</a>
+        <a href="politicaetermos.html#termos">Termos de Uso</a>
+      </div>
+      <p style="margin-top: 1rem;">© 2026 Paulo Fagoto. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SCHEMA.ORG PARA ARTIGOS (opcional, ajuda no SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog do Paulo Fagoto - Dicas de Informática",
+    "description": "Artigos sobre formatação, upgrade SSD e manutenção preventiva.",
+    "url": "https://www.paulofagoto.com.br/blog.html",
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Quando formatar o PC? 5 sinais de que está na hora",
+        "url": "https://www.paulofagoto.com.br/blog.html#formatacao"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "SSD vs HD: Vale a pena o upgrade?",
+        "url": "https://www.paulofagoto.com.br/blog.html#ssd"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Manutenção preventiva: como evitar problemas",
+        "url": "https://www.paulofagoto.com.br/blog.html#manutencao"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Script simples para garantir que ao carregar com âncora, o scroll seja ajustado (considerando nav fixo) -->
+  <script>
+    (function() {
+      // Se houver âncora na URL, ajustar scroll para compensar a altura do menu fixo
+      if (window.location.hash) {
+        setTimeout(function() {
+          const id = window.location.hash.substring(1); // remove o #
+          const element = document.getElementById(id);
+          if (element) {
+            const navHeight = document.querySelector('.nav')?.offsetHeight || 70;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: elementPosition - navHeight - 20,
+              behavior: 'smooth'
+            });
+          }
+        }, 100); // pequeno delay para garantir que a página carregou
+      }
+    })();
+  </script>
+</body>
+</html>
