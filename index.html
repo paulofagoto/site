@@ -19,12 +19,13 @@
   <meta property="og:description" content="Formatação, conserto, upgrade e muito mais. Atendimento em Valinhos e região. Agende pelo WhatsApp.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.paulofagoto.com.br">
-  <meta property="og:image" content="https://www.paulofagoto.com.br/og-image.jpg">
+  <meta property="og:image" content="https://i.imgur.com/L0N6wVZ.jpeg">
   <meta property="og:locale" content="pt_BR">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Paulo Fagoto - Técnico em Informática em Valinhos">
   <meta name="twitter:description" content="Formatação, conserto, upgrade e muito mais. Atendimento em Valinhos e região.">
+  <meta name="twitter:image" content="https://i.imgur.com/L0N6wVZ.jpeg">
   <!-- Fontes e ícones (CDN rápida) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,11 +65,24 @@
     .hero-content h2 { font-size: 2.8rem; margin-bottom: 1.5rem; color: #0f3b5e; }
     .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; color: #334155; }
     .hero-image { text-align: center; }
-    .hero-image i { font-size: 16rem; color: #0f3b5e; opacity: 0.8; }
+    .hero-image img {
+      max-width: 400px;  /* Tamanho máximo controlado */
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
     @media (max-width: 768px) { 
       .hero .container { grid-template-columns: 1fr; text-align: center; } 
       .hero-content h2:after { margin-left: auto; margin-right: auto; }
-      .hero-image i { font-size: 12rem; }
+      .hero-image img {
+        max-width: 80%;  /* Em telas pequenas, ocupa 80% da largura disponível */
+      }
     }
 
     /* ----- SERVIÇOS (CARDS) ----- */
@@ -195,7 +209,13 @@
         <a href="https://wa.me/5519971014540?text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20informática%20com%20Paulo%20Fagoto." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar via WhatsApp</a>
       </div>
       <div class="hero-image">
-        <i class="fas fa-laptop-code"></i>
+        <!-- Imagem otimizada para SEO local e responsiva, com tamanho controlado -->
+        <img src="https://i.imgur.com/L0N6wVZ.jpeg" 
+             alt="Técnico em informática Paulo Fagoto em Valinhos - assistência e formatação de computadores" 
+             title="Paulo Fagoto - Técnico em Informática em Valinhos"
+             loading="eager" 
+             width="600" 
+             height="400">
       </div>
     </div>
   </section>
@@ -537,7 +557,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Paulo Fagoto - Técnico em Informática",
-    "image": "https://www.paulofagoto.com.br/logo.png",
+    "image": "https://i.imgur.com/L0N6wVZ.jpeg",
     "url": "https://www.paulofagoto.com.br",
     "telephone": "+5519971014540",
     "email": "adm@paulofagoto.com.br",
