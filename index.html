@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Paulo Fagoto – Técnico em Informática em Valinhos | Formatação, Conserto e Upgrade</title>
+  <!-- META TAGS SEO LOCAL PODEROSAS -->
+  <meta name="description" content="Técnico em informática em Valinhos/SP. Especialista em formatação, conserto, upgrade, montagem de PC. Atendimento na oficina em casa (Jardim dos Manacás) com agendamento obrigatório. Orçamento via WhatsApp. Atendo também Vinhedo, Itatiba, Louveira e Campinas.">
+  <meta name="keywords" content="técnico informática Valinhos, formatação Valinhos, assistência informática Valinhos, conserto computador Valinhos, upgrade PC Valinhos, técnico Vinhedo, técnico Itatiba, técnico Louveira, técnico Campinas, manutenção notebook Valinhos, oficina informática Valinhos">
+  <meta name="author" content="Paulo Fagoto">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="Valinhos">
+  <meta name="geo.position" content="-22.9706;-47.0047">
+  <meta name="ICBM" content="-22.9706, -47.0047">
+  <link rel="canonical" href="https://www.paulofagoto.com.br">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Paulo Fagoto - Técnico em Informática em Valinhos">
+  <meta property="og:description" content="Formatação, conserto, upgrade e muito mais. Atendimento em Valinhos e região. Agende pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.paulofagoto.com.br">
+  <meta property="og:image" content="https://www.paulofagoto.com.br/og-image.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Paulo Fagoto - Técnico em Informática em Valinhos">
+  <meta name="twitter:description" content="Formatação, conserto, upgrade e muito mais. Atendimento em Valinhos e região.">
+  <!-- Fontes e ícones (CDN rápida) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1e293b; background: #f8fafc; }
+    .container { width: 90%; max-width: 1280px; margin: 0 auto; padding: 3rem 0; }
+    @media (max-width: 768px) { .container { padding: 2rem 0; } }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+    h1 { font-size: 2.8rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    h2 { font-size: 2.4rem; margin-bottom: 2rem; color: #0f3b5e; position: relative; display: inline-block; }
+    h2:after { content: ''; display: block; width: 80px; height: 4px; background: #0f3b5e; margin-top: 0.5rem; border-radius: 2px; }
+    @media (max-width: 768px) { h1 { font-size: 2.2rem; } h2 { font-size: 2rem; } }
+    .btn { display: inline-block; background: #0f3b5e; color: white; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.25s; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .btn:hover { background: #1a4f7a; transform: translateY(-2px); box-shadow: 0 8px 12px rgba(0,0,0,0.15); }
+    .btn-whatsapp { background: #25D366; }
+    .btn-whatsapp:hover { background: #128C7E; }
+    .btn-whatsapp i { margin-right: 0.6rem; }
+
+    /* ----- HEADER ----- */
+    .header { background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 100%); color: white; padding: 1.8rem 0; text-align: center; }
+    .header p { font-size: 1.3rem; opacity: 0.95; font-weight: 400; }
+
+    /* ----- NAVBAR STICKY ----- */
+    .nav { background: white; box-shadow: 0 6px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .nav ul { display: flex; justify-content: center; list-style: none; padding: 0.8rem 0; flex-wrap: wrap; gap: 1.8rem; }
+    .nav a { color: #1e293b; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: color 0.2s; }
+    .nav a:hover { color: #0f3b5e; text-decoration: underline; text-underline-offset: 6px; }
+
+    /* ----- HERO SECTION ----- */
+    .hero { background: white; }
+    .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-content h2 { font-size: 2.8rem; margin-bottom: 1.5rem; color: #0f3b5e; }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; color: #334155; }
+    .hero-image { text-align: center; }
+    .hero-image i { font-size: 16rem; color: #0f3b5e; opacity: 0.8; }
+    @media (max-width: 768px) { 
+      .hero .container { grid-template-columns: 1fr; text-align: center; } 
+      .hero-content h2:after { margin-left: auto; margin-right: auto; }
+      .hero-image i { font-size: 12rem; }
+    }
+
+    /* ----- SERVIÇOS (CARDS) ----- */
+    .services { background: #f1f5f9; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+    .service-card { background: white; padding: 2rem 1.5rem; border-radius: 24px; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05); transition: all 0.3s; border: 1px solid rgba(0,0,0,0.02); }
+    .service-card:hover { transform: scale(1.02); box-shadow: 0 20px 30px -8px rgba(15,59,94,0.2); }
+    .service-card i { font-size: 3rem; color: #0f3b5e; margin-bottom: 1.2rem; }
+    .service-card h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+    .service-card .price { font-weight: 700; color: #0f3b5e; margin-top: 1.5rem; font-size: 1.3rem; border-top: 1px dashed #cbd5e1; padding-top: 1rem; }
+
+    /* ----- PREÇOS DESTAQUE ----- */
+    .pricing { background: white; }
+    .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 1rem; }
+    .price-card { background: #f8fafc; padding: 2.5rem 1.8rem; border-radius: 32px; text-align: center; box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; transition: 0.2s; }
+    .price-card:hover { border-color: #0f3b5e; }
+    .price-card h3 { font-size: 1.9rem; margin-bottom: 0.8rem; }
+    .price-card .value { font-size: 3.2rem; font-weight: 800; color: #0f3b5e; margin: 1.5rem 0; line-height: 1; }
+    .price-card .btn { margin-top: 1rem; }
+
+    /* ----- SOBRE ----- */
+    .about { background: #f1f5f9; }
+    .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-text p { margin-bottom: 1.2rem; font-size: 1.1rem; }
+    .about-text i { width: 1.8rem; color: #0f3b5e; }
+    .about-image { text-align: center; }
+    .about-image i { font-size: 14rem; color: #0f3b5e; opacity: 0.6; }
+    .note { background: #fffbeb; border-left: 6px solid #f59e0b; padding: 1.5rem; border-radius: 18px; margin: 2rem 0 0; font-weight: 500; }
+    .note i { color: #b45309; margin-right: 0.8rem; }
+    @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; } }
+
+    /* ----- CONTATO & HORÁRIOS ----- */
+    .contact { background: white; }
+    .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+    .contact-item { background: #f8fafc; padding: 2rem 1.5rem; border-radius: 28px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.02); border: 1px solid #e9eef3; }
+    .contact-item i { font-size: 2.8rem; color: #0f3b5e; margin-bottom: 1rem; }
+    .contact-item h3 { font-size: 1.5rem; }
+    .contact-item a { color: #0f3b5e; font-weight: 600; text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    .hours { background: #f1f5f9; text-align: center; }
+    .hours-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; max-width: 700px; margin: 2rem auto; }
+    .hours-day { background: white; padding: 1.2rem 2rem; border-radius: 60px; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 1px solid #dee7ef; }
+    .hours-day span { display: block; font-size: 1.2rem; color: #0f3b5e; margin-bottom: 0.2rem; }
+    .map-link a { font-size: 1.2rem; color: #0f3b5e; font-weight: 600; }
+
+    /* ----- FAQ ----- */
+    .faq { background: white; }
+    .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .faq-item { background: #f1f5f9; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
+    .faq-item h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #0f3b5e; }
+
+    /* ----- BLOG / ARTIGOS ----- */
+    .blog { background: white; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .blog-post { background: #f8fafc; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
+    .blog-post h3 { font-size: 1.8rem; color: #0f3b5e; margin-bottom: 1rem; }
+    .blog-post p { margin-bottom: 1rem; }
+    .blog-post .btn-small { background: #0f3b5e; color: white; padding: 0.5rem 1.5rem; border-radius: 40px; text-decoration: none; display: inline-block; margin-top: 0.5rem; }
+
+    /* ----- POLÍTICAS (seções completas) ----- */
+    .legal-section { background: #f1f5f9; padding: 3rem 0; margin-top: 2rem; }
+    .legal-content { background: white; padding: 2.5rem; border-radius: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
+    .legal-content h2 { margin-bottom: 1.5rem; }
+    .legal-content h3 { margin: 1.5rem 0 1rem; color: #0f3b5e; }
+    .legal-content p { margin-bottom: 1rem; }
+
+    /* ----- COOKIE BANNER ----- */
+    .cookie-banner {
+      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 400px; background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-radius: 28px; padding: 1.5rem; z-index: 9999;
+      border: 1px solid #dee7ef; display: none; margin: 0 auto;
+    }
+    .cookie-banner p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .cookie-banner .btn-small { background: #0f3b5e; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 600; cursor: pointer; }
+    .cookie-banner .btn-small:hover { background: #1a4f7a; }
+
+    /* ----- FOOTER ----- */
+    .footer { background: #0f3b5e; color: white; text-align: center; padding: 2.5rem 0; margin-top: 1rem; }
+    .footer a { color: white; text-decoration: underline; font-weight: 500; }
+    .footer p { margin-bottom: 0.5rem; opacity: 0.9; }
+    .footer .legal-links { margin-top: 1.5rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .footer .legal-links a { color: white; text-decoration: underline; font-weight: 400; }
+
+    /* ----- AVISOS EXTRAS ----- */
+    .agendamento-obrigatorio { background: #dcfce7; color: #166534; padding: 1rem; border-radius: 40px; text-align: center; font-weight: 700; margin-bottom: 1rem; border: 1px solid #86efac; }
+  </style>
+</head>
+<body>
+  <!-- COOKIE CONSENT BANNER (NECESSÁRIO PARA ADSENSE) -->
+  <div id="cookieBanner" class="cookie-banner">
+    <p><i class="fas fa-cookie-bite" style="color: #0f3b5e; margin-right: 0.5rem;"></i> Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência, personalizar anúncios e recomendar conteúdo. Ao continuar navegando, você concorda com nossa <a href="#privacidade">Política de Privacidade</a> e <a href="#termos">Termos de Uso</a>.</p>
+    <button class="btn-small" onclick="acceptCookies()">Entendi</button>
+  </div>
+
+  <!-- TOPO PRINCIPAL -->
+  <header class="header">
+    <div class="container">
+      <h1>Paulo Fagoto</h1>
+      <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Técnico em Informática em Valinhos/SP • Atendimento somente com agendamento</p>
+    </div>
+  </header>
+
+  <!-- NAVEGAÇÃO STICKY -->
+  <nav class="nav">
+    <ul>
+      <li><a href="#home">Início</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#precos">Preços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="#horarios">Horários</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- SEÇÃO HOME / HERO -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Assistência de informática em Valinhos e região</h2>
+        <p><strong>Formatação, conserto, upgrade e montagem de PCs.</strong> Tudo feito na minha oficina em casa (Jardim dos Manacás). <span class="highlight">Atendimento apenas com hora marcada</span> – agende pelo WhatsApp. Atendo também <strong>Vinhedo, Itatiba, Louveira e Campinas</strong>.</p>
+        <a href="https://wa.me/5519971014540?text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20informática%20com%20Paulo%20Fagoto." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar via WhatsApp</a>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-laptop-code"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS DETALHADOS -->
+  <section id="servicos" class="services">
+    <div class="container">
+      <h2>Serviços especializados</h2>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-eraser"></i><h3>Formatação</h3><p>Com ou sem backup de arquivos. PC rápido e limpo.</p><p class="price">a partir R$100</p></div>
+        <div class="service-card"><i class="fas fa-tools"></i><h3>Conserto</h3><p>Hardware e software, diagnóstico preciso.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-microchip"></i><h3>Upgrade</h3><p>Troca de peças, SSD, memória, desempenho.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-desktop"></i><h3>Montagem de PC</h3><p>Computador sob medida para você.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-broom"></i><h3>Limpeza</h3><p>Limpeza interna e preventiva.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-network-wired"></i><h3>Acesso Remoto</h3><p>Suporte rápido online.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-cogs"></i><h3>Instalação de Programas</h3><p>Softwares diversos.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-file-word"></i><h3>Pacote Office</h3><p>Instalação e configuração.</p><p class="price">R$50</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREÇOS PRINCIPAIS (CARD) -->
+  <section id="precos" class="pricing">
+    <div class="container">
+      <h2>Preços dos serviços mais procurados</h2>
+      <div class="pricing-cards">
+        <div class="price-card">
+          <h3>Formatação simples</h3>
+          <p>sem backup</p>
+          <div class="value">R$100</div>
+          <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20uma%20formatação%20SEM%20backup." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
+        </div>
+        <div class="price-card">
+          <h3>Formatação completa</h3>
+          <p>com backup</p>
+          <div class="value">R$150</div>
+          <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20uma%20formatação%20COM%20backup." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
+        </div>
+        <div class="price-card">
+          <h3>Instalação do Office</h3>
+          <p>Pacote Microsoft</p>
+          <div class="value">R$50</div>
+          <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20instalação%20do%20Pacote%20Office." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2.5rem; font-size: 1.2rem;">🔧 Demais serviços: orçamento personalizado via WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- SOBRE O TÉCNICO E ENDEREÇO -->
+  <section id="sobre" class="about">
+    <div class="container">
+      <h2>Sobre Paulo Fagoto</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p><i class="fas fa-user-tie"></i> <strong>Técnico responsável:</strong> Paulo Fagoto, experiência em manutenção de computadores e notebooks.</p>
+          <p><i class="fas fa-home"></i> <strong>Atendimento:</strong> Oficina própria na minha residência (Jardim dos Manacás, Valinhos). <strong><u>É obrigatório agendar horário antes de vir</u></strong> – não recebo sem agendamento.</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> Rua Santo Tordin, 185 - Jardim dos Manacás, Valinhos/SP, CEP 13273-091</p>
+          <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 64.383.742/0001-26</p>
+          <div class="note">
+            <i class="fas fa-exclamation-triangle"></i> <strong>Atenção:</strong> Não há loja aberta ao público. O atendimento é exclusivamente na oficina residencial com hora marcada. Por favor, entre em contato antes de vir.
+          </div>
+        </div>
+        <div class="about-image">
+          <i class="fas fa-user-cog"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO COM TODOS OS CANAIS -->
+  <section id="contato" class="contact">
+    <div class="container">
+      <h2>Canais de contato</h2>
+      <div class="contact-info">
+        <div class="contact-item"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p><a href="https://wa.me/5519971014540" target="_blank">(19) 97101-4540</a></p><p>✅ Clique e agende</p></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><h3>E-mail</h3><p><a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p></div>
+        <div class="contact-item"><i class="fas fa-map-pin"></i><h3>Endereço</h3><p>Rua Santo Tordin, 185<br>Jardim dos Manacás, Valinhos/SP</p><p><a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Tordin+185+Jardim+dos+Manacás+Valinhos+SP" target="_blank">📌 Ver no mapa</a></p></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><h3>Horário</h3><p>Seg a Sex: 09h às 22h<br>Sáb: 09h às 16h<br>Dom: 09h às 14h</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORÁRIOS DETALHADOS E MAPA -->
+  <section id="horarios" class="hours">
+    <div class="container">
+      <h2>Horário de funcionamento</h2>
+      <div class="hours-grid">
+        <div class="hours-day"><span>Segunda a Sexta</span> 09:00 – 22:00</div>
+        <div class="hours-day"><span>Sábado</span> 09:00 – 16:00</div>
+        <div class="hours-day"><span>Domingo</span> 09:00 – 14:00</div>
+      </div>
+      <p class="map-link"><i class="fas fa-map-marked-alt" style="margin-right: 0.5rem;"></i><a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Tordin+185+Jardim+dos+Manacás+Valinhos+SP" target="_blank">Abrir endereço no Google Maps (Rua Santo Tordin, 185)</a></p>
+      <div class="agendamento-obrigatorio" style="margin-top: 2rem;">
+        <i class="fas fa-calendar-check"></i> ATENÇÃO: ATENDIMENTO SOMENTE COM HORÁRIO AGENDADO NO WHATSAPP
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (Perguntas Frequentes) -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq-grid">
+        <div class="faq-item"><h3>📍 Atende em domicílio?</h3><p>Não. O atendimento é na minha oficina em casa (endereço acima). É necessário agendar.</p></div>
+        <div class="faq-item"><h3>📅 Precisa agendar?</h3><p>Sim, obrigatoriamente. Chame no WhatsApp para marcar horário. Não atendo sem agendamento.</p></div>
+        <div class="faq-item"><h3>💳 Formas de pagamento?</h3><p>Dinheiro, PIX, transferência. Consulte também sobre cartão (débito/crédito) com taxa.</p></div>
+        <div class="faq-item"><h3>🌎 Atende outras cidades?</h3><p>Sim: Vinhedo, Itatiba, Louveira e Campinas. Basta trazer o equipamento até Valinhos.</p></div>
+        <div class="faq-item"><h3>⏱️ Tempo de formatação?</h3><p>Média de 2 a 3 horas, geralmente no mesmo dia.</p></div>
+        <div class="faq-item"><h3>🖥️ Conserta notebooks?</h3><p>Sim, faço manutenção em notebooks e desktops.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG / ARTIGOS (CONTEÚDO RICO E EXPANDIDO) -->
+  <section id="blog" class="blog">
+    <div class="container">
+      <h2>Dicas e novidades em informática</h2>
+      <div class="blog-grid">
+        <article class="blog-post">
+          <h3>Quando formatar o PC? 5 sinais de que está na hora</h3>
+          <p>Seu computador está lento, travando ou aparecendo erros frequentes? Pode ser hora de formatar. Explicamos os principais sintomas e como a formatação pode resolver. Em Valinhos, agende uma avaliação gratuita.</p>
+          <a href="#formatação-dica" class="btn-small">Leia mais</a>
+        </article>
+        <article class="blog-post">
+          <h3>SSD vs HD: Vale a pena o upgrade?</h3>
+          <p>Trocar o HD por um SSD é o upgrade que dá mais desempenho ao computador. Descubra as diferenças e por que clientes em Vinhedo e Campinas têm feito essa troca comigo.</p>
+          <a href="#ssd-dica" class="btn-small">Leia mais</a>
+        </article>
+        <article class="blog-post">
+          <h3>Manutenção preventiva: como evitar problemas</h3>
+          <p>Limpeza interna, verificação de cabos e atualizações evitam dores de cabeça. Saiba como a manutenção periódica pode aumentar a vida útil do seu PC. Atendo também em Itatiba e Louveira.</p>
+          <a href="#manutencao-dica" class="btn-small">Leia mais</a>
+        </article>
+      </div>
+
+      <!-- ARTIGO 1 COMPLETO (FORMATAÇÃO) -->
+      <div id="formatação-dica" style="margin-top: 3rem; background: #f1f5f9; padding: 2rem; border-radius: 28px;">
+        <h3>Quando formatar o PC? 5 sinais de que está na hora</h3>
+        <p>A formatação é o processo de reinstalar completamente o sistema operacional, removendo todos os arquivos, programas e configurações anteriores. É como dar um "reset" no computador. Mas como saber se chegou a hora? Abaixo, detalhamos os cinco sinais mais comuns e o que fazer em cada caso.</p>
+        
+        <h4>1. Lentidão excessiva ao abrir programas ou arquivos</h4>
+        <p>Se o Windows demora minutos para iniciar, os aplicativos abrem com delay e até mesmo o Explorador de Arquivos trava, isso indica acúmulo de softwares desnecessários, registros corrompidos ou fragmentação extrema. Uma formatação remove todo o "lixo digital" e devolve a velocidade original.</p>
+        
+        <h4>2. Travamentos e telas azis frequentes (BSOD)</h4>
+        <p>Telas azuis podem ser causadas por drivers conflitantes, arquivos de sistema corrompidos ou malware. Quando o problema persiste mesmo após tentativas de reparo, a formatação é a solução definitiva para restaurar a estabilidade.</p>
+        
+        <h4>3. Propagandas e pop-ups mesmo sem navegar</h4>
+        <p>Se você vê anúncios em lugares inesperados ou seu navegador redireciona para sites estranhos, provavelmente há adware ou extensões maliciosas. Muitas vezes esses programas não são removidos por antivírus comuns. A formatação garante a eliminação total.</p>
+        
+        <h4>4. Superaquecimento sem motivo aparente</h4>
+        <p>Processos em segundo plano (malware ou softwares mal otimizados) podem forçar a CPU constantemente, gerando calor excessivo. Após formatar, o sistema fica limpo e o processador volta a trabalhar normalmente.</p>
+        
+        <h4>5. Infecção por vírus que não sai com antivírus</h4>
+        <p>Certos vírus se alojam em setores de inicialização ou se escondem de programas de segurança. Nesses casos, a formatação de baixo nível (com remoção de todas as partições) é a única garantia de um PC limpo.</p>
+        
+        <p><strong>Importante:</strong> Antes de formatar, faça backup de seus arquivos! Ofereço o serviço de formatação com backup incluso (R$150) ou sem backup (R$100). Após a formatação, ainda instalo os drivers e programas essenciais. Agende uma avaliação sem compromisso.</p>
+        
+        <a href="https://wa.me/5519971014540" class="btn btn-whatsapp">Agendar formatação</a>
+      </div>
+
+      <!-- ARTIGO 2 COMPLETO (SSD VS HD) -->
+      <div id="ssd-dica" style="margin-top: 2rem; background: #f1f5f9; padding: 2rem; border-radius: 28px;">
+        <h3>SSD vs HD: Vale a pena o upgrade?</h3>
+        <p>O disco rígido (HD) é a tecnologia tradicional de armazenamento, com partes móveis e pratos magnéticos. O SSD (Solid State Drive) é mais moderno, usa memória flash e não tem partes mecânicas. A diferença de desempenho é gritante.</p>
+        
+        <h4>Vantagens do SSD</h4>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li><strong>Velocidade:</strong> Um SSD pode ser até 10x mais rápido na leitura/gravação. O Windows inicia em 15 segundos, programas abrem instantaneamente.</li>
+          <li><strong>Consumo de energia:</strong> SSDs consomem menos bateria em notebooks.</li>
+          <li><strong>Silêncio e resistência:</strong> Sem partes móveis, são à prova de choques e vibrações.</li>
+          <li><strong>Menor aquecimento:</strong> Ideais para equipamentos compactos.</li>
+        </ul>
+        
+        <h4>Desvantagens do SSD</h4>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li><strong>Preço por GB:</strong> Ainda mais caro que o HD, mas os valores caíram muito nos últimos anos.</li>
+          <li><strong>Capacidade máxima:</strong> Para grandes volumes (acima de 2 TB), o HD ainda é mais acessível.</li>
+          <li><strong>Vida útil de gravação:</strong> SSDs têm número limitado de ciclos de gravação, mas para uso doméstico duram muitos anos.</li>
+        </ul>
+        
+        <h4>Como é feito o upgrade?</h4>
+        <p>O procedimento é simples: substituo o HD antigo pelo SSD, realizo a clonagem (cópia exata) do sistema e arquivos ou instalo o Windows do zero. Em notebooks, muitas vezes é possível manter o HD original na baia do DVD (com adaptador) e usar o SSD como sistema. Em desktops, basta conectar o SSD e configurar a inicialização.</p>
+        
+        <h4>Vale a pena?</h4>
+        <p>Sem dúvida! É o upgrade de maior custo-benefício. Um computador com 5 anos de idade pode ficar como novo apenas com a troca do HD por um SSD. Meus clientes em Vinhedo, Campinas e região têm feito essa melhoria e se surpreendido com o ganho de performance.</p>
+        
+        <p>Faço o upgrade com instalação e configuração. Entre em contato para um orçamento personalizado – o valor varia conforme a capacidade do SSD escolhido.</p>
+        
+        <a href="https://wa.me/5519971014540" class="btn btn-whatsapp">Consultar upgrade</a>
+      </div>
+
+      <!-- ARTIGO 3 COMPLETO (MANUTENÇÃO PREVENTIVA) -->
+      <div id="manutencao-dica" style="margin-top: 2rem; background: #f1f5f9; padding: 2rem; border-radius: 28px;">
+        <h3>Manutenção preventiva: como evitar problemas</h3>
+        <p>A manutenção preventiva em informática consiste em um conjunto de procedimentos periódicos que visam evitar falhas, aumentar a vida útil do equipamento e garantir o máximo desempenho. Diferente da manutenção corretiva (que conserta algo que já quebrou), a preventiva é feita com o PC funcionando bem.</p>
+        
+        <h4>Principais procedimentos realizados</h4>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li><strong>Limpeza interna:</strong> Remoção de poeira de coolers, fonte, placa-mãe e gabinete. O acúmulo de poeira prejudica a dissipação de calor e pode causar superaquecimento.</li>
+          <li><strong>Troca da pasta térmica:</strong> A pasta entre o processador e o cooler resseca com o tempo. A troca reduz a temperatura da CPU.</li>
+          <li><strong>Verificação de cabos e conexões:</strong> Checagem de cabos SATA, energia e periféricos para evitar mau contato.</li>
+          <li><strong>Atualizações de software:</strong> Atualização do sistema operacional, drivers e programas de segurança.</li>
+          <li><strong>Testes de disco e memória:</strong> Diagnóstico para detectar setores defeituosos ou falhas incipientes.</li>
+          <li><strong>Backup de dados:</strong> Orientação e execução de cópias de segurança de arquivos importantes.</li>
+        </ul>
+        
+        <h4>Frequência recomendada</h4>
+        <p>Para computadores de uso doméstico moderado, recomendo uma revisão a cada 6 meses. Para uso intenso (escritório, jogos) ou ambientes com muita poeira, a cada 3 a 4 meses. Notebooks, por serem mais compactos, acumulam sujeira mais rapidamente e exigem atenção redobrada.</p>
+        
+        <h4>Benefícios da manutenção preventiva</h4>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li>Evita perda de dados por falha de hardware.</li>
+          <li>Reduz o risco de superaquecimento e danos permanentes.</li>
+          <li>Mantém o desempenho consistente por mais tempo.</li>
+          <li>Prolonga a vida útil do equipamento (economia a longo prazo).</li>
+          <li>Detecta possíveis falhas antes que se tornem emergências.</li>
+        </ul>
+        
+        <p>Ofereço pacotes de manutenção preventiva com agendamento. Clientes de Valinhos, Itatiba e Louveira podem trazer o equipamento até minha oficina. Aproveite para incluir uma limpeza e garantir que seu PC esteja sempre pronto.</p>
+        
+        <a href="https://wa.me/5519971014540" class="btn btn-whatsapp">Agendar manutenção</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLÍTICA DE PRIVACIDADE (seção completa) -->
+  <section id="privacidade" class="legal-section">
+    <div class="container">
+      <div class="legal-content">
+        <h2>Política de Privacidade</h2>
+        <p><strong>Última atualização: fevereiro de 2026</strong></p>
+        <p>A sua privacidade é importante para nós. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e com as diretrizes do Google AdSense.</p>
+        
+        <h3>1. Informações que coletamos</h3>
+        <p><strong>Informações fornecidas por você:</strong> Quando você entra em contato via WhatsApp, e-mail ou formulário, podemos coletar seu nome, número de telefone, endereço de e-mail e detalhes sobre o serviço desejado.</p>
+        <p><strong>Informações coletadas automaticamente:</strong> Ao navegar em nosso site, podemos coletar automaticamente dados como endereço IP, tipo de navegador, provedor de internet, páginas visitadas, data e hora da visita, tempo de permanência e outras estatísticas. Utilizamos cookies e tecnologias semelhantes para essa coleta.</p>
+        
+        <h3>2. Uso das informações</h3>
+        <p>Utilizamos suas informações para:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+          <li>Responder a suas solicitações e orçamentos;</li>
+          <li>Agendar e realizar os serviços técnicos;</li>
+          <li>Melhorar a experiência do usuário em nosso site;</li>
+          <li>Exibir anúncios personalizados (via Google AdSense);</li>
+          <li>Cumprir obrigações legais e regulatórias.</li>
+        </ul>
+        
+        <h3>3. Compartilhamento de dados</h3>
+        <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros para fins de marketing direto. Podemos compartilhar dados com:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+          <li>Google (para exibição de anúncios e análise de tráfego), de acordo com a <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidade do Google</a>;</li>
+          <li>Autoridades legais, quando exigido por lei.</li>
+        </ul>
+        
+        <h3>4. Cookies e tecnologias semelhantes</h3>
+        <p>Nosso site utiliza cookies para lembrar suas preferências, entender como você interage com o conteúdo e exibir anúncios relevantes. Você pode desabilitar os cookies nas configurações do seu navegador, mas isso pode afetar a funcionalidade do site. Ao continuar navegando, você consente com o uso de cookies.</p>
+        
+        <h3>5. Seus direitos como titular</h3>
+        <p>Você tem direito a:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+          <li>Confirmar a existência de tratamento de seus dados;</li>
+          <li>Acessar seus dados pessoais;</li>
+          <li>Corrigir dados incompletos, inexatos ou desatualizados;</li>
+          <li>Solicitar a exclusão de seus dados, exceto quando a manutenção for necessária por obrigação legal;</li>
+          <li>Revogar o consentimento a qualquer tempo.</li>
+        </ul>
+        <p>Para exercer seus direitos, entre em contato pelo e-mail: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a>.</p>
+        
+        <h3>6. Segurança dos dados</h3>
+        <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, perda ou destruição. No entanto, nenhuma transmissão pela internet é 100% segura.</p>
+        
+        <h3>7. Alterações nesta política</h3>
+        <p>Esta política pode ser atualizada periodicamente. Recomendamos que a revise com frequência. O uso contínuo do site após alterações implica aceitação.</p>
+        
+        <p>Em caso de dúvidas, entre em contato conosco.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMOS DE USO (seção completa) -->
+  <section id="termos" class="legal-section">
+    <div class="container">
+      <div class="legal-content">
+        <h2>Termos de Uso</h2>
+        <p><strong>Última atualização: fevereiro de 2026</strong></p>
+        <p>Ao acessar e utilizar este site, você concorda com os seguintes termos e condições. Se não concordar, por favor, não utilize nossos serviços.</p>
+        
+        <h3>1. Objeto</h3>
+        <p>Este site oferece informações sobre serviços de informática prestados por Paulo Fagoto, incluindo formatação, conserto, upgrade, montagem de PCs, limpeza, acesso remoto, instalação de programas e Pacote Office. Todo o conteúdo é meramente informativo.</p>
+        
+        <h3>2. Agendamento e atendimento</h3>
+        <p>Os serviços são realizados exclusivamente na oficina residencial do técnico (Rua Santo Tordin, 185 - Jardim dos Manacás, Valinhos/SP) <strong>mediante agendamento prévio via WhatsApp</strong>. Não atendemos sem horário marcado. O cliente assume a responsabilidade de comparecer no horário combinado.</p>
+        
+        <h3>3. Preços e orçamentos</h3>
+        <p>Os valores divulgados (formatação R$100/150, Office R$50) são fixos. Demais serviços são orçados individualmente e podem variar conforme a complexidade, peças necessárias e tempo de execução. O orçamento é válido por 7 dias.</p>
+        
+        <h3>4. Responsabilidades</h3>
+        <p><strong>Do técnico:</strong> Paulo Fagoto se responsabiliza pela execução dos serviços conforme acordado, utilizando boas práticas e garantindo o funcionamento adequado do equipamento após a manutenção. A garantia dos serviços é de 30 dias para o mesmo problema.</p>
+        <p><strong>Do cliente:</strong> É responsabilidade do cliente fazer backup de seus arquivos importantes antes da entrega do equipamento, exceto quando contratado o serviço de formatação com backup. O técnico não se responsabiliza por perda de dados em formatações sem backup ou em casos fortuitos.</p>
+        
+        <h3>5. Propriedade intelectual</h3>
+        <p>Todo o conteúdo deste site (textos, imagens, logotipos, layout) é de propriedade de Paulo Fagoto ou utilizado com autorização. É proibida a reprodução total ou parcial sem consentimento prévio por escrito.</p>
+        
+        <h3>6. Links para terceiros</h3>
+        <p>Este site pode conter links para sites de terceiros (WhatsApp, Google Maps). Não nos responsabilizamos pelo conteúdo ou práticas de privacidade desses sites.</p>
+        
+        <h3>7. Limitação de responsabilidade</h3>
+        <p>Em nenhuma circunstância Paulo Fagoto será responsável por danos indiretos, lucros cessantes ou perda de dados decorrentes do uso ou incapacidade de uso dos serviços, mesmo que informado da possibilidade de tais danos.</p>
+        
+        <h3>8. Alterações nos termos</h3>
+        <p>Estes Termos de Uso podem ser alterados a qualquer momento. As alterações entram em vigor imediatamente após a publicação no site. O uso continuado do site implica aceitação dos novos termos.</p>
+        
+        <h3>9. Lei aplicável e foro</h3>
+        <p>Estes Termos são regidos pela legislação brasileira. Fica eleito o foro da comarca de Valinhos/SP para dirimir quaisquer controvérsias.</p>
+        
+        <p>Em caso de dúvidas, entre em contato: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ COM LINKS LEGAIS -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Paulo Fagoto - Técnico em Informática</strong></p>
+      <p>CNPJ: 64.383.742/0001-26 | Rua Santo Tordin, 185 - Jardim dos Manacás - Valinhos/SP - CEP 13273-091</p>
+      <p>WhatsApp: <a href="https://wa.me/5519971014540">(19) 97101-4540</a> | E-mail: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+      <div class="legal-links">
+        <a href="#privacidade">Política de Privacidade</a>
+        <a href="#termos">Termos de Uso</a>
+      </div>
+      <p style="margin-top: 1rem;">© 2026 Paulo Fagoto. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SCHEMA.ORG JSON-LD (LOCALBUSINESS + FAQ + ARTICLE) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Paulo Fagoto - Técnico em Informática",
+    "image": "https://www.paulofagoto.com.br/logo.png",
+    "url": "https://www.paulofagoto.com.br",
+    "telephone": "+5519971014540",
+    "email": "adm@paulofagoto.com.br",
+    "priceRange": "R$50 - R$150",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Santo Tordin, 185",
+      "addressLocality": "Valinhos",
+      "addressRegion": "SP",
+      "postalCode": "13273-091",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-22.9706",
+      "longitude": "-47.0047"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "14:00" }
+    ],
+    "areaServed": ["Valinhos","Vinhedo","Itatiba","Louveira","Campinas"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços de Informática",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação sem backup", "price": "100.00", "priceCurrency": "BRL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação com backup", "price": "150.00", "priceCurrency": "BRL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Instalação do Pacote Office", "price": "50.00", "priceCurrency": "BRL" } }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Você atende em domicílio?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O atendimento é na minha oficina em casa, localizada no endereço informado. É necessário agendar horário." } },
+      { "@type": "Question", "name": "Precisa agendar?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, obrigatoriamente. Entre em contato pelo WhatsApp para marcar um horário. Não atendo sem agendamento." } },
+      { "@type": "Question", "name": "Quais formas de pagamento?", "acceptedAnswer": { "@type": "Answer", "text": "Aceito dinheiro, PIX e transferência bancária. Consulte também sobre cartão de crédito/débito (via máquina, disponível mediante taxa)." } },
+      { "@type": "Question", "name": "Atende outras cidades?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, atendo clientes de Valinhos, Vinhedo, Itatiba, Louveira e Campinas. Basta trazer o equipamento até minha oficina." } }
+    ]
+  }
+  </script>
+
+  <!-- Script para cookie consent e scroll suave -->
+  <script>
+    (function() {
+      // Scroll suave com ajuste do nav fixo
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === "#" || href === "") return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const navHeight = document.querySelector('.nav').offsetHeight;
+            const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight - 15;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Cookie consent
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookieBanner').style.display = 'block';
+      }
+      window.acceptCookies = function() {
+        localStorage.setItem('cookieConsent', 'true');
+        document.getElementById('cookieBanner').style.display = 'none';
+      };
+    })();
+  </script>
+</body>
+</html>
