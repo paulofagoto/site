@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Planilha de Controle Financeiro Mensal – Paulo Fagoto</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.imgur.com/U3R70Sk.png" type="image/png">
   <meta name="description" content="Planilha de Excel simples e profissional para organizar suas finanças pessoais. Receitas, despesas, balanço mensal e anual, gráficos automáticos. Apenas R$ 10,00.">
   <meta name="keywords" content="planilha financeira, controle financeiro, planilha de orçamento, finanças pessoais, excel">
   <meta name="author" content="Paulo Fagoto">
@@ -12,7 +14,7 @@
   <meta property="og:description" content="Organize suas receitas e despesas mensais de forma simples e profissional. Balanço mensal/anual e gráficos automáticos.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.paulofagoto.com.br/planilha">
-  <meta property="og:image" content="https://i.imgur.com/1kJc8Yr.png">
+  <meta property="og:image" content="https://i.imgur.com/U3R70Sk.png">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <!-- Fontes e ícones -->
@@ -21,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* RESET E ESTILOS GLOBAIS (mesmo do site principal) */
+    /* RESET E ESTILOS GLOBAIS */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -53,7 +55,7 @@
       display: block;
       width: 80px;
       height: 4px;
-      background: #0f3b5e;
+      background: #10b981; /* verde da nova paleta */
       margin-top: 0.5rem;
       border-radius: 2px;
     }
@@ -63,7 +65,7 @@
     }
     .btn {
       display: inline-block;
-      background: #0f3b5e;
+      background: #10b981; /* verde destaque */
       color: white;
       padding: 1rem 2.5rem;
       border-radius: 50px;
@@ -76,7 +78,7 @@
       font-size: 1.2rem;
     }
     .btn:hover {
-      background: #1a4f7a;
+      background: #0f9e6a; /* verde mais escuro */
       transform: translateY(-2px);
       box-shadow: 0 8px 12px rgba(0,0,0,0.15);
     }
@@ -95,7 +97,7 @@
     }
     .btn-small:hover { background: #1a4f7a; }
 
-    /* HEADER SIMPLES (com link para o site principal) */
+    /* HEADER SIMPLES */
     .site-header {
       background: #0f3b5e;
       color: white;
@@ -122,7 +124,7 @@
       align-items: center;
     }
     .hero-content .badge {
-      background: #e6f0fa;
+      background: #d1fae5; /* verde claro */
       color: #0f3b5e;
       padding: 0.3rem 1rem;
       border-radius: 50px;
@@ -137,7 +139,7 @@
     .hero-content .price {
       font-size: 3rem;
       font-weight: 800;
-      color: #0f3b5e;
+      color: #10b981; /* verde destaque */
       margin: 1.5rem 0 1rem;
     }
     .hero-content .price small {
@@ -150,7 +152,7 @@
     }
     .hero-image img {
       width: 100%;
-      max-width: 450px;
+      max-width: 600px;
       border-radius: 24px;
       box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
       transition: transform 0.3s;
@@ -182,7 +184,7 @@
     }
     .feature-card:hover {
       transform: scale(1.02);
-      box-shadow: 0 20px 30px -8px rgba(15,59,94,0.2);
+      box-shadow: 0 20px 30px -8px rgba(16, 185, 129, 0.3); /* sombra verde */
     }
     .feature-card i {
       font-size: 2.8rem;
@@ -194,7 +196,7 @@
       margin-bottom: 0.8rem;
     }
 
-    /* GALERIA DE IMAGENS (prints da planilha) */
+    /* GALERIA DE IMAGENS */
     .gallery {
       background: white;
     }
@@ -213,6 +215,7 @@
     }
     .gallery-item:hover {
       transform: translateY(-5px);
+      border: 1px solid #10b981; /* borda verde no hover */
     }
     .gallery-item img {
       width: 100%;
@@ -247,6 +250,9 @@
       margin-bottom: 1rem;
       font-size: 1.1rem;
     }
+    .delivery-content i.fa-check-circle {
+      color: #10b981 !important; /* ícone verde */
+    }
 
     /* REQUISITOS */
     .requirements {
@@ -265,7 +271,7 @@
 
     /* PRÉ-VENDA (COMPRA) */
     .pre-sale {
-      background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 100%);
+      background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 80%, #10b981 100%);
       color: white;
       text-align: center;
     }
@@ -290,7 +296,7 @@
       background: #f0f9ff;
     }
 
-    /* FOOTER (igual ao site principal, adaptado) */
+    /* FOOTER */
     .footer {
       background: #0f3b5e;
       color: white;
@@ -311,14 +317,14 @@
   </style>
 </head>
 <body>
-  <!-- HEADER com link para o site principal -->
+  <!-- HEADER -->
   <div class="site-header">
     <div class="container" style="padding: 0.5rem 0;">
       <a href="index.html"><i class="fas fa-arrow-left"></i> Voltar para o site principal</a>
     </div>
   </div>
 
-  <!-- HERO DO PRODUTO -->
+  <!-- HERO -->
   <section class="hero-product">
     <div class="container">
       <div class="hero-grid">
@@ -330,85 +336,49 @@
             R$ 10,00 <small>valor simbólico</small>
           </div>
           <a href="https://app.monetizze.com.br/checkout/KRR457494" class="btn" target="_blank"><i class="fas fa-shopping-cart"></i> Comprar agora via Pix</a>
-          <p style="margin-top: 1rem; color: #475569;"><i class="fas fa-lock" style="color: #0f3b5e;"></i> Pagamento 100% seguro via Monetizze</p>
+          <p style="margin-top: 1rem; color: #475569;"><i class="fas fa-lock" style="color: #10b981;"></i> Pagamento 100% seguro via Monetizze</p>
         </div>
         <div class="hero-image">
-          <img src="https://i.imgur.com/1kJc8Yr.png" alt="Menu da Planilha Financeira" title="Visão geral da planilha">
+          <img src="https://i.imgur.com/U3R70Sk.png" alt="Menu da Planilha Financeira" title="Visão geral da planilha">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RECURSOS / BENEFÍCIOS -->
+  <!-- RECURSOS -->
   <section class="features">
     <div class="container">
       <h2>O que você encontra na planilha</h2>
       <div class="features-grid">
-        <div class="feature-card">
-          <i class="fas fa-table"></i>
-          <h3>Receitas Mensais</h3>
-          <p>Cadastre seus ganhos fixos como salário, investimentos, aluguéis, etc.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-wallet"></i>
-          <h3>Despesas Mensais</h3>
-          <p>Registre contas de água, luz, internet, convênio, prestações e outras despesas fixas.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-chart-line"></i>
-          <h3>Balanço Mensal e Anual</h3>
-          <p>Cruzamento automático das receitas e despesas: lucro/prejuízo por mês e total do ano.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-chart-pie"></i>
-          <h3>3 Gráficos Automáticos</h3>
-          <p>Visualize a evolução financeira com gráficos dinâmicos e intuitivos.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-paint-brush"></i>
-          <h3>Formatação Condicional</h3>
-          <p>Células coloridas automaticamente para destacar resultados positivos ou negativos.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-mouse-pointer"></i>
-          <h3>Fácil de Usar</h3>
-          <p>Pronta para preencher, com fórmulas já configuradas. Basta lançar os valores.</p>
-        </div>
+        <div class="feature-card"><i class="fas fa-table"></i><h3>Receitas Mensais</h3><p>Cadastre seus ganhos fixos como salário, investimentos, aluguéis, etc.</p></div>
+        <div class="feature-card"><i class="fas fa-wallet"></i><h3>Despesas Mensais</h3><p>Registre contas de água, luz, internet, convênio, prestações e outras despesas fixas.</p></div>
+        <div class="feature-card"><i class="fas fa-chart-line"></i><h3>Balanço Mensal e Anual</h3><p>Cruzamento automático das receitas e despesas: lucro/prejuízo por mês e total do ano.</p></div>
+        <div class="feature-card"><i class="fas fa-chart-pie"></i><h3>3 Gráficos Automáticos</h3><p>Visualize a evolução financeira com gráficos dinâmicos e intuitivos.</p></div>
+        <div class="feature-card"><i class="fas fa-paint-brush"></i><h3>Formatação Condicional</h3><p>Células coloridas automaticamente para destacar resultados positivos ou negativos.</p></div>
+        <div class="feature-card"><i class="fas fa-mouse-pointer"></i><h3>Fácil de Usar</h3><p>Pronta para preencher, com fórmulas já configuradas. Basta lançar os valores.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- GALERIA DE IMAGENS (PRINTS DA PLANILHA) -->
+  <!-- GALERIA -->
   <section class="gallery">
     <div class="container">
       <h2>Conheça a planilha por dentro</h2>
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/gmf57Te.png" alt="Tabela de receitas" loading="lazy">
-          <p>📌 Aba de Receitas</p>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/HloQH3g.png" alt="Tabela de despesas" loading="lazy">
-          <p>📌 Aba de Despesas</p>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/Gxn8tEc.png" alt="Balanço e gráficos" loading="lazy">
-          <p>📌 Aba de Balanço e Gráficos</p>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/1kJc8Yr.png" alt="Menu da planilha" loading="lazy">
-          <p>📌 Menu de Navegação</p>
-        </div>
+        <div class="gallery-item"><img src="https://i.imgur.com/gmf57Te.png" alt="Tabela de receitas" loading="lazy"><p>📌 Aba de Receitas</p></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/HloQH3g.png" alt="Tabela de despesas" loading="lazy"><p>📌 Aba de Despesas</p></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/Gxn8tEc.png" alt="Balanço e gráficos" loading="lazy"><p>📌 Aba de Balanço e Gráficos</p></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/1kJc8Yr.png" alt="Menu da planilha" loading="lazy"><p>📌 Menu de Navegação</p></div>
       </div>
     </div>
   </section>
 
-  <!-- COMO FUNCIONA A ENTREGA (MONETIZZE) -->
+  <!-- ENTREGA -->
   <section class="delivery">
     <div class="container">
       <h2>Como você recebe a planilha</h2>
       <div class="delivery-content">
-        <p><i class="fas fa-check-circle" style="color: #0f3b5e; font-size: 2rem; margin-bottom: 1rem; display: inline-block;"></i></p>
+        <p><i class="fas fa-check-circle" style="color: #10b981; font-size: 2rem; margin-bottom: 1rem; display: inline-block;"></i></p>
         <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">A compra é processada pela <strong>Monetizze</strong>, uma das maiores plataformas de infoprodutos do Brasil. O processo é simples e seguro:</p>
         <ol>
           <li>Você clica no botão <strong>“Comprar agora via Pix”</strong> e será redirecionado para a página segura da Monetizze.</li>
@@ -421,7 +391,7 @@
     </div>
   </section>
 
-  <!-- REQUISITOS DO SISTEMA -->
+  <!-- REQUISITOS -->
   <section class="requirements">
     <div class="container">
       <div class="alert">
@@ -432,7 +402,7 @@
     </div>
   </section>
 
-  <!-- PRÉ-VENDA / CHAMADA FINAL -->
+  <!-- PRÉ-VENDA -->
   <section class="pre-sale">
     <div class="container">
       <h2>Organize suas finanças hoje mesmo</h2>
@@ -443,7 +413,7 @@
     </div>
   </section>
 
-  <!-- FOOTER (mesmo estilo do site principal) -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <p><strong>Paulo Fagoto - Técnico em Informática</strong></p>
@@ -457,9 +427,7 @@
     </div>
   </footer>
 
-  <!-- Pequeno script para ajuste de scroll (opcional) -->
   <script>
-    // Scroll suave para âncoras (se houver)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
