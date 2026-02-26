@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Planilha de Controle Financeiro Mensal – Paulo Fagoto</title>
+  <meta name="description" content="Planilha de Excel simples e profissional para organizar suas finanças pessoais. Receitas, despesas, balanço mensal e anual, gráficos automáticos. Apenas R$ 10,00.">
+  <meta name="keywords" content="planilha financeira, controle financeiro, planilha de orçamento, finanças pessoais, excel">
+  <meta name="author" content="Paulo Fagoto">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Planilha de Controle Financeiro Mensal">
+  <meta property="og:description" content="Organize suas receitas e despesas mensais de forma simples e profissional. Balanço mensal/anual e gráficos automáticos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.paulofagoto.com.br/planilha">
+  <meta property="og:image" content="https://i.imgur.com/1kJc8Yr.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Fontes e ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* RESET E ESTILOS GLOBAIS (mesmo do site principal) */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background: #f8fafc;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 0;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 2rem 0; }
+    }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+    h1 { font-size: 2.8rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      color: #0f3b5e;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #0f3b5e;
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 2rem; }
+    }
+    .btn {
+      display: inline-block;
+      background: #0f3b5e;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-size: 1.2rem;
+    }
+    .btn:hover {
+      background: #1a4f7a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+    }
+    .btn i { margin-right: 0.5rem; }
+    .btn-small {
+      background: #0f3b5e;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-small:hover { background: #1a4f7a; }
+
+    /* HEADER SIMPLES (com link para o site principal) */
+    .site-header {
+      background: #0f3b5e;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .site-header a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .site-header a:hover {
+      text-decoration: underline;
+    }
+
+    /* SEÇÃO HERO DO PRODUTO */
+    .hero-product {
+      background: white;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-content .badge {
+      background: #e6f0fa;
+      color: #0f3b5e;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      display: inline-block;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      color: #0f3b5e;
+    }
+    .hero-content .price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0f3b5e;
+      margin: 1.5rem 0 1rem;
+    }
+    .hero-content .price small {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #64748b;
+    }
+    .hero-content .btn {
+      margin-top: 1rem;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 24px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-content h2:after { margin-left: auto; margin-right: auto; }
+    }
+
+    /* SEÇÃO DE RECURSOS / BENEFÍCIOS */
+    .features {
+      background: #f1f5f9;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .feature-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 30px -8px rgba(15,59,94,0.2);
+    }
+    .feature-card i {
+      font-size: 2.8rem;
+      color: #0f3b5e;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* GALERIA DE IMAGENS (prints da planilha) */
+    .gallery {
+      background: white;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    .gallery-item p {
+      text-align: center;
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #0f3b5e;
+    }
+
+    /* SEÇÃO "COMO FUNCIONA A ENTREGA" */
+    .delivery {
+      background: #f1f5f9;
+    }
+    .delivery-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 32px;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1);
+    }
+    .delivery-content ol {
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .delivery-content li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    /* REQUISITOS */
+    .requirements {
+      background: white;
+      text-align: center;
+    }
+    .requirements .alert {
+      background: #fffbeb;
+      border-left: 6px solid #f59e0b;
+      padding: 2rem;
+      border-radius: 28px;
+      display: inline-block;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* PRÉ-VENDA (COMPRA) */
+    .pre-sale {
+      background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 100%);
+      color: white;
+      text-align: center;
+    }
+    .pre-sale h2 {
+      color: white;
+    }
+    .pre-sale h2:after {
+      background: white;
+    }
+    .pre-sale .price {
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 1rem 0;
+    }
+    .pre-sale .btn {
+      background: white;
+      color: #0f3b5e;
+      font-size: 1.5rem;
+      padding: 1.2rem 3rem;
+    }
+    .pre-sale .btn:hover {
+      background: #f0f9ff;
+    }
+
+    /* FOOTER (igual ao site principal, adaptado) */
+    .footer {
+      background: #0f3b5e;
+      color: white;
+      text-align: center;
+      padding: 2.5rem 0;
+    }
+    .footer a {
+      color: white;
+      text-decoration: underline;
+    }
+    .footer .legal-links {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER com link para o site principal -->
+  <div class="site-header">
+    <div class="container" style="padding: 0.5rem 0;">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Voltar para o site principal</a>
+    </div>
+  </div>
+
+  <!-- HERO DO PRODUTO -->
+  <section class="hero-product">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="badge"><i class="fas fa-check-circle"></i> Planilha Profissional</span>
+          <h1>Planilha de Controle Financeiro Mensal</h1>
+          <p style="font-size: 1.3rem; margin-bottom: 1rem;">Organize suas receitas e despesas mensais de forma simples e eficiente. Ideal para quem quer ter uma visão clara das finanças pessoais.</p>
+          <div class="price">
+            R$ 10,00 <small>valor simbólico</small>
+          </div>
+          <a href="https://app.monetizze.com.br/checkout/KRR457494" class="btn" target="_blank"><i class="fas fa-shopping-cart"></i> Comprar agora via Pix</a>
+          <p style="margin-top: 1rem; color: #475569;"><i class="fas fa-lock" style="color: #0f3b5e;"></i> Pagamento 100% seguro via Monetizze</p>
+        </div>
+        <div class="hero-image">
+          <img src="https://i.imgur.com/1kJc8Yr.png" alt="Menu da Planilha Financeira" title="Visão geral da planilha">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS / BENEFÍCIOS -->
+  <section class="features">
+    <div class="container">
+      <h2>O que você encontra na planilha</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-table"></i>
+          <h3>Receitas Mensais</h3>
+          <p>Cadastre seus ganhos fixos como salário, investimentos, aluguéis, etc.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-wallet"></i>
+          <h3>Despesas Mensais</h3>
+          <p>Registre contas de água, luz, internet, convênio, prestações e outras despesas fixas.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Balanço Mensal e Anual</h3>
+          <p>Cruzamento automático das receitas e despesas: lucro/prejuízo por mês e total do ano.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-chart-pie"></i>
+          <h3>3 Gráficos Automáticos</h3>
+          <p>Visualize a evolução financeira com gráficos dinâmicos e intuitivos.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Formatação Condicional</h3>
+          <p>Células coloridas automaticamente para destacar resultados positivos ou negativos.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-mouse-pointer"></i>
+          <h3>Fácil de Usar</h3>
+          <p>Pronta para preencher, com fórmulas já configuradas. Basta lançar os valores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA DE IMAGENS (PRINTS DA PLANILHA) -->
+  <section class="gallery">
+    <div class="container">
+      <h2>Conheça a planilha por dentro</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/gmf57Te.png" alt="Tabela de receitas" loading="lazy">
+          <p>📌 Aba de Receitas</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/HloQH3g.png" alt="Tabela de despesas" loading="lazy">
+          <p>📌 Aba de Despesas</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/Gxn8tEc.png" alt="Balanço e gráficos" loading="lazy">
+          <p>📌 Aba de Balanço e Gráficos</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/1kJc8Yr.png" alt="Menu da planilha" loading="lazy">
+          <p>📌 Menu de Navegação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA A ENTREGA (MONETIZZE) -->
+  <section class="delivery">
+    <div class="container">
+      <h2>Como você recebe a planilha</h2>
+      <div class="delivery-content">
+        <p><i class="fas fa-check-circle" style="color: #0f3b5e; font-size: 2rem; margin-bottom: 1rem; display: inline-block;"></i></p>
+        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">A compra é processada pela <strong>Monetizze</strong>, uma das maiores plataformas de infoprodutos do Brasil. O processo é simples e seguro:</p>
+        <ol>
+          <li>Você clica no botão <strong>“Comprar agora via Pix”</strong> e será redirecionado para a página segura da Monetizze.</li>
+          <li>Escolhe a forma de pagamento Pix (ou outras disponíveis) e preenche seus dados.</li>
+          <li>Após a confirmação do pagamento (em poucos segundos no Pix), a Monetizze <strong>envia automaticamente um e-mail</strong> com o link para baixar a planilha e as instruções de acesso.</li>
+          <li>Pronto! Você já pode abrir a planilha no Excel e começar a organizar suas finanças.</li>
+        </ol>
+        <p style="margin-top: 1.5rem; background: #f1f5f9; padding: 1rem; border-radius: 16px;"><i class="fas fa-envelope"></i> <strong>Importante:</strong> Fique de olho na sua caixa de entrada e no spam. O e-mail de acesso chega em nome da Monetizze.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUISITOS DO SISTEMA -->
+  <section class="requirements">
+    <div class="container">
+      <div class="alert">
+        <i class="fas fa-exclamation-triangle" style="color: #f59e0b; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+        <h3 style="color: #0f3b5e; margin-bottom: 0.5rem;">Requisitos para usar a planilha</h3>
+        <p style="font-size: 1.2rem;">A planilha funciona exclusivamente em computadores que tenham o <strong>Microsoft Excel instalado</strong> (versões 2010 ou superiores). Não é compatível com planilhas online (Google Sheets, LibreOffice, etc.) porque utiliza recursos avançados do Excel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÉ-VENDA / CHAMADA FINAL -->
+  <section class="pre-sale">
+    <div class="container">
+      <h2>Organize suas finanças hoje mesmo</h2>
+      <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">Por apenas <strong>R$ 10,00</strong> você leva uma planilha profissional que vai facilitar seu controle financeiro por muitos anos.</p>
+      <div class="price">R$ 10,00</div>
+      <a href="https://app.monetizze.com.br/checkout/KRR457494" class="btn" target="_blank"><i class="fas fa-bolt"></i> Comprar com Pix</a>
+      <p style="margin-top: 1.5rem; opacity: 0.9;"><i class="fas fa-shield-alt"></i> Compra segura • Acesso vitalício</p>
+    </div>
+  </section>
+
+  <!-- FOOTER (mesmo estilo do site principal) -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Paulo Fagoto - Técnico em Informática</strong></p>
+      <p>CNPJ: 64.383.742/0001-26 | Rua Santo Tordin, 185 - Jardim dos Manacás - Valinhos/SP</p>
+      <p>WhatsApp: <a href="https://wa.me/5519971014540">(19) 97101-4540</a> | E-mail: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+      <div class="legal-links">
+        <a href="politicaetermos.html#privacidade">Política de Privacidade</a>
+        <a href="politicaetermos.html#termos">Termos de Uso</a>
+      </div>
+      <p style="margin-top: 1rem;">© 2026 Paulo Fagoto. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Pequeno script para ajuste de scroll (opcional) -->
+  <script>
+    // Scroll suave para âncoras (se houver)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
