@@ -82,9 +82,7 @@
     @media (max-width: 768px) { 
       .hero .container { grid-template-columns: 1fr; text-align: center; } 
       .hero-content h2:after { margin-left: auto; margin-right: auto; }
-      .hero-image img {
-        max-width: 80%;
-      }
+      .hero-image img { max-width: 80%; }
     }
 
     /* ----- SERVIÇOS (CARDS) ----- */
@@ -110,14 +108,8 @@
     .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
     .about-text p { margin-bottom: 1.2rem; font-size: 1.1rem; }
     .about-text i { width: 1.8rem; color: #0f3b5e; }
-    .about-text a {
-      color: #0f3b5e;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .about-text a:hover {
-      color: #1a4f7a;
-    }
+    .about-text a { color: #0f3b5e; text-decoration: underline; text-underline-offset: 2px; }
+    .about-text a:hover { color: #1a4f7a; }
     .about-image { text-align: center; }
     .about-image img {
       max-width: 100%;
@@ -126,9 +118,7 @@
       box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
       transition: transform 0.3s ease;
     }
-    .about-image img:hover {
-      transform: scale(1.02);
-    }
+    .about-image img:hover { transform: scale(1.02); }
     .note { background: #fffbeb; border-left: 6px solid #f59e0b; padding: 1.5rem; border-radius: 18px; margin: 2rem 0 0; font-weight: 500; }
     .note i { color: #b45309; margin-right: 0.8rem; }
     @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; } }
@@ -148,10 +138,24 @@
     .hours-day span { display: block; font-size: 1.2rem; color: #0f3b5e; margin-bottom: 0.2rem; }
     .map-link a { font-size: 1.2rem; color: #0f3b5e; font-weight: 600; }
 
+    /* ----- COMO FUNCIONA (NOVA SEÇÃO) ----- */
+    .how-it-works { background: white; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .step-item { background: #f8fafc; padding: 2rem; border-radius: 28px; border: 1px solid #e2e8f0; text-align: center; transition: 0.2s; }
+    .step-item:hover { border-color: #0f3b5e; }
+    .step-item i { font-size: 2.8rem; color: #0f3b5e; margin-bottom: 1rem; }
+    .step-item h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+    .step-item p { color: #334155; }
+    .parts-note { background: #e0f2fe; border-radius: 28px; padding: 2rem; margin-top: 2rem; border: 1px solid #b8e1ff; }
+    .parts-note h3 { color: #0369a1; margin-bottom: 1rem; }
+    .parts-note ul { list-style: none; padding-left: 0; }
+    .parts-note li { margin-bottom: 0.8rem; padding-left: 1.8rem; position: relative; }
+    .parts-note li:before { content: "✓"; color: #0369a1; font-weight: 700; position: absolute; left: 0; }
+
     /* ----- FAQ ----- */
-    .faq { background: white; }
+    .faq { background: #f1f5f9; }
     .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .faq-item { background: #f1f5f9; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
+    .faq-item { background: white; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
     .faq-item h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #0f3b5e; }
 
     /* ----- BLOG / CARDS APENAS (ARTIGOS FORAM PARA BLOG.HTML) ----- */
@@ -204,8 +208,8 @@
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#precos">Preços</a></li>
       <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#comofunciona">Como funciona</a></li>
       <li><a href="#contato">Contato</a></li>
-      <li><a href="#horarios">Horários</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
@@ -216,7 +220,7 @@
     <div class="container">
       <div class="hero-content">
         <h2>Assistência de informática em Valinhos e região</h2>
-        <p><strong>Formatação, conserto, upgrade e montagem de PCs.</strong> Tudo feito na minha oficina em casa (Jardim dos Manacás). <span class="highlight">Atendimento apenas com hora marcada</span> – agende pelo WhatsApp. Atendo também <strong>Vinhedo, Itatiba, Louveira e Campinas</strong>.</p>
+        <p><strong>Formatação, conserto, upgrade e montagem de PCs.</strong> Tudo feito na minha oficina em casa (Jardim dos Manacás). <span class="highlight">Atendimento apenas com hora marcada</span> – agende pelo WhatsApp. Atendo também <strong>Vinhedo, Itatiba, Louveira e Campinas</strong> e, via remoto, <strong>todo o Brasil</strong>.</p>
         <a href="https://wa.me/5519971014540?text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20informática%20com%20Paulo%20Fagoto." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar via WhatsApp</a>
       </div>
       <div class="hero-image">
@@ -235,39 +239,53 @@
     <div class="container">
       <h2>Serviços especializados</h2>
       <div class="services-grid">
-        <div class="service-card"><i class="fas fa-eraser"></i><h3>Formatação</h3><p>Com ou sem backup de arquivos. PC rápido e limpo.</p><p class="price">a partir R$100</p></div>
-        <div class="service-card"><i class="fas fa-tools"></i><h3>Conserto</h3><p>Hardware e software, diagnóstico preciso.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-eraser"></i><h3>Formatação</h3><p>Windows, Linux, Mac, Chromebook. Consulte preços específicos.</p><p class="price">a partir R$100</p></div>
+        <div class="service-card"><i class="fas fa-tools"></i><h3>Conserto</h3><p>Hardware e software, diagnóstico preciso. Não faço reparo em placas.</p><p class="price">sob orçamento</p></div>
         <div class="service-card"><i class="fas fa-microchip"></i><h3>Upgrade</h3><p>Troca de peças, SSD, memória, desempenho.</p><p class="price">sob orçamento</p></div>
-        <div class="service-card"><i class="fas fa-desktop"></i><h3>Montagem de PC</h3><p>Computador sob medida para você.</p><p class="price">sob orçamento</p></div>
-        <!-- Limpeza com preço atualizado -->
+        <div class="service-card"><i class="fas fa-desktop"></i><h3>Montagem de PC</h3><p>Computador sob medida para você.</p><p class="price">a partir R$290</p></div>
         <div class="service-card"><i class="fas fa-broom"></i><h3>Limpeza</h3><p>Limpeza interna e preventiva.</p><p class="price">a partir R$150</p></div>
-        <!-- Acesso Remoto já com preço (conforme alteração anterior) -->
-        <div class="service-card"><i class="fas fa-network-wired"></i><h3>Acesso Remoto</h3><p>Suporte rápido online.</p><p class="price">a partir R$50</p></div>
-        <!-- Instalação de Programas com preço atualizado -->
-        <div class="service-card"><i class="fas fa-cogs"></i><h3>Instalação de Programas</h3><p>Softwares diversos.</p><p class="price">a partir R$50</p></div>
-        <div class="service-card"><i class="fas fa-file-word"></i><h3>Pacote Office</h3><p>Instalação e configuração.</p><p class="price">a partir R$50</p></div>
+        <div class="service-card"><i class="fas fa-network-wired"></i><h3>Acesso Remoto</h3><p>Suporte rápido online (Brasil todo).</p><p class="price">a partir R$50</p></div>
+        <div class="service-card"><i class="fas fa-cogs"></i><h3>Instalação de Programas</h3><p>Softwares diversos, periféricos.</p><p class="price">a partir R$50</p></div>
+        <div class="service-card"><i class="fas fa-chart-line"></i><h3>Consultoria e Desenvolvimento</h3><p>Sites, planilhas Excel, consultoria técnica.</p><p class="price">sob orçamento</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PREÇOS PRINCIPAIS (CARD) - AGORA COM ACESSO REMOTO -->
+  <!-- PREÇOS PRINCIPAIS (CARDS) - AGORA COM TODOS OS SOs -->
   <section id="precos" class="pricing">
     <div class="container">
       <h2>Preços dos serviços mais procurados</h2>
       <div class="pricing-cards">
         <div class="price-card">
-          <h3>Formatação simples</h3>
+          <h3>Formatação Windows</h3>
           <p>sem backup</p>
           <div class="value">R$100</div>
           <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20uma%20formatação%20SEM%20backup." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
         </div>
         <div class="price-card">
-          <h3>Formatação completa</h3>
-          <p>com backup</p>
+          <h3>Formatação Windows</h3>
+          <p>com backup (até 200GB)</p>
           <div class="value">R$150</div>
           <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20uma%20formatação%20COM%20backup." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
         </div>
-        <!-- Card Acesso Remoto substituindo Instalação do Office -->
+        <div class="price-card">
+          <h3>Formatação MacBook</h3>
+          <p>sem backup</p>
+          <div class="value">R$250</div>
+          <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20formatação%20do%20meu%20MacBook." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
+        </div>
+        <div class="price-card">
+          <h3>Formatação Linux</h3>
+          <p>Ubuntu, Mint, Zorin</p>
+          <div class="value">R$200</div>
+          <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20formatação%20Linux." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
+        </div>
+        <div class="price-card">
+          <h3>Formatação Chromebook</h3>
+          <p>ChromeOS</p>
+          <div class="value">R$150</div>
+          <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20agendar%20formatação%20do%20meu%20Chromebook." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
+        </div>
         <div class="price-card">
           <h3>Acesso Remoto</h3>
           <p>suporte online rápido</p>
@@ -275,21 +293,34 @@
           <a href="https://wa.me/5519971014540?text=Olá!%20Preciso%20de%20suporte%20remoto%20com%20Paulo%20Fagoto." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
         </div>
       </div>
-      <p style="text-align: center; margin-top: 2.5rem; font-size: 1.2rem;">🔧 Demais serviços: orçamento personalizado via WhatsApp.</p>
+      <div class="note" style="margin-top: 2rem; background: #e6f7ff; border-left-color: #0f3b5e;">
+        <i class="fas fa-info-circle"></i> <strong>Na formatação Windows:</strong> além da reinstalação, faço atualização completa, drivers, WinRAR, Java, leitor PDF, Chrome, Visual C++, app da placa de vídeo, testes de funcionamento (som, wifi, câmera) e otimização para PCs fracos. Para Linux, Mac e ChromeOS é apenas a formatação e atualização do sistema.
+      </div>
     </div>
   </section>
 
-  <!-- SOBRE O TÉCNICO E ENDEREÇO -->
+  <!-- SOBRE O TÉCNICO E ENDEREÇO (COM TRAJETÓRIA DETALHADA) -->
   <section id="sobre" class="about">
     <div class="container">
       <h2>Sobre Paulo Fagoto</h2>
       <div class="about-content">
         <div class="about-text">
-          <p><i class="fas fa-user-tie"></i> <strong>Paulo Fagoto, 35 anos, com 17 anos de experiência em informática.</strong> Comecei minha carreira como professor em escolas profissionalizantes de Valinhos (People, Microcamp, Aveha), onde ensinava informática e hardware. Também atuei como suporte técnico e trabalhei por mais de 2 anos como técnico registrado em uma empresa da cidade.</p>
-          <p><i class="fab fa-youtube"></i> <strong><a href="https://www.youtube.com/@PauloFagoto" target="_blank" rel="noopener">Canal no YouTube com mais de 105 mil seguidores</a>,</strong> onde compartilho dicas e tutoriais sobre tecnologia. Minha paixão pela área e o contato constante com o público me mantêm atualizado sobre as necessidades e dúvidas mais comuns.</p>
+          <p><i class="fas fa-user-tie"></i> <strong>Paulo Fagoto, MEI inscrito no CNPJ 64.383.742/0001-26,</strong> trabalho legalizado e emito Nota Fiscal de Serviço sempre que solicitado. São mais de 17 anos de experiência em informática.</p>
+          <p><i class="fas fa-briefcase"></i> <strong>Trajetória profissional (ordem cronológica):</strong></p>
+          <ul style="list-style: none; padding-left: 0;">
+            <li><i class="fas fa-calendar-alt" style="width: 2rem;"></i> <strong>2005-2006:</strong> Primeiro computador, primeiros cursos (CorelDraw, Web Design) e criação de sites em HTML.</li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>2009:</strong> Professor voluntário de informática em projeto social em Valinhos.</li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>2011-2014:</strong> Professor de Excel, Informática, Hardware e Web Design nas escolas Macpoli (Valinhos, Vinhedo, Louveira), AVEHA (Vinhedo) e People Computação.</li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>2013-2014:</strong> Professor na Microcamp Valinhos e Vinhedo, pioneiro no curso de Design de Games (treinamento em 3DS Max, ZBrush, Construct 2, Unreal Engine).</li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>2015:</strong> Suporte técnico nível 1 no provedor Net Turbo (Valinhos) e criação da empresa Toque de Mestre (artes gráficas).</li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>2016:</strong> Abri o escritório Digital Informática (aulas particulares).</li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>2017-2019:</strong> Técnico de informática em um grande condomínio em Valinhos (servidores Windows, redes, CFTV).</li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>2019:</strong> Criação do canal no YouTube (hoje com mais de 105 mil seguidores) e início da atuação como técnico autônomo até hoje.</li>
+          </ul>
+          <p><i class="fab fa-youtube"></i> <strong><a href="https://www.youtube.com/@PauloFagoto" target="_blank" rel="noopener">Canal no YouTube com mais de 105 mil seguidores</a>,</strong> onde compartilho dicas e tutoriais sobre tecnologia.</p>
           <p><i class="fas fa-home"></i> <strong>Atendimento:</strong> Oficina própria na minha residência (Jardim dos Manacás, Valinhos). <strong><u>É obrigatório agendar horário antes de vir</u></strong> – não recebo sem agendamento.</p>
           <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> Rua Santo Tordin, 185 - Jardim dos Manacás, Valinhos/SP, CEP 13273-091</p>
-          <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 64.383.742/0001-26</p>
+          <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 64.383.742/0001-26 (MEI) - Emissor de Nota Fiscal</p>
           <div class="note">
             <i class="fas fa-exclamation-triangle"></i> <strong>Atenção:</strong> Não há loja aberta ao público. O atendimento é exclusivamente na oficina residencial com hora marcada. Por favor, entre em contato antes de vir.
           </div>
@@ -306,6 +337,29 @@
     </div>
   </section>
 
+  <!-- NOVA SEÇÃO: COMO FUNCIONA O ATENDIMENTO -->
+  <section id="comofunciona" class="how-it-works">
+    <div class="container">
+      <h2>Como funciona o atendimento</h2>
+      <div class="steps-grid">
+        <div class="step-item"><i class="fab fa-whatsapp"></i><h3>1. Contato</h3><p>Você me chama no WhatsApp e explica o serviço necessário. Dependendo do caso, já posso resolver remotamente.</p></div>
+        <div class="step-item"><i class="fas fa-calendar-check"></i><h3>2. Agendamento</h3><p>Se for presencial, agendamos dia e horário para você trazer o equipamento até minha residência.</p></div>
+        <div class="step-item"><i class="fas fa-tools"></i><h3>3. Entrega</h3><p>Você deixa o equipamento comigo no portão (traga notebook com carregador, all in one com fonte, PC apenas o gabinete). Conversamos sobre o problema.</p></div>
+        <div class="step-item"><i class="fas fa-file-invoice"></i><h3>4. Orçamento</h3><p>Em 24 a 48 horas envio o orçamento pelo WhatsApp. Aprovado, executo o serviço no prazo informado.</p></div>
+        <div class="step-item"><i class="fas fa-video"></i><h3>5. Conclusão</h3><p>Envio um vídeo mostrando o serviço feito e explico o que foi realizado. Também envio a chave PIX (CNPJ) para pagamento.</p></div>
+        <div class="step-item"><i class="fas fa-handshake"></i><h3>6. Retirada</h3><p>Agendamos a retirada do equipamento no portão. Se precisar de Nota Fiscal, basta solicitar (envio por WhatsApp ou e-mail em PDF).</p></div>
+      </div>
+      <div class="parts-note">
+        <h3><i class="fas fa-shopping-cart"></i> Compra de peças novas e usadas</h3>
+        <ul>
+          <li><strong>Peças novas:</strong> Não sou loja, não vendo peças novas. Passo as especificações e recomendações; você compra por sua conta (posso sugerir lojas confiáveis). Se quiser, pode enviar a compra para minha casa (combinar antes). Caso prefira que eu compre com meu recurso, acrescento 10% para cobrir risco e garantia.</li>
+          <li><strong>Peças usadas:</strong> Eventualmente tenho peças em estoque para venda direta, com garantia legal de 3 meses.</li>
+          <li><strong>Garantia:</strong> Ofereço 3 meses de garantia na mão de obra. Peças compradas comigo também têm 3 meses. Peças compradas por você em terceiros têm garantia apenas da minha mão de obra.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTATO COM TODOS OS CANAIS -->
   <section id="contato" class="contact">
     <div class="container">
@@ -313,7 +367,7 @@
       <div class="contact-info">
         <div class="contact-item"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p><a href="https://wa.me/5519971014540" target="_blank">(19) 97101-4540</a></p><p>✅ Clique e agende</p></div>
         <div class="contact-item"><i class="fas fa-envelope"></i><h3>E-mail</h3><p><a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p></div>
-        <div class="contact-item"><i class="fas fa-map-pin"></i><h3>Endereço</h3><p>Rua Santo Tordin, 185<br>Jardim dos Manacás, Valinhos/SP</p><p><a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Tordin+185+Jardim+dos+Manacás+Valinhos+SP" target="_blank">📌 Ver no mapa</a></p></div>
+        <div class="contact-item"><i class="fas fa-map-pin"></i><h3>Endereço</h3><p>Rua Santo Tordin, 185<br>Jardim dos Manacás, Valinhos/SP<br>CEP 13273-091</p><p><a href="https://www.google.com/maps/search/?api=1&query=Rua+Santo+Tordin+185+Jardim+dos+Manacás+Valinhos+SP" target="_blank">📌 Ver no mapa</a></p></div>
         <div class="contact-item"><i class="fas fa-clock"></i><h3>Horário</h3><p>Seg a Sex: 09h às 22h<br>Sáb: 09h às 16h<br>Dom: 09h às 14h</p></div>
       </div>
     </div>
@@ -335,17 +389,19 @@
     </div>
   </section>
 
-  <!-- FAQ (Perguntas Frequentes) -->
+  <!-- FAQ (Perguntas Frequentes) ATUALIZADO -->
   <section id="faq" class="faq">
     <div class="container">
       <h2>Perguntas frequentes</h2>
       <div class="faq-grid">
         <div class="faq-item"><h3>📍 Atende em domicílio?</h3><p>Não. O atendimento é na minha oficina em casa (endereço acima). É necessário agendar.</p></div>
         <div class="faq-item"><h3>📅 Precisa agendar?</h3><p>Sim, obrigatoriamente. Chame no WhatsApp para marcar horário. Não atendo sem agendamento.</p></div>
-        <div class="faq-item"><h3>💳 Formas de pagamento?</h3><p>Dinheiro, PIX, transferência. Consulte também sobre cartão (débito/crédito) com taxa.</p></div>
-        <div class="faq-item"><h3>🌎 Atende outras cidades?</h3><p>Sim: Vinhedo, Itatiba, Louveira e Campinas. Basta trazer o equipamento até Valinhos.</p></div>
-        <div class="faq-item"><h3>⏱️ Tempo de formatação?</h3><p>Média de 2 a 3 horas, geralmente no mesmo dia.</p></div>
-        <div class="faq-item"><h3>🖥️ Conserta notebooks?</h3><p>Sim, faço manutenção em notebooks e desktops.</p></div>
+        <div class="faq-item"><h3>💳 Formas de pagamento?</h3><p>PIX (chave CNPJ), dinheiro. Para serviços acima de R$400, posso gerar link de parcelamento no crédito (juros por conta do cliente).</p></div>
+        <div class="faq-item"><h3>🌎 Atende outras cidades?</h3><p>Sim: Vinhedo, Itatiba, Louveira e Campinas (presencial). Remotamente atendo o Brasil todo.</p></div>
+        <div class="faq-item"><h3>🧾 Emite nota fiscal?</h3><p>Sim, sou MEI e emito Nota Fiscal de Serviço sempre que solicitado.</p></div>
+        <div class="faq-item"><h3>🛒 Posso comprar peças com você?</h3><p>Tenho algumas peças usadas com garantia de 3 meses. Peças novas você compra (eu auxilio), ou posso comprar com acréscimo de 10%.</p></div>
+        <div class="faq-item"><h3>⏱️ Qual a garantia?</h3><p>3 meses para mão de obra e para peças adquiridas comigo. Peças compradas por você têm garantia apenas da mão de obra.</p></div>
+        <div class="faq-item"><h3>🖥️ Formatação resolve qualquer problema?</h3><p>Não. Resolve problemas de software (vírus, lentidão por sistema). Se for defeito em peças ou baixa configuração, é necessário conserto ou upgrade.</p></div>
       </div>
     </div>
   </section>
@@ -377,8 +433,8 @@
   <!-- RODAPÉ COM LINKS LEGAIS -->
   <footer class="footer">
     <div class="container">
-      <p><strong>Paulo Fagoto - Técnico em Informática</strong></p>
-      <p>CNPJ: 64.383.742/0001-26 | Rua Santo Tordin, 185 - Jardim dos Manacás - Valinhos/SP - CEP 13273-091</p>
+      <p><strong>Paulo Fagoto - Técnico em Informática</strong> | MEI: 64.383.742/0001-26</p>
+      <p>Rua Santo Tordin, 185 - Jardim dos Manacás - Valinhos/SP - CEP 13273-091</p>
       <p>WhatsApp: <a href="https://wa.me/5519971014540">(19) 97101-4540</a> | E-mail: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
       <div class="legal-links">
         <a href="politicaetermos.html#privacidade">Política de Privacidade</a>
@@ -388,7 +444,7 @@
     </div>
   </footer>
 
-  <!-- SCHEMA.ORG JSON-LD (LOCALBUSINESS + FAQ) -->
+  <!-- SCHEMA.ORG JSON-LD (LOCALBUSINESS + FAQ) ATUALIZADO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -398,7 +454,7 @@
     "url": "https://www.paulofagoto.com.br",
     "telephone": "+5519971014540",
     "email": "adm@paulofagoto.com.br",
-    "priceRange": "R$50 - R$150",
+    "priceRange": "R$50 - R$250",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Rua Santo Tordin, 185",
@@ -422,8 +478,11 @@
       "@type": "OfferCatalog",
       "name": "Serviços de Informática",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação sem backup", "price": "100.00", "priceCurrency": "BRL" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação com backup", "price": "150.00", "priceCurrency": "BRL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação Windows sem backup", "price": "100.00", "priceCurrency": "BRL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação Windows com backup", "price": "150.00", "priceCurrency": "BRL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação MacBook", "price": "250.00", "priceCurrency": "BRL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação Linux", "price": "200.00", "priceCurrency": "BRL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formatação Chromebook", "price": "150.00", "priceCurrency": "BRL" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acesso Remoto", "price": "50.00", "priceCurrency": "BRL" } }
       ]
     }
@@ -436,8 +495,9 @@
     "mainEntity": [
       { "@type": "Question", "name": "Você atende em domicílio?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O atendimento é na minha oficina em casa, localizada no endereço informado. É necessário agendar horário." } },
       { "@type": "Question", "name": "Precisa agendar?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, obrigatoriamente. Entre em contato pelo WhatsApp para marcar um horário. Não atendo sem agendamento." } },
-      { "@type": "Question", "name": "Quais formas de pagamento?", "acceptedAnswer": { "@type": "Answer", "text": "Aceito dinheiro, PIX e transferência bancária. Consulte também sobre cartão de crédito/débito (via máquina, disponível mediante taxa)." } },
-      { "@type": "Question", "name": "Atende outras cidades?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, atendo clientes de Valinhos, Vinhedo, Itatiba, Louveira e Campinas. Basta trazer o equipamento até minha oficina." } }
+      { "@type": "Question", "name": "Quais formas de pagamento?", "acceptedAnswer": { "@type": "Answer", "text": "Aceito PIX (chave CNPJ), dinheiro. Para serviços acima de R$400, posso gerar link de parcelamento no crédito (juros por conta do cliente)." } },
+      { "@type": "Question", "name": "Atende outras cidades?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, atendo clientes de Valinhos, Vinhedo, Itatiba, Louveira e Campinas presencialmente. Remotamente atendo o Brasil todo." } },
+      { "@type": "Question", "name": "Você emite nota fiscal?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, sou MEI e emito Nota Fiscal de Serviço sempre que solicitado." } }
     ]
   }
   </script>
