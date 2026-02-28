@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Reparo Automático Windows 10/11: como resolver? | Paulo Fagoto - Técnico em Valinhos</title>
+  <!-- META TAGS ESPECÍFICAS DA PÁGINA -->
+  <meta name="description" content="Seu PC está preso no loop de reparo automático? Aprenda métodos eficazes (Restauração, CMD com chkdsk e bootrec) para resolver em casa. Se não conseguir, traga em Valinhos/SP.">
+  <meta name="keywords" content="reparo automático, windows 10 reparo automático, windows 11 reparo automático, reparo automático loop, conserto reparo automático Valinhos, técnico informática Valinhos">
+  <meta name="author" content="Paulo Fagoto">
+  <meta name="robots" content="index, follow">
+  <!-- GEO TAGS (VALINHOS) -->
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="Valinhos">
+  <meta name="geo.position" content="-22.9706;-47.0047">
+  <meta name="ICBM" content="-22.9706, -47.0047">
+  <!-- CANONICAL (PODE SER A PRÓPRIA PÁGINA) -->
+  <link rel="canonical" href="https://www.paulofagoto.com.br/reparo-automatico">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Reparo Automático no Windows: como resolver?">
+  <meta property="og:description" content="Guia definitivo para sair do loop de reparo automático. Inclui restauração do sistema e comandos no CMD. Técnico em Valinhos à disposição.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.paulofagoto.com.br/reparo-automatico">
+  <meta property="og:image" content="https://i.imgur.com/1jWgsjm.jpeg">
+  <meta property="og:locale" content="pt_BR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reparo Automático Windows: soluções">
+  <meta name="twitter:description" content="Métodos para resolver o erro de reparo automático. Se não funcionar, traga seu PC em Valinhos.">
+  <meta name="twitter:image" content="https://i.imgur.com/1jWgsjm.jpeg">
+  <!-- Fontes e ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1e293b; background: #f8fafc; }
+    .container { width: 90%; max-width: 1280px; margin: 0 auto; padding: 3rem 0; }
+    @media (max-width: 768px) { .container { padding: 2rem 0; } }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+    h1 { font-size: 2.8rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    h2 { font-size: 2.4rem; margin-bottom: 2rem; color: #0f3b5e; position: relative; display: inline-block; }
+    h2:after { content: ''; display: block; width: 80px; height: 4px; background: #0f3b5e; margin-top: 0.5rem; border-radius: 2px; }
+    @media (max-width: 768px) { h1 { font-size: 2.2rem; } h2 { font-size: 2rem; } }
+    .btn { display: inline-block; background: #0f3b5e; color: white; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.25s; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .btn:hover { background: #1a4f7a; transform: translateY(-2px); box-shadow: 0 8px 12px rgba(0,0,0,0.15); }
+    .btn-whatsapp { background: #25D366; }
+    .btn-whatsapp:hover { background: #128C7E; }
+    .btn-whatsapp i { margin-right: 0.6rem; }
+    .btn-small { background: #0f3b5e; color: white; padding: 0.5rem 1.5rem; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 600; transition: 0.2s; border: none; cursor: pointer; }
+    .btn-small:hover { background: #1a4f7a; }
+
+    /* ----- HEADER ----- */
+    .header { background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 100%); color: white; padding: 1.8rem 0; text-align: center; }
+    .header p { font-size: 1.3rem; opacity: 0.95; font-weight: 400; }
+
+    /* ----- NAVBAR STICKY (LINKS CORRIGIDOS) ----- */
+    .nav { background: white; box-shadow: 0 6px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .nav ul { display: flex; justify-content: center; list-style: none; padding: 0.8rem 0; flex-wrap: wrap; gap: 1.8rem; }
+    .nav a { color: #1e293b; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: color 0.2s; }
+    .nav a:hover { color: #0f3b5e; text-decoration: underline; text-underline-offset: 6px; }
+
+    /* ----- CONTEÚDO PRINCIPAL (ARTIGO) ----- */
+    .article-content { background: white; border-radius: 32px; padding: 2.5rem; box-shadow: 0 10px 25px -10px rgba(0,0,0,0.1); margin: 2rem 0; }
+    .article-content h3 { font-size: 1.8rem; margin: 2rem 0 1rem; color: #0f3b5e; }
+    .article-content p { margin-bottom: 1.2rem; font-size: 1.1rem; }
+    .article-content ul, .article-content ol { margin-left: 2rem; margin-bottom: 1.5rem; }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content code { background: #eef2f6; padding: 0.2rem 0.5rem; border-radius: 8px; font-family: monospace; color: #c00; }
+    .article-content .cmd-box { background: #0a1929; color: #b7d9ff; padding: 1.2rem; border-radius: 16px; font-family: 'Courier New', monospace; margin: 1rem 0; overflow-x: auto; }
+    .article-content .cmd-box code { background: transparent; color: #ffa657; padding: 0; }
+    .highlight-box { background: #e6f7ff; border-left: 6px solid #0f3b5e; padding: 1.8rem; border-radius: 20px; margin: 2rem 0; }
+    .video-note { display: flex; align-items: center; gap: 1rem; background: #f1f5f9; padding: 1rem 2rem; border-radius: 60px; margin: 2rem 0; flex-wrap: wrap; }
+    .video-note i { font-size: 2rem; color: #ff0000; }
+
+    /* ----- CTA TÉCNICO ----- */
+    .cta-tech { background: #0f3b5e; color: white; border-radius: 40px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+    .cta-tech h3 { font-size: 2.2rem; color: white; margin-bottom: 1rem; }
+    .cta-tech p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+    .cta-tech .btn { background: white; color: #0f3b5e; }
+    .cta-tech .btn:hover { background: #f0f4fa; }
+    .contact-mini { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-mini div { background: rgba(255,255,255,0.1); padding: 1rem 2rem; border-radius: 50px; }
+
+    /* ----- FOOTER ----- */
+    .footer { background: #0f3b5e; color: white; text-align: center; padding: 2.5rem 0; margin-top: 1rem; }
+    .footer a { color: white; text-decoration: underline; font-weight: 500; }
+    .footer p { margin-bottom: 0.5rem; opacity: 0.9; }
+    .footer .legal-links { margin-top: 1.5rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .footer .legal-links a { color: white; text-decoration: underline; font-weight: 400; }
+
+    /* ----- COOKIE BANNER ----- */
+    .cookie-banner {
+      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 400px; background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-radius: 28px; padding: 1.5rem; z-index: 9999;
+      border: 1px solid #dee7ef; display: none; margin: 0 auto;
+    }
+    .cookie-banner p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .cookie-banner .btn-small { background: #0f3b5e; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 600; cursor: pointer; }
+    .cookie-banner .btn-small:hover { background: #1a4f7a; }
+
+    .agendamento-obrigatorio { background: #dcfce7; color: #166534; padding: 1rem; border-radius: 40px; text-align: center; font-weight: 700; margin-bottom: 1rem; border: 1px solid #86efac; }
+  </style>
+</head>
+<body>
+  <!-- COOKIE CONSENT BANNER -->
+  <div id="cookieBanner" class="cookie-banner">
+    <p><i class="fas fa-cookie-bite" style="color: #0f3b5e; margin-right: 0.5rem;"></i> Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência, personalizar anúncios e recomendar conteúdo. Ao continuar navegando, você concorda com nossa <a href="politicaetermos.html#privacidade">Política de Privacidade</a> e <a href="politicaetermos.html#termos">Termos de Uso</a>.</p>
+    <button class="btn-small" onclick="acceptCookies()">Entendi</button>
+  </div>
+
+  <!-- TOPO PRINCIPAL -->
+  <header class="header">
+    <div class="container">
+      <h1>Paulo Fagoto</h1>
+      <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Técnico em Informática em Valinhos/SP • Atendimento somente com agendamento</p>
+    </div>
+  </header>
+
+  <!-- NAVEGAÇÃO STICKY (LINKS CORRIGIDOS: APONTAM PARA INDEX.HTML COM FRAGMENTO) -->
+  <nav class="nav">
+    <ul>
+      <li><a href="index.html#home">Início</a></li>
+      <li><a href="index.html#servicos">Serviços</a></li>
+      <li><a href="index.html#precos">Preços</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+      <li><a href="index.html#comofunciona">Como funciona</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL DA PÁGINA (ARTIGO) -->
+  <section class="container">
+    <article class="article-content">
+      <h1>Como resolver o loop de "Reparo Automático" no Windows 10 e Windows 11</h1>
+      <p><i class="fas fa-calendar-alt" style="color: #0f3b5e;"></i> Atualizado em 2025 – Baseado no vídeo do canal <strong>Paulo Fagoto</strong> (<a href="https://youtu.be/PiTmE6yfc2w" target="_blank" rel="noopener">assista ao tutorial completo</a>).</p>
+
+      <p>Se ao ligar o computador com Windows 10 ou 11 você se depara com a mensagem <strong>"Preparando reparo automático"</strong> ou <strong>"Reparo automático"</strong> e o sistema nunca inicia, você está no lugar certo. Esse problema geralmente é causado por arquivos de sistema corrompidos, setor de inicialização danificado ou até mesmo falha no disco rígido.</p>
+
+      <p>Abaixo, mostro o passo a passo que ensino no meu canal do YouTube para tentar resolver esse erro. Siga as etapas com calma. Se nenhuma funcionar, estou à disposição na minha oficina em <strong>Valinhos/SP</strong> para recuperar seus dados e seu sistema.</p>
+
+      <div class="video-note">
+        <i class="fab fa-youtube"></i>
+        <span><strong>📺 Vídeo original:</strong> <a href="https://youtu.be/PiTmE6yfc2w" target="_blank">Reparo Automático Como Resolver? Windows 10 - 2022</a> (inscreva-se no canal!)</span>
+      </div>
+
+      <h2>1. Acesse a tela de recuperação</h2>
+      <p>O Windows oferece um ambiente de recuperação automática. Para acessá-lo:</p>
+      <ol>
+        <li>Ligue o computador.</li>
+        <li>Assim que aparecer o logotipo do Windows, segure o botão <strong>Ligar</strong> por 5 segundos para forçar o desligamento.</li>
+        <li>Repita esse processo <strong>3 vezes</strong>. Na quarta inicialização, o Windows exibirá a mensagem <em>"Aguarde, preparando reparo automático"</em>.</li>
+        <li>Após alguns instantes, você verá a tela azul com opções. Clique em <strong>Opções avançadas</strong>.</li>
+      </ol>
+
+      <h2>2. Tente a Restauração do Sistema</h2>
+      <p>Se você tiver a proteção do sistema ativada, pode voltar a um ponto anterior.</p>
+      <ul>
+        <li>Na tela de recuperação, vá para <strong>Solucionar problemas > Opções avançadas > Restauração do sistema</strong>.</li>
+        <li>Escolha um ponto de restauração anterior à data em que o problema começou e siga as instruções.</li>
+      </ul>
+      <p>Essa opção não apaga seus arquivos pessoais, mas desinstala programas instalados após a data do ponto escolhido.</p>
+
+      <h2>3. Use o Prompt de Comando (CMD) para reparar a inicialização</h2>
+      <p>Quando a restauração não funciona (ou você não tem pontos de restauração), o CMD é a ferramenta mais poderosa.</p>
+      <p>Ainda em <strong>Opções avançadas</strong>, clique em <strong>Prompt de Comando</strong>.</p>
+
+      <h3>3.1. Verifique e repare o disco (CHKDSK)</h3>
+      <p>Digite o comando abaixo e pressione Enter. Pode demorar alguns minutos.</p>
+      <div class="cmd-box">
+        <code>chkdsk c: /f /r</code>
+      </div>
+      <p>Esse comando verifica erros no disco e tenta recuperar setores danificados. Se seu Windows estiver em outra partição (ex: D:), troque a letra.</p>
+
+      <h3>3.2. Repare arquivos do sistema (SFC)</h3>
+      <p>Após o CHKDSK, execute:</p>
+      <div class="cmd-box">
+        <code>sfc /scannow</code>
+      </div>
+      <p>Ele verificará a integridade de todos os arquivos protegidos do Windows e substituirá os corrompidos.</p>
+
+      <h3>3.3. Reconstrói o registro de inicialização (BOOTREC)</h3>
+      <p>Esses comandos são essenciais para corrigir o setor de boot:</p>
+      <div class="cmd-box">
+        <code>bootrec /fixmbr</code><br>
+        <code>bootrec /fixboot</code><br>
+        <code>bootrec /rebuildbcd</code>
+      </div>
+      <p>Após cada um, pressione Enter. Se aparecer erro no <code>/fixboot</code>, talvez seja necessário usar <code>bootsect /nt60 sys</code> ou comandos adicionais (consulte o vídeo).</p>
+
+      <h3>3.4. (Opcional) Reparar imagem do Windows com DISM</h3>
+      <p>Se o SFC não resolver, tente:</p>
+      <div class="cmd-box">
+        <code>dism /online /cleanup-image /restorehealth</code>
+      </div>
+      <p>Esse comando exige acesso à internet para baixar arquivos de reparo.</p>
+
+      <p>Após todos os procedimentos, feche o prompt e clique em <strong>Continuar</strong> para reiniciar normalmente.</p>
+
+      <div class="highlight-box">
+        <i class="fas fa-exclamation-triangle" style="color: #f97316; font-size: 1.5rem; margin-right: 1rem;"></i>
+        <strong>Importante:</strong> Se o Windows ainda não iniciar, pode ser problema mais sério (disco com bad blocks, memória RAM com defeito, etc.). Nesse caso, é recomendável procurar assistência especializada.
+      </div>
+
+      <h2>Não conseguiu resolver? Eu posso ajudar pessoalmente em Valinhos!</h2>
+      <p>Se você tentou os passos acima e o computador continua preso no reparo automático, traga até minha oficina. Sou técnico em informática com mais de 17 anos de experiência e atendo em <strong>Valinhos (Jardim dos Manacás)</strong>, além de Vinhedo, Itatiba, Louveira e Campinas.</p>
+
+      <!-- CTA FORTE -->
+      <div class="cta-tech">
+        <h3>🛠️ Atendimento especializado em reparo automático</h3>
+        <p>Não arrisque perder seus dados. Comigo você tem diagnóstico preciso, recuperação de arquivos e formatação segura.</p>
+        <a href="https://wa.me/5519971014540?text=Olá!%20Preciso%20de%20ajuda%20com%20o%20erro%20de%20reparo%20automático%20no%20Windows.%20Vi%20a%20página%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="btn" target="_blank"><i class="fab fa-whatsapp"></i> Agendar horário no WhatsApp</a>
+        <div class="contact-mini">
+          <div><i class="fas fa-map-marker-alt"></i> Rua Santo Tordin, 185 - Jd. Manacás, Valinhos</div>
+          <div><i class="fas fa-clock"></i> Seg-sex: 9h-22h | Sáb: 9h-16h | Dom: 9h-14h</div>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 1rem;"><i class="fas fa-check-circle"></i> Atendimento somente com horário agendado. Clique no botão e me chame agora!</p>
+      </div>
+
+      <p>📌 <strong>Meu endereço:</strong> Rua Santo Tordin, 185 – Jardim dos Manacás, Valinhos/SP (oficina em casa, não há loja aberta ao público, por isso é essencial agendar).</p>
+      <p>🔧 Além do reparo automático, realizo formatação, upgrade, troca de SSD, limpeza e muito mais. <a href="index.html#servicos">Veja todos os serviços</a>.</p>
+      <p>🎥 Não deixe de conferir o <a href="https://youtu.be/PiTmE6yfc2w" target="_blank">vídeo completo no YouTube</a> para ver a execução de cada comando na prática.</p>
+    </article>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Paulo Fagoto - Técnico em Informática</strong> | MEI: 64.383.742/0001-26</p>
+      <p>Rua Santo Tordin, 185 - Jardim dos Manacás - Valinhos/SP - CEP 13273-091</p>
+      <p>WhatsApp: <a href="https://wa.me/5519971014540">(19) 97101-4540</a> | E-mail: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+      <div class="legal-links">
+        <a href="politicaetermos.html#privacidade">Política de Privacidade</a>
+        <a href="politicaetermos.html#termos">Termos de Uso</a>
+      </div>
+      <p style="margin-top: 1rem;">© 2026 Paulo Fagoto. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SCHEMA.ORG LOCALBUSINESS -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Paulo Fagoto - Técnico em Informática",
+    "image": "https://i.imgur.com/1jWgsjm.jpeg",
+    "url": "https://www.paulofagoto.com.br",
+    "telephone": "+5519971014540",
+    "email": "adm@paulofagoto.com.br",
+    "priceRange": "R$50 - R$250",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Santo Tordin, 185",
+      "addressLocality": "Valinhos",
+      "addressRegion": "SP",
+      "postalCode": "13273-091",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-22.9706",
+      "longitude": "-47.0047"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "14:00" }
+    ],
+    "areaServed": ["Valinhos","Vinhedo","Itatiba","Louveira","Campinas"]
+  }
+  </script>
+
+  <!-- Script para cookie consent e scroll suave (apenas para links internos da página, se houver) -->
+  <script>
+    (function() {
+      // Scroll suave para links internos (caso haja algum)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === "#" || href === "") return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const navHeight = document.querySelector('.nav').offsetHeight;
+            const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight - 15;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Cookie consent
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookieBanner').style.display = 'block';
+      }
+      window.acceptCookies = function() {
+        localStorage.setItem('cookieConsent', 'true');
+        document.getElementById('cookieBanner').style.display = 'none';
+      };
+    })();
+  </script>
+</body>
+</html>
