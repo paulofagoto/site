@@ -92,24 +92,32 @@
     .footer .legal-links { margin-top: 1.5rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
     .footer .legal-links a { color: white; text-decoration: underline; font-weight: 400; }
 
-    /* ----- COOKIE BANNER ----- */
+    /* ----- COOKIE BANNER MELHORADO (MESMO DA PÁGINA PRINCIPAL) ----- */
     .cookie-banner {
-      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 400px; background: white;
+      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: white;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-radius: 28px; padding: 1.5rem; z-index: 9999;
       border: 1px solid #dee7ef; display: none; margin: 0 auto;
     }
     .cookie-banner p { font-size: 0.95rem; margin-bottom: 1rem; }
-    .cookie-banner .btn-small { background: #0f3b5e; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 600; cursor: pointer; }
-    .cookie-banner .btn-small:hover { background: #1a4f7a; }
+    .cookie-banner .banner-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .cookie-banner .btn-small { padding: 0.6rem 1.5rem; border-radius: 40px; font-weight: 600; cursor: pointer; border: none; }
+    .cookie-banner .btn-accept { background: #0f3b5e; color: white; }
+    .cookie-banner .btn-accept:hover { background: #1a4f7a; }
+    .cookie-banner .btn-reject { background: #e2e8f0; color: #1e293b; }
+    .cookie-banner .btn-reject:hover { background: #cbd5e1; }
+    .cookie-banner a { color: #0f3b5e; text-decoration: underline; }
 
     .agendamento-obrigatorio { background: #dcfce7; color: #166534; padding: 1rem; border-radius: 40px; text-align: center; font-weight: 700; margin-bottom: 1rem; border: 1px solid #86efac; }
   </style>
 </head>
 <body>
-  <!-- COOKIE CONSENT BANNER -->
+  <!-- COOKIE CONSENT BANNER MELHORADO -->
   <div id="cookieBanner" class="cookie-banner">
-    <p><i class="fas fa-cookie-bite" style="color: #0f3b5e; margin-right: 0.5rem;"></i> Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência, personalizar anúncios e recomendar conteúdo. Ao continuar navegando, você concorda com nossa <a href="politicaetermos.html#privacidade">Política de Privacidade</a> e <a href="politicaetermos.html#termos">Termos de Uso</a>.</p>
-    <button class="btn-small" onclick="acceptCookies()">Entendi</button>
+    <p><i class="fas fa-cookie-bite" style="color: #0f3b5e; margin-right: 0.5rem;"></i> Utilizamos cookies essenciais para o funcionamento do site. Com sua permissão, também usamos cookies de personalização para melhorar sua experiência e exibir anúncios relevantes (do Google AdSense). Você pode aceitar todos, rejeitar os não essenciais ou configurar suas preferências na nossa <a href="politicaetermos.html#privacidade">Política de Privacidade</a>.</p>
+    <div class="banner-buttons">
+      <button class="btn-small btn-accept" onclick="acceptCookies('all')">Aceitar todos</button>
+      <button class="btn-small btn-reject" onclick="acceptCookies('essential')">Rejeitar</button>
+    </div>
   </div>
 
   <!-- TOPO PRINCIPAL -->
@@ -286,21 +294,45 @@
           const target = document.querySelector(href);
           if (target) {
             e.preventDefault();
-            const navHeight = document.querySelector('.nav').offsetHeight;
+            const navHeight = document.querySelector('.nav') ? document.querySelector('.nav').offsetHeight : 70;
             const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight - 15;
             window.scrollTo({ top: targetPos, behavior: 'smooth' });
           }
         });
       });
 
-      // Cookie consent
-      if (!localStorage.getItem('cookieConsent')) {
-        document.getElementById('cookieBanner').style.display = 'block';
+      // Gerenciamento do cookie banner
+      const cookieBanner = document.getElementById('cookieBanner');
+      
+      function setCookieConsent(choice) {
+        localStorage.setItem('cookieConsent', choice);
+        cookieBanner.style.display = 'none';
+        
+        if (choice === 'all') {
+          // Carregar scripts de anúncios personalizados (ex: Google AdSense)
+          console.log('Cookies de personalização aceitos');
+          // Exemplo: carregar dinamicamente o script do AdSense
+        } else {
+          // Apenas cookies essenciais, não carregar scripts de anúncio
+          console.log('Apenas cookies essenciais');
+        }
       }
-      window.acceptCookies = function() {
-        localStorage.setItem('cookieConsent', 'true');
-        document.getElementById('cookieBanner').style.display = 'none';
+
+      window.acceptCookies = function(choice) {
+        setCookieConsent(choice);
       };
+
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        cookieBanner.style.display = 'block';
+      } else {
+        // Aplica a configuração baseada no consentimento salvo (sem mostrar o banner)
+        if (consent === 'all') {
+          // Carregar scripts de anúncios
+        } else {
+          // Não carregar
+        }
+      }
     })();
   </script>
 </body>

@@ -50,6 +50,8 @@
     .btn-whatsapp i { margin-right: 0.6rem; }
     .btn-small { background: #0f3b5e; color: white; padding: 0.5rem 1.5rem; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 600; transition: 0.2s; border: none; cursor: pointer; }
     .btn-small:hover { background: #1a4f7a; }
+    .btn-outline { background: transparent; border: 2px solid #0f3b5e; color: #0f3b5e; }
+    .btn-outline:hover { background: #0f3b5e; color: white; }
 
     /* ----- HEADER ----- */
     .header { background: linear-gradient(145deg, #0f3b5e 0%, #1f5a85 100%); color: white; padding: 1.8rem 0; text-align: center; }
@@ -158,22 +160,75 @@
     .faq-item { background: white; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
     .faq-item h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #0f3b5e; }
 
+    /* ----- FERRAMENTAS E PRODUTOS (DISCRETA) ----- */
+    .ferramentas { background: white; padding: 1rem 0; }
+    .ferramentas h2 { 
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem; 
+    }
+    .ferramentas h2:after { 
+      width: 50px;
+      height: 3px;
+    }
+    .ferramentas-grid { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 1rem; 
+      justify-content: center; 
+    }
+    .ferramenta-card { 
+      background: #f8fafc; 
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px; 
+      border: 1px solid #e2e8f0; 
+      text-align: center; 
+      transition: 0.2s; 
+      flex: 0 1 280px;
+      max-width: 300px;
+    }
+    .ferramenta-card:hover { 
+      border-color: #a0b8cc;
+    }
+    .ferramenta-card i { 
+      font-size: 2rem;
+      color: #0f3b5e; 
+      margin-bottom: 0.5rem; 
+    }
+    .ferramenta-card h3 { 
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem; 
+    }
+    .ferramenta-card p { 
+      font-size: 0.9rem;
+      margin-bottom: 1rem; 
+      color: #334155; 
+    }
+    .ferramenta-card .btn-small { 
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+    }
+
     /* ----- BLOG / CARDS APENAS (ARTIGOS FORAM PARA BLOG.HTML) ----- */
-    .blog { background: white; }
+    .blog { background: #f1f5f9; }
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .blog-post { background: #f8fafc; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
+    .blog-post { background: white; padding: 2rem; border-radius: 28px; border: 1px solid #e0e9f2; }
     .blog-post h3 { font-size: 1.8rem; color: #0f3b5e; margin-bottom: 1rem; }
     .blog-post p { margin-bottom: 1rem; }
 
-    /* ----- COOKIE BANNER ----- */
+    /* ----- COOKIE BANNER MELHORADO ----- */
     .cookie-banner {
-      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 400px; background: white;
+      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: white;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-radius: 28px; padding: 1.5rem; z-index: 9999;
       border: 1px solid #dee7ef; display: none; margin: 0 auto;
     }
     .cookie-banner p { font-size: 0.95rem; margin-bottom: 1rem; }
-    .cookie-banner .btn-small { background: #0f3b5e; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 600; cursor: pointer; }
-    .cookie-banner .btn-small:hover { background: #1a4f7a; }
+    .cookie-banner .banner-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .cookie-banner .btn-small { padding: 0.6rem 1.5rem; border-radius: 40px; font-weight: 600; cursor: pointer; border: none; }
+    .cookie-banner .btn-accept { background: #0f3b5e; color: white; }
+    .cookie-banner .btn-accept:hover { background: #1a4f7a; }
+    .cookie-banner .btn-reject { background: #e2e8f0; color: #1e293b; }
+    .cookie-banner .btn-reject:hover { background: #cbd5e1; }
+    .cookie-banner a { color: #0f3b5e; text-decoration: underline; }
 
     /* ----- FOOTER ----- */
     .footer { background: #0f3b5e; color: white; text-align: center; padding: 2.5rem 0; margin-top: 1rem; }
@@ -187,10 +242,13 @@
   </style>
 </head>
 <body>
-  <!-- COOKIE CONSENT BANNER (NECESSÁRIO PARA ADSENSE) -->
+  <!-- COOKIE CONSENT BANNER MELHORADO -->
   <div id="cookieBanner" class="cookie-banner">
-    <p><i class="fas fa-cookie-bite" style="color: #0f3b5e; margin-right: 0.5rem;"></i> Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência, personalizar anúncios e recomendar conteúdo. Ao continuar navegando, você concorda com nossa <a href="politicaetermos.html#privacidade">Política de Privacidade</a> e <a href="politicaetermos.html#termos">Termos de Uso</a>.</p>
-    <button class="btn-small" onclick="acceptCookies()">Entendi</button>
+    <p><i class="fas fa-cookie-bite" style="color: #0f3b5e; margin-right: 0.5rem;"></i> Utilizamos cookies essenciais para o funcionamento do site. Com sua permissão, também usamos cookies de personalização para melhorar sua experiência e exibir anúncios relevantes (do Google AdSense). Você pode aceitar todos, rejeitar os não essenciais ou configurar suas preferências na nossa <a href="politicaetermos.html#privacidade">Política de Privacidade</a>.</p>
+    <div class="banner-buttons">
+      <button class="btn-small btn-accept" onclick="acceptCookies('all')">Aceitar todos</button>
+      <button class="btn-small btn-reject" onclick="acceptCookies('essential')">Rejeitar</button>
+    </div>
   </div>
 
   <!-- TOPO PRINCIPAL -->
@@ -211,6 +269,7 @@
       <li><a href="#comofunciona">Como funciona</a></li>
       <li><a href="#contato">Contato</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="#ferramentas">Utilitários</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
   </nav>
@@ -246,7 +305,7 @@
         <div class="service-card"><i class="fas fa-broom"></i><h3>Limpeza</h3><p>Limpeza interna e preventiva.</p><p class="price">a partir R$150</p></div>
         <div class="service-card"><i class="fas fa-network-wired"></i><h3>Acesso Remoto</h3><p>Suporte rápido online (Brasil todo).</p><p class="price">a partir R$50</p></div>
         <div class="service-card"><i class="fas fa-cogs"></i><h3>Instalação de Programas</h3><p>Softwares diversos, periféricos.</p><p class="price">a partir R$50</p></div>
-        <div class="service-card"><i class="fas fa-chart-line"></i><h3>Consultoria e Desenvolvimento</h3><p>Sites, planilhas Excel, consultoria técnica.</p><p class="price">sob orçamento</p></div>
+        <div class="service-card"><i class="fas fa-chart-line"></i><h3>Consultoria e Desenvolvimento</h3><p>Sites, planilhas Excel, consultoria técnica. 👉 <a href="planilha.html" style="color: #0f3b5e; text-decoration: underline;">Planilha de Controle Financeiro</a> disponível.</p><p class="price">sob orçamento</p></div>
       </div>
     </div>
   </section>
@@ -388,6 +447,29 @@
     </div>
   </section>
 
+  <!-- SEÇÃO DISCRETA: FERRAMENTAS E PRODUTOS -->
+  <section id="ferramentas" class="ferramentas">
+    <div class="container">
+      <h2>Utilitários</h2>
+      <div class="ferramentas-grid">
+        <!-- Card Planilha -->
+        <div class="ferramenta-card">
+          <i class="fas fa-file-excel"></i>
+          <h3>Planilha Financeira</h3>
+          <p>Controle suas finanças pessoais de forma simples.</p>
+          <a href="planilha.html" class="btn-small">Conhecer</a>
+        </div>
+        <!-- Card Reparo Automático -->
+        <div class="ferramenta-card">
+          <i class="fas fa-tools"></i>
+          <h3>Reparo Automático</h3>
+          <p>Resolve problemas de inicialização do Windows.</p>
+          <a href="reparoautomatico.html" class="btn-small">Saiba mais</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BLOG / CARDS (APENAS CHAMADAS) - CONTEÚDO COMPLETO AGORA EM BLOG.HTML -->
   <section id="blog" class="blog">
     <div class="container">
@@ -481,9 +563,10 @@
   }
   </script>
 
-  <!-- Script para cookie consent e scroll suave -->
+  <!-- Script para cookie consent, scroll suave e gerenciamento de consentimento -->
   <script>
     (function() {
+      // Scroll suave para links internos
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const href = this.getAttribute('href');
@@ -498,13 +581,47 @@
         });
       });
 
-      if (!localStorage.getItem('cookieConsent')) {
-        document.getElementById('cookieBanner').style.display = 'block';
+      // Gerenciamento do cookie banner
+      const cookieBanner = document.getElementById('cookieBanner');
+      
+      function setCookieConsent(choice) {
+        // Salva a escolha do usuário (all ou essential)
+        localStorage.setItem('cookieConsent', choice);
+        cookieBanner.style.display = 'none';
+        
+        // Aqui você pode ativar ou desativar scripts de anúncio baseado na escolha
+        if (choice === 'all') {
+          // Carregar scripts de anúncios personalizados (ex: Google AdSense)
+          console.log('Cookies de personalização aceitos');
+          // Exemplo: carregar dinamicamente o script do AdSense
+          // (substitua pelo seu código de bloqueio/liberação)
+        } else {
+          // Apenas cookies essenciais, não carregar scripts de anúncio
+          console.log('Apenas cookies essenciais');
+        }
       }
-      window.acceptCookies = function() {
-        localStorage.setItem('cookieConsent', 'true');
-        document.getElementById('cookieBanner').style.display = 'none';
+
+      window.acceptCookies = function(choice) {
+        setCookieConsent(choice);
       };
+
+      // Verifica se já existe consentimento
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        cookieBanner.style.display = 'block';
+      } else {
+        // Se já escolheu, não mostra o banner (mas pode aplicar a lógica de acordo com a escolha)
+        // Reaplica a configuração baseada no consentimento salvo
+        setCookieConsent(consent); // Isso só vai esconder o banner e configurar, mas como já está escondido, ok
+        // Para não chamar novamente o setCookieConsent com o banner já escondido, podemos apenas:
+        // if (consent === 'all') { ... } else { ... }
+        // Vamos reaplicar a lógica sem alterar o localStorage
+        if (consent === 'all') {
+          // Carregar scripts de anúncios
+        } else {
+          // Não carregar
+        }
+      }
     })();
   </script>
 </body>

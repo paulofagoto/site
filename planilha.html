@@ -296,6 +296,21 @@
       background: #f0f9ff;
     }
 
+    /* COOKIE BANNER (mesmo estilo da página principal) */
+    .cookie-banner {
+      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-radius: 28px; padding: 1.5rem; z-index: 9999;
+      border: 1px solid #dee7ef; display: none; margin: 0 auto;
+    }
+    .cookie-banner p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .cookie-banner .banner-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .cookie-banner .btn-small { padding: 0.6rem 1.5rem; border-radius: 40px; font-weight: 600; cursor: pointer; border: none; }
+    .cookie-banner .btn-accept { background: #0f3b5e; color: white; }
+    .cookie-banner .btn-accept:hover { background: #1a4f7a; }
+    .cookie-banner .btn-reject { background: #e2e8f0; color: #1e293b; }
+    .cookie-banner .btn-reject:hover { background: #cbd5e1; }
+    .cookie-banner a { color: #0f3b5e; text-decoration: underline; }
+
     /* FOOTER */
     .footer {
       background: #0f3b5e;
@@ -317,6 +332,15 @@
   </style>
 </head>
 <body>
+  <!-- COOKIE CONSENT BANNER MELHORADO (mesmo da página principal) -->
+  <div id="cookieBanner" class="cookie-banner">
+    <p><i class="fas fa-cookie-bite" style="color: #0f3b5e; margin-right: 0.5rem;"></i> Utilizamos cookies essenciais para o funcionamento do site. Com sua permissão, também usamos cookies de personalização para melhorar sua experiência e exibir anúncios relevantes (do Google AdSense). Você pode aceitar todos, rejeitar os não essenciais ou configurar suas preferências na nossa <a href="politicaetermos.html#privacidade">Política de Privacidade</a>.</p>
+    <div class="banner-buttons">
+      <button class="btn-small btn-accept" onclick="acceptCookies('all')">Aceitar todos</button>
+      <button class="btn-small btn-reject" onclick="acceptCookies('essential')">Rejeitar</button>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <div class="site-header">
     <div class="container" style="padding: 0.5rem 0;">
@@ -429,6 +453,7 @@
   </footer>
 
   <script>
+    // Scroll suave para links internos (caso existam)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -438,6 +463,40 @@
         }
       });
     });
+
+    // Gerenciamento do cookie banner (mesmo script da página principal)
+    (function() {
+      const cookieBanner = document.getElementById('cookieBanner');
+      
+      function setCookieConsent(choice) {
+        localStorage.setItem('cookieConsent', choice);
+        cookieBanner.style.display = 'none';
+        
+        if (choice === 'all') {
+          // Carregar scripts de anúncios personalizados, se houver
+          console.log('Cookies de personalização aceitos');
+        } else {
+          // Apenas cookies essenciais
+          console.log('Apenas cookies essenciais');
+        }
+      }
+
+      window.acceptCookies = function(choice) {
+        setCookieConsent(choice);
+      };
+
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        cookieBanner.style.display = 'block';
+      } else {
+        // Aplica a configuração baseada no consentimento salvo (sem mostrar o banner)
+        if (consent === 'all') {
+          // Carregar scripts de anúncios
+        } else {
+          // Não carregar
+        }
+      }
+    })();
   </script>
 </body>
 </html>
