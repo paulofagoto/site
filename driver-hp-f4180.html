@@ -123,8 +123,8 @@
     .footer a { color: white; text-decoration: underline; font-weight: 500; }
     .footer .legal-links { margin-top: 1.5rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
 
-    /* ----- ADSENSE VISÍVEL (entre seções) ----- */
-    .ad-container { max-width: 900px; margin: 2rem auto; text-align: center; min-height: 120px; background: #f9f9f9; border-radius: 16px; padding: 1rem; display: flex; align-items: center; justify-content: center; border: 1px dashed #cbd5e1; }
+    /* ----- ESTILO PARA ADSENSE (mesmo da index) ----- */
+    .ad-container-adsense { margin: 2rem auto; }
   </style>
   <!-- Google AdSense (carregado no head) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948" crossorigin="anonymous"></script>
@@ -180,9 +180,8 @@
     </div>
   </section>
 
-  <!-- BLOCO ADSENSE 1 (corrigido) -->
-  <div class="ad-container">
-    <!-- Principal_Site -->
+  <!-- BLOCO ADSENSE 1 (exatamente igual ao da index) -->
+  <div class="container ad-container-adsense">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-1953773855788948"
@@ -261,9 +260,8 @@
     </div>
   </section>
 
-  <!-- BLOCO ADSENSE 2 (corrigido) -->
-  <div class="ad-container">
-    <!-- Principal_Site -->
+  <!-- BLOCO ADSENSE 2 (exatamente igual ao da index) -->
+  <div class="container ad-container-adsense">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-1953773855788948"
@@ -391,7 +389,6 @@
         localStorage.setItem('cookieConsent', choice);
         cookieBanner.style.display = 'none';
         if (choice === 'all') {
-          // Ativar scripts de anúncio (já estão no HTML, mas pode-se recarregar)
           console.log('Cookies aceitos');
         } else {
           console.log('Apenas cookies essenciais');
