@@ -109,6 +109,69 @@
     .step-item i { font-size: 2.8rem; color: #0f3b5e; margin-bottom: 1rem; }
     .step-item h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
+    /* ----- SEÇÃO DE DEPOIMENTOS (AJUSTE: SEGUNDA IMAGEM MENOR) ----- */
+    .depoimentos {
+      background: white;
+    }
+    .depoimentos-coluna {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .depoimento-card {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s;
+      width: 100%;
+    }
+    .depoimento-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+      border-color: #0f3b5e;
+    }
+    /* Primeira imagem (depoimento 1) maior */
+    .depoimentos-coluna .depoimento-card:first-child {
+      max-width: 800px;
+    }
+    /* Segunda imagem (depoimento 2) um pouco menor */
+    .depoimentos-coluna .depoimento-card:last-child {
+      max-width: 650px;
+    }
+    .depoimento-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      border: 3px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .depoimento-card img:hover {
+      transform: scale(1.02);
+    }
+    .depoimento-card .caption {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      color: #0f3b5e;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .depoimento-card .caption i {
+      font-size: 1.2rem;
+    }
+    /* Em telas pequenas, ambos ocupam 100% */
+    @media (max-width: 768px) {
+      .depoimentos-coluna .depoimento-card:first-child,
+      .depoimentos-coluna .depoimento-card:last-child {
+        max-width: 100%;
+      }
+    }
+
     /* ----- FAQ ----- */
     .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
     .faq-item { background: white; padding: 2rem; border-radius: 24px; border: 1px solid #e2e8f0; }
@@ -181,7 +244,8 @@
         <div class="price-tag">
           R$ 40 <small>via PIX</small>
         </div>
-        <a href="https://wa.me/5519971014540?text=Olá!%20Preciso%20do%20serviço%20de%20instalação%20remota%20do%20driver%20da%20HP%20F4180.%20Tenho%20uma%20impressora%20[modelo]%20e%20gostaria%20de%20agendar." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Chamar no WhatsApp</a>
+        <!-- Link do WhatsApp com a nova mensagem personalizada -->
+        <a href="https://wa.me/5519971014540?text=Ol%C3%A1%21%20Preciso%20do%20servi%C3%A7o%20de%20instala%C3%A7%C3%A3o%20remota%20do%20driver%20da%20minha%20impressora%2C%20HP%20F4180%20%28serie%20F4100%29.%20Como%20Funciona%3F" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Chamar no WhatsApp</a>
         <p style="margin-top: 1rem; font-size: 1rem;"><i class="fas fa-video"></i> <a href="https://youtu.be/vG822Y2YG7k" target="_blank" style="color: #0f3b5e;">Veja o vídeo</a> onde mostro a instalação que fiz para uma cliente.</p>
       </div>
       <div class="image">
@@ -219,7 +283,8 @@
       <p style="font-size: 1.2rem;">Você não precisa se preocupar em procurar, baixar ou configurar nada. Eu acesso seu computador de forma segura e instalo o driver corretamente.</p>
       <div class="price">R$ 40</div>
       <p><i class="fas fa-check-circle" style="color: #22c55e;"></i> Pagamento único via PIX</p>
-      <a href="https://wa.me/5519971014540?text=Olá!%20Quero%20contratar%20a%20instalação%20remota%20do%20driver%20da%20minha%20HP%20F4180.%20Meu%20modelo%20é%20..." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Quero instalar agora</a>
+      <!-- Link do WhatsApp com a nova mensagem personalizada -->
+      <a href="https://wa.me/5519971014540?text=Ol%C3%A1%21%20Preciso%20do%20servi%C3%A7o%20de%20instala%C3%A7%C3%A3o%20remota%20do%20driver%20da%20minha%20impressora%2C%20HP%20F4180%20%28serie%20F4100%29.%20Como%20Funciona%3F" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Quero instalar agora</a>
       
       <div class="note">
         <i class="fas fa-info-circle"></i> <strong>Nota importante:</strong> Este é um serviço de instalação assistida. Eu não comercializo o driver diretamente por questões legais, mas se você já possui o arquivo e precisa apenas de orientação, ou se deseja negociar o driver avulso, <strong>entre em contato no WhatsApp</strong>. Podemos conversar e encontrar a melhor solução para você.
@@ -270,6 +335,41 @@
     </script>
   </div>
 
+  <!-- SEÇÃO DE DEPOIMENTOS: PRIMEIRA MAIOR, SEGUNDA MENOR -->
+  <section class="depoimentos">
+    <div class="container">
+      <h2>Últimos atendimentos</h2>
+      <p style="text-align: center; margin-bottom: 2rem;">Clientes que já resolveram comigo e ficaram satisfeitos.</p>
+      <div class="depoimentos-coluna">
+        <!-- Depoimento 1 (maior) -->
+        <div class="depoimento-card">
+          <img src="https://i.imgur.com/KPNnt35.png" alt="Print do depoimento de cliente sobre instalação da HP Deskjet F4180" loading="lazy">
+          <div class="caption">
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <span style="margin-left: 0.5rem;">Cliente Janeiro/2026</span>
+          </div>
+        </div>
+        <!-- Depoimento 2 (um pouco menor) -->
+        <div class="depoimento-card">
+          <img src="https://i.imgur.com/SjG6E6w.png" alt="Print de conversa de WhatsApp com cliente satisfeito com a instalação remota" loading="lazy">
+          <div class="caption">
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <i class="fas fa-star" style="color: #fbbf24;"></i>
+            <span style="margin-left: 0.5rem;">Atendimento recente</span>
+          </div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem;">🚀 Mais de 50 instalações realizadas para todo o Brasil. <a href="https://wa.me/5519971014540" style="color: #0f3b5e; font-weight: 600;">Seja o próximo!</a></p>
+    </div>
+  </section>
+
   <!-- FAQ RÁPIDO -->
   <section class="faq">
     <div class="container">
@@ -306,7 +406,8 @@
   <!-- CHAMADA FINAL -->
   <div style="text-align: center; margin: 3rem 0;">
     <h2 style="display: block; margin-bottom: 1rem;">Pronto para resolver isso de uma vez?</h2>
-    <a href="https://wa.me/5519971014540?text=Olá!%20Preciso%20do%20serviço%20de%20instalação%20remota%20do%20driver%20da%20HP%20F4180.%20Meu%20modelo%20é%20..." class="btn btn-whatsapp" style="font-size: 1.5rem; padding: 1.2rem 3rem;" target="_blank"><i class="fab fa-whatsapp"></i> Chamar agora no WhatsApp</a>
+    <!-- Link do WhatsApp com a nova mensagem personalizada -->
+    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%21%20Preciso%20do%20servi%C3%A7o%20de%20instala%C3%A7%C3%A3o%20remota%20do%20driver%20da%20minha%20impressora%2C%20HP%20F4180%20%28serie%20F4100%29.%20Como%20Funciona%3F" class="btn btn-whatsapp" style="font-size: 1.5rem; padding: 1.2rem 3rem;" target="_blank"><i class="fab fa-whatsapp"></i> Chamar agora no WhatsApp</a>
     <p style="margin-top: 1rem;">(19) 97101-4540 • Respondo em poucos minutos.</p>
   </div>
 
