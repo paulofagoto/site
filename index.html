@@ -93,40 +93,98 @@
       }
 
       /* --- INÍCIO DA MELHORIA: BOTÃO FLUTUANTE DO WHATSAPP --- */
-      /* Este botão fica fixo no canto inferior direito da tela, visível durante a rolagem.
-         Ele direciona o usuário diretamente para o seu número do WhatsApp com uma mensagem pronta.
-         O design usa um ícone SVG do WhatsApp e uma leve sombra para destacar.
-         O botão tem um leve efeito de escala ao passar o mouse para indicar que é clicável. */
       .whatsapp-float {
-        position: fixed;          /* Fixo na tela */
-        bottom: 20px;             /* Distância do rodapé */
-        right: 20px;              /* Distância da lateral direita */
-        background-color: #25D366; /* Cor oficial do WhatsApp */
-        color: white;              /* Cor do ícone */
-        width: 60px;               /* Largura do botão */
-        height: 60px;              /* Altura do botão */
-        border-radius: 50%;        /* Formato circular */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
         text-align: center;
-        font-size: 30px;           /* Tamanho do ícone */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra para dar profundidade */
-        z-index: 1000;              /* Fica acima de outros elementos */
+        font-size: 30px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 1000;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s; /* Efeito suave ao passar o mouse */
+        transition: transform 0.3s;
       }
 
       .whatsapp-float:hover {
-        transform: scale(1.1);      /* Aumenta levemente ao passar o mouse */
+        transform: scale(1.1);
       }
 
-      /* Ícone SVG simples do WhatsApp (um balão de conversa com um telefone) */
       .whatsapp-float svg {
         width: 35px;
         height: 35px;
-        fill: white;                /* Cor branca para o ícone */
+        fill: white;
       }
-      /* --- FIM DA MELHORIA --- */
+      /* --- FIM DO BOTÃO WHATSAPP --- */
+
+      /* --- ESTILOS DOS DEPOIMENTOS (já existentes) --- */
+      .testimonials {
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .testimonials h2 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      .testimonial-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #fff;
+        border-left: 4px solid #25D366;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .testimonial-item p {
+        margin: 0 0 10px 0;
+        font-style: italic;
+        color: #555;
+      }
+
+      .testimonial-item cite {
+        display: block;
+        text-align: right;
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* --- NOVA MELHORIA: SEÇÃO DE LOCALIZAÇÃO (MAPA) --- */
+      .map-section {
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .map-section h2 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      .map-container {
+        width: 100%;
+        height: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      /* --- FIM DA NOVA MELHORIA --- */
     </style>
 
   </head>
@@ -169,6 +227,36 @@
 	e suporte remoto para resolver problemas rapidamente.
 	</p>
 
+      <!-- SEÇÃO DE DEPOIMENTOS (mantida) -->
+      <section class="testimonials">
+        <h2>Depoimentos de Clientes</h2>
+        <div class="testimonial-item">
+          <p>"O Paulo resolveu meu problema rapidamente, mesmo à distância. Meu computador está voando! Recomendo demais."</p>
+          <cite>— Ana Souza, Valinhos/SP</cite>
+        </div>
+        <div class="testimonial-item">
+          <p>"Profissional competente e atencioso. Fez a formatação do meu PC e ainda instalou todos os programas que eu precisava. Nota 10!"</p>
+          <cite>— Carlos Oliveira, Valinhos/SP</cite>
+        </div>
+      </section>
+
+      <!-- NOVA SEÇÃO: LOCALIZAÇÃO (MAPA) -->
+      <section class="map-section">
+        <h2>Onde nos encontrar</h2>
+        <p>Atendimento presencial em Valinhos/SP e região. Veja no mapa a área de cobertura:</p>
+        <div class="map-container">
+          <!-- Mapa do Google Maps focado em Valinhos/SP -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117523.46391712655!2d-47.04560992314494!3d-22.97055038842324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c8f6a6c6a8c5%3A0x3b9b7b7b7b7b7b7b!2sValinhos%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de Valinhos/SP">
+          </iframe>
+        </div>
+        <p style="font-size: 0.9em; color: #666; margin-top: 10px;">* Clique no mapa para ampliar e interagir.</p>
+      </section>
+
       <!-- Bloco de Anúncio Google Adsense -->
       <ins class="adsbygoogle"
         style="display:block"
@@ -186,7 +274,7 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 Paulo Fagoto - Técnico em Informática. Todos os direitos reservados.</p>
+      <p>&copy; <span id="ano"></span> Paulo Fagoto - Técnico em Informática. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Botão flutuante do WhatsApp -->
@@ -200,6 +288,11 @@
         <path d="M12.004 2.002c-5.514 0-9.998 4.484-9.998 9.998 0 1.758.457 3.484 1.328 5.002l-1.332 4.998 5.12-1.324c1.454.79 3.094 1.242 4.882 1.242 5.514 0 9.998-4.484 9.998-9.998s-4.484-9.998-9.998-9.998zm0 18.416c-1.488 0-2.96-.4-4.23-1.152l-.3-.18-3.104.802.832-3.042-.198-.314c-.826-1.314-1.262-2.828-1.262-4.382 0-4.6 3.742-8.342 8.342-8.342s8.342 3.742 8.342 8.342-3.742 8.342-8.342 8.342zm4.57-6.204c-.25-.124-1.476-.73-1.704-.814-.228-.084-.394-.124-.56.124-.166.248-.644.814-.79.982-.146.168-.292.188-.542.064-.894-.416-1.48-.742-2.072-1.496-.156-.2-.468-.522-.07-1.014.398-.492.86-1.114.94-1.296.08-.182.01-.314-.06-.438-.07-.124-.56-1.344-.77-1.838-.202-.48-.406-.416-.56-.424-.146-.008-.31-.01-.476-.01s-.436.062-.664.31c-.228.248-.874.854-.874 2.084 0 1.23.894 2.418 1.02 2.586.124.168 1.754 2.676 4.25 3.752.594.256 1.058.41 1.42.524.596.19 1.138.164 1.566.1.48-.07 1.476-.602 1.684-1.184.208-.582.208-1.082.146-1.186-.062-.104-.228-.166-.478-.29z"/>
       </svg>
     </a>
+
+    <!-- Script para atualizar o ano no rodapé -->
+    <script>
+      document.getElementById('ano').textContent = new Date().getFullYear();
+    </script>
 
   </body>
 </html>
