@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EM1613D7K6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-EM1613D7K6');
-    </script>
-
-    <!-- Google Adsense -->
-    <meta name="google-adsense-account" content="ca-pub-1953773855788948">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948" crossorigin="anonymous"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -393,18 +380,17 @@
             font-size: 0.85rem;
             font-weight: 500;
             margin-top: 15px;
-            text-decoration: none;          /* Remove sublinhado do link */
+            text-decoration: none;
             transition: var(--transition);
         }
 
-        /* Estilo específico para o badge quando é um link */
         a.badge {
             cursor: pointer;
         }
 
         a.badge:hover,
         a.badge:focus {
-            background-color: #d1d5db;      /* Escurece levemente no hover */
+            background-color: #d1d5db;
             color: var(--dark-color);
             outline: 2px solid var(--primary-color);
             outline-offset: 2px;
@@ -564,6 +550,7 @@
             padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
+            min-height: 120px; /* Espaço reservado para anúncios */
         }
 
         /* ===== RODAPÉ ===== */
@@ -765,7 +752,6 @@
             outline-offset: 2px;
         }
 
-        /* Botão de instruções no card */
         .btn-instrucoes {
             display: inline-flex;
             align-items: center;
@@ -790,9 +776,185 @@
             outline-offset: 2px;
         }
 
-        /* Ajuste para o card remoto (alinhamento dos badges) */
         .service-card.remote .badge {
             margin-right: 8px;
+        }
+
+        /* ===== BANNER DE COOKIES (AJUSTADO) ===== */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 20px 25px;
+            z-index: 3000;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+            border-left: 6px solid var(--primary-color);
+        }
+
+        .cookie-banner.show {
+            display: block;
+        }
+
+        .cookie-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cookie-text {
+            flex: 2 1 400px;
+        }
+
+        .cookie-text p {
+            margin-bottom: 8px;
+            color: var(--dark-color);
+            font-size: 0.95rem;
+        }
+
+        .cookie-text a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            flex: 1 1 auto;
+            justify-content: flex-end;
+        }
+
+        .cookie-btn {
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .cookie-btn.accept {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .cookie-btn.accept:hover {
+            background-color: #0a4f8a;
+        }
+
+        .cookie-btn.reject {
+            background-color: #e2e8f0;
+            color: var(--dark-color);
+        }
+
+        .cookie-btn.reject:hover {
+            background-color: #cbd5e1;
+        }
+
+        .cookie-btn.customize {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .cookie-btn.customize:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* ===== MODAL DE PREFERÊNCIAS DE COOKIES ===== */
+        .cookie-preferences-modal .modal-container {
+            max-width: 500px;
+        }
+
+        .preference-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .preference-item:last-child {
+            border-bottom: none;
+        }
+
+        .preference-item label {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .preference-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+
+        .preference-item.disabled {
+            opacity: 0.6;
+        }
+
+        .preference-item.disabled input {
+            pointer-events: none;
+        }
+
+        .preference-description {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+
+        .cookie-save-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cookie-save-btn:hover {
+            background-color: #0a4f8a;
+        }
+
+        /* ===== MODAL POLÍTICA DE PRIVACIDADE ===== */
+        .privacy-policy-modal .modal-container {
+            max-width: 800px;
+        }
+
+        .privacy-content {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .privacy-content h4 {
+            margin: 20px 0 10px;
+            color: var(--dark-color);
+        }
+
+        .privacy-content p {
+            margin-bottom: 15px;
+            color: #334155;
         }
 
         /* ===== RESPONSIVIDADE ===== */
@@ -845,7 +1007,7 @@
             }
 
             .whatsapp-float::after {
-                display: none; /* Tooltip oculto em telas pequenas */
+                display: none;
             }
 
             .modal-header h3 {
@@ -856,6 +1018,23 @@
                 margin-top: 10px;
                 width: 100%;
                 justify-content: center;
+            }
+
+            .cookie-banner {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                padding: 15px;
+            }
+
+            .cookie-buttons {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1 1 auto;
+                white-space: normal;
             }
         }
 
@@ -872,9 +1051,12 @@
                 bottom: 20px;
                 right: 20px;
             }
+
+            .cookie-btn {
+                width: 100%;
+            }
         }
 
-        /* Foco visível para acessibilidade */
         :focus-visible {
             outline: 3px solid var(--primary-color);
             outline-offset: 4px;
@@ -913,15 +1095,9 @@
         </div>
     </section>
 
-    <!-- Bloco de anúncio (topo) -->
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1953773855788948"
-             data-ad-slot="6766869962"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- Bloco de anúncio (topo) - será preenchido dinamicamente se consentido -->
+    <div class="ad-container" id="ad-top">
+        <!-- Anúncio será inserido via script se autorizado -->
     </div>
 
     <!-- Seção Serviços -->
@@ -957,11 +1133,9 @@
                     <li><i class="fas fa-check-circle" aria-hidden="true"></i> Pequenos reparos no sistema</li>
                 </ul>
                 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 15px;">
-                    <!-- Link para download do AnyDesk -->
                     <a href="https://anydesk.com/pt/downloads/windows" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Baixar AnyDesk para Windows">
                         Necessário AnyDesk <i class="fas fa-download" aria-hidden="true"></i>
                     </a>
-                    <!-- Botão para abrir o modal de instruções -->
                     <button class="btn-instrucoes" aria-label="Abrir instruções do AnyDesk" data-modal-open>
                         <i class="fas fa-info-circle" aria-hidden="true"></i> Instruções
                     </button>
@@ -1049,14 +1223,8 @@
     </section>
 
     <!-- Segundo bloco de anúncio -->
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1953773855788948"
-             data-ad-slot="6766869962"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <div class="ad-container" id="ad-bottom">
+        <!-- Anúncio será inserido via script se autorizado -->
     </div>
 
 </main>
@@ -1089,7 +1257,8 @@
                     <a href="https://www.linkedin.com/in/paulofagoto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <p style="margin-top: 20px;">Faça seu orçamento sem compromisso!</p>
-                <p><a href="/politica-de-privacidade.html" style="color: #94a3b8; font-size: 0.9rem;">Política de Privacidade</a></p>
+                <!-- Link da Política de Privacidade - agora abre o modal -->
+                <p><a href="#" id="openPrivacyPolicy" style="color: #94a3b8; font-size: 0.9rem;">Políticas de Privacidade</a></p>
             </div>
         </div>
         <div class="copyright">
@@ -1108,7 +1277,7 @@
     <i class="fab fa-whatsapp" aria-hidden="true"></i>
 </a>
 
-<!-- Modal de Instruções AnyDesk -->
+<!-- Modal de Instruções AnyDesk (já existente) -->
 <div id="modal-anydesk" class="modal" aria-hidden="true">
   <div class="modal-overlay" tabindex="-1" data-modal-close>
     <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -1128,74 +1297,394 @@
   </div>
 </div>
 
+<!-- ===== NOVOS MODAIS E BANNER ===== -->
+
+<!-- Banner de Cookies -->
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <p><strong>🍪 Este site utiliza cookies</strong></p>
+            <p>Utilizamos cookies para melhorar sua experiência, personalizar conteúdo e anúncios, e analisar nosso tráfego. Ao clicar em "Aceitar tudo", você concorda com o uso de todas as cookies. Você pode personalizar suas preferências clicando em "Personalizar".</p>
+            <p><a href="#" id="cookie-policy-link">Saiba mais na nossa Política de Privacidade</a></p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept" id="accept-all-cookies">Aceitar tudo</button>
+            <button class="cookie-btn reject" id="reject-all-cookies">Rejeitar</button>
+            <button class="cookie-btn customize" id="customize-cookies">Personalizar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Preferências de Cookies -->
+<div id="cookie-preferences-modal" class="modal cookie-preferences-modal" aria-hidden="true">
+    <div class="modal-overlay" data-modal-close>
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="preferences-title">
+            <div class="modal-header">
+                <h3 id="preferences-title">Personalizar preferências de cookies</h3>
+                <button class="modal-close" aria-label="Fechar" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="preference-item disabled">
+                    <div>
+                        <label>Cookies necessários</label>
+                        <div class="preference-description">Essenciais para o funcionamento do site. Não podem ser desativados.</div>
+                    </div>
+                    <input type="checkbox" checked disabled>
+                </div>
+                <div class="preference-item">
+                    <div>
+                        <label>Cookies estatísticos (Google Analytics)</label>
+                        <div class="preference-description">Nos ajudam a entender como os visitantes interagem com o site.</div>
+                    </div>
+                    <input type="checkbox" id="analytics-checkbox" checked>
+                </div>
+                <div class="preference-item">
+                    <div>
+                        <label>Cookies de marketing (Google AdSense)</label>
+                        <div class="preference-description">Utilizados para exibir anúncios relevantes.</div>
+                    </div>
+                    <input type="checkbox" id="marketing-checkbox" checked>
+                </div>
+                <button class="cookie-save-btn" id="save-cookie-preferences">Salvar preferências</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Política de Privacidade -->
+<div id="privacy-policy-modal" class="modal privacy-policy-modal" aria-hidden="true">
+    <div class="modal-overlay" data-modal-close>
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+            <div class="modal-header">
+                <h3 id="privacy-title">Política de Privacidade</h3>
+                <button class="modal-close" aria-label="Fechar" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-content privacy-content">
+                <h4>1. Quem somos</h4>
+                <p>Paulo Fagoto Técnico em Informática é um serviço de assistência técnica localizado em Valinhos/SP. Esta política explica como tratamos seus dados pessoais quando você visita nosso site e utiliza nossos serviços.</p>
+                
+                <h4>2. Dados coletados</h4>
+                <p>Podemos coletar informações como nome, e-mail, telefone quando você entra em contato conosco. Além disso, coletamos dados de navegação através de cookies, incluindo páginas visitadas, tempo de acesso e origem.</p>
+                
+                <h4>3. Cookies</h4>
+                <p>Utilizamos cookies para melhorar a experiência do usuário e analisar o tráfego. Os cookies necessários são essenciais para o funcionamento do site. Os cookies estatísticos (Google Analytics) nos ajudam a entender como você usa o site. Os cookies de marketing (Google AdSense) são usados para exibir anúncios personalizados.</p>
+                
+                <h4>4. Base legal</h4>
+                <p>Processamos seus dados com base no seu consentimento (para cookies não essenciais) e para a execução de contrato (quando você solicita um serviço).</p>
+                
+                <h4>5. Compartilhamento de dados</h4>
+                <p>Compartilhamos dados com o Google (Analytics e AdSense) de acordo com as políticas dessas plataformas. Não vendemos seus dados pessoais.</p>
+                
+                <h4>6. Seus direitos</h4>
+                <p>Você pode solicitar acesso, correção ou exclusão de seus dados a qualquer momento através do e-mail adm@paulofagoto.com.br.</p>
+                
+                <h4>7. Alterações nesta política</h4>
+                <p>Esta política pode ser atualizada periodicamente. Recomendamos revisá-la regularmente.</p>
+                
+                <p><em>Última atualização: março de 2026</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Script principal -->
 <script>
-    // Atualizar ano no rodapé
-    document.getElementById('ano').textContent = new Date().getFullYear();
+    // ===== FUNÇÕES DE CONSENTIMENTO E COOKIES =====
 
-    // Rolagem suave para links internos
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Chave do localStorage
+    const STORAGE_KEY = 'cookieConsent';
+
+    // Estado padrão (sem consentimento salvo)
+    let consentState = null;
+
+    // Elementos do DOM
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptAllBtn = document.getElementById('accept-all-cookies');
+    const rejectAllBtn = document.getElementById('reject-all-cookies');
+    const customizeBtn = document.getElementById('customize-cookies');
+    const preferencesModal = document.getElementById('cookie-preferences-modal');
+    const privacyModal = document.getElementById('privacy-policy-modal');
+    const analyticsCheckbox = document.getElementById('analytics-checkbox');
+    const marketingCheckbox = document.getElementById('marketing-checkbox');
+    const savePreferencesBtn = document.getElementById('save-cookie-preferences');
+    const openPrivacyLink = document.getElementById('openPrivacyPolicy');
+    const cookiePolicyLink = document.getElementById('cookie-policy-link');
+    const modalAnyDesk = document.getElementById('modal-anydesk');
+
+    // Função para carregar scripts dinamicamente
+    function loadScript(src, id, isAsync = true) {
+        return new Promise((resolve, reject) => {
+            if (document.getElementById(id)) {
+                resolve();
                 return;
             }
-            const target = document.querySelector(targetId);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // Atualizar aria-current
-                document.querySelectorAll('nav a').forEach(link => link.removeAttribute('aria-current'));
-                this.setAttribute('aria-current', 'page');
+            const script = document.createElement('script');
+            script.src = src;
+            script.id = id;
+            script.async = isAsync;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    // Função para carregar Google Analytics
+    function loadAnalytics() {
+        if (window.gaLoaded) return;
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        window.gtag = gtag;
+
+        loadScript('https://www.googletagmanager.com/gtag/js?id=G-EM1613D7K6', 'gtag-script')
+            .then(() => {
+                gtag('config', 'G-EM1613D7K6');
+                window.gaLoaded = true;
+            })
+            .catch(err => console.error('Erro ao carregar GA:', err));
+    }
+
+    // Função para carregar Google AdSense
+    function loadAdSense() {
+        if (window.adsenseLoaded) return;
+        loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948', 'adsense-script', true)
+            .then(() => {
+                const adSlots = document.querySelectorAll('.adsbygoogle');
+                adSlots.forEach(slot => {
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                        console.error('Erro ao carregar anúncio:', e);
+                    }
+                });
+                window.adsenseLoaded = true;
+            })
+            .catch(err => console.error('Erro ao carregar AdSense:', err));
+    }
+
+    function unloadScript(id) {
+        const script = document.getElementById(id);
+        if (script) script.remove();
+        if (id === 'gtag-script') {
+            window.gaLoaded = false;
+            delete window.gtag;
+            delete window.dataLayer;
+        }
+        if (id === 'adsense-script') {
+            window.adsenseLoaded = false;
+        }
+    }
+
+    function saveConsent(preferences) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
+        consentState = preferences;
+        applyConsent(preferences);
+    }
+
+    function applyConsent(preferences) {
+        if (preferences.analytics) {
+            loadAnalytics();
+        } else {
+            unloadScript('gtag-script');
+        }
+
+        if (preferences.marketing) {
+            loadAdSense();
+        } else {
+            unloadScript('adsense-script');
+        }
+
+        if (!preferences.marketing) {
+            document.querySelectorAll('.ad-container').forEach(container => {
+                container.innerHTML = '';
+            });
+        } else {
+            const adTop = document.getElementById('ad-top');
+            const adBottom = document.getElementById('ad-bottom');
+            if (adTop && !adTop.querySelector('ins')) {
+                adTop.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>';
             }
-        });
-    });
+            if (adBottom && !adBottom.querySelector('ins')) {
+                adBottom.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+            }
+        }
+    }
 
-    // Controle do modal AnyDesk
-    (function() {
-        const modal = document.getElementById('modal-anydesk');
-        const openBtn = document.querySelector('[data-modal-open]');
-        const closeElements = document.querySelectorAll('[data-modal-close]');
+    function checkExistingConsent() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                const parsed = JSON.parse(stored);
+                consentState = parsed;
+                applyConsent(parsed);
+                return true;
+            } catch (e) {
+                console.error('Erro ao ler consentimento:', e);
+            }
+        }
+        return false;
+    }
 
-        if (!modal || !openBtn) return;
+    function showBannerIfNeeded() {
+        if (!checkExistingConsent()) {
+            cookieBanner.classList.add('show');
+        }
+    }
 
-        // Abrir modal
-        openBtn.addEventListener('click', () => {
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // trava rolagem
-            // Foco no modal para acessibilidade
-            modal.querySelector('.modal-container').focus();
-        });
+    function acceptAll() {
+        const preferences = {
+            necessary: true,
+            analytics: true,
+            marketing: true
+        };
+        saveConsent(preferences);
+        cookieBanner.classList.remove('show');
+    }
 
-        // Fechar modal (clique no overlay ou botão X)
-        closeElements.forEach(el => {
-            el.addEventListener('click', (e) => {
-                // Se clicou no overlay, só fecha se clicou exatamente nele (não no container)
-                if (e.target === el || el.classList.contains('modal-close')) {
+    function rejectAll() {
+        const preferences = {
+            necessary: true,
+            analytics: false,
+            marketing: false
+        };
+        saveConsent(preferences);
+        cookieBanner.classList.remove('show');
+    }
+
+    function openPreferences() {
+        if (consentState) {
+            analyticsCheckbox.checked = consentState.analytics;
+            marketingCheckbox.checked = consentState.marketing;
+        } else {
+            analyticsCheckbox.checked = true;
+            marketingCheckbox.checked = true;
+        }
+        preferencesModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePreferences() {
+        preferencesModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    function savePreferences() {
+        const preferences = {
+            necessary: true,
+            analytics: analyticsCheckbox.checked,
+            marketing: marketingCheckbox.checked
+        };
+        saveConsent(preferences);
+        closePreferences();
+        cookieBanner.classList.remove('show');
+    }
+
+    function openPrivacyPolicy(e) {
+        e.preventDefault();
+        privacyModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function setupModalCloseListeners() {
+        const modals = [preferencesModal, privacyModal, modalAnyDesk];
+        modals.forEach(modal => {
+            if (!modal) return;
+            const overlay = modal.querySelector('.modal-overlay');
+            const closeBtn = modal.querySelector('.modal-close');
+            if (overlay) {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        modal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
                     modal.setAttribute('aria-hidden', 'true');
                     document.body.style.overflow = '';
-                    openBtn.focus(); // retorna foco ao botão que abriu
+                });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modals.forEach(modal => {
+                    if (modal.getAttribute('aria-hidden') === 'false') {
+                        modal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+    }
+
+    // ===== AJUSTE DA ROLAGEM SUAVE COM OFFSET DO HEADER =====
+    function smoothScrollWithOffset(targetElement) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20; // 20px extra de espaçamento
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('ano').textContent = new Date().getFullYear();
+
+        // Rolagem suave personalizada com offset
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const target = document.querySelector(targetId);
+                if (target) {
+                    smoothScrollWithOffset(target);
+                    document.querySelectorAll('nav a').forEach(link => link.removeAttribute('aria-current'));
+                    this.setAttribute('aria-current', 'page');
                 }
             });
         });
 
-        // Fechar com tecla ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-                modal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-                openBtn.focus();
-            }
+        const openBtn = document.querySelector('[data-modal-open]');
+        if (openBtn && modalAnyDesk) {
+            openBtn.addEventListener('click', () => {
+                modalAnyDesk.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        showBannerIfNeeded();
+
+        acceptAllBtn.addEventListener('click', acceptAll);
+        rejectAllBtn.addEventListener('click', rejectAll);
+        customizeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openPreferences();
         });
 
-        // Prevenir fechamento ao clicar dentro do container
-        modal.querySelector('.modal-container').addEventListener('click', (e) => {
-            e.stopPropagation();
+        savePreferencesBtn.addEventListener('click', savePreferences);
+
+        openPrivacyLink.addEventListener('click', openPrivacyPolicy);
+        cookiePolicyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openPrivacyPolicy(e);
         });
-    })();
+
+        setupModalCloseListeners();
+
+        if (checkExistingConsent()) {
+            // Não precisa mostrar banner
+        }
+    });
 </script>
 
-<!-- Script único do AdSense (já foi chamado no push dos blocos, não precisa repetir) -->
+<!-- Script de anúncio inicial (será substituído se necessário) -->
 </body>
 </html>
