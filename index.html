@@ -1645,7 +1645,17 @@
                 }
                 const target = document.querySelector(targetId);
                 if (target) {
-                    smoothScrollWithOffset(target);
+                    // Se for o link "Serviços", rolar até o grid de cards
+                    if (targetId === '#servicos') {
+                        const servicesGrid = document.querySelector('#servicos .services-grid');
+                        if (servicesGrid) {
+                            smoothScrollWithOffset(servicesGrid);
+                        } else {
+                            smoothScrollWithOffset(target); // fallback
+                        }
+                    } else {
+                        smoothScrollWithOffset(target);
+                    }
                     document.querySelectorAll('nav a').forEach(link => link.removeAttribute('aria-current'));
                     this.setAttribute('aria-current', 'page');
                 }
