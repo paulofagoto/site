@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Depoimentos de Clientes | Paulo Fagoto</title>
+    <meta name="description" content="Veja todos os depoimentos reais de clientes atendidos por Paulo Fagoto, técnico em informática em Valinhos/SP.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            --primary-color: #0a66c2;
+            --secondary-color: #25D366;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* ===== HEADER SIMPLIFICADO ===== */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            max-width: 100%;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ===== CONTEÚDO PRINCIPAL ===== */
+        main {
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .testimonial-count {
+            color: var(--gray-color);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== GALERIA EM GRID ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+        }
+
+        .gallery-image-container {
+            width: 100%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            flex: 1;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 6px;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-caption {
+            background: rgba(0,0,0,0.03);
+            padding: 12px 15px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            text-align: center;
+        }
+
+        .gallery-caption i {
+            color: #ffb703;
+            margin-right: 5px;
+        }
+
+        /* ===== MODAL PARA AMPLIAÇÃO ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+            cursor: default;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #ff4444;
+        }
+
+        /* ===== BOTÃO VOLTAR ===== */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            background-color: #0a4f8a;
+            transform: translateX(-5px);
+        }
+
+        /* ===== RODAPÉ SIMPLIFICADO ===== */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo-img {
+                height: 50px;
+            }
+            nav ul {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .page-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-close {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <img src="https://i.imgur.com/UWT1VAB.png" alt="Paulo Fagoto Técnico em Informática" class="logo-img">
+        </div>
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html#home">Início</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                <li><a href="index.html#localizacao">Localização</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <h1 class="page-title">Depoimentos de Clientes</h1>
+    <p class="testimonial-count">Confira abaixo <strong>35 depoimentos reais</strong> de clientes atendidos por Paulo Fagoto.</p>
+    
+    <div class="gallery-grid" id="galleryGrid">
+        <!-- As imagens serão inseridas via JavaScript -->
+    </div>
+
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar para a página inicial</a>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Paulo Fagoto - Técnico em Informática. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Modal para ampliar imagem -->
+<div id="imageModal" class="modal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <img class="modal-content" id="modalImage" src="" alt="Depoimento ampliado">
+</div>
+
+<script>
+    // Lista completa de imagens (35)
+    const imagens = [
+        "https://i.imgur.com/j37eOjv.png",
+        "https://i.imgur.com/aoa9gt7.png",
+        "https://i.imgur.com/jSPpwT0.png",
+        "https://i.imgur.com/HVzJT02.png",
+        "https://i.imgur.com/1JCIB5s.png",
+        "https://i.imgur.com/tgXLVhY.png",
+        "https://i.imgur.com/NrUR4D3.png",
+        "https://i.imgur.com/yKuz4Sa.png",
+        "https://i.imgur.com/4WeaioA.png",
+        "https://i.imgur.com/UzIhWwj.png",
+        "https://i.imgur.com/RUZ54kY.png",
+        "https://i.imgur.com/w8FoxFS.png",
+        "https://i.imgur.com/u4e1aoX.png",
+        "https://i.imgur.com/3jnqALp.png",
+        "https://i.imgur.com/PwkKPB2.png",
+        "https://i.imgur.com/jyKY34C.png",
+        "https://i.imgur.com/TGB99sd.png",
+        "https://i.imgur.com/2jarCo0.png",
+        "https://i.imgur.com/USjbCVj.png",
+        "https://i.imgur.com/oPyHUqA.png",
+        "https://i.imgur.com/wxiUf4s.png",
+        "https://i.imgur.com/72x1GmP.png",
+        "https://i.imgur.com/tSy6Pm7.png",
+        "https://i.imgur.com/hRxrz6b.png",
+        "https://i.imgur.com/gLkeQ0k.png",
+        "https://i.imgur.com/2tG86FV.png",
+        "https://i.imgur.com/4V8MNFi.png",
+        "https://i.imgur.com/Qe8oPjo.png",
+        "https://i.imgur.com/uCNmTn2.png",
+        "https://i.imgur.com/yXCVmPb.png",
+        "https://i.imgur.com/tP1iNaA.png",
+        "https://i.imgur.com/uNO9j21.png",
+        "https://i.imgur.com/cXsqNvI.png",
+        "https://i.imgur.com/5LezRFm.png",
+        "https://i.imgur.com/oSDpi4l.png"
+    ];
+
+    const galleryGrid = document.getElementById('galleryGrid');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+
+    // Cria os itens da galeria
+    imagens.forEach((src, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.setAttribute('data-index', index);
+        
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'gallery-image-container';
+        
+        const img = document.createElement('img');
+        img.className = 'gallery-image';
+        img.src = src;
+        img.alt = `Depoimento de cliente ${index + 1}`;
+        img.loading = 'lazy';
+        
+        imgContainer.appendChild(img);
+        
+        const caption = document.createElement('div');
+        caption.className = 'gallery-caption';
+        caption.innerHTML = '<i class="fas fa-star"></i> Depoimento real';
+        
+        item.appendChild(imgContainer);
+        item.appendChild(caption);
+        
+        // Abrir modal ao clicar no item
+        item.addEventListener('click', () => {
+            modalImage.src = src;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // impede rolagem
+        });
+        
+        galleryGrid.appendChild(item);
+    });
+
+    // Fechar modal ao clicar no X
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    });
+
+    // Fechar modal ao clicar fora da imagem
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Fechar com tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
+</script>
+
+</body>
+</html>
