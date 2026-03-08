@@ -968,6 +968,154 @@
             color: #334155;
         }
 
+        /* ===== SLIDESHOW DE DEPOIMENTOS EM IMAGEM (ATUALIZADO) ===== */
+        .testimonial-slideshow {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: min(550px, 95vw);
+            max-height: 650px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            z-index: 950;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(2px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-slideshow.hidden {
+            display: none;
+        }
+
+        .testimonial-slideshow:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .slideshow-image-container {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f1f5f9;
+            padding: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .slideshow-image {
+            width: 100%;
+            height: auto;
+            max-height: 580px;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slideshow-caption {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(4px);
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .slideshow-caption i {
+            margin-right: 6px;
+            color: #ffd966;
+        }
+
+        /* Botão de fechar (X) */
+        .slideshow-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.2s;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .slideshow-close:hover {
+            background: rgba(255,0,0,0.8);
+            transform: scale(1.1);
+        }
+
+        /* Modal para imagem em tamanho original */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .image-modal.show {
+            display: flex;
+        }
+
+        .image-modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+            cursor: default;
+        }
+
+        /* responsividade */
+        @media (max-width: 600px) {
+            .testimonial-slideshow {
+                bottom: 20px;
+                left: 20px;
+                width: min(380px, 90vw);
+                max-height: 500px;
+            }
+            .slideshow-image {
+                max-height: 420px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-slideshow {
+                bottom: 15px;
+                left: 15px;
+                width: min(320px, 85vw);
+            }
+            .slideshow-close {
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+            }
+        }
+
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 768px) {
             .header-content {
@@ -1163,7 +1311,7 @@
             </div>
             <div class="about-content">
                 <h3>Paulo Fagoto</h3>
-                <p>Técnico em informática com mais de <strong>13 anos de experiência</strong>, dedicado a oferecer soluções rápidas e eficientes para seus equipamentos. Trabalho com transparência, respeito e compromisso, seja no atendimento presencial em Valinhos ou remotamente para todo o Brasil.</p>
+                <p>Técnico em informática com mais de <strong>17 anos de experiência</strong>, dedicado a oferecer soluções rápidas e eficientes para seus equipamentos. Trabalho com transparência, respeito e compromisso, seja no atendimento presencial em Valinhos ou remotamente para todo o Brasil.</p>
                 <p>Minha missão é descomplicar a tecnologia para você, garantindo que seu computador funcione perfeitamente, seja para trabalho, estudos ou lazer.</p>
                 <div class="about-highlights">
                     <span class="highlight-item"><i class="fas fa-clock" aria-hidden="true"></i> Atendimento ágil</span>
@@ -1400,7 +1548,23 @@
     </div>
 </div>
 
-<!-- Script principal -->
+<!-- ===== NOVO SLIDESHOW DE DEPOIMENTOS EM IMAGEM (ATUALIZADO) ===== -->
+<div class="testimonial-slideshow" id="testimonialSlideshow">
+    <div class="slideshow-image-container" id="slideshowImageContainer">
+        <img id="slideshowImg" class="slideshow-image" src="" alt="Avaliação de cliente" loading="lazy">
+        <button class="slideshow-close" id="closeSlideshow" aria-label="Fechar depoimentos" title="Não mostrar mais">×</button>
+    </div>
+    <div class="slideshow-caption">
+        <i class="fas fa-star" aria-hidden="true"></i> Depoimentos reais de clientes
+    </div>
+</div>
+
+<!-- Modal para imagem em tamanho original -->
+<div id="imageModal" class="image-modal">
+    <img id="modalImage" class="image-modal-content" src="" alt="Depoimento ampliado">
+</div>
+
+<!-- Script principal (já existente) + novo script do slideshow -->
 <script>
     // ===== FUNÇÕES DE CONSENTIMENTO E COOKIES =====
 
@@ -1706,6 +1870,187 @@
             // Não precisa mostrar banner
         }
     });
+
+    // ===== NOVO SCRIPT DO SLIDESHOW DE DEPOIMENTOS (ATUALIZADO) =====
+    (function() {
+        // Lista de imagens fornecidas
+        const imagens = [
+            "https://i.imgur.com/j37eOjv.png",
+            "https://i.imgur.com/aoa9gt7.png",
+            "https://i.imgur.com/jSPpwT0.png",
+            "https://i.imgur.com/HVzJT02.png",
+            "https://i.imgur.com/1JCIB5s.png",
+            "https://i.imgur.com/tgXLVhY.png",
+            "https://i.imgur.com/NrUR4D3.png",
+            "https://i.imgur.com/yKuz4Sa.png",
+            "https://i.imgur.com/4WeaioA.png",
+            "https://i.imgur.com/UzIhWwj.png",
+            "https://i.imgur.com/RUZ54kY.png",
+            "https://i.imgur.com/w8FoxFS.png",
+            "https://i.imgur.com/u4e1aoX.png",
+            "https://i.imgur.com/3jnqALp.png",
+            "https://i.imgur.com/PwkKPB2.png",
+            "https://i.imgur.com/jyKY34C.png",
+            "https://i.imgur.com/TGB99sd.png",
+            "https://i.imgur.com/2jarCo0.png",
+            "https://i.imgur.com/USjbCVj.png",
+            "https://i.imgur.com/oPyHUqA.png",
+            "https://i.imgur.com/wxiUf4s.png",
+            "https://i.imgur.com/72x1GmP.png",
+            "https://i.imgur.com/tSy6Pm7.png",
+            "https://i.imgur.com/hRxrz6b.png",
+            "https://i.imgur.com/gLkeQ0k.png",
+            "https://i.imgur.com/2tG86FV.png",
+            "https://i.imgur.com/4V8MNFi.png",
+            "https://i.imgur.com/Qe8oPjo.png",
+            "https://i.imgur.com/uCNmTn2.png",
+            "https://i.imgur.com/yXCVmPb.png",
+            "https://i.imgur.com/tP1iNaA.png",
+            "https://i.imgur.com/uNO9j21.png",
+            "https://i.imgur.com/cXsqNvI.png"
+        ];
+
+        let currentIndex = 0;
+        let timeoutId = null;
+        let isPaused = false; // pausado quando modal aberto
+        let disabled = false; // se o usuário clicou no X
+
+        const slideshow = document.getElementById('testimonialSlideshow');
+        const imgElement = document.getElementById('slideshowImg');
+        const container = document.getElementById('slideshowImageContainer');
+        const closeBtn = document.getElementById('closeSlideshow');
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        if (!slideshow || !imgElement) return;
+
+        // Pré-carregamento das imagens para cache
+        imagens.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Função que esconde o slideshow completamente (display: none)
+        function hideSlideshow() {
+            slideshow.classList.add('hidden');
+        }
+
+        // Função que mostra o slideshow
+        function showSlideshow() {
+            if (disabled) return; // se desativado, não mostra
+            slideshow.classList.remove('hidden');
+        }
+
+        // Função que agenda o desaparecimento e a próxima aparição
+        function scheduleNext() {
+            if (disabled || isPaused) return;
+
+            // Mostra a imagem atual (o slideshow já deve estar visível)
+            imgElement.src = imagens[currentIndex];
+            showSlideshow();
+
+            // Agenda o desaparecimento após 4 segundos
+            timeoutId = setTimeout(() => {
+                if (disabled || isPaused) return;
+                hideSlideshow();
+
+                // Após desaparecer, agenda a próxima aparição em 6 segundos
+                timeoutId = setTimeout(() => {
+                    if (disabled || isPaused) return;
+                    // Avança para a próxima imagem
+                    currentIndex = (currentIndex + 1) % imagens.length;
+                    scheduleNext(); // reinicia o ciclo
+                }, 6000);
+            }, 4000);
+        }
+
+        // Inicia o ciclo com a primeira imagem
+        if (imagens.length > 0) {
+            imgElement.src = imagens[0];
+            showSlideshow();
+            currentIndex = 1; // a próxima será a segunda
+            // Agenda o desaparecimento da primeira após 4 segundos
+            timeoutId = setTimeout(() => {
+                if (disabled || isPaused) return;
+                hideSlideshow();
+                timeoutId = setTimeout(() => {
+                    if (disabled || isPaused) return;
+                    scheduleNext(); // mostra a segunda e continua
+                }, 6000);
+            }, 4000);
+        }
+
+        // Função para pausar o slideshow (usado ao abrir modal de expansão)
+        function pauseSlideshow() {
+            if (isPaused) return;
+            isPaused = true;
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+        }
+
+        // Função para retomar o slideshow
+        function resumeSlideshow() {
+            if (!isPaused || disabled) return;
+            isPaused = false;
+            // Se o slideshow está visível, significa que estávamos no período de exibição
+            if (!slideshow.classList.contains('hidden')) {
+                // Reagendar desaparecimento em 4s
+                timeoutId = setTimeout(() => {
+                    if (disabled || isPaused) return;
+                    hideSlideshow();
+                    timeoutId = setTimeout(() => {
+                        if (disabled || isPaused) return;
+                        currentIndex = (currentIndex + 1) % imagens.length;
+                        scheduleNext();
+                    }, 6000);
+                }, 4000);
+            } else {
+                // Se estava oculto, reagendar próxima aparição em 6s
+                timeoutId = setTimeout(() => {
+                    if (disabled || isPaused) return;
+                    scheduleNext();
+                }, 6000);
+            }
+        }
+
+        // Evento de clique na imagem: abre o modal em tamanho original
+        container.addEventListener('click', (e) => {
+            // Se clicou no botão X, não abrir modal
+            if (e.target === closeBtn || closeBtn.contains(e.target)) return;
+            if (disabled || imagens.length === 0) return;
+            pauseSlideshow();
+            modalImage.src = imgElement.src;
+            imageModal.classList.add('show');
+        });
+
+        // Evento de clique no modal para fechar
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === modalImage) return; // clicou na imagem, não fecha
+            imageModal.classList.remove('show');
+            resumeSlideshow();
+        });
+
+        // Fechar com tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal.classList.contains('show')) {
+                imageModal.classList.remove('show');
+                resumeSlideshow();
+            }
+        });
+
+        // Botão de fechar (X) - desativa permanentemente o slideshow
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // impede que o clique no X abra o modal
+            disabled = true;
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+            hideSlideshow(); // esconde imediatamente
+        });
+    })();
 </script>
 
 <!-- Script de anúncio inicial (será substituído se necessário) -->
