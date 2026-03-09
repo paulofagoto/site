@@ -115,6 +115,29 @@
             scroll-behavior: smooth;
         }
 
+        /* ===== STATUS BAR ===== */
+        .status-bar {
+            position: sticky;   /* fixa no topo ao rolar */
+            top: 0;
+            z-index: 101;       /* acima do header (z-index:100) */
+            background-color: #e6f7ff; /* tom claro para online */
+            color: #0050b3;
+            text-align: center;
+            padding: 4px 0;      /* reduzido para ocupar menos altura */
+            font-size: 0.85rem;  /* fonte um pouco menor */
+            font-weight: 500;
+            border-bottom: 1px solid #91d5ff;
+            transition: background-color 0.3s;
+        }
+        .status-bar.offline {
+            background-color: #fff1f0;
+            color: #a8071a;
+            border-bottom-color: #ffa39e;
+        }
+        .status-bar i {
+            margin-right: 6px;
+        }
+
         /* ===== CONTAINER PRINCIPAL ===== */
         .container {
             max-width: 1200px;
@@ -1296,6 +1319,11 @@
 </head>
 <body>
 
+<!-- ===== INDICADOR DE STATUS (HORÁRIO DO USUÁRIO) ===== -->
+<div class="status-bar" id="statusBar">
+    <i class="fas fa-clock"></i> <span id="statusMessage">Carregando...</span>
+</div>
+
 <header>
     <div class="container header-content">
         <div class="logo">
@@ -1654,7 +1682,7 @@
     </div>
 </div>
 
-<!-- Script principal (já existente) + novo script do slideshow -->
+<!-- Script principal (já existente) + novo script do slideshow + script do status bar -->
 <script>
     // ===== FUNÇÕES DE CONSENTIMENTO E COOKIES =====
 
@@ -1890,16 +1918,47 @@
     function smoothScrollWithOffset(targetElement) {
         const header = document.querySelector('header');
         const headerHeight = header ? header.offsetHeight : 0;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20; // 20px extra de espaçamento
+        const statusBar = document.getElementById('statusBar');
+        const statusBarHeight = statusBar ? statusBar.offsetHeight : 0;
+        const totalOffset = headerHeight + statusBarHeight + 20; // 20px extra
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - totalOffset;
         window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
         });
     }
 
+    // ===== STATUS BAR (HORÁRIO DO USUÁRIO) =====
+    function updateStatusBar() {
+        const statusBar = document.getElementById('statusBar');
+        const statusMessage = document.getElementById('statusMessage');
+        if (!statusBar || !statusMessage) return;
+
+        const now = new Date();
+        const hour = now.getHours(); // 0-23, baseado no horário local do usuário
+
+        // Online: 07:00 até 19:59 (pois 20:00 começa o offline)
+        const isOnline = hour >= 7 && hour < 20;
+
+        if (isOnline) {
+            statusBar.classList.remove('offline');
+            statusBar.classList.add('online');
+            statusMessage.textContent = '🟢 Estou Online (07:00 às 20:00)';
+        } else {
+            statusBar.classList.add('offline');
+            statusBar.classList.remove('online');
+            statusMessage.textContent = '🔴 Fora do Horário (atendimento apenas das 07:00 às 20:00)';
+        }
+    }
+
     // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('ano').textContent = new Date().getFullYear();
+
+        // Atualiza a barra de status
+        updateStatusBar();
+        // Opcional: atualizar a cada minuto para refletir mudança de hora
+        setInterval(updateStatusBar, 60000); // 60.000 ms = 1 minuto
 
         // Rolagem suave personalizada com offset
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
