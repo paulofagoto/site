@@ -16,14 +16,14 @@
     <meta property="og:url" content="https://www.paulofagoto.com.br">
     <meta property="og:title" content="Paulo Fagoto - Técnico em Informática">
     <meta property="og:description" content="Especialista em soluções de informática em Valinhos/SP. Atendimento presencial e remoto.">
-    <meta property="og:image" content="https://i.imgur.com/1jWgsjm.jpg">
+    <meta property="og:image" content="https://i.imgur.com/hAGh8dU.jpeg">
     <meta property="og:image:alt" content="Foto de Paulo Fagoto, técnico em informática">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Paulo Fagoto - Técnico em Informática">
     <meta name="twitter:description" content="Atendimento em Valinhos/SP e remoto para todo o Brasil.">
-    <meta name="twitter:image" content="https://i.imgur.com/1jWgsjm.jpg">
+    <meta name="twitter:image" content="https://i.imgur.com/hAGh8dU.jpeg">
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.ico">
@@ -44,7 +44,7 @@
       "@type": ["LocalBusiness", "ComputerRepair"],
       "name": "Paulo Fagoto - Técnico em Informática",
       "url": "https://www.paulofagoto.com.br",
-      "image": "https://i.imgur.com/1jWgsjm.jpg",
+      "image": "https://i.imgur.com/hAGh8dU.jpeg",
       "telephone": "+55-19-97101-4540",
       "email": "adm@paulofagoto.com.br",
       "priceRange": "$$",
@@ -117,14 +117,14 @@
 
         /* ===== STATUS BAR ===== */
         .status-bar {
-            position: sticky;   /* fixa no topo ao rolar */
+            position: sticky;
             top: 0;
-            z-index: 101;       /* acima do header (z-index:100) */
-            background-color: #e6f7ff; /* tom claro para online */
+            z-index: 101;
+            background-color: #e6f7ff;
             color: #0050b3;
             text-align: center;
-            padding: 4px 0;      /* reduzido para ocupar menos altura */
-            font-size: 0.85rem;  /* fonte um pouco menor */
+            padding: 4px 0;
+            font-size: 0.85rem;
             font-weight: 500;
             border-bottom: 1px solid #91d5ff;
             transition: background-color 0.3s;
@@ -291,25 +291,81 @@
             border-radius: 2px;
         }
 
-        /* ===== APRESENTAÇÃO ===== */
+        /* ===== HERO REDESENHADO (IMAGEM AUMENTADA) ===== */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), #1e3a8a);
-            color: white;
-            padding: 50px 30px;
+            background: linear-gradient(145deg, #ffffff 0%, #f5f9ff 100%);
+            color: var(--dark-color);
+            padding: 40px 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             margin-top: 20px;
+            border: 1px solid rgba(10, 102, 194, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h2 {
-            font-size: 2.2rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(10,102,194,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1 1 500px;
+        }
+
+        .hero-greeting {
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            background: rgba(10, 102, 194, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
             margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #334155;
             margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
         }
 
         .btn-whatsapp {
@@ -318,21 +374,99 @@
             gap: 10px;
             background-color: var(--secondary-color);
             color: white;
-            padding: 15px 30px;
+            padding: 15px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
             transition: var(--transition);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            margin-bottom: 25px;
+            border: 2px solid transparent;
         }
 
         .btn-whatsapp:hover,
         .btn-whatsapp:focus {
             background-color: #20b859;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            outline: 2px solid white;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge-item {
+            background-color: #eef2f6;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-item i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        /* ----- IMAGEM AUMENTADA ----- */
+        .hero-image {
+            flex: 0 0 420px;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.25);
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-experience-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(10,102,194,0.3);
+            border: 3px solid white;
+            padding: 5px;
+        }
+
+        .exp-number {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .exp-text {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         /* ===== CARDS DE SERVIÇOS ===== */
@@ -477,7 +611,7 @@
             justify-content: center;
             color: var(--primary-color);
             font-size: 1.5rem;
-            overflow: hidden; /* para imagens que não são quadradas */
+            overflow: hidden;
         }
 
         .author-avatar img {
@@ -499,7 +633,6 @@
             font-style: normal;
         }
 
-        /* Botão "Veja mais depoimentos" */
         .testimonial-button {
             display: inline-flex;
             align-items: center;
@@ -515,7 +648,7 @@
             text-decoration: none;
             transition: var(--transition);
             margin-top: 10px;
-            align-self: flex-start; /* alinhar à esquerda */
+            align-self: flex-start;
         }
 
         .testimonial-button:hover,
@@ -622,7 +755,7 @@
             padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            min-height: 120px; /* Espaço reservado para anúncios */
+            min-height: 120px;
         }
 
         /* ===== RODAPÉ ===== */
@@ -658,16 +791,15 @@
             background: var(--secondary-color);
         }
 
-		/* ===== CORREÇÃO PARA ÍCONE E TELEFONE FICAREM LADO A LADO ===== */
-		.footer-col p {
-		display: flex;
-		align-items: center;
-		gap: 6px;
-		}
+        .footer-col p {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-		.footer-col p a {
-		display: inline;
-		}
+        .footer-col p a {
+            display: inline;
+        }
 
         .footer-col p,
         .footer-col a {
@@ -863,7 +995,7 @@
             margin-right: 8px;
         }
 
-        /* ===== BANNER DE COOKIES (AJUSTADO) ===== */
+        /* ===== BANNER DE COOKIES ===== */
         .cookie-banner {
             position: fixed;
             bottom: 20px;
@@ -1040,7 +1172,7 @@
             color: #334155;
         }
 
-        /* ===== SLIDESHOW DE DEPOIMENTOS EM IMAGEM (ATUALIZADO) ===== */
+        /* ===== SLIDESHOW DE DEPOIMENTOS EM IMAGEM ===== */
         .testimonial-slideshow {
             position: fixed;
             bottom: 30px;
@@ -1106,7 +1238,6 @@
             color: #ffd966;
         }
 
-        /* Botão de fechar (X) */
         .slideshow-close {
             position: absolute;
             top: 8px;
@@ -1134,7 +1265,6 @@
             transform: scale(1.1);
         }
 
-        /* Modal para imagem em tamanho original */
         .image-modal {
             display: none;
             position: fixed;
@@ -1155,7 +1285,7 @@
 
         .image-modal-content {
             max-width: 90vw;
-            max-height: 80vh; /* reduzido para dar espaço ao link */
+            max-height: 80vh;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 0 30px rgba(255,255,255,0.2);
@@ -1185,33 +1315,48 @@
             background: #0a4f8a;
         }
 
-        /* responsividade */
-        @media (max-width: 600px) {
-            .testimonial-slideshow {
-                bottom: 20px;
-                left: 20px;
-                width: min(380px, 90vw);
-                max-height: 500px;
-            }
-            .slideshow-image {
-                max-height: 420px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .testimonial-slideshow {
-                bottom: 15px;
-                left: 15px;
-                width: min(320px, 85vw);
-            }
-            .slideshow-close {
-                width: 28px;
-                height: 28px;
-                font-size: 18px;
-            }
-        }
-
         /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-badges {
+                justify-content: center;
+            }
+
+            .hero-image {
+                flex-basis: auto;
+                max-width: 380px;
+            }
+
+            .hero-experience-badge {
+                width: 90px;
+                height: 90px;
+                bottom: 0;
+                right: 0;
+            }
+
+            .exp-number {
+                font-size: 1.8rem;
+            }
+            
+            .exp-text {
+                font-size: 0.6rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -1228,12 +1373,33 @@
                 justify-content: center;
             }
 
-            .hero h2 {
-                font-size: 1.8rem;
+            .hero-title {
+                font-size: 2.4rem;
             }
 
-            .hero p {
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
                 font-size: 1rem;
+            }
+
+            .hero-image {
+                max-width: 300px;
+            }
+
+            .hero-experience-badge {
+                width: 80px;
+                height: 80px;
+            }
+
+            .exp-number {
+                font-size: 1.5rem;
+            }
+
+            .exp-text {
+                font-size: 0.55rem;
             }
 
             .about {
@@ -1292,6 +1458,18 @@
             }
         }
 
+        @media (max-width: 600px) {
+            .testimonial-slideshow {
+                bottom: 20px;
+                left: 20px;
+                width: min(380px, 90vw);
+                max-height: 500px;
+            }
+            .slideshow-image {
+                max-height: 420px;
+            }
+        }
+
         @media (max-width: 480px) {
             .services-grid,
             .testimonials-grid {
@@ -1309,6 +1487,17 @@
             .cookie-btn {
                 width: 100%;
             }
+            
+            .testimonial-slideshow {
+                bottom: 15px;
+                left: 15px;
+                width: min(320px, 85vw);
+            }
+            .slideshow-close {
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+            }
         }
 
         :focus-visible {
@@ -1319,7 +1508,7 @@
 </head>
 <body>
 
-<!-- ===== INDICADOR DE STATUS (HORÁRIO DO USUÁRIO) ===== -->
+<!-- ===== INDICADOR DE STATUS ===== -->
 <div class="status-bar" id="statusBar">
     <i class="fas fa-clock"></i> <span id="statusMessage">Carregando...</span>
 </div>
@@ -1343,18 +1532,47 @@
 
 <main class="container">
 
-    <!-- Seção Hero / Apresentação -->
+    <!-- Seção Hero / Apresentação (IMAGEM AUMENTADA) -->
     <section id="home">
         <div class="hero">
-            <h2>Olá, sou Paulo Fagoto</h2>
-            <p>Especialista em soluções de informática em <strong>Valinhos/SP</strong>. Atendimento presencial e remoto com agendamento prévio, sempre com qualidade e respeito ao seu tempo.</p>
-            <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20preciso%20de%20suporte%20em%20informática" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp" aria-hidden="true"></i> Agende pelo WhatsApp
-            </a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-greeting">👋 Olá, eu sou</span>
+                    <h1 class="hero-title">Paulo Fagoto</h1>
+                    <p class="hero-subtitle">Técnico em Informática com <strong>17 anos de experiência</strong></p>
+                    <p class="hero-description">
+                        Especialista em soluções de informática em <strong>Valinhos/SP</strong>. 
+                        Atendimento presencial e remoto com agendamento prévio, sempre com qualidade, 
+                        transparência e respeito ao seu tempo.
+                    </p>
+                    
+                    <!-- Botão principal -->
+                    <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20preciso%20de%20suporte%20em%20informática" 
+                       class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Agende pelo WhatsApp
+                    </a>
+
+                    <!-- Mini badges de serviços -->
+                    <div class="hero-badges">
+                        <span class="badge-item"><i class="fas fa-check-circle"></i> Formatação</span>
+                        <span class="badge-item"><i class="fas fa-check-circle"></i> Upgrade</span>
+                        <span class="badge-item"><i class="fas fa-check-circle"></i> Remoto</span>
+                        <span class="badge-item"><i class="fas fa-check-circle"></i> Presencial</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- NOVA IMAGEM -->
+                    <img src="https://i.imgur.com/hAGh8dU.jpeg" alt="Paulo Fagoto, técnico em informática">
+                    <div class="hero-experience-badge">
+                        <span class="exp-number">17</span>
+                        <span class="exp-text">anos de<br>experiência</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Bloco de anúncio (topo) - será preenchido dinamicamente se consentido -->
+    <!-- Bloco de anúncio (topo) -->
     <div class="ad-container" id="ad-top">
         <!-- Anúncio será inserido via script se autorizado -->
     </div>
@@ -1371,7 +1589,6 @@
                 <h3>Presencial <span style="color: var(--accent-color);">(Valinhos/SP)</span></h3>
                 <p>Atendimento em minha residência no Jardim dos Manacás, com hora marcada.</p>
                 
-                <!-- Preços de formatação adicionados -->
                 <div style="background-color: #f0f9ff; padding: 15px; border-radius: 8px; margin: 15px 0;">
                     <p style="font-weight: 700; font-size: 1.2rem; margin-bottom: 8px; color: var(--primary-color);">
                         <i class="fas fa-tag" style="margin-right: 8px;"></i>Formatação
@@ -1398,7 +1615,6 @@
                 <h3>Remoto <span style="color: var(--primary-color);">(AnyDesk)</span></h3>
                 <p>Atendimento para todo o Brasil via AnyDesk, rápido e seguro.</p>
 
-                <!-- Preço do acesso remoto adicionado -->
                 <div style="background-color: #e6f7ff; padding: 15px; border-radius: 8px; margin: 15px 0;">
                     <p style="font-weight: 700; font-size: 1.2rem; margin-bottom: 5px; color: var(--primary-color);">
                         <i class="fas fa-clock" style="margin-right: 8px;"></i>Acesso Remoto
@@ -1428,11 +1644,12 @@
         </div>
     </section>
 
-    <!-- Seção Sobre (ATUALIZADA - RESUMIDA) -->
+    <!-- Seção Sobre -->
     <section id="sobre">
         <div class="about">
             <div class="about-image">
-                <img src="https://i.imgur.com/1jWgsjm.jpg" alt="Paulo Fagoto, técnico em informática" loading="lazy">
+                <!-- NOVA IMAGEM também aqui para consistência -->
+                <img src="https://i.imgur.com/hAGh8dU.jpeg" alt="Paulo Fagoto, técnico em informática" loading="lazy">
             </div>
             <div class="about-content">
                 <h3>Paulo Fagoto</h3>
@@ -1447,7 +1664,7 @@
         </div>
     </section>
 
-    <!-- Seção Depoimentos (ATUALIZADA) -->
+    <!-- Seção Depoimentos -->
     <section id="depoimentos">
         <h2 class="section-title">O que meus clientes dizem</h2>
         <div class="testimonials-grid">
@@ -1460,8 +1677,6 @@
                     </div>
                     <div class="author-info">
                         <h4 itemprop="name">Bruno Rodrigues</h4>
-                        <!-- Se houver localidade, pode adicionar; senão, ocultamos -->
-                        <!-- <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressLocality"></span></p> -->
                     </div>
                 </div>
                 <meta itemprop="itemReviewed" content="Paulo Fagoto - Técnico em Informática">
@@ -1536,10 +1751,11 @@
                     <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Jardim dos Manacás, Valinhos/SP</p>
                     <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="https://wa.me/5519971014540" target="_blank" rel="noopener noreferrer">(19) 97101-4540</a></p>
                     <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+                    <p><i class="fas fa-id-card" aria-hidden="true"></i> CNPJ: 64.383.742/0001-26</p>
                 </address>
             </div>
             <div class="footer-col">
-                <h4>Horário de Atendimento</h4>
+                <h4>Horário de Atendimento Presencial</h4>
                 <p>Segunda a Sexta: 9h às 19h</p>
                 <p>Sábado: 9h às 13h</p>
                 <p>Domingo: Fechado (sob consulta)</p>
@@ -1552,11 +1768,9 @@
                     <a href="https://www.instagram.com/tecpaulohenrique" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/5519971014540" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.linkedin.com/in/paulofagoto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <!-- Ícone do YouTube adicionado conforme solicitado -->
                     <a href="https://www.youtube.com/@PauloFagoto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
                 <p style="margin-top: 20px;">Faça seu orçamento sem compromisso!</p>
-                <!-- Link da Política de Privacidade - agora abre o modal -->
                 <p><a href="#" id="openPrivacyPolicy" style="color: #94a3b8; font-size: 0.9rem;">Políticas de Privacidade</a></p>
             </div>
         </div>
@@ -1576,7 +1790,7 @@
     <i class="fab fa-whatsapp" aria-hidden="true"></i>
 </a>
 
-<!-- Modal de Instruções AnyDesk (já existente) -->
+<!-- Modal de Instruções AnyDesk -->
 <div id="modal-anydesk" class="modal" aria-hidden="true">
   <div class="modal-overlay" tabindex="-1" data-modal-close>
     <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -1595,8 +1809,6 @@
     </div>
   </div>
 </div>
-
-<!-- ===== NOVOS MODAIS E BANNER ===== -->
 
 <!-- Banner de Cookies -->
 <div id="cookie-banner" class="cookie-banner">
@@ -1686,7 +1898,7 @@
     </div>
 </div>
 
-<!-- ===== NOVO SLIDESHOW DE DEPOIMENTOS EM IMAGEM (ATUALIZADO) ===== -->
+<!-- Slideshow de Depoimentos em Imagem -->
 <div class="testimonial-slideshow" id="testimonialSlideshow">
     <div class="slideshow-image-container" id="slideshowImageContainer">
         <img id="slideshowImg" class="slideshow-image" src="" alt="Avaliação de cliente" loading="lazy">
@@ -1707,17 +1919,12 @@
     </div>
 </div>
 
-<!-- Script principal (já existente) + novo script do slideshow + script do status bar -->
 <script>
     // ===== FUNÇÕES DE CONSENTIMENTO E COOKIES =====
 
-    // Chave do localStorage
     const STORAGE_KEY = 'cookieConsent';
-
-    // Estado padrão (sem consentimento salvo)
     let consentState = null;
 
-    // Elementos do DOM
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptAllBtn = document.getElementById('accept-all-cookies');
     const rejectAllBtn = document.getElementById('reject-all-cookies');
@@ -1731,7 +1938,6 @@
     const cookiePolicyLink = document.getElementById('cookie-policy-link');
     const modalAnyDesk = document.getElementById('modal-anydesk');
 
-    // Função para carregar scripts dinamicamente
     function loadScript(src, id, isAsync = true) {
         return new Promise((resolve, reject) => {
             if (document.getElementById(id)) {
@@ -1748,7 +1954,6 @@
         });
     }
 
-    // Função para carregar Google Analytics
     function loadAnalytics() {
         if (window.gaLoaded) return;
         window.dataLayer = window.dataLayer || [];
@@ -1764,7 +1969,6 @@
             .catch(err => console.error('Erro ao carregar GA:', err));
     }
 
-    // Função para carregar Google AdSense
     function loadAdSense() {
         if (window.adsenseLoaded) return;
         loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948', 'adsense-script', true)
@@ -1939,13 +2143,12 @@
         });
     }
 
-    // ===== AJUSTE DA ROLAGEM SUAVE COM OFFSET DO HEADER =====
     function smoothScrollWithOffset(targetElement) {
         const header = document.querySelector('header');
         const headerHeight = header ? header.offsetHeight : 0;
         const statusBar = document.getElementById('statusBar');
         const statusBarHeight = statusBar ? statusBar.offsetHeight : 0;
-        const totalOffset = headerHeight + statusBarHeight + 20; // 20px extra
+        const totalOffset = headerHeight + statusBarHeight + 20;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - totalOffset;
         window.scrollTo({
             top: targetPosition,
@@ -1953,16 +2156,14 @@
         });
     }
 
-    // ===== STATUS BAR (HORÁRIO DO USUÁRIO) =====
     function updateStatusBar() {
         const statusBar = document.getElementById('statusBar');
         const statusMessage = document.getElementById('statusMessage');
         if (!statusBar || !statusMessage) return;
 
         const now = new Date();
-        const hour = now.getHours(); // 0-23, baseado no horário local do usuário
+        const hour = now.getHours();
 
-        // Online: 07:00 até 19:59 (pois 20:00 começa o offline)
         const isOnline = hour >= 7 && hour < 20;
 
         if (isOnline) {
@@ -1976,16 +2177,12 @@
         }
     }
 
-    // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('ano').textContent = new Date().getFullYear();
 
-        // Atualiza a barra de status
         updateStatusBar();
-        // Opcional: atualizar a cada minuto para refletir mudança de hora
-        setInterval(updateStatusBar, 60000); // 60.000 ms = 1 minuto
+        setInterval(updateStatusBar, 60000);
 
-        // Rolagem suave personalizada com offset
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1996,17 +2193,9 @@
                 }
                 const target = document.querySelector(targetId);
                 if (target) {
-                    // Se for o link "Serviços", rolar até o grid de cards
-                    if (targetId === '#servicos') {
-                        const servicesGrid = document.querySelector('#servicos .services-grid');
-                        if (servicesGrid) {
-                            smoothScrollWithOffset(servicesGrid);
-                        } else {
-                            smoothScrollWithOffset(target); // fallback
-                        }
-                    } else {
-                        smoothScrollWithOffset(target);
-                    }
+                    // Removida a condição especial para #servicos - agora rola para a própria seção
+                    smoothScrollWithOffset(target);
+                    
                     document.querySelectorAll('nav a').forEach(link => link.removeAttribute('aria-current'));
                     this.setAttribute('aria-current', 'page');
                 }
@@ -2045,9 +2234,8 @@
         }
     });
 
-    // ===== NOVO SCRIPT DO SLIDESHOW DE DEPOIMENTOS (ATUALIZADO) =====
+    // Slideshow de depoimentos
     (function() {
-        // Lista de imagens fornecidas (incluindo as duas novas)
         const imagens = [
             "https://i.imgur.com/j37eOjv.png",
             "https://i.imgur.com/aoa9gt7.png",
@@ -2082,15 +2270,14 @@
             "https://i.imgur.com/tP1iNaA.png",
             "https://i.imgur.com/uNO9j21.png",
             "https://i.imgur.com/cXsqNvI.png",
-            // duas novas imagens
             "https://i.imgur.com/5LezRFm.png",
             "https://i.imgur.com/oSDpi4l.png"
         ];
 
         let currentIndex = 0;
         let timeoutId = null;
-        let isPaused = false; // pausado quando modal aberto
-        let disabled = false; // se o usuário clicou no X
+        let isPaused = false;
+        let disabled = false;
 
         const slideshow = document.getElementById('testimonialSlideshow');
         const imgElement = document.getElementById('slideshowImg');
@@ -2101,63 +2288,52 @@
 
         if (!slideshow || !imgElement) return;
 
-        // Pré-carregamento das imagens para cache
         imagens.forEach(src => {
             const img = new Image();
             img.src = src;
         });
 
-        // Função que esconde o slideshow completamente (display: none)
         function hideSlideshow() {
             slideshow.classList.add('hidden');
         }
 
-        // Função que mostra o slideshow
         function showSlideshow() {
-            if (disabled) return; // se desativado, não mostra
+            if (disabled) return;
             slideshow.classList.remove('hidden');
         }
 
-        // Função que agenda o desaparecimento e a próxima aparição
         function scheduleNext() {
             if (disabled || isPaused) return;
 
-            // Mostra a imagem atual (o slideshow já deve estar visível)
             imgElement.src = imagens[currentIndex];
             showSlideshow();
 
-            // Agenda o desaparecimento após 4 segundos
             timeoutId = setTimeout(() => {
                 if (disabled || isPaused) return;
                 hideSlideshow();
 
-                // Após desaparecer, agenda a próxima aparição em 6 segundos
                 timeoutId = setTimeout(() => {
                     if (disabled || isPaused) return;
-                    // Avança para a próxima imagem
                     currentIndex = (currentIndex + 1) % imagens.length;
-                    scheduleNext(); // reinicia o ciclo
+                    scheduleNext();
                 }, 6000);
             }, 4000);
         }
 
-        // Inicia o ciclo com a primeira imagem
         if (imagens.length > 0) {
             imgElement.src = imagens[0];
             showSlideshow();
-            currentIndex = 1; // a próxima será a segunda
-            // Agenda o desaparecimento da primeira após 4 segundos
+            currentIndex = 1;
             timeoutId = setTimeout(() => {
                 if (disabled || isPaused) return;
                 hideSlideshow();
                 timeoutId = setTimeout(() => {
                     if (disabled || isPaused) return;
-                    scheduleNext(); // mostra a segunda e continua
+                    scheduleNext();
                 }, 6000);
             }, 4000);
         }
 
-        // Função para pausar o slideshow (usado ao abrir modal de expansão)
         function pauseSlideshow() {
             if (isPaused) return;
             isPaused = true;
@@ -2167,13 +2343,10 @@
             }
         }
 
-        // Função para retomar o slideshow
         function resumeSlideshow() {
             if (!isPaused || disabled) return;
             isPaused = false;
-            // Se o slideshow está visível, significa que estávamos no período de exibição
             if (!slideshow.classList.contains('hidden')) {
-                // Reagendar desaparecimento em 4s
                 timeoutId = setTimeout(() => {
                     if (disabled || isPaused) return;
                     hideSlideshow();
@@ -2184,7 +2357,6 @@
                     }, 6000);
                 }, 4000);
             } else {
-                // Se estava oculto, reagendar próxima aparição em 6s
                 timeoutId = setTimeout(() => {
                     if (disabled || isPaused) return;
                     scheduleNext();
@@ -2192,9 +2364,7 @@
             }
         }
 
-        // Evento de clique na imagem: abre o modal em tamanho original
         container.addEventListener('click', (e) => {
-            // Se clicou no botão X, não abrir modal
             if (e.target === closeBtn || closeBtn.contains(e.target)) return;
             if (disabled || imagens.length === 0) return;
             pauseSlideshow();
@@ -2202,17 +2372,13 @@
             imageModal.classList.add('show');
         });
 
-        // Evento de clique no modal para fechar
         imageModal.addEventListener('click', (e) => {
-            // Se clicou no link, não fechar (deixa o link funcionar)
             if (e.target.tagName === 'A' || e.target.closest('a')) return;
-            // Se clicou na imagem, não fecha (para permitir copiar texto ou algo)
             if (e.target === modalImage) return;
             imageModal.classList.remove('show');
             resumeSlideshow();
         });
 
-        // Fechar com tecla ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && imageModal.classList.contains('show')) {
                 imageModal.classList.remove('show');
@@ -2220,19 +2386,16 @@
             }
         });
 
-        // Botão de fechar (X) - desativa permanentemente o slideshow
         closeBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // impede que o clique no X abra o modal
+            e.stopPropagation();
             disabled = true;
             if (timeoutId) {
                 clearTimeout(timeoutId);
                 timeoutId = null;
             }
-            hideSlideshow(); // esconde imediatamente
+            hideSlideshow();
         });
     })();
 </script>
-
-<!-- Script de anúncio inicial (será substituído se necessário) -->
 </body>
 </html>
