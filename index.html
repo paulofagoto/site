@@ -1572,10 +1572,7 @@
         </div>
     </section>
 
-    <!-- Bloco de anúncio (topo) -->
-    <div class="ad-container" id="ad-top">
-        <!-- Anúncio será inserido via script se autorizado -->
-    </div>
+    <!-- BLOCO DE ANÚNCIO DO TOPO REMOVIDO -->
 
     <!-- Seção Serviços -->
     <section id="servicos">
@@ -1734,7 +1731,7 @@
         </p>
     </section>
 
-    <!-- Segundo bloco de anúncio -->
+    <!-- Segundo bloco de anúncio (mantido) -->
     <div class="ad-container" id="ad-bottom">
         <!-- Anúncio será inserido via script se autorizado -->
     </div>
@@ -2023,11 +2020,8 @@
                 container.innerHTML = '';
             });
         } else {
-            const adTop = document.getElementById('ad-top');
+            // Apenas o bloco inferior (id="ad-bottom") será preenchido, pois o superior foi removido
             const adBottom = document.getElementById('ad-bottom');
-            if (adTop && !adTop.querySelector('ins')) {
-                adTop.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>';
-            }
             if (adBottom && !adBottom.querySelector('ins')) {
                 adBottom.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>';
             }
@@ -2193,7 +2187,6 @@
                 }
                 const target = document.querySelector(targetId);
                 if (target) {
-                    // Removida a condição especial para #servicos - agora rola para a própria seção
                     smoothScrollWithOffset(target);
                     
                     document.querySelectorAll('nav a').forEach(link => link.removeAttribute('aria-current'));
