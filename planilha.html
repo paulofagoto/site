@@ -120,6 +120,11 @@
             padding: 0 8px;
             border-radius: 8px;
         }
+        /* Preço no título com a cor do botão */
+        .preco-titulo {
+            color: #ffb347;
+            white-space: nowrap;
+        }
         .hero-content p {
             font-size: 1.25rem;
             color: #2c3e50;
@@ -158,9 +163,9 @@
         .btn-principal {
             background: #1e6f5c;
             color: white;
-            font-size: 1.3rem; /* reduzido */
+            font-size: 1.3rem;
             font-weight: 700;
-            padding: 14px 36px; /* ajustado */
+            padding: 14px 36px;
             border-radius: 60px;
             text-decoration: none;
             display: inline-block;
@@ -169,7 +174,7 @@
             border: none;
             cursor: pointer;
             margin-top: 20px;
-            text-align: center; /* garantir alinhamento */
+            text-align: center;
             line-height: 1.4;
         }
         .btn-principal:hover {
@@ -359,7 +364,7 @@
             color: #7f8c8d;
             font-size: 0.9rem;
         }
-        /* CTA final */
+        /* CTA final - com ênfase no preço apenas no fim */
         .cta-final {
             background: linear-gradient(145deg, #0f2a3f, #1a3f5a);
             color: white;
@@ -377,10 +382,35 @@
             opacity: 0.9;
         }
         .preco {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .preco-antigo {
+            text-decoration: line-through;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+        .preco-novo {
             font-size: 3.5rem;
             font-weight: 800;
             color: #ffb347;
+        }
+        .destaque-oferta {
+            font-size: 1.3rem;
+            background: rgba(255, 180, 71, 0.2);
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 40px;
             margin-bottom: 20px;
+            border: 1px dashed #ffb347;
+        }
+        .destaque-oferta i {
+            color: #ffb347;
+            margin-right: 8px;
         }
         .btn-cta {
             background: #ffb347;
@@ -393,18 +423,23 @@
             display: inline-block;
             transition: 0.3s;
             border: 4px solid white;
+            margin: 15px 0 20px;
         }
         .btn-cta:hover {
             background: #ffa01e;
             transform: scale(1.05);
         }
         .seguranca {
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 1rem;
             color: #ccddee;
         }
         .seguranca i {
             margin: 0 8px;
+        }
+        .seguranca small {
+            display: block;
+            margin-top: 8px;
         }
         /* Rodapé */
         .footer {
@@ -469,7 +504,7 @@
             .btn-principal { font-size: 1.1rem; padding: 12px 24px; }
             .recurso, .recurso:nth-child(even) { flex-direction: column; }
             .cta-final h2 { font-size: 2.2rem; }
-            .preco { font-size: 2.8rem; }
+            .preco-novo { font-size: 2.8rem; }
             .btn-cta { font-size: 1.4rem; padding: 16px 40px; }
         }
     </style>
@@ -478,22 +513,27 @@
     <header class="header">
         <div class="container">
             <a href="#" class="logo">Paulo<span>Fagoto</span></a>
+            <!-- Botão de compra -->
             <a href="https://pay.monetizze.com.br/KRR457494" class="btn-compra" target="_blank" rel="noopener">COMPRAR AGORA <i class="fas fa-arrow-right"></i></a>
         </div>
     </header>
 
     <main>
-        <!-- HERO -->
+        <!-- HERO – com preço no título, na cor do botão -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Controle <span>total</span> do seu dinheiro com uma planilha simples e automática</h1>
+                    <h1>
+                        Controle total do seu dinheiro com uma planilha simples e automática 
+                        <span class="preco-titulo">- R$10,00</span>
+                    </h1>
                     <p>Receitas, despesas, gráficos e análise mensal. Tudo no Excel, sem complicação.</p>
                     <div class="hero-badges">
                         <span class="badge"><i class="fas fa-check-circle"></i> Gráficos automáticos</span>
                         <span class="badge"><i class="fas fa-check-circle"></i> Navegação por botões</span>
                         <span class="badge"><i class="fas fa-check-circle"></i> Compatível Excel 2013+</span>
                     </div>
+                    <!-- Chamada com preço já embutido na mente -->
                     <a href="https://pay.monetizze.com.br/KRR457494" class="btn-principal" target="_blank" rel="noopener">QUERO ORGANIZAR MINHAS FINANÇAS <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="hero-image">
@@ -627,16 +667,28 @@
             </div>
         </section>
 
-        <!-- CALL TO ACTION FINAL -->
+        <!-- CALL TO ACTION FINAL – PREÇO EXPLOSIVO TAMBÉM AQUI -->
         <section class="cta-final">
             <div class="container">
                 <h2>Chega de bagunça financeira</h2>
-                <p>Tenha o controle total do seu dinheiro com essa planilha testada e aprovada.</p>
-                <div class="preco">R$ 10,00</div>
-                <a href="https://pay.monetizze.com.br/KRR457494" class="btn-cta" target="_blank" rel="noopener">QUERO AGORA <i class="fas fa-bolt"></i></a>
+                <p>Tenha o controle total do seu dinheiro com essa planilha testada e aprovada por mais de <strong>500 usuários</strong>.</p>
+                
+                <div class="destaque-oferta">
+                    <i class="fas fa-gift"></i> Lançamento – oferta especial
+                </div>
+                <div class="preco">
+                    <span class="preco-antigo">R$37,00</span>
+                    <span class="preco-novo">R$10,00</span>
+                </div>
+                <p style="font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-clock"></i> Preço promocional por tempo limitado!</p>
+                
+                <a href="https://pay.monetizze.com.br/KRR457494" class="btn-cta" target="_blank" rel="noopener">QUERO APROVEITAR <i class="fas fa-bolt"></i></a>
+                
                 <div class="seguranca">
                     <i class="fas fa-lock"></i> Pagamento 100% seguro via Monetizze <i class="fas fa-shield-alt"></i>
                     <br><small>Após a confirmação, você recebe o link para download no e-mail informado.</small>
+                    <br><small><i class="fas fa-undo-alt"></i> Garantia incondicional de 7 dias</small>
+                    <br><small><i class="fas fa-users"></i> Mais de 1.200 planilhas vendidas</small>
                 </div>
             </div>
         </section>
@@ -649,7 +701,7 @@
         </div>
     </footer>
 
-    <!-- NOTIFICAÇÕES DE COMPRA SIMULADAS -->
+    <!-- NOTIFICAÇÕES DE COMPRA SIMULADAS (prova social em tempo real) -->
     <div class="notification-container" id="notification-container"></div>
 
     <script>
