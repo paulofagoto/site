@@ -528,25 +528,25 @@
             font-size: 1rem;
         }
 
-        .badge {
-            display: inline-block;
+        .badge, .btn-instrucoes {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background-color: #e2e8f0;
             color: var(--dark-color);
             padding: 5px 12px;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 500;
-            margin-top: 15px;
             text-decoration: none;
-            transition: var(--transition);
-        }
-
-        a.badge {
+            border: none;
             cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
         }
 
-        a.badge:hover,
-        a.badge:focus {
+        .badge:hover, .btn-instrucoes:hover,
+        .badge:focus, .btn-instrucoes:focus {
             background-color: #d1d5db;
             color: var(--dark-color);
             outline: 2px solid var(--primary-color);
@@ -556,6 +556,10 @@
         a.badge i {
             margin-left: 4px;
             font-size: 0.7rem;
+        }
+
+        .btn-instrucoes {
+            margin-left: 0; /* remove margem extra */
         }
 
         /* ===== DEPOIMENTOS ===== */
@@ -965,34 +969,6 @@
             box-shadow: 0 10px 20px rgba(10, 102, 194, 0.3);
             outline: 2px solid white;
             outline-offset: 2px;
-        }
-
-        .btn-instrucoes {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: none;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-left: 10px;
-        }
-
-        .btn-instrucoes:hover,
-        .btn-instrucoes:focus {
-            background-color: var(--primary-color);
-            color: white;
-            outline: 2px solid var(--primary-color);
-            outline-offset: 2px;
-        }
-
-        .service-card.remote .badge {
-            margin-right: 8px;
         }
 
         /* ===== BANNER DE COOKIES ===== */
@@ -1433,12 +1409,6 @@
             .modal-header h3 {
                 font-size: 1.2rem;
             }
-            .btn-instrucoes {
-                margin-left: 0;
-                margin-top: 10px;
-                width: 100%;
-                justify-content: center;
-            }
 
             .cookie-banner {
                 bottom: 10px;
@@ -1522,7 +1492,7 @@
             <ul>
                 <li><a href="#home" aria-current="page">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="programas.html">Programas</a></li> <!-- NOVO LINK -->
+                <li><a href="programas.html">Programas</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#depoimentos">Depoimentos</a></li>
                 <li><a href="#localizacao">Localização</a></li>
@@ -1572,8 +1542,6 @@
             </div>
         </div>
     </section>
-
-    <!-- BLOCO DE ANÚNCIO DO TOPO REMOVIDO -->
 
     <!-- Seção Serviços -->
     <section id="servicos">
@@ -1634,14 +1602,11 @@
                     <a href="https://anydesk.com/pt/downloads/windows" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Baixar AnyDesk para Windows">
                         Necessário AnyDesk <i class="fas fa-download" aria-hidden="true"></i>
                     </a>
-                    <button class="btn-instrucoes" aria-label="Abrir instruções do AnyDesk" data-modal-open>
+                    <button class="badge btn-instrucoes" aria-label="Abrir instruções do AnyDesk" data-modal-open>
                         <i class="fas fa-info-circle" aria-hidden="true"></i> Instruções
                     </button>
-                </div>
-                <!-- NOVO LINK PARA PROGRAMAS -->
-                <div style="margin-top: 20px; text-align: center;">
-                    <a href="programas.html" class="badge" style="background-color: var(--primary-color); color: white; padding: 10px 20px; font-size: 1rem;">
-                        <i class="fas fa-list"></i> 📋 Lista de programas disponíveis
+                    <a href="programas.html" class="badge" target="_blank" rel="noopener noreferrer">
+                        Programas disponíveis
                     </a>
                 </div>
             </article>
