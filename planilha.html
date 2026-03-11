@@ -1,15 +1,695 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=https://mon.net.br/3u71iy">
-<title>Redirecionando...</title>
-<script>
-window.location.replace("https://mon.net.br/3u71iy");
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilha de Controle Financeiro Pessoal | Paulo Fagoto</title>
+    <meta name="description" content="Planilha de Excel para controle de receitas e despesas mensais. Gráficos automáticos, fácil de usar. Baixe agora por apenas R$10 e organize suas finanças.">
+    <meta name="keywords" content="planilha financeira, controle de gastos, orçamento doméstico, excel, receitas e despesas, planilha de orçamento">
+    <meta name="author" content="Paulo Fagoto">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.paulofagoto.com.br/planilha.html">
+    <meta property="og:title" content="Planilha de Controle Financeiro Mensal">
+    <meta property="og:description" content="Controle suas finanças de forma simples e visual. Gráficos automáticos e navegação fácil.">
+    <meta property="og:image" content="https://i.imgur.com/XqxMD2K.jpg">
+    <meta property="og:image:alt" content="Planilha Financeira">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Planilha de Controle Financeiro">
+    <meta name="twitter:description" content="Organize suas receitas e despesas com essa planilha automática.">
+    <meta name="twitter:image" content="https://i.imgur.com/XqxMD2K.jpg">
+
+    <!-- Favicon (ícone de planilha) -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='80' height='80' x='10' y='10' fill='%231e6f5c' rx='10'/%3E%3Cpath fill='%23fff' d='M25 30h50v6H25zm0 12h50v6H25zm0 12h50v6H25zm0 12h30v6H25z'/%3E%3C/svg%3E">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fbfd;
+            color: #1e2b3c;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Cabeçalho */
+        .header {
+            background: #0f2a3f; /* azul escuro */
+            color: white;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: white;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #ffb347; /* laranja */
+        }
+        .btn-compra {
+            background: #ffb347;
+            color: #0f2a3f;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 1rem;
+            border: 2px solid transparent;
+        }
+        .btn-compra:hover {
+            background: #ffa01e;
+            transform: scale(1.05);
+        }
+        .btn-compra i {
+            margin-left: 8px;
+        }
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f0f7fa 0%, #e6f0f5 100%);
+            padding: 60px 0;
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1 1 450px;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0f2a3f;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 span {
+            color: #1e6f5c; /* verde escuro */
+            background: rgba(30,111,92,0.1);
+            padding: 0 8px;
+            border-radius: 8px;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .badge {
+            background: white;
+            border-radius: 40px;
+            padding: 10px 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #0f2a3f;
+        }
+        .badge i {
+            color: #1e6f5c;
+        }
+        .hero-image {
+            flex: 1 1 500px;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 25px 40px -12px rgba(0,40,30,0.4);
+            border: 4px solid white;
+        }
+        .btn-principal {
+            background: #1e6f5c;
+            color: white;
+            font-size: 1.3rem; /* reduzido */
+            font-weight: 700;
+            padding: 14px 36px; /* ajustado */
+            border-radius: 60px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 12px 20px -8px rgba(30,111,92,0.4);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center; /* garantir alinhamento */
+            line-height: 1.4;
+        }
+        .btn-principal:hover {
+            background: #155a49;
+            transform: translateY(-4px);
+        }
+        .btn-principal i {
+            margin-left: 10px;
+        }
+        /* Seção dores */
+        .dores {
+            background: white;
+            padding: 80px 0;
+        }
+        .dores h2 {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #0f2a3f;
+            margin-bottom: 20px;
+        }
+        .dores h2 span {
+            color: #1e6f5c;
+        }
+        .dores-sub {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            color: #4a5a6e;
+        }
+        .dores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .dor-item {
+            background: #f8fafc;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border-bottom: 4px solid #ffb347;
+        }
+        .dor-item i {
+            font-size: 3rem;
+            color: #1e6f5c;
+            margin-bottom: 20px;
+        }
+        .dor-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #0f2a3f;
+        }
+        .dor-item p {
+            color: #4a5a6e;
+        }
+        /* Seção recursos */
+        .recursos {
+            background: #f0f7fa;
+            padding: 80px 0;
+        }
+        .recursos h2 {
+            text-align: center;
+            font-size: 2.6rem;
+            color: #0f2a3f;
+            margin-bottom: 60px;
+        }
+        .recursos h2 span {
+            color: #1e6f5c;
+        }
+        .recurso {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+        .recurso:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .recurso-img {
+            flex: 1 1 400px;
+        }
+        .recurso-img img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+        .recurso-texto {
+            flex: 1 1 400px;
+        }
+        .recurso-texto h3 {
+            font-size: 2rem;
+            color: #0f2a3f;
+            margin-bottom: 16px;
+        }
+        .recurso-texto p {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .recurso-texto ul {
+            list-style: none;
+        }
+        .recurso-texto li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .recurso-texto li i {
+            color: #1e6f5c;
+        }
+        /* Prova social */
+        .depoimentos {
+            background: white;
+            padding: 80px 0;
+        }
+        .depoimentos h2 {
+            text-align: center;
+            font-size: 2.6rem;
+            color: #0f2a3f;
+            margin-bottom: 40px;
+        }
+        .depoimentos h2 span {
+            color: #ffb347;
+        }
+        .depo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .depo-card {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .depo-card::before {
+            content: '\201C';
+            font-size: 6rem;
+            color: #1e6f5c;
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: serif;
+        }
+        .depo-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            color: #1e2b3c;
+        }
+        .depo-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .depo-author .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #1e6f5c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .depo-author .avatar i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        .depo-author h4 {
+            font-weight: 700;
+            color: #0f2a3f;
+        }
+        .depo-author p {
+            font-style: normal;
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        /* CTA final */
+        .cta-final {
+            background: linear-gradient(145deg, #0f2a3f, #1a3f5a);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .cta-final h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .cta-final p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .preco {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffb347;
+            margin-bottom: 20px;
+        }
+        .btn-cta {
+            background: #ffb347;
+            color: #0f2a3f;
+            font-size: 1.8rem;
+            font-weight: 800;
+            padding: 20px 60px;
+            border-radius: 80px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            border: 4px solid white;
+        }
+        .btn-cta:hover {
+            background: #ffa01e;
+            transform: scale(1.05);
+        }
+        .seguranca {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #ccddee;
+        }
+        .seguranca i {
+            margin: 0 8px;
+        }
+        /* Rodapé */
+        .footer {
+            background: #0b1f2e;
+            color: #b0c4de;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffb347;
+            text-decoration: none;
+        }
+        .footer p {
+            margin: 8px 0;
+        }
+        /* Notificações */
+        .notification-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+        .notification {
+            background: white;
+            border-left: 6px solid #1e6f5c;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 320px;
+            animation: slideIn 0.5s, fadeOut 0.5s 4.5s forwards;
+            pointer-events: none;
+        }
+        .notification i {
+            font-size: 2rem;
+            color: #1e6f5c;
+        }
+        .notification-content p {
+            font-weight: 600;
+            color: #0f2a3f;
+        }
+        .notification-content small {
+            color: #7f8c8d;
+            font-size: 0.8rem;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; transform: translateX(10px); }
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.4rem; }
+            .btn-principal { font-size: 1.1rem; padding: 12px 24px; }
+            .recurso, .recurso:nth-child(even) { flex-direction: column; }
+            .cta-final h2 { font-size: 2.2rem; }
+            .preco { font-size: 2.8rem; }
+            .btn-cta { font-size: 1.4rem; padding: 16px 40px; }
+        }
+    </style>
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Paulo<span>Fagoto</span></a>
+            <a href="https://pay.monetizze.com.br/KRR457494" class="btn-compra" target="_blank" rel="noopener">COMPRAR AGORA <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Controle <span>total</span> do seu dinheiro com uma planilha simples e automática</h1>
+                    <p>Receitas, despesas, gráficos e análise mensal. Tudo no Excel, sem complicação.</p>
+                    <div class="hero-badges">
+                        <span class="badge"><i class="fas fa-check-circle"></i> Gráficos automáticos</span>
+                        <span class="badge"><i class="fas fa-check-circle"></i> Navegação por botões</span>
+                        <span class="badge"><i class="fas fa-check-circle"></i> Compatível Excel 2013+</span>
+                    </div>
+                    <a href="https://pay.monetizze.com.br/KRR457494" class="btn-principal" target="_blank" rel="noopener">QUERO ORGANIZAR MINHAS FINANÇAS <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.imgur.com/XqxMD2K.jpg" alt="Planilha Financeira">
+                </div>
+            </div>
+        </section>
+
+        <!-- DORES / BENEFÍCIOS -->
+        <section class="dores">
+            <div class="container">
+                <h2>Você <span>merece</span> ter paz financeira</h2>
+                <p class="dores-sub">Chega de planilhas confusas ou de não saber para onde seu dinheiro está indo.</p>
+                <div class="dores-grid">
+                    <div class="dor-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Visão clara</h3>
+                        <p>Gráficos que mostram exatamente suas receitas e despesas mês a mês.</p>
+                    </div>
+                    <div class="dor-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Automático</h3>
+                        <p>Basta lançar os valores, o restante é calculado instantaneamente.</p>
+                    </div>
+                    <div class="dor-item">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h3>Navegação fácil</h3>
+                        <p>Botões de menu para alternar entre receitas, despesas e análise.</p>
+                    </div>
+                    <div class="dor-item">
+                        <i class="fas fa-file-excel"></i>
+                        <h3>100% Excel</h3>
+                        <p>Funciona offline, sem necessidade de internet. Seus dados seguros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECURSOS DETALHADOS -->
+        <section class="recursos">
+            <div class="container">
+                <h2>Conheça a <span>planilha</span> por dentro</h2>
+                
+                <div class="recurso">
+                    <div class="recurso-img">
+                        <img src="https://i.imgur.com/1kJc8Yr.png" alt="Menu de navegação">
+                    </div>
+                    <div class="recurso-texto">
+                        <h3>Navegação por botões</h3>
+                        <p>Com um clique você vai para a tabela de receitas, despesas ou análise. Tudo intuitivo e rápido.</p>
+                        <ul>
+                            <li><i class="fas fa-circle-check"></i> Design limpo e profissional</li>
+                            <li><i class="fas fa-circle-check"></i> Botões com atalhos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="recurso">
+                    <div class="recurso-img">
+                        <img src="https://i.imgur.com/gmf57Te.png" alt="Tabela de receitas">
+                    </div>
+                    <div class="recurso-texto">
+                        <h3>Registro de receitas</h3>
+                        <p>Cadastre todas as suas entradas de dinheiro: salário, freelas, rendimentos. A planilha soma automaticamente.</p>
+                    </div>
+                </div>
+
+                <div class="recurso">
+                    <div class="recurso-img">
+                        <img src="https://i.imgur.com/HloQH3g.png" alt="Tabela de despesas">
+                    </div>
+                    <div class="recurso-texto">
+                        <h3>Controle de despesas</h3>
+                        <p>Anote todos os gastos do mês, categorize e veja o total. Identifique onde pode economizar.</p>
+                    </div>
+                </div>
+
+                <div class="recurso">
+                    <div class="recurso-img">
+                        <img src="https://i.imgur.com/Gxn8tEc.png" alt="Guia de análise">
+                    </div>
+                    <div class="recurso-texto">
+                        <h3>Análise financeira mensal</h3>
+                        <p>A guia de análise cruza receitas e despesas, mostrando se você teve lucro ou prejuízo em cada mês. Gráficos automáticos para uma visão panorâmica.</p>
+                        <ul>
+                            <li><i class="fas fa-chart-pie"></i> Gráfico de composição de despesas</li>
+                            <li><i class="fas fa-chart-bar"></i> Comparativo receitas x despesas</li>
+                            <li><i class="fas fa-chart-line"></i> Evolução do saldo mensal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS (PROVA SOCIAL) -->
+        <section class="depoimentos">
+            <div class="container">
+                <h2>Quem usa <span>recomenda</span></h2>
+                <div class="depo-grid">
+                    <div class="depo-card">
+                        <p>"Finalmente consegui enxergar para onde meu dinheiro estava indo. A planilha é simples e os gráficos são incríveis!"</p>
+                        <div class="depo-author">
+                            <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Ana Paula S.</h4>
+                                <p>Arquiteta</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="depo-card">
+                        <p>"Já usei vários aplicativos, mas essa planilha no Excel é muito mais prática. Recomendo para todos!"</p>
+                        <div class="depo-author">
+                            <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Carlos E.</h4>
+                                <p>Engenheiro</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="depo-card">
+                        <p>"Por apenas R$10, economizo muito mais que isso no mês. Vale cada centavo. Super intuitiva."</p>
+                        <div class="depo-author">
+                            <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Mariana C.</h4>
+                                <p>Professora</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION FINAL -->
+        <section class="cta-final">
+            <div class="container">
+                <h2>Chega de bagunça financeira</h2>
+                <p>Tenha o controle total do seu dinheiro com essa planilha testada e aprovada.</p>
+                <div class="preco">R$ 10,00</div>
+                <a href="https://pay.monetizze.com.br/KRR457494" class="btn-cta" target="_blank" rel="noopener">QUERO AGORA <i class="fas fa-bolt"></i></a>
+                <div class="seguranca">
+                    <i class="fas fa-lock"></i> Pagamento 100% seguro via Monetizze <i class="fas fa-shield-alt"></i>
+                    <br><small>Após a confirmação, você recebe o link para download no e-mail informado.</small>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="fas fa-envelope"></i> Suporte: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+            <p><i class="fas fa-copyright"></i> 2026 Paulo Fagoto - Técnico em Informática. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- NOTIFICAÇÕES DE COMPRA SIMULADAS -->
+    <div class="notification-container" id="notification-container"></div>
+
+    <script>
+        (function() {
+            // Lista de nomes para simular compras
+            const nomes = [
+                "João S.", "Maria F.", "Carlos M.", "Ana J.", "Pedro R.", 
+                "Fernanda L.", "Lucas P.", "Juliana C.", "Rafaela T.", "Bruno G.",
+                "Camila D.", "Diego M.", "Patrícia A.", "Gustavo H.", "Larissa M.",
+                "Rodrigo N.", "Aline S.", "Fábio R.", "Tatiane O.", "Marcelo V."
+            ];
+            const cidades = ["São Paulo", "Rio de Janeiro", "Belo Horizonte", "Brasília", "Curitiba", "Salvador", "Fortaleza", "Porto Alegre", "Campinas", "Valinhos"];
+            
+            function criarNotificacao() {
+                const nome = nomes[Math.floor(Math.random() * nomes.length)];
+                const cidade = cidades[Math.floor(Math.random() * cidades.length)];
+                const container = document.getElementById('notification-container');
+                const notif = document.createElement('div');
+                notif.className = 'notification';
+                notif.innerHTML = `
+                    <i class="fas fa-file-invoice"></i>
+                    <div class="notification-content">
+                        <p><strong>${nome}</strong> de ${cidade} acabou de adquirir a planilha</p>
+                        <small>há alguns segundos</small>
+                    </div>
+                `;
+                container.appendChild(notif);
+                // Remove após 5 segundos
+                setTimeout(() => {
+                    if (notif.parentNode) notif.remove();
+                }, 5000);
+            }
+
+            // Mostra a primeira notificação após 3 segundos
+            setTimeout(() => {
+                criarNotificacao();
+                // Repete a cada 10-18 segundos
+                setInterval(criarNotificacao, Math.random() * 8000 + 10000);
+            }, 3000);
+        })();
+    </script>
 </body>
-
 </html>
-
