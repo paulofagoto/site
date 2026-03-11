@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos | Paulo Fagoto - Técnico em Informática</title>
+    <meta name="description" content="Produtos digitais e físicos para facilitar seu dia a dia. Planilha de controle financeiro e mais.">
+    <meta name="author" content="Paulo Fagoto">
+
+    <!-- Google Fonts (pré-conexão) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (carregamento assíncrono) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+
+    <style>
+        /* ===== VARIÁVEIS E RESET (mesmo do site principal) ===== */
+        :root {
+            --primary-color: #0a66c2;
+            --secondary-color: #25D366;
+            --accent-color: #ff9800;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f1f5f9;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER E NAVEGAÇÃO (igual ao index) ===== */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            max-width: 100%;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: var(--primary-color);
+            outline: 2px solid var(--primary-color);
+            outline-offset: 4px;
+        }
+
+        nav a:hover::after,
+        nav a:focus::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover,
+        .whatsapp-float:focus {
+            transform: scale(1.15);
+            background-color: #20b859;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            outline: none;
+        }
+
+        .whatsapp-float::after {
+            content: "Fale comigo";
+            position: absolute;
+            right: 75px;
+            background: var(--dark-color);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover::after,
+        .whatsapp-float:focus::after {
+            opacity: 1;
+            right: 85px;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* ===== TÍTULO DA PÁGINA ===== */
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: var(--dark-color);
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== GRADE DE PRODUTOS (3 colunas em telas grandes) ===== */
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .produto-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+        }
+
+        .produto-imagem {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #f1f5f9;
+        }
+
+        .produto-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .produto-nome {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+        }
+
+        .produto-descricao {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .produto-preco {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .produto-preco small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray-color);
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .produto-badge {
+            display: inline-block;
+            background-color: #ffedd5;
+            color: #c2410c;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .btn-comprar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-comprar:hover,
+        .btn-comprar:focus {
+            background-color: #0a4f8a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(10, 102, 194, 0.3);
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .btn-comprar i {
+            margin-left: 8px;
+        }
+
+        /* ===== RODAPÉ IDÊNTICO AO DA PÁGINA PRINCIPAL ===== */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ===== MODAL DE POLÍTICA DE PRIVACIDADE (igual ao index) ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .modal[aria-hidden="false"] {
+            display: block;
+        }
+
+        .modal-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .modal-container {
+            background: white;
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            cursor: default;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--gray-color);
+            cursor: pointer;
+            padding: 0 8px;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: var(--dark-color);
+            transform: scale(1.2);
+            outline: 2px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .modal-content {
+            padding: 25px;
+        }
+
+        .privacy-content {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .privacy-content h4 {
+            margin: 20px 0 10px;
+            color: var(--dark-color);
+        }
+
+        .privacy-content p {
+            margin-bottom: 15px;
+            color: #334155;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 992px) {
+            .produtos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo-img {
+                height: 50px;
+            }
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .produtos-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-header h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <img src="https://i.imgur.com/UWT1VAB.png" alt="Paulo Fagoto Técnico em Informática" class="logo-img">
+        </div>
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#depoimentos">Depoimento</a></li>
+                <li><a href="index.html#localizacao">Localização</a></li>
+                <li><a href="programas.html">Programas</a></li>
+                <li><a href="produtos.html" class="active">Produtos</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <h1 class="page-title">Nossos Produtos</h1>
+
+    <div class="produtos-grid">
+        <!-- Card da Planilha de Controle Financeiro -->
+        <div class="produto-card">
+            <img src="https://i.imgur.com/XqxMD2K.jpg" alt="Planilha de Controle Financeiro" class="produto-imagem">
+            <div class="produto-info">
+                <span class="produto-badge"><i class="fas fa-star"></i> Mais vendido</span>
+                <h2 class="produto-nome">Planilha de Controle Financeiro Pessoal</h2>
+                <p class="produto-descricao">
+                    Organize suas receitas e despesas de forma simples e automática no Excel. 
+                    Gráficos dinâmicos, navegação por botões e análise mensal.
+                </p>
+                <div class="produto-preco">
+                    R$ 10,00
+                    <small>R$ 37,00</small>
+                </div>
+                <!-- Botão alterado para "Conheça a Planilha" e link para planilha.html -->
+                <a href="planilha.html" class="btn-comprar">
+                    Conheça a Planilha <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Segundo produto (exemplo - pode ser removido ou substituído) -->
+        <div class="produto-card">
+            <img src="https://i.imgur.com/placeholder.jpg" alt="Em breve" class="produto-imagem" style="background-color: #e2e8f0; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 2rem;">
+            <div class="produto-info">
+                <span class="produto-badge"><i class="fas fa-clock"></i> Em breve</span>
+                <h2 class="produto-nome">Novo produto em desenvolvimento</h2>
+                <p class="produto-descricao">
+                    Estamos preparando algo especial para você. Em breve mais novidades!
+                </p>
+                <div class="produto-preco">
+                    R$ --,--
+                </div>
+                <a href="#" class="btn-comprar" style="background-color: #94a3b8; pointer-events: none;">
+                    Indisponível
+                </a>
+            </div>
+        </div>
+
+        <!-- Terceiro produto (exemplo - mesmo placeholder) -->
+        <div class="produto-card">
+            <img src="https://i.imgur.com/placeholder.jpg" alt="Em breve" class="produto-imagem" style="background-color: #e2e8f0; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 2rem;">
+            <div class="produto-info">
+                <span class="produto-badge"><i class="fas fa-clock"></i> Em breve</span>
+                <h2 class="produto-nome">Outro produto em breve</h2>
+                <p class="produto-descricao">
+                    Fique atento, em breve lançaremos mais novidades.
+                </p>
+                <div class="produto-preco">
+                    R$ --,--
+                </div>
+                <a href="#" class="btn-comprar" style="background-color: #94a3b8; pointer-events: none;">
+                    Indisponível
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ===== RODAPÉ IDÊNTICO AO DA PÁGINA PRINCIPAL ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Paulo Fagoto</h4>
+                <address>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Jardim dos Manacás, Valinhos/SP</p>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="https://wa.me/5519971014540" target="_blank" rel="noopener noreferrer">(19) 97101-4540</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></p>
+                    <p><i class="fas fa-id-card" aria-hidden="true"></i> CNPJ: 64.383.742/0001-26</p>
+                </address>
+            </div>
+            <div class="footer-col">
+                <h4>Horário de Atendimento Presencial</h4>
+                <p>Segunda a Sexta: 9h às 19h</p>
+                <p>Sábado: 9h às 13h</p>
+                <p>Domingo: Fechado (sob consulta)</p>
+                <p><strong>Atendimento somente com agendamento prévio</strong></p>
+            </div>
+            <div class="footer-col">
+                <h4>Siga-me</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/tecpaulohenrique" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/tecpaulohenrique" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5519971014540" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/paulofagoto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@PauloFagoto" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p style="margin-top: 20px;">Faça seu orçamento sem compromisso!</p>
+                <p><a href="#" id="openPrivacyPolicy" style="color: #94a3b8; font-size: 0.9rem;">Políticas de Privacidade</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; <span id="ano"></span> Paulo Fagoto - Técnico em Informática. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Botão flutuante do WhatsApp -->
+<a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20tenho%20interesse%20em%20um%20produto" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Contato via WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<!-- Modal de Política de Privacidade (igual ao index) -->
+<div id="privacy-policy-modal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-modal-close>
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+            <div class="modal-header">
+                <h3 id="privacy-title">Política de Privacidade</h3>
+                <button class="modal-close" aria-label="Fechar" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-content privacy-content">
+                <h4>1. Quem somos</h4>
+                <p>Paulo Fagoto Técnico em Informática é um serviço de assistência técnica localizado em Valinhos/SP. Esta política explica como tratamos seus dados pessoais quando você visita nosso site e utiliza nossos serviços.</p>
+                
+                <h4>2. Dados coletados</h4>
+                <p>Podemos coletar informações como nome, e-mail, telefone quando você entra em contato conosco. Além disso, coletamos dados de navegação através de cookies, incluindo páginas visitadas, tempo de acesso e origem.</p>
+                
+                <h4>3. Cookies</h4>
+                <p>Utilizamos cookies para melhorar a experiência do usuário e analisar o tráfego. Os cookies necessários são essenciais para o funcionamento do site. Os cookies estatísticos (Google Analytics) nos ajudam a entender como você usa o site. Os cookies de marketing (Google AdSense) são usados para exibir anúncios personalizados.</p>
+                
+                <h4>4. Base legal</h4>
+                <p>Processamos seus dados com base no seu consentimento (para cookies não essenciais) e para a execução de contrato (quando você solicita um serviço).</p>
+                
+                <h4>5. Compartilhamento de dados</h4>
+                <p>Compartilhamos dados com o Google (Analytics e AdSense) de acordo com as políticas dessas plataformas. Não vendemos seus dados pessoais.</p>
+                
+                <h4>6. Seus direitos</h4>
+                <p>Você pode solicitar acesso, correção ou exclusão de seus dados a qualquer momento através do e-mail adm@paulofagoto.com.br.</p>
+                
+                <h4>7. Alterações nesta política</h4>
+                <p>Esta política pode ser atualizada periodicamente. Recomendamos revisá-la regularmente.</p>
+                
+                <p><em>Última atualização: março de 2026</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Atualizar ano no rodapé
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Funcionalidade do modal de Política de Privacidade
+    const privacyModal = document.getElementById('privacy-policy-modal');
+    const openPrivacyLink = document.getElementById('openPrivacyPolicy');
+
+    function openPrivacyPolicy(e) {
+        e.preventDefault();
+        privacyModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePrivacyModal() {
+        privacyModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    if (openPrivacyLink) {
+        openPrivacyLink.addEventListener('click', openPrivacyPolicy);
+    }
+
+    // Fechar modal ao clicar no overlay ou no botão de fechar
+    const overlay = privacyModal.querySelector('.modal-overlay');
+    const closeBtn = privacyModal.querySelector('.modal-close');
+
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closePrivacyModal();
+            }
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closePrivacyModal);
+    }
+
+    // Fechar com tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && privacyModal.getAttribute('aria-hidden') === 'false') {
+            closePrivacyModal();
+        }
+    });
+</script>
+
+</body>
+</html>
