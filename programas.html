@@ -325,13 +325,23 @@
             background: var(--secondary);
         }
 
-        .footer-col p, .footer-col a {
+        .footer-col p {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-col p a {
+            display: inline;
+        }
+
+        .footer-col p,
+        .footer-col a {
             color: #cbd5e1;
             text-decoration: none;
             display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            transition: color 0.2s;
+            margin-bottom: 10px;
+            transition: var(--transition);
         }
 
         .footer-col a:hover {
