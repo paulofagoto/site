@@ -57,7 +57,7 @@
       background: var(--bg-light);
       color: var(--text-dark);
       line-height: 1.5;
-      scroll-behavior: smooth; /* padrão, mas será desabilitado se o usuário preferir */
+      scroll-behavior: smooth;
     }
 
     .container {
@@ -217,7 +217,6 @@
       gap: 32px;
     }
 
-    /* cards como article para melhor semântica */
     .card {
       background: var(--card-bg);
       border-radius: 28px;
@@ -339,7 +338,6 @@
       color: white;
     }
 
-    /* Feedback de cópia (tooltip) com role="status" */
     .copy-feedback {
       position: absolute;
       bottom: 100%;
@@ -402,7 +400,6 @@
       transform: translateY(-2px);
     }
 
-    /* MODAL melhorado */
     .modal {
       display: none;
       position: fixed;
@@ -449,12 +446,10 @@
       background: #f0f4fa;
     }
 
-    /* quando modal aberto, impede rolagem do fundo */
     body.modal-open {
       overflow: hidden;
     }
 
-    /* Botão Voltar ao Topo */
     .back-to-top {
       position: fixed;
       bottom: 30px;
@@ -487,11 +482,11 @@
       transform: scale(1.05);
     }
 
-    /* Estilo para os anúncios (integração discreta) */
+    /* Estilo para os anúncios */
     .ad-container {
       margin: 40px 0 20px;
       text-align: center;
-      min-height: 100px; /* evita layout shift */
+      min-height: 100px;
       background: rgba(0,0,0,0.02);
       border-radius: 16px;
       padding: 8px;
@@ -579,7 +574,7 @@
         <span class="badge"><i class="fas fa-tools" aria-hidden="true"></i> Mão de obra apenas (não vendo peças)</span>
       </div>
 
-      <!-- Bloco de anúncio Início -->
+      <!-- Bloco de anúncio Início (sem script inline) -->
       <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -587,9 +582,6 @@
              data-ad-slot="6766869962"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </section>
 
@@ -635,7 +627,7 @@
         </div>
       </article>
 
-      <!-- Bloco de anúncio Serviços -->
+      <!-- Bloco de anúncio Serviços (sem script inline) -->
       <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -643,9 +635,6 @@
              data-ad-slot="6766869962"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </section>
 
@@ -680,7 +669,7 @@
         <p style="margin-top: 10px;"><i class="fas fa-file-signature" aria-hidden="true"></i> Serviço legalizado com emissão de nota fiscal (se necessário) e garantia de 3 meses na mão de obra (garantia legal).</p>
       </div>
 
-      <!-- Bloco de anúncio Processo -->
+      <!-- Bloco de anúncio Processo (sem script inline) -->
       <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -688,9 +677,6 @@
              data-ad-slot="6766869962"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </section>
 
@@ -707,7 +693,7 @@
         </div>
       </article>
 
-      <!-- Bloco de anúncio Produto -->
+      <!-- Bloco de anúncio Produto (sem script inline) -->
       <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -715,9 +701,6 @@
              data-ad-slot="6766869962"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </section>
 
@@ -752,7 +735,7 @@
       <p style="text-align: center; margin-top: 24px;"><i class="fas fa-phone-alt" aria-hidden="true"></i> WhatsApp: (19) 97101-4540  |  E-mail: adm@paulofagoto.com.br</p>
       <p style="text-align: center; margin-top: 8px;">📌 Atendimento somente com horário marcado via WhatsApp.</p>
 
-      <!-- Bloco de anúncio Contato -->
+      <!-- Bloco de anúncio Contato (sem script inline) -->
       <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -760,9 +743,6 @@
              data-ad-slot="6766869962"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </section>
   </main>
@@ -791,6 +771,22 @@
       const navLinks = document.querySelectorAll('.nav-links a');
       const homeLogo = document.getElementById('homeLogo');
 
+      // ---------- FUNÇÃO PARA CARREGAR ANÚNCIOS DA SEÇÃO (AdSense) ----------
+      function carregarAnuncios(secaoElement) {
+        // Seleciona todos os blocos de anúncio dentro da seção que ainda não foram processados
+        const blocos = secaoElement.querySelectorAll('.adsbygoogle:not([data-ad-processado])');
+        blocos.forEach(bloco => {
+          // Marca como processado para não tentar novamente
+          bloco.setAttribute('data-ad-processado', 'true');
+          // Tenta carregar o anúncio
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {
+            console.warn('Erro ao carregar anúncio', e);
+          }
+        });
+      }
+
       // ---------- FUNÇÃO PARA MOSTRAR SEÇÃO E ATUALIZAR HASH ----------
       function showSection(sectionId, updateHash = true) {
         if (!sections[sectionId]) return;
@@ -799,7 +795,11 @@
         Object.values(sections).forEach(s => s.classList.add('section-hidden'));
 
         // Mostra a desejada
-        sections[sectionId].classList.remove('section-hidden');
+        const secaoAtual = sections[sectionId];
+        secaoAtual.classList.remove('section-hidden');
+
+        // Carrega anúncios da seção que acabou de ficar visível
+        carregarAnuncios(secaoAtual);
 
         // Atualiza active nos links e aria-current
         navLinks.forEach(link => {
@@ -812,9 +812,9 @@
         });
 
         // Move o foco para o título da seção (acessibilidade)
-        const heading = sections[sectionId].querySelector('h1, h2, h3');
+        const heading = secaoAtual.querySelector('h1, h2, h3');
         if (heading) {
-          heading.setAttribute('tabindex', '-1'); // torna focável programaticamente
+          heading.setAttribute('tabindex', '-1');
           heading.focus();
         }
 
@@ -853,7 +853,11 @@
         }
       });
 
+      // Inicializa com a seção correta e já carrega anúncios da seção inicial
       handleHashChange();
+      // Como a seção inicial já está visível no handleHashChange, carregamos os anúncios dela
+      // Mas para garantir (se a hash for 'inicio'), chamamos carregarAnuncios novamente?
+      // O showSection já chama carregarAnuncios, então está ok.
 
       // ---------- MODAL DE GARANTIA (acessível) ----------
       const modal = document.getElementById('garantiaModal');
@@ -866,7 +870,6 @@
         modal.classList.add('show');
         body.classList.add('modal-open');
         modal.setAttribute('aria-hidden', 'false');
-        // Foco no primeiro elemento interativo (botão fechar)
         closeModal.focus();
       }
 
@@ -874,7 +877,7 @@
         modal.classList.remove('show');
         body.classList.remove('modal-open');
         modal.setAttribute('aria-hidden', 'true');
-        garantiaBadge.focus(); // retorna foco para quem abriu
+        garantiaBadge.focus();
       }
 
       garantiaBadge.addEventListener('click', abrirModal);
@@ -931,13 +934,12 @@
       }
 
       window.addEventListener('scroll', toggleBackToTop);
-      toggleBackToTop(); // verifica no carregamento
+      toggleBackToTop();
 
       backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // Ajuste para o skip link: garantir que o main seja focável
       document.getElementById('mainContent').setAttribute('tabindex', '-1');
     })();
   </script>
