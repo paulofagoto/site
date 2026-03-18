@@ -41,6 +41,8 @@
       --whatsapp-dark: #128C7E;
       --consent-bg: rgba(10, 30, 50, 0.95);
       --consent-text: #f0f4f8;
+      --remote-highlight: #e3f2fd; /* Azul claro para destaque */
+      --remote-border: #2196f3;
     }
 
     * {
@@ -635,6 +637,65 @@
       margin-left: 30px;
     }
 
+    /* Destaque para serviço remoto na página inicial */
+    .remote-highlight {
+      background: var(--remote-highlight);
+      border: 2px solid var(--remote-border);
+      border-radius: 28px;
+      padding: 28px;
+      margin: 32px 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+    }
+    .remote-highlight .icon {
+      font-size: 3.5rem;
+      color: var(--remote-border);
+      flex: 0 0 auto;
+    }
+    .remote-highlight .content {
+      flex: 1 1 300px;
+    }
+    .remote-highlight h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+    .remote-highlight p {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+    .remote-highlight .remote-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .remote-highlight .remote-list span {
+      background: white;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .remote-highlight .btn-remote {
+      background: var(--remote-border);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .remote-highlight .btn-remote:hover {
+      background: #1976d2;
+      transform: scale(1.02);
+    }
+
     @media (max-width: 640px) {
       .nav-content {
         flex-direction: column;
@@ -668,6 +729,13 @@
         align-items: stretch;
       }
       .consent-buttons {
+        justify-content: center;
+      }
+      .remote-highlight {
+        flex-direction: column;
+        text-align: center;
+      }
+      .remote-highlight .remote-list {
         justify-content: center;
       }
     }
@@ -798,7 +866,7 @@
         <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto, técnico em informática - foto pessoal" class="profile-img" loading="lazy" property="image">
         <div>
           <h1 id="inicio-heading" style="font-size: 2.4rem; font-weight: 700; color: #0b3954; margin-bottom: 4px;" property="name">Paulo Fagoto</h1>
-          <p style="font-size: 1.2rem; color: #2c4054;">Técnico em informática · Autônomo</p>
+          <p style="font-size: 1.2rem; color: #2c4054;">Técnico em informática · Valinhos-SP</p>
           <p style="margin: 8px 0 4px;"><i class="fas fa-map-pin" style="color:#3a7ca5; width: 24px;" aria-hidden="true"></i> <span property="address" itemscope itemtype="https://schema.org/PostalAddress"><span property="addressLocality">Valinhos/SP</span> · <span property="addressRegion">Jardim dos Manacás</span></span> · nascido em 24/02/1991</p>
           <p><i class="fas fa-clock" style="color:#3a7ca5;" aria-hidden="true"></i> Atendimento <strong>somente com horário agendado</strong> via WhatsApp</p>
           <div class="contact-bar">
@@ -814,6 +882,28 @@
         <span class="badge"><i class="fas fa-file-invoice" aria-hidden="true"></i> Nota fiscal emitida</span>
         <span class="badge"><i class="fas fa-tools" aria-hidden="true"></i> Mão de obra apenas (não vendo peças)</span>
       </div>
+
+      <!-- DESTAQUE DO SERVIÇO REMOTO (adiantado para chamar atenção) -->
+      <div class="remote-highlight">
+        <div class="icon">
+          <i class="fas fa-laptop-house"></i>
+        </div>
+        <div class="content">
+          <h3>🖥️ Atendimento Remoto com AnyDesk</h3>
+          <p>Resolvo seu problema sem sair de casa! Agende um horário e receba acesso remoto seguro.</p>
+          <div class="remote-list">
+            <span><i class="fas fa-gear"></i> Configuração</span>
+            <span><i class="fas fa-gauge-high"></i> Otimização</span>
+            <span><i class="fas fa-shield-halved"></i> Remoção de vírus</span>
+            <span><i class="fas fa-download"></i> Instalação de programas</span>
+            <span><i class="fas fa-print"></i> Impressoras</span>
+          </div>
+          <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!%20Preciso%20de%20atendimento%20remoto." class="btn btn-remote" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Quero atendimento remoto
+          </a>
+        </div>
+      </div>
+
       <!-- Anúncio -->
       <div class="ad-container" data-ad-zone="inicio">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -1007,13 +1097,10 @@
 
       function abrirModal(modal, triggerElement) {
         if (!modal) return;
-        // Guarda elemento que acionou
         lastFocusedElement = triggerElement || document.activeElement;
-        // Exibe modal
         modal.classList.add('show');
         document.body.classList.add('modal-open');
         aplicarAriaHiddenEmFundos(true);
-        // Foco no primeiro elemento interativo (botão fechar)
         const closeBtn = modal.querySelector('.modal-close, button');
         if (closeBtn) closeBtn.focus();
       }
@@ -1023,33 +1110,21 @@
         modal.classList.remove('show');
         document.body.classList.remove('modal-open');
         aplicarAriaHiddenEmFundos(false);
-        // Retorna foco ao elemento que abriu
         if (lastFocusedElement) {
           lastFocusedElement.focus();
           lastFocusedElement = null;
         }
       }
 
-      // Configurar fechamento de modais
-      function configurarModal(modal, closeBtn, trigger = null) {
+      function configurarModal(modal, closeBtn) {
         if (!modal) return;
-        if (closeBtn) {
-          closeBtn.addEventListener('click', () => fecharModal(modal));
-        }
-        // Clicar fora do conteúdo fecha
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) fecharModal(modal);
+        if (closeBtn) closeBtn.addEventListener('click', () => fecharModal(modal));
+        modal.addEventListener('click', (e) => { if (e.target === modal) fecharModal(modal); });
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('show')) fecharModal(modal);
         });
-        // Tecla ESC fecha
-        const escHandler = (e) => {
-          if (e.key === 'Escape' && modal.classList.contains('show')) {
-            fecharModal(modal);
-          }
-        };
-        window.addEventListener('keydown', escHandler);
       }
 
-      // Configurar todos os modais
       const garantiaModal = document.getElementById('garantiaModal');
       const garantiaBadge = document.getElementById('garantiaBadge');
       const closeGarantiaModal = document.getElementById('closeGarantiaModal');
@@ -1065,11 +1140,9 @@
       configurarModal(termosModal, closeTermosModal);
       configurarModal(customizarModal, closeCustomizarModal);
 
-      // Links do banner abrem modais
       linkPrivacidade.addEventListener('click', (e) => { e.preventDefault(); abrirModal(privacidadeModal, linkPrivacidade); });
       linkTermos.addEventListener('click', (e) => { e.preventDefault(); abrirModal(termosModal, linkTermos); });
 
-      // Botões do modal de personalização
       cancelarCustomizarBtn.addEventListener('click', () => fecharModal(customizarModal));
       salvarCustomizarBtn.addEventListener('click', () => {
         const newConsent = {
@@ -1081,7 +1154,6 @@
         fecharModal(customizarModal);
       });
 
-      // Funções de consentimento
       function salvarConsentimento(prefs) {
         localStorage.setItem(CONSENT_KEY, JSON.stringify(prefs));
         consent = prefs;
