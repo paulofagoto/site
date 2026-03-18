@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>Paulo Fagoto - Técnico em Informática e Desenvolvedor de Sites</title>
+  <style type="text/css">
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    #container {
+      width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      color: #0066cc;
+      margin-top: 0;
+      border-bottom: 2px solid #0066cc;
+      padding-bottom: 5px;
+    }
+    .menu {
+      background-color: #e6e6e6;
+      padding: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    .menu a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .menu a:hover {
+      text-decoration: underline;
+    }
+    /* Área de conteúdo dinâmico */
+    #conteudo {
+      min-height: 400px;
+      padding: 15px;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+    }
+    .pagina {
+      display: none; /* Todas as páginas começam ocultas */
+    }
+    .pagina.ativa {
+      display: block; /* A página ativa aparece */
+    }
+    h2 {
+      font-size: 18px;
+      color: #0066cc;
+      border-bottom: 1px dashed #999;
+      padding-bottom: 3px;
+      margin-top: 0;
+    }
+    .contato-item {
+      margin-bottom: 8px;
+    }
+    .contato-item strong {
+      display: inline-block;
+      width: 85px;  /* largura ajustada para não quebrar */
+      white-space: nowrap;
+      font-weight: bold;
+    }
+    .contato-valor {
+      margin-left: 5px;  /* pequeno espaço entre o rótulo e o valor */
+    }
+    .diario-entry {
+      background-color: #f9f9f9;
+      border-left: 4px solid #0066cc;
+      padding: 10px;
+      margin-bottom: 15px;
+      /* itálico removido conforme solicitação */
+    }
+    .diario-data {
+      font-weight: bold;
+      color: #0066cc;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+    }
+    .destaque {
+      background-color: #ffffcc;
+      padding: 5px;
+      border: 1px solid #ffcc00;
+    }
+    .intro {
+      text-align: center;
+      padding: 30px 0;
+      font-size: 16px;
+    }
+  </style>
+  <script type="text/javascript">
+    // Função para trocar a página ativa
+    function mostrarPagina(id) {
+      // Oculta todas as páginas
+      var paginas = document.getElementsByClassName('pagina');
+      for (var i = 0; i < paginas.length; i++) {
+        paginas[i].classList.remove('ativa');
+      }
+      // Mostra a página selecionada
+      document.getElementById(id).classList.add('ativa');
+    }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <h1>Paulo Fagoto</h1>
+    <p><strong>Técnico em Informática & Desenvolvedor de Sites Estáticos</strong></p>
+
+    <div class="menu">
+      <a onclick="mostrarPagina('quem-sou')">Quem sou</a> |
+      <a onclick="mostrarPagina('servicos')">Serviços</a> |
+      <a onclick="mostrarPagina('diario-tecnico')">Diário do Técnico</a> |
+      <a onclick="mostrarPagina('diario-dev')">Diário do Desenvolvedor</a> |
+      <a onclick="mostrarPagina('contato')">Contato / Localização</a>
+    </div>
+
+    <!-- Área de conteúdo dinâmico -->
+    <div id="conteudo">
+      <!-- Página inicial (boas-vindas) - fica visível ao carregar -->
+      <div id="inicio" class="pagina ativa">
+        <div class="intro">
+          <p><strong>Bem-vindo ao meu site!</strong></p>
+          <p>Utilize o menu acima para navegar pelas seções. Cada clique abre o conteúdo aqui mesmo, como se fosse uma nova página.</p>
+          <p>Comecei hoje, 01/03/2007, a oferecer meus serviços. Fique à vontade para conhecer meu trabalho.</p>
+        </div>
+      </div>
+
+      <!-- Página Quem sou -->
+      <div id="quem-sou" class="pagina">
+        <h2>Quem sou</h2>
+        <p>Olá! Meu nome é <strong>Paulo Fagoto</strong>, tenho 16 anos (nasci em 24/02/1991) e moro em Valinhos/SP, no bairro Jardim dos Manacás, número 185. Comecei no dia <strong>01/03/2007</strong> a oferecer meus serviços como técnico em informática e desenvolvedor de sites estáticos.</p>
+        <p>Sou um rapaz humilde, trabalho em casa (não faço visitas técnicas) e atendo público doméstico e pequenos comércios. Meu conhecimento em informática é focado em <strong>Windows (versões domésticas)</strong> – não trabalho com servidores, redes ou eletrônica. Já como desenvolvedor, crio sites de uma página só, usando HTML, CSS e JavaScript, e hospedo gratuitamente (apenas o arquivo index.html, sem pastas extras).</p>
+        <p>Se você precisa de ajuda com computadores ou de um site simples e funcional, pode contar comigo!</p>
+      </div>
+
+      <!-- Página Serviços -->
+      <div id="servicos" class="pagina">
+        <h2>Serviços que ofereço</h2>
+        <h3>Como Técnico em Informática:</h3>
+        <ul>
+          <li><strong>Formatação de computadores:</strong> Windows (todas as versões domésticas da época).</li>
+          <li><strong>Consertos simples:</strong> diagnóstico e troca de peças removíveis (fonte, placa-mãe, HD, memória, placa de vídeo, processador (soquete), coolers, etc.). Não mexo com solda ou eletrônica.</li>
+          <li><strong>Upgrades:</strong> aumento de memória RAM, troca de processador, placa-mãe, fonte, gabinete, refrigeração, adição de HDs, placas de rede/som/wi-fi.</li>
+          <li><strong>Montagem de PC:</strong> o cliente compra as peças (eu ajudo com as indicações) e eu monto.</li>
+          <li><strong>Instalação e configuração de impressoras</strong> (presencial ou por acesso remoto).</li>
+          <li><strong>Acesso remoto:</strong> uso o software mais popular da época (como o LogMeIn ou VNC) para atender clientes que não podem trazer o computador.</li>
+          <li><strong>Pequenos reparos no Windows, instalação de drivers e softwares, otimização do sistema.</strong></li>
+        </ul>
+        <p class="destaque"><strong>Importante:</strong> Não vendo peças – apenas indico o modelo ideal, e o cliente compra. Também não trabalho com redes, servidores, eletrônica ou outros sistemas operacionais (só Windows). Atendo PCs de mesa e notebooks.</p>
+
+        <h3>Como Desenvolvedor de Sites:</h3>
+        <ul>
+          <li>Criação de sites estáticos de <strong>uma única página</strong> (HTML, CSS, JavaScript).</li>
+          <li>Uso de recursos como janelas flutuantes, modais, pop-ups para simular várias seções sem poluir o código. (Mas agora estou usando troca de conteúdo dinâmico!)</li>
+          <li>Hospedagem gratuita – envio apenas o arquivo <code>index.html</code> (sem imagens ou pastas internas, e nunca uso imagens em base64).</li>
+          <li>Não faço sites com backend (PHP, bancos de dados) – apenas front-end puro.</li>
+        </ul>
+      </div>
+
+      <!-- Página Diário do Técnico -->
+      <div id="diario-tecnico" class="pagina">
+        <h2>Diário do Técnico</h2>
+        <div class="diario-entry">
+          <span class="diario-data">01/03/2007 – Primeiro dia!</span><br>
+          Hoje comecei minha jornada como técnico. Ainda não apareceu nenhum cliente, mas já estou preparado: meu computador está funcionando, tenho as ferramentas básicas (chaves de fenda, pinça, pasta térmica) e os softwares de acesso remoto instalados. Se você está lendo isso, é porque meu site já está no ar! Aguardo seu contato.
+        </div>
+        <div class="diario-entry">
+          <span class="diario-data">02/03/2007 – Primeiro atendimento!</span><br>
+          Atendi meu primeiro cliente hoje! Um vizinho trouxe um PC com Windows 98 que não ligava. Diagnosticado: fonte queimada. Expliquei que não vendo peças, mas indiquei uma fonte compatível (modelo genérico de 300W). Ele comprou, voltou aqui e eu troquei rapidinho. PC funcionando 100%! Cliente agradecido e já passou meu telefone pra frente. Pequena vitória!
+        </div>
+        <p><em>Mais experiências em breve...</em></p>
+      </div>
+
+      <!-- Página Diário do Desenvolvedor -->
+      <div id="diario-dev" class="pagina">
+        <h2>Diário do Desenvolvedor</h2>
+        <div class="diario-entry">
+          <span class="diario-data">01/03/2007 – Lançamento do site!</span><br>
+          Acabei de subir este site em uma hospedagem gratuita (só o index.html). Usei HTML e CSS puros, sem firulas. Ainda estou aprendendo JavaScript, mas já consigo fazer algumas interações. Quero manter o código limpo e sem imagens pesadas. Se você quiser um site assim, é só me procurar!
+        </div>
+        <div class="diario-entry">
+          <span class="diario-data">02/03/2007 – Navegação por abas internas</span><br>
+          Implementei um sistema de troca de conteúdo usando JavaScript. Cada link do menu mostra uma div diferente. O código ficou simples e eficiente, e não precisei usar iframes. Agora o site simula várias páginas sem sair da index. Estou aprendendo na prática!
+        </div>
+        <p><em>Em breve: mais dicas e novidades.</em></p>
+      </div>
+
+      <!-- Página Contato e Localização -->
+      <div id="contato" class="pagina">
+        <h2>Contato e Localização</h2>
+        <div class="contato-item"><strong>Telefone:</strong> <span class="contato-valor">(19) 9710-1454</span></div>
+        <div class="contato-item"><strong>E-mail:</strong> <span class="contato-valor"><a href="mailto:phfagoto@gmail.com">phfagoto@gmail.com</a></span></div>
+        <div class="contato-item"><strong>Endereço:</strong> <span class="contato-valor">Rua Jardim dos Manacás, 185 – Jardim dos Manacás – Valinhos/SP</span></div>
+        <div class="contato-item"><strong>Atendimento:</strong> <span class="contato-valor">Somente em minha residência ou por acesso remoto (não faço visitas técnicas).</span></div>
+        <div style="margin-top: 15px; background-color: #eee; padding: 10px; border: 1px solid #aaa;">
+          <strong>Como chegar:</strong> Estou no bairro Jardim dos Manacás, próximo ao centro de Valinhos. Entre em contato antes para combinarmos um horário.
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Site criado por Paulo Fagoto – Última atualização: 02/03/2007<br>
+      Tecnologias: HTML 4.01, CSS2 e JavaScript. Nenhuma imagem externa ou base64 foi utilizada. Conteúdo dinâmico via troca de divs.
+    </footer>
+  </div>
+</body>
+</html>
