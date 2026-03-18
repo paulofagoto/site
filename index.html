@@ -37,6 +37,8 @@
       --border-light: #e2e8f0;
       --card-bg: #ffffff;
       --badge-bg: #e6f0f9;
+      --whatsapp-green: #25D366;
+      --whatsapp-dark: #128C7E;
     }
 
     * {
@@ -49,6 +51,9 @@
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
+      }
+      .whatsapp-float {
+        animation: none !important;
       }
     }
 
@@ -450,6 +455,7 @@
       overflow: hidden;
     }
 
+    /* Botão Voltar ao Topo */
     .back-to-top {
       position: fixed;
       bottom: 30px;
@@ -480,6 +486,49 @@
     .back-to-top:hover {
       background: var(--primary-medium);
       transform: scale(1.05);
+    }
+
+    /* Botão Flutuante do WhatsApp com efeito pulsante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: var(--whatsapp-green);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background 0.2s, transform 0.2s;
+      z-index: 99;
+      text-decoration: none;
+      border: none;
+      animation: pulse-whatsapp 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background: var(--whatsapp-dark);
+      transform: scale(1.1);
+      animation: none; /* para não conflitar com o hover */
+    }
+
+    @keyframes pulse-whatsapp {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
     }
 
     /* Estilo para os anúncios */
@@ -516,6 +565,13 @@
         bottom: 20px;
         right: 20px;
       }
+      .whatsapp-float {
+        bottom: 20px;
+        left: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
@@ -533,6 +589,15 @@
       <button class="btn btn-outline" id="fecharModalBtn" style="margin-top: 20px;" type="button">Fechar</button>
     </div>
   </div>
+
+  <!-- Botão Flutuante do WhatsApp com mensagem personalizada -->
+  <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Conversar no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- Botão Voltar ao Topo -->
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo" type="button"><i class="fas fa-arrow-up"></i></button>
@@ -562,7 +627,8 @@
           <p style="margin: 8px 0 4px;"><i class="fas fa-map-pin" style="color:#3a7ca5; width: 24px;" aria-hidden="true"></i> <span property="address" itemscope itemtype="https://schema.org/PostalAddress"><span property="addressLocality">Valinhos/SP</span> · <span property="addressRegion">Jardim dos Manacás</span></span> · nascido em 24/02/1991</p>
           <p><i class="fas fa-clock" style="color:#3a7ca5;" aria-hidden="true"></i> Atendimento <strong>somente com horário agendado</strong> via WhatsApp</p>
           <div class="contact-bar">
-            <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn btn-primary" rel="noopener noreferrer" property="telephone"><i class="fab fa-whatsapp" aria-hidden="true"></i> (19) 97101-4540</a>
+            <!-- Botão principal WhatsApp com mensagem personalizada -->
+            <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" target="_blank" class="btn btn-primary" rel="noopener noreferrer" property="telephone"><i class="fab fa-whatsapp" aria-hidden="true"></i> (19) 97101-4540</a>
             <a href="mailto:adm@paulofagoto.com.br" class="btn btn-outline" property="email"><i class="far fa-envelope" aria-hidden="true"></i> adm@paulofagoto.com.br</a>
           </div>
         </div>
@@ -721,7 +787,8 @@
           <span class="copy-feedback" id="copyFeedback" role="status" aria-live="polite">Copiado!</span>
         </div>
         <p style="margin: 16px 0;">✅ Acima de R$ 400,00 é possível parcelamento via link de pagamento (juros por conta do cliente).</p>
-        <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20gostaria%20de%20parcelar%20um%20serviço%20acima%20de%20R$400." target="_blank" class="btn btn-outline" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar link de parcelamento</a>
+        <!-- Link de parcelamento com mensagem personalizada -->
+        <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" target="_blank" class="btn btn-outline" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar link de parcelamento</a>
       </div>
 
       <div class="social-links">
@@ -730,7 +797,8 @@
         <a href="https://www.instagram.com/tecpaulohenrique" target="_blank" title="Instagram" rel="noopener noreferrer" aria-label="Instagram de Paulo Fagoto"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         <a href="https://www.youtube.com/@PauloFagoto" target="_blank" title="YouTube" rel="noopener noreferrer" aria-label="Canal no YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
         <a href="mailto:adm@paulofagoto.com.br" target="_blank" title="E-mail" aria-label="Enviar e-mail"><i class="far fa-envelope" aria-hidden="true"></i></a>
-        <a href="https://wa.me/5519971014540" target="_blank" title="WhatsApp" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        <!-- Ícone do WhatsApp nas redes sociais com mensagem personalizada -->
+        <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" target="_blank" title="WhatsApp" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
       </div>
       <p style="text-align: center; margin-top: 24px;"><i class="fas fa-phone-alt" aria-hidden="true"></i> WhatsApp: (19) 97101-4540  |  E-mail: adm@paulofagoto.com.br</p>
       <p style="text-align: center; margin-top: 8px;">📌 Atendimento somente com horário marcado via WhatsApp.</p>
@@ -855,9 +923,6 @@
 
       // Inicializa com a seção correta e já carrega anúncios da seção inicial
       handleHashChange();
-      // Como a seção inicial já está visível no handleHashChange, carregamos os anúncios dela
-      // Mas para garantir (se a hash for 'inicio'), chamamos carregarAnuncios novamente?
-      // O showSection já chama carregarAnuncios, então está ok.
 
       // ---------- MODAL DE GARANTIA (acessível) ----------
       const modal = document.getElementById('garantiaModal');
