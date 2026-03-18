@@ -680,18 +680,18 @@
   <!-- MODAL DE GARANTIA -->
   <div id="garantiaModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <div class="modal-content">
-      <button class="modal-close" id="closeModal" aria-label="Fechar modal" title="Fechar" type="button">&times;</button>
+      <button class="modal-close" id="closeGarantiaModal" aria-label="Fechar modal" title="Fechar" type="button">&times;</button>
       <h3 id="modalTitle" style="margin-bottom: 16px;">🔒 Garantia legal de 3 meses</h3>
       <p id="modalDesc">A garantia de mão de obra de 3 meses cobre qualquer serviço executado por Paulo Fagoto. Caso o mesmo problema reapareça ou ocorra falha decorrente do serviço, basta entrar em contato via WhatsApp para reavaliação sem custo. A garantia é oferecida conforme o Código de Defesa do Consumidor (garantia legal).</p>
       <p style="margin-top: 16px;"><i class="fas fa-file-invoice"></i> Nota fiscal emitida, quando solicitada.</p>
-      <button class="btn btn-outline" id="fecharModalBtn" style="margin-top: 20px;" type="button">Fechar</button>
+      <button class="btn btn-outline" id="fecharGarantiaBtn" style="margin-top: 20px;" type="button">Fechar</button>
     </div>
   </div>
 
   <!-- MODAL DE POLÍTICA DE PRIVACIDADE -->
   <div id="privacidadeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="privacidadeTitle">
     <div class="modal-content">
-      <button class="modal-close" id="closePrivacidade" aria-label="Fechar" title="Fechar">&times;</button>
+      <button class="modal-close" id="closePrivacidadeModal" aria-label="Fechar" title="Fechar">&times;</button>
       <h3 id="privacidadeTitle" style="margin-bottom: 20px;">📄 Política de Privacidade</h3>
       <div style="font-size: 0.95rem; line-height: 1.6;">
         <p>A sua privacidade é importante para nós. Esta política explica como coletamos, usamos e protegemos suas informações.</p>
@@ -706,7 +706,7 @@
   <!-- MODAL DE TERMOS DE USO -->
   <div id="termosModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="termosTitle">
     <div class="modal-content">
-      <button class="modal-close" id="closeTermos" aria-label="Fechar" title="Fechar">&times;</button>
+      <button class="modal-close" id="closeTermosModal" aria-label="Fechar" title="Fechar">&times;</button>
       <h3 id="termosTitle" style="margin-bottom: 20px;">📑 Termos de Uso</h3>
       <div style="font-size: 0.95rem; line-height: 1.6;">
         <p>Ao utilizar este site, você concorda com os seguintes termos:</p>
@@ -721,7 +721,7 @@
   <!-- MODAL DE PERSONALIZAR COOKIES -->
   <div id="customizarModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="customizarTitle">
     <div class="modal-content">
-      <button class="modal-close" id="closeCustomizar" aria-label="Fechar" title="Fechar">&times;</button>
+      <button class="modal-close" id="closeCustomizarModal" aria-label="Fechar" title="Fechar">&times;</button>
       <h3 id="customizarTitle" style="margin-bottom: 20px;">⚙️ Personalizar Cookies</h3>
       <p style="margin-bottom: 16px;">Escolha quais tipos de cookies deseja permitir:</p>
       
@@ -750,8 +750,8 @@
       </div>
 
       <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
-        <button class="btn btn-outline" id="cancelarCustomizar">Cancelar</button>
-        <button class="btn btn-primary" id="salvarCustomizar">Salvar preferências</button>
+        <button class="btn btn-outline" id="cancelarCustomizarBtn">Cancelar</button>
+        <button class="btn btn-primary" id="salvarCustomizarBtn">Salvar preferências</button>
       </div>
     </div>
   </div>
@@ -980,18 +980,108 @@
       const btnRecusarTodos = document.getElementById('recusarTodos');
       const btnPersonalizar = document.getElementById('personalizarCookies');
       const customizarModal = document.getElementById('customizarModal');
-      const closeCustomizar = document.getElementById('closeCustomizar');
-      const cancelarCustomizar = document.getElementById('cancelarCustomizar');
-      const salvarCustomizar = document.getElementById('salvarCustomizar');
+      const closeCustomizarModal = document.getElementById('closeCustomizarModal');
+      const cancelarCustomizarBtn = document.getElementById('cancelarCustomizarBtn');
+      const salvarCustomizarBtn = document.getElementById('salvarCustomizarBtn');
       const chkMarketing = document.getElementById('cookiesMarketing');
       const chkEstatisticos = document.getElementById('cookiesEstatisticos');
       const linkPrivacidade = document.getElementById('linkPrivacidadeBanner');
       const linkTermos = document.getElementById('linkTermosBanner');
       const privacidadeModal = document.getElementById('privacidadeModal');
       const termosModal = document.getElementById('termosModal');
-      const closePrivacidade = document.getElementById('closePrivacidade');
-      const closeTermos = document.getElementById('closeTermos');
+      const closePrivacidadeModal = document.getElementById('closePrivacidadeModal');
+      const closeTermosModal = document.getElementById('closeTermosModal');
 
+      // Elementos de fundo para aria-hidden
+      const mainContent = document.getElementById('mainContent');
+      const footerElement = document.querySelector('.footer');
+
+      function aplicarAriaHiddenEmFundos(esconder) {
+        [mainContent, footerElement].forEach(el => {
+          if (el) el.setAttribute('aria-hidden', esconder ? 'true' : 'false');
+        });
+      }
+
+      // Gerenciamento de foco em modais
+      let lastFocusedElement = null;
+
+      function abrirModal(modal, triggerElement) {
+        if (!modal) return;
+        // Guarda elemento que acionou
+        lastFocusedElement = triggerElement || document.activeElement;
+        // Exibe modal
+        modal.classList.add('show');
+        document.body.classList.add('modal-open');
+        aplicarAriaHiddenEmFundos(true);
+        // Foco no primeiro elemento interativo (botão fechar)
+        const closeBtn = modal.querySelector('.modal-close, button');
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function fecharModal(modal) {
+        if (!modal) return;
+        modal.classList.remove('show');
+        document.body.classList.remove('modal-open');
+        aplicarAriaHiddenEmFundos(false);
+        // Retorna foco ao elemento que abriu
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+          lastFocusedElement = null;
+        }
+      }
+
+      // Configurar fechamento de modais
+      function configurarModal(modal, closeBtn, trigger = null) {
+        if (!modal) return;
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => fecharModal(modal));
+        }
+        // Clicar fora do conteúdo fecha
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) fecharModal(modal);
+        });
+        // Tecla ESC fecha
+        const escHandler = (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('show')) {
+            fecharModal(modal);
+          }
+        };
+        window.addEventListener('keydown', escHandler);
+      }
+
+      // Configurar todos os modais
+      const garantiaModal = document.getElementById('garantiaModal');
+      const garantiaBadge = document.getElementById('garantiaBadge');
+      const closeGarantiaModal = document.getElementById('closeGarantiaModal');
+      const fecharGarantiaBtn = document.getElementById('fecharGarantiaBtn');
+      configurarModal(garantiaModal, closeGarantiaModal);
+      if (fecharGarantiaBtn) fecharGarantiaBtn.addEventListener('click', () => fecharModal(garantiaModal));
+      garantiaBadge.addEventListener('click', () => abrirModal(garantiaModal, garantiaBadge));
+      garantiaBadge.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrirModal(garantiaModal, garantiaBadge); }
+      });
+
+      configurarModal(privacidadeModal, closePrivacidadeModal);
+      configurarModal(termosModal, closeTermosModal);
+      configurarModal(customizarModal, closeCustomizarModal);
+
+      // Links do banner abrem modais
+      linkPrivacidade.addEventListener('click', (e) => { e.preventDefault(); abrirModal(privacidadeModal, linkPrivacidade); });
+      linkTermos.addEventListener('click', (e) => { e.preventDefault(); abrirModal(termosModal, linkTermos); });
+
+      // Botões do modal de personalização
+      cancelarCustomizarBtn.addEventListener('click', () => fecharModal(customizarModal));
+      salvarCustomizarBtn.addEventListener('click', () => {
+        const newConsent = {
+          necessary: true,
+          marketing: chkMarketing.checked,
+          statistics: chkEstatisticos.checked
+        };
+        salvarConsentimento(newConsent);
+        fecharModal(customizarModal);
+      });
+
+      // Funções de consentimento
       function salvarConsentimento(prefs) {
         localStorage.setItem(CONSENT_KEY, JSON.stringify(prefs));
         consent = prefs;
@@ -1067,33 +1157,7 @@
           chkMarketing.checked = true;
           chkEstatisticos.checked = true;
         }
-        customizarModal.classList.add('show');
-        document.body.classList.add('modal-open');
-      });
-
-      function fecharModal(modal) {
-        modal.classList.remove('show');
-        document.body.classList.remove('modal-open');
-      }
-
-      closeCustomizar.addEventListener('click', () => fecharModal(customizarModal));
-      cancelarCustomizar.addEventListener('click', () => fecharModal(customizarModal));
-      salvarCustomizar.addEventListener('click', () => {
-        const newConsent = {
-          necessary: true,
-          marketing: chkMarketing.checked,
-          statistics: chkEstatisticos.checked
-        };
-        salvarConsentimento(newConsent);
-        fecharModal(customizarModal);
-      });
-
-      linkPrivacidade.addEventListener('click', (e) => { e.preventDefault(); privacidadeModal.classList.add('show'); document.body.classList.add('modal-open'); });
-      linkTermos.addEventListener('click', (e) => { e.preventDefault(); termosModal.classList.add('show'); document.body.classList.add('modal-open'); });
-      closePrivacidade.addEventListener('click', () => fecharModal(privacidadeModal));
-      closeTermos.addEventListener('click', () => fecharModal(termosModal));
-      [privacidadeModal, termosModal, customizarModal].forEach(modal => {
-        modal.addEventListener('click', (e) => { if (e.target === modal) fecharModal(modal); });
+        abrirModal(customizarModal, btnPersonalizar);
       });
 
       // ---------- SPA ----------
@@ -1156,36 +1220,6 @@
 
       carregarConsentimento();
       handleHashChange();
-
-      // ---------- MODAL DE GARANTIA ----------
-      const modalGarantia = document.getElementById('garantiaModal');
-      const garantiaBadge = document.getElementById('garantiaBadge');
-      const closeModal = document.getElementById('closeModal');
-      const fecharBtn = document.getElementById('fecharModalBtn');
-      const body = document.body;
-
-      function abrirModalGarantia() {
-        modalGarantia.classList.add('show');
-        body.classList.add('modal-open');
-        closeModal.focus();
-      }
-      function fecharModalGarantia() {
-        modalGarantia.classList.remove('show');
-        body.classList.remove('modal-open');
-        garantiaBadge.focus();
-      }
-      garantiaBadge.addEventListener('click', abrirModalGarantia);
-      garantiaBadge.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrirModalGarantia(); }
-      });
-      closeModal.addEventListener('click', fecharModalGarantia);
-      fecharBtn.addEventListener('click', fecharModalGarantia);
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalGarantia.classList.contains('show')) fecharModalGarantia();
-      });
-      modalGarantia.addEventListener('click', (e) => {
-        if (e.target === modalGarantia) fecharModalGarantia();
-      });
 
       // ---------- CÓPIA PIX ----------
       const copyBtn = document.getElementById('copyPixBtn');
