@@ -251,7 +251,7 @@
             color: #128C7E;
         }
 
-        /* Seção FAQ (melhoria) */
+        /* Seção FAQ */
         .faq-section {
             background: rgba(255,255,255,0.7);
             backdrop-filter: blur(8px);
@@ -309,6 +309,87 @@
             line-height: 1.5;
         }
 
+        /* NOVA SEÇÃO DEPOIMENTOS (prova social) */
+        .testimonials-section {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 40px -15px rgba(0,20,30,0.2);
+            border: 1px solid rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e2b3a;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 8px solid #25D366;
+            padding-left: 1.5rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 15px 25px -10px rgba(0,40,30,0.15);
+            transition: all 0.25s ease;
+            border: 1px solid #ffffffaa;
+            position: relative;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -8px #128c7e55;
+            border-color: #25D366;
+        }
+        .testimonial-card i.fa-quote-left {
+            font-size: 2rem;
+            color: #25D366;
+            opacity: 0.3;
+            margin-bottom: 0.5rem;
+        }
+        .testimonial-card p {
+            font-size: 1rem;
+            color: #2c3e50;
+            line-height: 1.5;
+            font-style: italic;
+            margin: 0.5rem 0 1rem 0;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #e0e7ef;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+        .testimonial-author i {
+            font-size: 1.8rem;
+            color: #128C7E;
+            background: #e0f2e9;
+            border-radius: 50%;
+            padding: 8px;
+        }
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e2b3a;
+        }
+        .author-info span {
+            font-size: 0.9rem;
+            color: #5f7d9c;
+        }
+
         footer {
             text-align: center;
             font-size: 1.1rem;
@@ -352,6 +433,7 @@
             .btn-whatsapp i { font-size: 2rem; }
             .services-section { padding: 1.8rem 1rem; }
             .faq-section { padding: 1.8rem 1rem; }
+            .testimonials-section { padding: 1.8rem 1rem; }
             .whatsapp-float { width: 60px; height: 60px; font-size: 2.4rem; bottom: 20px; right: 20px; }
         }
     </style>
@@ -427,7 +509,7 @@
             </div>
         </div>
 
-        <!-- SEÇÃO FAQ COM PAGAMENTO CORRIGIDO: APENAS PIX -->
+        <!-- SEÇÃO FAQ -->
         <div class="faq-section">
             <h2><i class="fas fa-question-circle" style="color:#25D366;"></i> Perguntas frequentes</h2>
             <div class="faq-grid">
@@ -445,7 +527,47 @@
                 </div>
                 <div class="faq-item">
                     <h3><i class="fas fa-credit-card"></i> Como pagar?</h3>
-                    <p><strong>Aceito apenas PIX</strong> (rápido e seguro). Assim que finalizar o serviço, envio a chave e você faz o pagamento.</p>
+                    <p><strong>Aceito apenas PIX</strong> (rápido e seguro). Assim que o acesso estiver terminando, envio a chave e você faz o pagamento.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOVA SEÇÃO DEPOIMENTOS -->
+        <div class="testimonials-section">
+            <h2><i class="fas fa-comments" style="color:#25D366;"></i> Quem já usou recomenda</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>“Precisava instalar uns programas e configurar a impressora. O Paulo resolveu rápido pelo AnyDesk e ainda me ensinou como evitar o problema. Nota 10!”</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="author-info">
+                            <h4>Carlos M.</h4>
+                            <span>Campinas/SP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>“Atendimento impecável! Meu PC estava muito lento, ele fez uma limpeza e otimização completa. Pagamento via PIX, super prático.”</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="author-info">
+                            <h4>Fernanda R.</h4>
+                            <span>Belo Horizonte/MG</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>“Desconfiava de acesso remoto, mas ele foi super profissional e resolveu meu problema em poucos minutos. Recomendo de olhos fechados!”</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="author-info">
+                            <h4>João P.</h4>
+                            <span>Rio de Janeiro/RJ</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
