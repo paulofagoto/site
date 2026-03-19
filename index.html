@@ -47,6 +47,14 @@
             background-color: #128C7E;
             text-decoration: none;
         }
+        /* Estilo para link do mapa */
+        .map-link {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        .map-link:hover {
+            color: #004499;
+        }
         /* Estilo para o histórico (dentro do details) */
         details {
             background: #fff;
@@ -111,7 +119,7 @@
         É de Valinhos/SP? Quer trazer o seu computador para formatação, upgrade e troca de peças?
         Entre em contato comigo e agende sua visita na minha residência
         <a href="https://wa.me/5519971014540" target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>.
-        Estou localizado no Bairro Jardim dos Manacás em Valinhos/SP.
+        Estou localizado no <a href="https://www.google.com/maps/search/?api=1&query=Bairro+Jardim+dos+Manacás+Valinhos+SP" target="_blank" rel="noopener" class="map-link">Bairro Jardim dos Manacás em Valinhos/SP</a>.
     </p>
 
     <!-- 
@@ -129,6 +137,7 @@
                     <span class="data">18/03/2026:</span>
                     <ul>
                         <!-- Melhorias mais recentes primeiro (dentro da mesma data) -->
+                        <li>Adicionado link para Google Maps no endereço para facilitar a localização.</li>
                         <li>Estilizado links do WhatsApp como botões para maior destaque.</li>
                         <li>Adicionado rodapé com horário de atendimento.</li>
                         <li>Adicionado target="_blank" aos links do WhatsApp para abrir em nova aba.</li>
