@@ -32,6 +32,21 @@
         a:hover {
             text-decoration: underline;
         }
+        /* Estilo para os links do WhatsApp parecerem botões */
+        p a[href*="wa.me"] {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+            margin-left: 5px;
+        }
+        p a[href*="wa.me"]:hover {
+            background-color: #128C7E;
+            text-decoration: none;
+        }
         /* Estilo para o histórico (dentro do details) */
         details {
             background: #fff;
@@ -76,6 +91,13 @@
             margin-bottom: 5px;
             padding-bottom: 0;
         }
+        /* Estilo do rodapé */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
     </style>
 </head>
 <body>
@@ -106,7 +128,9 @@
                 <li>
                     <span class="data">18/03/2026:</span>
                     <ul>
-                        <!-- Melhorias mais recentes primeiro -->
+                        <!-- Melhorias mais recentes primeiro (dentro da mesma data) -->
+                        <li>Estilizado links do WhatsApp como botões para maior destaque.</li>
+                        <li>Adicionado rodapé com horário de atendimento.</li>
                         <li>Adicionado target="_blank" aos links do WhatsApp para abrir em nova aba.</li>
                         <li>Substituído ícone de telefone 📞 por ícone de mensagem 💬 nos links do WhatsApp para evitar ligações.</li>
                         <li>Adicionado ícone de telefone 📞 ao link do WhatsApp para melhor identificação.</li>
@@ -123,5 +147,9 @@
             </ul>
         </div>
     </details>
+
+    <footer>
+        Atendimento: segunda a sexta, 9h às 20h — Suporte remoto e presencial em Valinhos/SP.
+    </footer>
 </body>
 </html>
