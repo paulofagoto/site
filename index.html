@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paulo Fagoto • Suporte Remoto</title>
-    <!-- Font Awesome para ícones -->
+    <!-- META TAGS SEO -->
+    <meta name="description" content="Suporte remoto com AnyDesk – Paulo Fagoto. Instalação de programas, drivers, otimização do Windows 10/11. Atendimento rápido via WhatsApp.">
+    <meta name="keywords" content="suporte remoto, anydesk, técnico de informática, assistência remota, windows, instalar programas, drivers">
+    <meta name="author" content="Paulo Fagoto">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Paulo Fagoto • Suporte Remoto com AnyDesk">
+    <meta property="og:description" content="Acesso remoto rápido e seguro via AnyDesk. Clique e chame no WhatsApp.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/25D366/ffffff?text=Suporte+Remoto+AnyDesk">
+    <meta property="og:url" content="https://wa.me/5519971014540">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <title>Paulo Fagoto • Suporte Remoto com AnyDesk</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -29,7 +40,6 @@
             width: 100%;
         }
 
-        /* cabeçalho */
         .hero {
             text-align: center;
             margin-bottom: 3rem;
@@ -55,10 +65,9 @@
             padding-bottom: 0.4rem;
         }
 
-        /* cartão principal de call to action */
         .cta-card {
             background: white;
-            border-radius: 40px 40px 40px 40px;
+            border-radius: 40px;
             box-shadow: 0 25px 45px -12px rgba(0, 32, 64, 0.25);
             padding: 2.5rem 2rem;
             margin-bottom: 3rem;
@@ -81,7 +90,6 @@
             font-weight: 400;
         }
 
-        /* BOTÃO DO WHATSAPP PRINCIPAL (DESTAQUE) */
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
@@ -120,7 +128,6 @@
             100% { box-shadow: 0 20px 30px -8px rgba(18, 140, 126, 0.6); }
         }
 
-        /* BOTÃO FLUTUANTE FIXO DO WHATSAPP */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -156,7 +163,6 @@
             100% { box-shadow: 0 20px 30px -8px rgba(18, 140, 126, 0.7); }
         }
 
-        /* seção "o que está incluso" em formato de cards */
         .services-section {
             background: rgba(255,255,255,0.75);
             backdrop-filter: blur(8px);
@@ -220,7 +226,32 @@
             line-height: 1.4;
         }
 
-        /* rodapé refinado */
+        /* Destaque para o card do AnyDesk */
+        .anydesk-highlight {
+            border: 2px solid #25D366;
+            background: #f0fcf4;
+        }
+        .anydesk-highlight i {
+            color: #15995f;
+        }
+
+        .anydesk-info {
+            background: #e8f5e9;
+            border-radius: 20px;
+            padding: 0.8rem 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: #1e2b3a;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px dashed #25D366;
+        }
+        .anydesk-info i {
+            font-size: 1.8rem;
+            color: #128C7E;
+        }
+
         footer {
             text-align: center;
             font-size: 1.1rem;
@@ -240,7 +271,22 @@
             margin: 0 4px;
         }
 
-        /* responsividade */
+        .trust-badge {
+            display: inline-block;
+            background-color: #1e2b3a;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            margin-top: 1rem;
+            font-weight: 500;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        .trust-badge i {
+            color: #25D366;
+            margin-right: 5px;
+        }
+
         @media (max-width: 600px) {
             .hero h1 { font-size: 2rem; }
             .hero .sub { font-size: 1.1rem; }
@@ -252,18 +298,18 @@
         }
     </style>
 
-    <!-- Schema.org (serviço remoto) atualizado -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Suporte remoto de informática",
+        "name": "Suporte remoto com AnyDesk",
         "provider": {
             "@type": "Person",
             "name": "Paulo Fagoto",
             "telephone": "+5519971014540"
         },
-        "description": "Acesso remoto ao seu computador para instalação de programas, drivers, impressoras, melhorias e correções no Windows 10 e 11.",
+        "description": "Acesso remoto via AnyDesk para instalação de programas, drivers, otimização e correções no Windows.",
         "areaServed": "Brasil",
         "availableChannel": {
             "@type": "ServiceChannel",
@@ -275,20 +321,17 @@
 </head>
 <body>
     <div class="container">
-        <!-- cabeçalho -->
         <div class="hero">
             <h1>🖥️ Paulo Fagoto</h1>
-            <div class="sub">Suporte remoto especializado</div>
+            <div class="sub">Suporte remoto via AnyDesk</div>
         </div>
 
-        <!-- área principal com chamada e botão gigante -->
         <div class="cta-card">
             <p>
                 <strong>Precisa de ajuda com o computador?</strong><br>
-                Posso acessar sua máquina agora mesmo para instalar programas, resolver erros, configurar drivers e muito mais.
+                Eu acesso seu PC remotamente <strong>via AnyDesk</strong> para instalar programas, resolver erros, configurar drivers e muito mais. Rápido e seguro.
             </p>
-            <!-- WHATSAPP PRINCIPAL COM MENSAGEM PERSONALIZADA -->
-            <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20preciso%20de%20um%20acesso%20remoto%20em%20meu%20computador" target="_blank" rel="noopener" class="btn-whatsapp">
+            <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20preciso%20de%20um%20acesso%20remoto%20via%20AnyDesk%20em%20meu%20computador" target="_blank" rel="noopener" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> CHAMAR NO WHATSAPP
             </a>
             <p style="font-size: 1rem; margin-top: 1.5rem; color: #3a4b5e;">
@@ -296,7 +339,6 @@
             </p>
         </div>
 
-        <!-- serviços em cards -->
         <div class="services-section">
             <h2><i class="fas fa-tools" style="color:#25D366;"></i> O que está incluso</h2>
             <div class="services-grid">
@@ -310,10 +352,11 @@
                     <h3>Otimização</h3>
                     <p>Correção de lentidão, erros e atualizações do Windows</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-network-wired"></i>
+                <!-- Card do AnyDesk destacado -->
+                <div class="service-card anydesk-highlight">
+                    <i class="fas fa-desktop"></i>
                     <h3>Acesso remoto</h3>
-                    <p>AnyDesk, TeamViewer ou QuickSupport — você escolhe</p>
+                    <p><strong>Exclusivo via AnyDesk</strong><br>Você baixa, me passa o número e eu assumo o controle.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-shield-alt"></i>
@@ -321,16 +364,22 @@
                     <p>Configuração de firewall, antivírus e remoção de ameaças</p>
                 </div>
             </div>
+            <!-- Instrução rápida AnyDesk -->
+            <div class="anydesk-info">
+                <i class="fas fa-info-circle"></i>
+                <span><strong>Como funciona:</strong> Baixe o AnyDesk, informe o número de 9 dígitos e pronto.</span>
+            </div>
         </div>
 
-        <!-- rodapé -->
         <footer>
             <i class="fas fa-clock"></i> Atendimento remoto: segunda a sexta, 9h às 20h — <strong>em todo o Brasil</strong> <i class="fas fa-map-marker-alt"></i>
+            <div class="trust-badge">
+                <i class="fas fa-shield-alt"></i> 100% online • Atendimento humanizado
+            </div>
         </footer>
     </div>
 
-    <!-- BOTÃO FLUTUANTE DO WHATSAPP (FIXO, PULSANTE) -->
-    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20preciso%20de%20um%20acesso%20remoto%20em%20meu%20computador" target="_blank" rel="noopener" class="whatsapp-float">
+    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20preciso%20de%20um%20acesso%20remoto%20via%20AnyDesk%20em%20meu%20computador" target="_blank" rel="noopener" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 </body>
