@@ -226,7 +226,6 @@
             line-height: 1.4;
         }
 
-        /* Destaque para o card do AnyDesk */
         .anydesk-highlight {
             border: 2px solid #25D366;
             background: #f0fcf4;
@@ -250,6 +249,64 @@
         .anydesk-info i {
             font-size: 1.8rem;
             color: #128C7E;
+        }
+
+        /* Seção FAQ (melhoria) */
+        .faq-section {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 40px -15px rgba(0,20,30,0.2);
+            border: 1px solid rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e2b3a;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 8px solid #25D366;
+            padding-left: 1.5rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px -8px rgba(0,40,30,0.1);
+            transition: all 0.2s;
+        }
+        .faq-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px -10px #128c7e55;
+        }
+        .faq-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e2b3a;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .faq-item h3 i {
+            color: #25D366;
+            font-size: 1.4rem;
+        }
+        .faq-item p {
+            color: #3a4b5e;
+            line-height: 1.5;
         }
 
         footer {
@@ -294,6 +351,7 @@
             .btn-whatsapp { font-size: 1.6rem; padding: 1rem 2rem; gap: 10px; }
             .btn-whatsapp i { font-size: 2rem; }
             .services-section { padding: 1.8rem 1rem; }
+            .faq-section { padding: 1.8rem 1rem; }
             .whatsapp-float { width: 60px; height: 60px; font-size: 2.4rem; bottom: 20px; right: 20px; }
         }
     </style>
@@ -352,7 +410,6 @@
                     <h3>Otimização</h3>
                     <p>Correção de lentidão, erros e atualizações do Windows</p>
                 </div>
-                <!-- Card do AnyDesk destacado -->
                 <div class="service-card anydesk-highlight">
                     <i class="fas fa-desktop"></i>
                     <h3>Acesso remoto</h3>
@@ -364,10 +421,32 @@
                     <p>Configuração de firewall, antivírus e remoção de ameaças</p>
                 </div>
             </div>
-            <!-- Instrução rápida AnyDesk -->
             <div class="anydesk-info">
                 <i class="fas fa-info-circle"></i>
                 <span><strong>Como funciona:</strong> Baixe o AnyDesk, informe o número de 9 dígitos e pronto.</span>
+            </div>
+        </div>
+
+        <!-- SEÇÃO FAQ COM PAGAMENTO CORRIGIDO: APENAS PIX -->
+        <div class="faq-section">
+            <h2><i class="fas fa-question-circle" style="color:#25D366;"></i> Perguntas frequentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3><i class="fas fa-download"></i> Preciso instalar algo?</h3>
+                    <p>Sim, você precisa baixar o AnyDesk (gratuito) no site oficial. Eu posso te orientar pelo WhatsApp.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fas fa-clock"></i> Quanto tempo leva?</h3>
+                    <p>Depende do serviço, mas a maioria dos atendimentos é resolvida em 15 a 30 minutos.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fas fa-lock"></i> É seguro?</h3>
+                    <p>Sim, a conexão é criptografada e você vê tudo o que estou fazendo. Pode encerrar quando quiser.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fas fa-credit-card"></i> Como pagar?</h3>
+                    <p><strong>Aceito apenas PIX</strong> (rápido e seguro). Assim que finalizar o serviço, envio a chave e você faz o pagamento.</p>
+                </div>
             </div>
         </div>
 
