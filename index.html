@@ -41,7 +41,7 @@
       --whatsapp-dark: #128C7E;
       --consent-bg: rgba(10, 30, 50, 0.95);
       --consent-text: #f0f4f8;
-      --remote-highlight: #e3f2fd; /* Azul claro para destaque */
+      --remote-highlight: #e3f2fd;
       --remote-border: #2196f3;
     }
 
@@ -51,14 +51,9 @@
       box-sizing: border-box;
     }
 
-    /* Respeito à redução de movimento */
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-      .whatsapp-float {
-        animation: none !important;
-      }
+      html { scroll-behavior: auto; }
+      .whatsapp-float { animation: none !important; }
     }
 
     body {
@@ -75,11 +70,9 @@
       padding: 0 24px;
     }
 
-    /* Skip link - acessibilidade */
     .skip-link {
       position: absolute;
-      top: -40px;
-      left: 0;
+      top: -40px; left: 0;
       background: var(--primary-dark);
       color: white;
       padding: 8px 16px;
@@ -89,200 +82,76 @@
       z-index: 100;
       transition: top 0.2s;
     }
-    .skip-link:focus {
-      top: 0;
-      outline: 2px solid var(--bg-light);
-    }
+    .skip-link:focus { top: 0; outline: 2px solid var(--bg-light); }
 
-    /* header / nav */
     .navbar {
       background: #ffffffdd;
       backdrop-filter: blur(8px);
       box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      padding: 16px 0;
+      position: sticky; top: 0; z-index: 10; padding: 16px 0;
     }
 
     .nav-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--primary-dark);
-      letter-spacing: -0.02em;
-      cursor: pointer;
-      transition: color 0.1s;
+      font-weight: 700; font-size: 1.5rem; color: var(--primary-dark);
+      letter-spacing: -0.02em; cursor: pointer; transition: color 0.1s;
     }
+    .logo:hover { color: var(--primary-medium); }
+    .logo span { color: var(--primary-light); font-weight: 500; font-size: 1rem; }
 
-    .logo:hover {
-      color: var(--primary-medium);
-    }
-
-    .logo span {
-      color: var(--primary-light);
-      font-weight: 500;
-      font-size: 1rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-    }
-
+    .nav-links { display: flex; gap: 32px; }
     .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--text-dark);
-      transition: 0.2s;
-      font-size: 0.95rem;
-      cursor: pointer;
-      padding-bottom: 4px;
-      border-bottom: 2px solid transparent;
+      text-decoration: none; font-weight: 500; color: var(--text-dark);
+      transition: 0.2s; font-size: 0.95rem; cursor: pointer;
+      padding-bottom: 4px; border-bottom: 2px solid transparent;
     }
+    .nav-links a:hover { color: var(--primary-dark); border-bottom-color: #b0c9da; }
+    .nav-links a.active { color: var(--primary-dark); border-bottom: 2px solid var(--primary-dark); }
 
-    .nav-links a:hover {
-      color: var(--primary-dark);
-      border-bottom-color: #b0c9da;
-    }
-
-    .nav-links a.active {
-      color: var(--primary-dark);
-      border-bottom: 2px solid var(--primary-dark);
-    }
-
-    /* foco visível personalizado para links e botões */
     a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
-      outline: 2px solid var(--primary-light);
-      outline-offset: 2px;
-      border-radius: 4px;
+      outline: 2px solid var(--primary-light); outline-offset: 2px; border-radius: 4px;
     }
 
-    /* botões e elementos gerais */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: white;
-      border: 1px solid #cbd5e0;
-      padding: 8px 18px;
-      border-radius: 40px;
-      font-weight: 500;
-      text-decoration: none;
-      color: var(--text-dark);
-      transition: 0.15s;
-      cursor: pointer;
-      font-size: 0.9rem;
+      display: inline-flex; align-items: center; gap: 8px; background: white;
+      border: 1px solid #cbd5e0; padding: 8px 18px; border-radius: 40px;
+      font-weight: 500; text-decoration: none; color: var(--text-dark);
+      transition: 0.15s; cursor: pointer; font-size: 0.9rem;
     }
+    .btn-primary { background: var(--primary-dark); border-color: var(--primary-dark); color: white; }
+    .btn-primary:hover { background: var(--primary-medium); }
+    .btn-outline:hover { background: #eef2f6; }
 
-    .btn-primary {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
-      color: white;
-    }
+    .section { padding: 64px 0; border-bottom: 1px solid var(--border-light); }
+    .section:last-child { border-bottom: none; }
+    .section-hidden { display: none; }
 
-    .btn-primary:hover {
-      background: var(--primary-medium);
-    }
+    h2 { font-size: 2rem; font-weight: 600; margin-bottom: 32px;
+         letter-spacing: -0.02em; color: var(--primary-dark);
+         display: flex; align-items: center; gap: 12px; }
 
-    .btn-outline:hover {
-      background: #eef2f6;
-    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 32px; }
 
-    /* seções – controladas por JS (SPA) */
-    .section {
-      padding: 64px 0;
-      border-bottom: 1px solid var(--border-light);
-    }
+    .card { background: var(--card-bg); border-radius: 28px; padding: 28px;
+            box-shadow: 0 8px 24px rgba(0,32,64,0.04); transition: 0.1s ease;
+            border: 1px solid #e9edf2; }
+    .card:hover { box-shadow: 0 16px 32px rgba(0,32,64,0.06); }
 
-    .section:last-child {
-      border-bottom: none;
-    }
+    .icon-large { font-size: 2rem; color: var(--primary-light); margin-bottom: 16px; }
 
-    .section-hidden {
-      display: none;
-    }
+    .service-list { list-style: none; margin-top: 16px; }
+    .service-list li { padding: 6px 0; display: flex; align-items: center; gap: 10px;
+                       border-bottom: 1px dashed var(--border-light); }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list i { color: var(--primary-dark); width: 20px; font-size: 0.9rem; }
 
-    h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 32px;
-      letter-spacing: -0.02em;
-      color: var(--primary-dark);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(0, 32, 64, 0.04);
-      transition: 0.1s ease;
-      border: 1px solid #e9edf2;
-    }
-
-    .card:hover {
-      box-shadow: 0 16px 32px rgba(0, 32, 64, 0.06);
-    }
-
-    .icon-large {
-      font-size: 2rem;
-      color: var(--primary-light);
-      margin-bottom: 16px;
-    }
-
-    .service-list {
-      list-style: none;
-      margin-top: 16px;
-    }
-
-    .service-list li {
-      padding: 6px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px dashed var(--border-light);
-    }
-
-    .service-list li:last-child {
-      border-bottom: none;
-    }
-
-    .service-list i {
-      color: var(--primary-dark);
-      width: 20px;
-      font-size: 0.9rem;
-    }
-
-    .badge {
-      background: var(--badge-bg);
-      color: var(--primary-dark);
-      padding: 4px 12px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
-      cursor: pointer;
-      transition: 0.1s;
-    }
-
-    .badge:hover {
-      background: #d0e2f0;
-    }
+    .badge { background: var(--badge-bg); color: var(--primary-dark);
+             padding: 4px 12px; border-radius: 40px; font-size: 0.8rem;
+             font-weight: 600; display: inline-block; cursor: pointer; transition: 0.1s; }
+    .badge:hover { background: #d0e2f0; }
 
     .profile-row {
       display: flex;
@@ -290,462 +159,153 @@
       gap: 32px;
       flex-wrap: wrap;
     }
+    /* Garante que o texto ocupe o espaço restante */
+    .profile-row > div:last-child {
+      flex: 1;
+      min-width: 280px;
+    }
 
+    /* Foto maior, sem moldura */
     .profile-img {
-      width: 140px;
-      height: 140px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
     }
 
-    .contact-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin: 24px 0 8px;
-    }
+    .contact-bar { display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0 8px; }
 
-    .pix-area {
-      background: #e5eff9;
-      padding: 16px 20px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin: 16px 0;
-      position: relative;
-    }
+    .pix-area { background: #e5eff9; padding: 16px 20px; border-radius: 20px;
+                display: flex; align-items: center; justify-content: space-between;
+                flex-wrap: wrap; gap: 16px; margin: 16px 0; position: relative; }
+    .pix-cnpj { font-family: monospace; font-size: 1.3rem; font-weight: 600;
+                background: white; padding: 6px 16px; border-radius: 40px;
+                border: 1px solid #bcd3e6; }
+    .copy-btn { background: transparent; border: 1px solid var(--primary-dark);
+                color: var(--primary-dark); padding: 6px 16px; border-radius: 30px;
+                cursor: pointer; font-weight: 500; font-size: 0.85rem; transition: 0.1s; }
+    .copy-btn:hover { background: var(--primary-dark); color: white; }
 
-    .pix-cnpj {
-      font-family: monospace;
-      font-size: 1.3rem;
-      font-weight: 600;
-      background: white;
-      padding: 6px 16px;
-      border-radius: 40px;
-      border: 1px solid #bcd3e6;
-    }
+    .copy-feedback { position: absolute; bottom: 100%; left: 50%;
+                     transform: translateX(-50%); background: var(--primary-dark);
+                     color: white; padding: 4px 12px; border-radius: 30px;
+                     font-size: 0.75rem; white-space: nowrap; opacity: 0;
+                     transition: opacity 0.2s; pointer-events: none; margin-bottom: 8px; }
+    .copy-feedback.show { opacity: 1; }
 
-    .copy-btn {
-      background: transparent;
-      border: 1px solid var(--primary-dark);
-      color: var(--primary-dark);
-      padding: 6px 16px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 0.85rem;
-      transition: 0.1s;
-    }
+    .product-card { display: flex; flex-direction: row; flex-wrap: wrap;
+                    align-items: center; gap: 20px; }
+    .product-img { max-width: 260px; border-radius: 24px;
+                   border: 1px solid #dbe4ed; box-shadow: 0 6px 12px rgba(0,0,0,0.02); }
 
-    .copy-btn:hover {
-      background: var(--primary-dark);
-      color: white;
-    }
+    .footer { background: white; padding: 32px 0; text-align: center;
+              color: #4b5e71; font-size: 0.9rem; border-top: 1px solid var(--border-light); }
 
-    .copy-feedback {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary-dark);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.2s;
-      pointer-events: none;
-      margin-bottom: 8px;
-    }
-    .copy-feedback.show {
-      opacity: 1;
-    }
+    .social-links { display: flex; gap: 24px; justify-content: center; margin: 24px 0 8px; }
+    .social-links a { color: var(--text-dark); font-size: 1.6rem; transition: 0.2s; }
+    .social-links a:hover { color: var(--primary-dark); transform: translateY(-2px); }
 
-    .product-card {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-    }
+    .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+             background: rgba(0,0,0,0.5); align-items: center; justify-content: center;
+             z-index: 1000; }
+    .modal.show { display: flex; }
+    .modal-content { background: white; max-width:500px; width:90%; max-height:80vh;
+                     overflow-y: auto; padding:32px; border-radius:32px;
+                     box-shadow:0 20px 40px rgba(0,0,0,0.2); position:relative; }
+    .modal-close { position:absolute; top:16px; right:20px; font-size:1.8rem;
+                   cursor:pointer; color:#5b6f83; transition:color 0.1s;
+                   background:transparent; border:none; width:32px; height:32px;
+                   display:flex; align-items:center; justify-content:center;
+                   border-radius:50%; }
+    .modal-close:hover { color: var(--primary-dark); background: #f0f4fa; }
+    body.modal-open { overflow: hidden; }
 
-    .product-img {
-      max-width: 260px;
-      border-radius: 24px;
-      border: 1px solid #dbe4ed;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.02);
-    }
+    .back-to-top { position: fixed; bottom:30px; right:30px; background:var(--primary-dark);
+                   color:white; width:50px; height:50px; border-radius:50%;
+                   display:flex; align-items:center; justify-content:center;
+                   font-size:1.5rem; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2);
+                   transition:0.2s; opacity:0; visibility:hidden; border:none; z-index:99; }
+    .back-to-top.visible { opacity:1; visibility:visible; }
+    .back-to-top:hover { background:var(--primary-medium); transform:scale(1.05); }
 
-    .footer {
-      background: white;
-      padding: 32px 0;
-      text-align: center;
-      color: #4b5e71;
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .social-links {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      margin: 24px 0 8px;
-    }
-
-    .social-links a {
-      color: var(--text-dark);
-      font-size: 1.6rem;
-      transition: 0.2s;
-    }
-
-    .social-links a:hover {
-      color: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    /* modais (garantia, políticas e personalização) */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-content {
-      background: white;
-      max-width: 500px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 32px;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px; right: 20px;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5b6f83;
-      transition: color 0.1s;
-      background: transparent;
-      border: none;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-
-    .modal-close:hover {
-      color: var(--primary-dark);
-      background: #f0f4fa;
-    }
-
-    body.modal-open {
-      overflow: hidden;
-    }
-
-    /* Botão Voltar ao Topo */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--primary-dark);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: 0.2s;
-      opacity: 0;
-      visibility: hidden;
-      border: none;
-      z-index: 99;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      background: var(--primary-medium);
-      transform: scale(1.05);
-    }
-
-    /* Botão Flutuante do WhatsApp com efeito pulsante */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      background: var(--whatsapp-green);
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: background 0.2s, transform 0.2s;
-      z-index: 99;
-      text-decoration: none;
-      border: none;
-      animation: pulse-whatsapp 2s infinite;
-    }
-
-    .whatsapp-float:hover {
-      background: var(--whatsapp-dark);
-      transform: scale(1.1);
-      animation: none;
-    }
-
+    .whatsapp-float { position: fixed; bottom:30px; left:30px; background:var(--whatsapp-green);
+                      color:white; width:60px; height:60px; border-radius:50%;
+                      display:flex; align-items:center; justify-content:center;
+                      font-size:2rem; box-shadow:0 4px 12px rgba(0,0,0,0.2);
+                      transition:background 0.2s, transform 0.2s; z-index:99;
+                      text-decoration:none; border:none; animation:pulse-whatsapp 2s infinite; }
+    .whatsapp-float:hover { background:var(--whatsapp-dark); transform:scale(1.1); animation:none; }
     @keyframes pulse-whatsapp {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+      0% { transform:scale(1); box-shadow:0 0 0 0 rgba(37,211,102,0.7); }
+      70% { transform:scale(1.1); box-shadow:0 0 0 15px rgba(37,211,102,0); }
+      100% { transform:scale(1); box-shadow:0 0 0 0 rgba(37,211,102,0); }
     }
 
-    /* Estilo para os anúncios – controlados por consentimento */
-    .ad-container {
-      margin: 40px 0 20px;
-      text-align: center;
-      min-height: 100px;
-      background: rgba(0,0,0,0.02);
-      border-radius: 16px;
-      padding: 8px;
-    }
-    .ad-container.ad-hidden {
-      display: none;
-    }
-    .ad-container ins {
-      background: transparent;
-    }
+    .ad-container { margin:40px 0 20px; text-align:center; min-height:100px;
+                    background:rgba(0,0,0,0.02); border-radius:16px; padding:8px; }
+    .ad-container.ad-hidden { display:none; }
+    .ad-container ins { background:transparent; }
 
-    /* Banner de consentimento LGPD */
-    .consent-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--consent-bg);
-      color: var(--consent-text);
-      padding: 20px 24px;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-      z-index: 1000;
-      backdrop-filter: blur(8px);
-      border-top: 2px solid var(--primary-light);
-      display: none;
-    }
-    .consent-banner.show {
-      display: block;
-    }
-    .consent-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-    }
-    .consent-text {
-      flex: 1 1 300px;
-      font-size: 0.95rem;
-    }
-    .consent-text a {
-      color: var(--primary-light);
-      text-decoration: underline;
-      cursor: pointer;
-    }
-    .consent-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-    .consent-btn {
-      background: transparent;
-      border: 1px solid var(--primary-light);
-      color: var(--consent-text);
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.2s;
-      font-size: 0.9rem;
-    }
-    .consent-btn:hover {
-      background: var(--primary-light);
-      color: var(--primary-dark);
-    }
-    .consent-btn.accept {
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      border-color: var(--primary-light);
-    }
-    .consent-btn.accept:hover {
-      background: transparent;
-      color: var(--consent-text);
-    }
+    .consent-banner { position:fixed; bottom:0; left:0; right:0; background:var(--consent-bg);
+                      color:var(--consent-text); padding:20px 24px;
+                      box-shadow:0 -4px 20px rgba(0,0,0,0.3); z-index:1000;
+                      backdrop-filter:blur(8px); border-top:2px solid var(--primary-light);
+                      display:none; }
+    .consent-banner.show { display:block; }
+    .consent-content { max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap;
+                       align-items:center; gap:20px; }
+    .consent-text { flex:1 1 300px; font-size:0.95rem; }
+    .consent-text a { color:var(--primary-light); text-decoration:underline; cursor:pointer; }
+    .consent-buttons { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+    .consent-btn { background:transparent; border:1px solid var(--primary-light);
+                   color:var(--consent-text); padding:8px 20px; border-radius:40px;
+                   font-weight:500; cursor:pointer; transition:0.2s; font-size:0.9rem; }
+    .consent-btn:hover { background:var(--primary-light); color:var(--primary-dark); }
+    .consent-btn.accept { background:var(--primary-light); color:var(--primary-dark);
+                          border-color:var(--primary-light); }
+    .consent-btn.accept:hover { background:transparent; color:var(--consent-text); }
 
-    /* Checkboxes personalizadas no modal */
-    .consent-option {
-      margin: 16px 0;
-      padding: 8px 0;
-      border-bottom: 1px dashed var(--border-light);
-    }
-    .consent-option label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-    }
-    .consent-option input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--primary-dark);
-    }
-    .consent-option .option-title {
-      font-weight: 600;
-    }
-    .consent-option .option-desc {
-      font-size: 0.85rem;
-      color: #5b6f83;
-      margin-left: 30px;
-    }
+    .consent-option { margin:16px 0; padding:8px 0; border-bottom:1px dashed var(--border-light); }
+    .consent-option label { display:flex; align-items:center; gap:12px; cursor:pointer; }
+    .consent-option input[type="checkbox"] { width:18px; height:18px; accent-color:var(--primary-dark); }
+    .consent-option .option-title { font-weight:600; }
+    .consent-option .option-desc { font-size:0.85rem; color:#5b6f83; margin-left:30px; }
 
-    /* Destaque para serviço remoto na página inicial */
-    .remote-highlight {
-      background: var(--remote-highlight);
-      border: 2px solid var(--remote-border);
-      border-radius: 28px;
-      padding: 28px;
-      margin: 32px 0 24px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 24px;
-    }
-    .remote-highlight .icon {
-      font-size: 3.5rem;
-      color: var(--remote-border);
-      flex: 0 0 auto;
-    }
-    .remote-highlight .content {
-      flex: 1 1 300px;
-    }
-    .remote-highlight h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 12px;
-    }
-    .remote-highlight p {
-      margin-bottom: 16px;
-      font-size: 1.1rem;
-    }
-    .remote-highlight .remote-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .remote-highlight .remote-list span {
-      background: white;
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-    .remote-highlight .btn-remote {
-      background: var(--remote-border);
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-    .remote-highlight .btn-remote:hover {
-      background: #1976d2;
-      transform: scale(1.02);
-    }
+    .remote-highlight { background:var(--remote-highlight); border:2px solid var(--remote-border);
+                        border-radius:28px; padding:28px; margin:32px 0 24px;
+                        display:flex; flex-wrap:wrap; align-items:center; gap:24px; }
+    .remote-highlight .icon { font-size:3.5rem; color:var(--remote-border); flex:0 0 auto; }
+    .remote-highlight .content { flex:1 1 300px; }
+    .remote-highlight h3 { font-size:1.8rem; font-weight:700; color:var(--primary-dark);
+                           margin-bottom:12px; }
+    .remote-highlight p { margin-bottom:16px; font-size:1.1rem; }
+    .remote-highlight .remote-list { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:20px; }
+    .remote-highlight .remote-list span { background:white; padding:6px 16px; border-radius:40px;
+                                          font-size:0.9rem; font-weight:500;
+                                          box-shadow:0 2px 6px rgba(0,0,0,0.05); }
+    .remote-highlight .btn-remote { background:var(--remote-border); color:white; border:none;
+                                     padding:12px 28px; font-size:1.1rem; border-radius:50px;
+                                     font-weight:600; transition:0.2s; }
+    .remote-highlight .btn-remote:hover { background:#1976d2; transform:scale(1.02); }
 
     @media (max-width: 640px) {
-      .nav-content {
-        flex-direction: column;
-        gap: 16px;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-      }
-      h2 {
-        font-size: 1.8rem;
-      }
-      .product-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .back-to-top {
-        bottom: 20px;
-        right: 20px;
-      }
-      .whatsapp-float {
-        bottom: 20px;
-        left: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 1.8rem;
-      }
-      .consent-content {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .consent-buttons {
-        justify-content: center;
-      }
-      .remote-highlight {
-        flex-direction: column;
-        text-align: center;
-      }
-      .remote-highlight .remote-list {
-        justify-content: center;
-      }
+      .nav-content { flex-direction: column; gap:16px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap:16px; }
+      h2 { font-size:1.8rem; }
+      .product-card { flex-direction: column; align-items: flex-start; }
+      .back-to-top { bottom:20px; right:20px; }
+      .whatsapp-float { bottom:20px; left:20px; width:55px; height:55px; font-size:1.8rem; }
+      .consent-content { flex-direction: column; align-items: stretch; }
+      .consent-buttons { justify-content: center; }
+      .remote-highlight { flex-direction: column; text-align: center; }
+      .remote-highlight .remote-list { justify-content: center; }
     }
   </style>
 </head>
 <body vocab="https://schema.org/" typeof="LocalBusiness">
-  <!-- Skip link -->
   <a href="#mainContent" class="skip-link">Pular para o conteúdo principal</a>
 
-  <!-- MODAL DE GARANTIA -->
+  <!-- MODAIS -->
   <div id="garantiaModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <div class="modal-content">
       <button class="modal-close" id="closeGarantiaModal" aria-label="Fechar modal" title="Fechar" type="button">&times;</button>
@@ -756,7 +316,6 @@
     </div>
   </div>
 
-  <!-- MODAL DE POLÍTICA DE PRIVACIDADE -->
   <div id="privacidadeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="privacidadeTitle">
     <div class="modal-content">
       <button class="modal-close" id="closePrivacidadeModal" aria-label="Fechar" title="Fechar">&times;</button>
@@ -771,7 +330,6 @@
     </div>
   </div>
 
-  <!-- MODAL DE TERMOS DE USO -->
   <div id="termosModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="termosTitle">
     <div class="modal-content">
       <button class="modal-close" id="closeTermosModal" aria-label="Fechar" title="Fechar">&times;</button>
@@ -786,37 +344,23 @@
     </div>
   </div>
 
-  <!-- MODAL DE PERSONALIZAR COOKIES -->
   <div id="customizarModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="customizarTitle">
     <div class="modal-content">
       <button class="modal-close" id="closeCustomizarModal" aria-label="Fechar" title="Fechar">&times;</button>
       <h3 id="customizarTitle" style="margin-bottom: 20px;">⚙️ Personalizar Cookies</h3>
       <p style="margin-bottom: 16px;">Escolha quais tipos de cookies deseja permitir:</p>
-      
       <div class="consent-option">
-        <label>
-          <input type="checkbox" id="cookiesNecessarios" checked disabled>
-          <span class="option-title">Cookies Necessários (sempre ativos)</span>
-        </label>
+        <label><input type="checkbox" id="cookiesNecessarios" checked disabled> <span class="option-title">Cookies Necessários (sempre ativos)</span></label>
         <div class="option-desc">Essenciais para o funcionamento básico do site, como segurança e navegação.</div>
       </div>
-
       <div class="consent-option">
-        <label>
-          <input type="checkbox" id="cookiesMarketing" checked>
-          <span class="option-title">Cookies de Marketing</span>
-        </label>
+        <label><input type="checkbox" id="cookiesMarketing" checked> <span class="option-title">Cookies de Marketing</span></label>
         <div class="option-desc">Permitem exibir anúncios personalizados do Google AdSense e medir sua eficácia.</div>
       </div>
-
       <div class="consent-option">
-        <label>
-          <input type="checkbox" id="cookiesEstatisticos" checked>
-          <span class="option-title">Cookies de Estatísticas</span>
-        </label>
+        <label><input type="checkbox" id="cookiesEstatisticos" checked> <span class="option-title">Cookies de Estatísticas</span></label>
         <div class="option-desc">Ajudam a entender como os visitantes interagem com o site (anônimo).</div>
       </div>
-
       <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
         <button class="btn btn-outline" id="cancelarCustomizarBtn">Cancelar</button>
         <button class="btn btn-primary" id="salvarCustomizarBtn">Salvar preferências</button>
@@ -824,7 +368,7 @@
     </div>
   </div>
 
-  <!-- BANNER DE CONSENTIMENTO LGPD -->
+  <!-- BANNER DE CONSENTIMENTO -->
   <div id="consentBanner" class="consent-banner">
     <div class="consent-content">
       <div class="consent-text">
@@ -839,13 +383,10 @@
     </div>
   </div>
 
-  <!-- Botão Flutuante WhatsApp -->
+  <!-- Botões flutuantes -->
   <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
-  <!-- Botão Voltar ao Topo -->
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo" type="button"><i class="fas fa-arrow-up"></i></button>
 
-  <!-- cabeçalho fixo -->
   <header class="navbar" role="banner">
     <div class="container nav-content">
       <div class="logo" id="homeLogo" role="button" tabindex="0" aria-label="Página inicial" property="name">Paulo Fagoto <span property="legalName">· técnico em informática</span></div>
@@ -863,19 +404,28 @@
     <!-- SEÇÃO INÍCIO -->
     <section id="inicio" class="section" aria-labelledby="inicio-heading">
       <div class="profile-row">
+        <!-- Foto maior, sem moldura -->
         <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto, técnico em informática - foto pessoal" class="profile-img" loading="lazy" property="image">
+        <!-- Todo o texto ao lado (flex:1 garantido no CSS) -->
         <div>
           <h1 id="inicio-heading" style="font-size: 2.4rem; font-weight: 700; color: #0b3954; margin-bottom: 4px;" property="name">Paulo Fagoto</h1>
           <p style="font-size: 1.2rem; color: #2c4054;">Técnico em informática · Valinhos-SP</p>
           <p style="margin: 8px 0 4px;"><i class="fas fa-map-pin" style="color:#3a7ca5; width: 24px;" aria-hidden="true"></i> <span property="address" itemscope itemtype="https://schema.org/PostalAddress"><span property="addressLocality">Valinhos/SP</span> · <span property="addressRegion">Jardim dos Manacás</span></span> · nascido em 24/02/1991</p>
           <p><i class="fas fa-clock" style="color:#3a7ca5;" aria-hidden="true"></i> Atendimento <strong>somente com horário agendado</strong> via WhatsApp</p>
+          
+          <!-- TEXTO DESCRITIVO (ao lado da foto) -->
+          <p style="margin-top: 16px; font-size: 1.1rem; background: rgba(33, 150, 243, 0.05); padding: 12px; border-radius: 16px; border-left: 4px solid var(--remote-border);">
+            <i class="fas fa-star" style="color: var(--remote-border); margin-right: 8px;"></i>
+            <strong>Especialista em informática em Valinhos/SP com mais de 17 anos de experiência.</strong> Ofereço suporte técnico em computadores e notebooks, incluindo formatação, remoção de vírus, manutenção preventiva e corretiva, instalação de programas, upgrades e otimização de desempenho. Atendimento presencial e remoto para todo o Brasil.
+          </p>
+
           <div class="contact-bar">
-            <!-- Botão exclusivo WhatsApp sem número exposto -->
             <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" target="_blank" class="btn btn-primary" rel="noopener noreferrer" property="telephone"><i class="fab fa-whatsapp" aria-hidden="true"></i> Fale comigo no WhatsApp</a>
             <a href="mailto:adm@paulofagoto.com.br" class="btn btn-outline" property="email"><i class="far fa-envelope" aria-hidden="true"></i> adm@paulofagoto.com.br</a>
           </div>
         </div>
       </div>
+
       <!-- badges interativas -->
       <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px;">
         <span class="badge" id="garantiaBadge" role="button" tabindex="0" aria-label="Abrir detalhes da garantia"><i class="fas fa-check-circle" aria-hidden="true"></i> Garantia de 3 meses (legal)</span>
@@ -883,11 +433,9 @@
         <span class="badge"><i class="fas fa-tools" aria-hidden="true"></i> Mão de obra apenas (não vendo peças)</span>
       </div>
 
-      <!-- DESTAQUE DO SERVIÇO REMOTO (adiantado para chamar atenção) -->
+      <!-- DESTAQUE REMOTO -->
       <div class="remote-highlight">
-        <div class="icon">
-          <i class="fas fa-laptop-house"></i>
-        </div>
+        <div class="icon"><i class="fas fa-laptop-house"></i></div>
         <div class="content">
           <h3>🖥️ Atendimento Remoto com AnyDesk</h3>
           <p>Resolvo seu problema sem sair de casa! Agende um horário e receba acesso remoto seguro.</p>
@@ -910,11 +458,10 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS (conteúdo completo) -->
+    <!-- SERVIÇOS (completo) -->
     <section id="servicos" class="section section-hidden" aria-labelledby="servicos-heading">
       <h2 id="servicos-heading"><i class="fas fa-microchip" aria-hidden="true"></i> Serviços</h2>
       <div class="grid-2">
-        <!-- PRESENCIAL -->
         <article class="card" itemscope itemtype="https://schema.org/Service">
           <div class="icon-large"><i class="fas fa-laptop-house" aria-hidden="true"></i></div>
           <h3 itemprop="name">🛠️ Presenciais (entrega no portão)</h3>
@@ -926,7 +473,6 @@
           </ul>
           <p style="margin-top: 16px; font-size: 0.9rem;"><i class="fas fa-info-circle" aria-hidden="true"></i> Ajudo a escolher as melhores peças e indico lojas, mas a compra é por sua conta.</p>
         </article>
-        <!-- REMOTO -->
         <article class="card" itemscope itemtype="https://schema.org/Service">
           <div class="icon-large"><i class="fas fa-globe" aria-hidden="true"></i></div>
           <h3 itemprop="name">📡 Remotos (AnyDesk)</h3>
@@ -940,7 +486,6 @@
           </ul>
         </article>
       </div>
-      <!-- desenvolvimento de sites (também article) -->
       <article class="card" style="margin-top: 24px;" itemscope itemtype="https://schema.org/Service">
         <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
           <i class="fas fa-code" style="font-size: 2.5rem; color:#0b3954;" aria-hidden="true"></i>
@@ -951,13 +496,10 @@
           </div>
         </div>
       </article>
-      <!-- Anúncio -->
-      <div class="ad-container" data-ad-zone="servicos">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      </div>
+      <div class="ad-container" data-ad-zone="servicos"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
     </section>
 
-    <!-- PROCESSO (conteúdo completo) -->
+    <!-- PROCESSO (completo) -->
     <section id="processo" class="section section-hidden" aria-labelledby="processo-heading">
       <h2 id="processo-heading"><i class="fas fa-clock" aria-hidden="true"></i> Como funciona</h2>
       <div class="grid-2">
@@ -987,13 +529,10 @@
         <p><i class="fas fa-scale-balanced" style="margin-right: 10px;" aria-hidden="true"></i> <strong>Paulo não é loja</strong> – apenas mão de obra. Auxilia na escolha de peças e indica lojas, mas a compra é responsabilidade do cliente.</p>
         <p style="margin-top: 10px;"><i class="fas fa-file-signature" aria-hidden="true"></i> Serviço legalizado com emissão de nota fiscal (se necessário) e garantia de 3 meses na mão de obra (garantia legal).</p>
       </div>
-      <!-- Anúncio -->
-      <div class="ad-container" data-ad-zone="processo">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      </div>
+      <div class="ad-container" data-ad-zone="processo"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
     </section>
 
-    <!-- PRODUTO (conteúdo completo) -->
+    <!-- PRODUTO (completo) -->
     <section id="produto" class="section section-hidden" aria-labelledby="produto-heading">
       <h2 id="produto-heading"><i class="fas fa-file-excel" aria-hidden="true"></i> Planilha de Controle Financeiro Mensal</h2>
       <article class="card product-card" itemscope itemtype="https://schema.org/Product">
@@ -1005,17 +544,12 @@
           <a href="https://pay.monetizze.com.br/KRR457494" target="_blank" class="btn btn-primary" style="margin-top: 16px;" rel="noopener noreferrer"><i class="fas fa-cart-shopping" aria-hidden="true"></i> Comprar agora (PIX / checkout)</a>
         </div>
       </article>
-      <!-- Anúncio -->
-      <div class="ad-container" data-ad-zone="produto">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      </div>
+      <div class="ad-container" data-ad-zone="produto"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
     </section>
 
-    <!-- CONTATO (conteúdo completo) -->
+    <!-- CONTATO (completo) -->
     <section id="contato" class="section section-hidden" aria-labelledby="contato-heading">
       <h2 id="contato-heading"><i class="fas fa-address-card" aria-hidden="true"></i> Contato e redes</h2>
-      
-      <!-- formas de pagamento -->
       <div style="margin-bottom: 40px;">
         <h3 style="font-size: 1.6rem; margin-bottom: 16px;"><i class="fas fa-bolt" aria-hidden="true"></i> Formas de pagamento</h3>
         <div class="pix-area" id="pixArea">
@@ -1030,7 +564,6 @@
         <p style="margin: 16px 0;">✅ Acima de R$ 400,00 é possível parcelamento via link de pagamento (juros por conta do cliente).</p>
         <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" target="_blank" class="btn btn-outline" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar link de parcelamento</a>
       </div>
-
       <div class="social-links">
         <a href="https://www.linkedin.com/in/paulofagoto" target="_blank" title="LinkedIn" rel="noopener noreferrer" aria-label="LinkedIn de Paulo Fagoto"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
         <a href="https://www.facebook.com/tecpaulohenrique" target="_blank" title="Facebook" rel="noopener noreferrer" aria-label="Facebook de Paulo Fagoto"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
@@ -1041,11 +574,7 @@
       </div>
       <p style="text-align: center; margin-top: 24px;"><i class="fas fa-phone-alt" aria-hidden="true"></i> Contato apenas via <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20vim%20pelo%20seu%20site!" target="_blank" rel="noopener noreferrer" style="color: var(--whatsapp-green);">WhatsApp</a> · E-mail: adm@paulofagoto.com.br</p>
       <p style="text-align: center; margin-top: 8px;">📌 Atendimento somente com horário marcado via WhatsApp.</p>
-
-      <!-- Anúncio -->
-      <div class="ad-container" data-ad-zone="contato">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      </div>
+      <div class="ad-container" data-ad-zone="contato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1953773855788948" data-ad-slot="6766869962" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
     </section>
   </main>
 
@@ -1058,13 +587,11 @@
 
   <script>
     (function() {
-      // ---------- ANO DINÂMICO ----------
       document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-      // ---------- SISTEMA DE CONSENTIMENTO (LGPD) ----------
+      // ---------- SISTEMA DE CONSENTIMENTO ----------
       const CONSENT_KEY = 'consentPreferences';
       let consent = null;
-
       const consentBanner = document.getElementById('consentBanner');
       const btnAceitarTodos = document.getElementById('aceitarTodos');
       const btnRecusarTodos = document.getElementById('recusarTodos');
@@ -1081,8 +608,6 @@
       const termosModal = document.getElementById('termosModal');
       const closePrivacidadeModal = document.getElementById('closePrivacidadeModal');
       const closeTermosModal = document.getElementById('closeTermosModal');
-
-      // Elementos de fundo para aria-hidden
       const mainContent = document.getElementById('mainContent');
       const footerElement = document.querySelector('.footer');
 
@@ -1092,9 +617,7 @@
         });
       }
 
-      // Gerenciamento de foco em modais
       let lastFocusedElement = null;
-
       function abrirModal(modal, triggerElement) {
         if (!modal) return;
         lastFocusedElement = triggerElement || document.activeElement;
@@ -1104,7 +627,6 @@
         const closeBtn = modal.querySelector('.modal-close, button');
         if (closeBtn) closeBtn.focus();
       }
-
       function fecharModal(modal) {
         if (!modal) return;
         modal.classList.remove('show');
@@ -1115,7 +637,6 @@
           lastFocusedElement = null;
         }
       }
-
       function configurarModal(modal, closeBtn) {
         if (!modal) return;
         if (closeBtn) closeBtn.addEventListener('click', () => fecharModal(modal));
@@ -1139,17 +660,11 @@
       configurarModal(privacidadeModal, closePrivacidadeModal);
       configurarModal(termosModal, closeTermosModal);
       configurarModal(customizarModal, closeCustomizarModal);
-
       linkPrivacidade.addEventListener('click', (e) => { e.preventDefault(); abrirModal(privacidadeModal, linkPrivacidade); });
       linkTermos.addEventListener('click', (e) => { e.preventDefault(); abrirModal(termosModal, linkTermos); });
-
       cancelarCustomizarBtn.addEventListener('click', () => fecharModal(customizarModal));
       salvarCustomizarBtn.addEventListener('click', () => {
-        const newConsent = {
-          necessary: true,
-          marketing: chkMarketing.checked,
-          statistics: chkEstatisticos.checked
-        };
+        const newConsent = { necessary: true, marketing: chkMarketing.checked, statistics: chkEstatisticos.checked };
         salvarConsentimento(newConsent);
         fecharModal(customizarModal);
       });
@@ -1194,11 +709,8 @@
         const todosAdContainers = document.querySelectorAll('.ad-container');
         const marketingPermitido = consent ? consent.marketing : false;
         todosAdContainers.forEach(container => {
-          if (marketingPermitido) {
-            container.classList.remove('ad-hidden');
-          } else {
-            container.classList.add('ad-hidden');
-          }
+          if (marketingPermitido) container.classList.remove('ad-hidden');
+          else container.classList.add('ad-hidden');
         });
       }
 
@@ -1207,20 +719,12 @@
         const blocos = secaoElement.querySelectorAll('.adsbygoogle:not([data-ad-processado])');
         blocos.forEach(bloco => {
           bloco.setAttribute('data-ad-processado', 'true');
-          try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (e) {
-            console.warn('Erro ao carregar anúncio', e);
-          }
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
         });
       }
 
-      btnAceitarTodos.addEventListener('click', () => {
-        salvarConsentimento({ necessary: true, marketing: true, statistics: true });
-      });
-      btnRecusarTodos.addEventListener('click', () => {
-        salvarConsentimento({ necessary: true, marketing: false, statistics: false });
-      });
+      btnAceitarTodos.addEventListener('click', () => salvarConsentimento({ necessary: true, marketing: true, statistics: true }));
+      btnRecusarTodos.addEventListener('click', () => salvarConsentimento({ necessary: true, marketing: false, statistics: false }));
       btnPersonalizar.addEventListener('click', () => {
         if (consent) {
           chkMarketing.checked = consent.marketing;
