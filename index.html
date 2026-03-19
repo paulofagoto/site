@@ -16,13 +16,25 @@
             color: #333;
             text-align: center;
         }
-        p {
+        p, .servicos {
             background: #fff;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             max-width: 600px;
             margin: 20px auto;
+        }
+        .servicos h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.3em;
+        }
+        .servicos ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        .servicos li {
+            margin-bottom: 5px;
         }
         a {
             color: #25D366;
@@ -122,21 +134,34 @@
         Estou localizado no <a href="https://www.google.com/maps/search/?api=1&query=Bairro+Jardim+dos+Manacás+Valinhos+SP" target="_blank" rel="noopener" class="map-link">Bairro Jardim dos Manacás em Valinhos/SP</a>.
     </p>
 
-    <!-- 
-        Histórico de melhorias:
-        - Sempre agrupar as melhorias por data (as mais recentes primeiro).
-        - Para melhorias realizadas na mesma data, consolidar todas em um único item
-          com a data, listando cada melhoria como subitem.
-        - Assim evitamos poluição visual e mantemos o histórico organizado.
-    -->
+    <!-- NOVA SEÇÃO DE SERVIÇOS (melhoria única) -->
+    <div class="servicos">
+        <h2>Serviços oferecidos</h2>
+        <ul>
+            <li>Formatação e instalação de Windows 10/11</li>
+            <li>Instalação de drivers e impressoras</li>
+            <li>Suporte remoto (acesso ao seu PC)</li>
+            <li>Upgrade de hardware (SSD, memória, etc.)</li>
+            <li>Troca de peças e limpeza</li>
+        </ul>
+    </div>
+
+    <!-- Histórico de melhorias (atualizado com a melhoria de hoje) -->
     <details>
         <summary>Histórico do site</summary>
         <div class="historico">
             <ul>
+                <!-- Melhoria mais recente (hoje) -->
+                <li>
+                    <span class="data">19/03/2026:</span>
+                    <ul>
+                        <li>Adicionada seção "Serviços oferecidos" com lista detalhada para esclarecer o escopo de trabalho.</li>
+                    </ul>
+                </li>
+                <!-- Melhorias anteriores (18/03) -->
                 <li>
                     <span class="data">18/03/2026:</span>
                     <ul>
-                        <!-- Melhorias mais recentes primeiro (dentro da mesma data) -->
                         <li>Adicionado link para Google Maps no endereço para facilitar a localização.</li>
                         <li>Estilizado links do WhatsApp como botões para maior destaque.</li>
                         <li>Adicionado rodapé com horário de atendimento.</li>
@@ -152,7 +177,6 @@
                         <li>Adicionada meta tag charset para suporte a caracteres especiais.</li>
                     </ul>
                 </li>
-                <!-- Próximas datas (quando houver) devem ser inseridas aqui, sempre acima das mais antigas -->
             </ul>
         </div>
     </details>
