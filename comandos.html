@@ -6,6 +6,7 @@
     <title>WinFix PRO | Acesso aos Comandos</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
     <style>
         * {
             margin: 0;
@@ -32,6 +33,22 @@
             position: relative;
         }
 
+        /* Animações de entrada */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card, .social-proof, .activity-feed, .locked-area, .pix-section, .timer-card, .password-area, .access-area, .tip {
+            animation: fadeUp 0.4s ease-out forwards;
+        }
+
         .card {
             background: white;
             border-radius: 2rem;
@@ -51,12 +68,17 @@
             font-weight: 800;
             letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .windows-icon {
+            font-size: 1.5rem;
         }
         .card-header p {
             font-size: 0.9rem;
             opacity: 0.9;
         }
-        /* Badge ao vivo */
         .live-badge {
             position: absolute;
             top: 1rem;
@@ -85,7 +107,7 @@
             padding: 1.8rem;
         }
 
-        /* Social proof area */
+        /* Social proof */
         .social-proof {
             background: #f8fafc;
             border-radius: 1rem;
@@ -99,20 +121,15 @@
             border: 1px solid #e2e8f0;
             font-size: 0.75rem;
         }
-        .online-counter {
+        .online-counter, .commands-today, .waiting-counter {
             display: flex;
             align-items: center;
             gap: 5px;
-            color: #2563eb;
             font-weight: 500;
         }
-        .commands-today {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #16a34a;
-            font-weight: 500;
-        }
+        .online-counter { color: #2563eb; }
+        .commands-today { color: #16a34a; }
+        .waiting-counter { color: #f97316; }
         .pulse-dot {
             width: 8px;
             height: 8px;
@@ -149,9 +166,6 @@
             color: #2563eb;
             font-size: 0.6rem;
         }
-        .feed-item:last-child {
-            border-bottom: none;
-        }
 
         .locked-area {
             text-align: center;
@@ -165,15 +179,6 @@
             font-size: 3rem;
             color: #2563eb;
             margin-bottom: 0.5rem;
-        }
-        .locked-area h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        .locked-area p {
-            font-size: 0.85rem;
-            color: #475569;
-            margin-bottom: 1rem;
         }
 
         .btn {
@@ -189,6 +194,34 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Ripple effect */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-ripple:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10);
+            opacity: 0;
+            transition: transform .3s, opacity .5s;
+        }
+        .btn-ripple:active:after {
+            transform: scale(0);
+            opacity: 0.3;
+            transition: 0s;
         }
         .btn-outline {
             background: transparent;
@@ -198,10 +231,6 @@
         .btn-primary {
             background: linear-gradient(95deg, #2563eb, #1e40af);
             box-shadow: 0 4px 10px rgba(37,99,235,0.2);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(37,99,235,0.3);
         }
         .btn-block {
             width: 100%;
@@ -220,7 +249,6 @@
             margin: 1.2rem 0;
             display: none;
             border-left: 4px solid #f59e0b;
-            animation: fadeSlide 0.3s ease;
         }
         .pix-key {
             background: white;
@@ -236,6 +264,7 @@
             margin: 0.5rem 0;
         }
 
+        /* Timer */
         .timer-card {
             margin: 1rem 0;
             padding: 1rem;
@@ -244,19 +273,44 @@
             background: #fff7e0;
             border-left: 5px solid #f97316;
             text-align: center;
-            animation: fadeSlide 0.3s ease;
+        }
+        .timer-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 0.5rem 0;
+        }
+        .circular-progress {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: conic-gradient(#f97316 0deg, #ffe0b5 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .circular-progress-inner {
+            width: 58px;
+            height: 58px;
+            background: #fff7e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .timer-number {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 800;
             font-family: monospace;
             color: #f97316;
         }
         .progress-container {
-            width: 100%;
+            flex: 1;
             background-color: #ffe0b5;
             border-radius: 1rem;
-            margin: 0.5rem 0;
             height: 8px;
             overflow: hidden;
         }
@@ -264,8 +318,15 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, #f97316, #ffb347);
-            border-radius: 1rem;
             transition: width 1s linear;
+        }
+        .pulse-warning {
+            animation: pulseText 0.8s infinite;
+        }
+        @keyframes pulseText {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .password-area {
@@ -276,7 +337,7 @@
             background: #e6f7e6;
             border-left: 5px solid #16a34a;
             text-align: center;
-            animation: fadeSlide 0.3s ease;
+            position: relative;
         }
         .password-display {
             font-size: 1.5rem;
@@ -289,6 +350,25 @@
             color: #facc15;
             font-family: monospace;
             margin: 0.5rem 0;
+        }
+        .trophy-badge {
+            position: absolute;
+            top: -12px;
+            right: 10px;
+            background: gold;
+            color: #b45309;
+            border-radius: 2rem;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0%,100%{ transform: translateY(0); }
+            50%{ transform: translateY(-5px); }
         }
 
         .access-area {
@@ -310,7 +390,6 @@
             background: white;
             font-size: 0.9rem;
             outline: none;
-            transition: box-shadow 0.2s;
         }
         .glow-effect {
             box-shadow: 0 0 0 3px rgba(37,99,235,0.4), 0 0 0 6px rgba(37,99,235,0.2);
@@ -324,7 +403,6 @@
             color: #dc2626;
             font-size: 0.8rem;
         }
-
         .tip {
             background: #f1f5f9;
             border-radius: 1rem;
@@ -339,6 +417,7 @@
             font-size: 0.75rem;
         }
 
+        /* Modal */
         .modal {
             position: fixed;
             top: 0;
@@ -367,20 +446,6 @@
             max-height: 85vh;
             overflow-y: auto;
             padding: 1.5rem;
-        }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
         }
         .command-card {
             background: #f8fafc;
@@ -411,15 +476,9 @@
             border-radius: 2rem;
             font-size: 0.8rem;
             z-index: 1100;
-        }
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 500px) {
-            .card-header h1 { font-size: 1.6rem; }
-            .card-body { padding: 1.2rem; }
-            .social-proof { flex-direction: column; align-items: flex-start; }
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .donation-note {
             font-size: 0.7rem;
@@ -430,44 +489,102 @@
             padding: 6px;
             border-radius: 1rem;
         }
+        /* Floating assistant */
+        .assistant-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: 0.2s;
+            animation: pulseBlue 1.5s infinite;
+        }
+        @keyframes pulseBlue {
+            0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37,99,235,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
+        }
+        .assistant-bubble:hover {
+            transform: scale(1.05);
+        }
+        .assistant-guide {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: white;
+            border-radius: 1rem;
+            width: 260px;
+            padding: 0.8rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 101;
+            border: 1px solid #e2e8f0;
+            font-size: 0.8rem;
+        }
+        .assistant-guide.active {
+            display: block;
+            animation: fadeSlide 0.2s;
+        }
+        .assistant-guide h4 {
+            margin-bottom: 8px;
+        }
+        /* Sound toggle */
+        .sound-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #1e293b;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            z-index: 100;
+        }
+        @media (max-width: 500px) {
+            .card-header h1 { font-size: 1.6rem; }
+            .card-body { padding: 1.2rem; }
+            .social-proof { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <div class="live-badge">
-                <i class="fas fa-circle"></i> AO VIVO
-            </div>
-            <h1>WinFix PRO</h1>
+            <div class="live-badge"><i class="fas fa-circle"></i> AO VIVO</div>
+            <h1><i class="fab fa-windows windows-icon"></i> WinFix PRO</h1>
             <p>Comandos avançados para reparo automático do Windows</p>
         </div>
         <div class="card-body">
             <!-- Social proof dinâmico -->
             <div class="social-proof">
-                <div class="online-counter">
-                    <span class="pulse-dot"></span>
-                    <span id="onlineCount">23</span> pessoas online agora
-                </div>
-                <div class="commands-today">
-                    <i class="fas fa-terminal"></i>
-                    <span id="commandsCount">158</span> comandos executados hoje
-                </div>
+                <div class="online-counter"><span class="pulse-dot"></span> <span id="onlineCount">23</span> pessoas online</div>
+                <div class="commands-today"><i class="fas fa-terminal"></i> <span id="commandsCount">158</span> comandos hoje</div>
+                <div class="waiting-counter"><i class="fas fa-hourglass-half"></i> <span id="waitingCount">4</span> aguardando liberação</div>
             </div>
 
             <!-- Feed de atividades ao vivo -->
-            <div class="activity-feed" id="activityFeed">
-                <div class="feed-item"><i class="fas fa-user-check"></i> <span>Alguém de São Paulo acabou de liberar a senha</span></div>
-                <div class="feed-item"><i class="fas fa-key"></i> <span>Novo acesso registrado há 2 minutos</span></div>
-                <div class="feed-item"><i class="fas fa-chart-line"></i> <span>+12 pessoas usando os comandos agora</span></div>
-            </div>
+            <div class="activity-feed" id="activityFeed"></div>
 
             <!-- Área bloqueada (inicial) -->
             <div id="lockedArea" class="locked-area">
                 <div class="locked-icon"><i class="fas fa-lock"></i></div>
                 <h3>Conteúdo protegido</h3>
                 <p>Você precisa de uma senha para acessar os comandos de recuperação.</p>
-                <button id="getPasswordBtn" class="btn btn-primary"><i class="fas fa-key"></i> Acessar conteúdo (contribuição sugerida R$5)</button>
+                <button id="getPasswordBtn" class="btn btn-primary btn-ripple"><i class="fas fa-key"></i> Acessar conteúdo (contribuição sugerida R$5)</button>
             </div>
 
             <!-- Seção PIX (inicialmente oculta) -->
@@ -475,10 +592,10 @@
                 <div style="font-weight: 600; margin-bottom: 8px;">💳 Contribuição voluntária via PIX</div>
                 <div class="pix-key">
                     <span><i class="fas fa-cnpj"></i> <strong>64.383.742/0001-26</strong></span>
-                    <button id="copyPixBtn" class="btn-outline btn" style="padding:0.3rem 0.8rem;"><i class="fas fa-copy"></i> Copiar chave</button>
+                    <button id="copyPixBtn" class="btn-outline btn btn-ripple" style="padding:0.3rem 0.8rem;"><i class="fas fa-copy"></i> Copiar chave</button>
                 </div>
                 <div style="font-size:0.7rem; margin: 5px 0;">Paulo Henrique Fagoto (NU Pagamentos) • Valor sugerido: R$ 5,00</div>
-                <button id="confirmPaymentBtn" class="btn btn-primary btn-block" style="margin-top: 8px;"><i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha</button>
+                <button id="confirmPaymentBtn" class="btn btn-primary btn-block btn-ripple" style="margin-top: 8px;"><i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha</button>
                 <div class="donation-note">
                     <i class="fas fa-heart" style="color:#eab308;"></i> A senha será liberada automaticamente após 120 segundos, independente da contribuição. Sua ajuda voluntária mantém o projeto.
                 </div>
@@ -486,10 +603,16 @@
 
             <!-- Timer (processamento) -->
             <div id="timerContainer" class="timer-card">
-                <div><i class="fas fa-hourglass-half"></i> <span id="timerMessage">A senha será liberada em:</span></div>
-                <div class="timer-number" id="timerDisplay">120</div>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progressBar" style="width: 100%;"></div>
+                <div><i class="fas fa-hourglass-half"></i> <span>A senha será liberada em:</span></div>
+                <div class="timer-wrapper">
+                    <div class="circular-progress" id="circularProgress">
+                        <div class="circular-progress-inner">
+                            <div class="timer-number" id="timerDisplay">120</div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar" style="width: 100%;"></div>
+                    </div>
                 </div>
                 <div style="font-size:0.7rem; margin-top: 5px;">Aguarde, a senha aparecerá em instantes</div>
             </div>
@@ -500,8 +623,8 @@
                 Sua senha:<br>
                 <div id="passwordValue" class="password-display">38695506</div>
                 <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px;">
-                    <button id="copyPasswordBtn" class="btn-outline btn"><i class="fas fa-copy"></i> Copiar senha</button>
-                    <button id="fillPasswordBtn" class="btn-outline btn"><i class="fas fa-pen"></i> Preencher campo</button>
+                    <button id="copyPasswordBtn" class="btn-outline btn btn-ripple"><i class="fas fa-copy"></i> Copiar senha</button>
+                    <button id="fillPasswordBtn" class="btn-outline btn btn-ripple"><i class="fas fa-pen"></i> Preencher campo</button>
                 </div>
             </div>
 
@@ -509,7 +632,7 @@
             <div class="access-area">
                 <div class="input-group">
                     <input type="password" id="passwordInput" placeholder="Digite a senha de 8 dígitos">
-                    <button id="openModalBtn" class="btn"><i class="fas fa-lock-open"></i> Ver comandos</button>
+                    <button id="openModalBtn" class="btn btn-ripple"><i class="fas fa-lock-open"></i> Ver comandos</button>
                 </div>
                 <div id="errorMsg" class="error"></div>
             </div>
@@ -524,6 +647,24 @@
     <footer>
         <i class="fas fa-envelope"></i> Suporte: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a>
     </footer>
+</div>
+
+<!-- Floating Assistant -->
+<div id="assistantBubble" class="assistant-bubble">
+    <i class="fas fa-question"></i>
+</div>
+<div id="assistantGuide" class="assistant-guide">
+    <h4><i class="fas fa-lightbulb"></i> Dicas rápidas</h4>
+    <p>1. Após clicar em "Acessar conteúdo", copie a chave PIX (contribuição voluntária).</p>
+    <p>2. Clique em "Já fiz a contribuição" e aguarde 120s.</p>
+    <p>3. A senha aparecerá automaticamente. Use-a para acessar os comandos.</p>
+    <p>4. Os comandos devem ser executados no Prompt de Comando do modo de recuperação.</p>
+    <!-- Texto removido conforme solicitado -->
+</div>
+
+<!-- Sound toggle -->
+<div id="soundToggle" class="sound-toggle" title="Ativar/desativar sons">
+    <i class="fas fa-volume-mute"></i>
 </div>
 
 <!-- Modal de comandos -->
@@ -554,6 +695,61 @@
         { cmd: "diskpart", desc: "Ferramenta de partições. Use 'list volume'." }
     ];
 
+    // Som - usando Web Audio para beeps simples
+    let audioCtx = null;
+    let soundEnabled = false;
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    }
+    function playBeep(type = 'success') {
+        if (!soundEnabled || !audioCtx) return;
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        let freq = type === 'success' ? 880 : 660;
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.00001, now + 0.3);
+        osc.start();
+        osc.stop(now + 0.3);
+    }
+    function playCopySound() { playBeep('copy'); }
+    function playSuccessSound() { playBeep('success'); }
+
+    // Ativar som por interação
+    function enableSoundOnFirstInteraction() {
+        if (!audioCtx) {
+            initAudio();
+            soundEnabled = true;
+            document.getElementById('soundToggle').innerHTML = '<i class="fas fa-volume-up"></i>';
+            // tocar som de teste
+            playBeep('success');
+        }
+    }
+    // Toggle
+    document.getElementById('soundToggle').addEventListener('click', () => {
+        if (!audioCtx) {
+            initAudio();
+            soundEnabled = true;
+            document.getElementById('soundToggle').innerHTML = '<i class="fas fa-volume-up"></i>';
+            playBeep('success');
+        } else {
+            soundEnabled = !soundEnabled;
+            document.getElementById('soundToggle').innerHTML = soundEnabled ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
+        }
+    });
+    // Adicionar listeners nos botões principais para ativar som na primeira interação
+    const interactiveBtns = ['getPasswordBtn', 'copyPixBtn', 'confirmPaymentBtn', 'copyPasswordBtn', 'fillPasswordBtn', 'openModalBtn'];
+    interactiveBtns.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', () => { if (!audioCtx) enableSoundOnFirstInteraction(); });
+    });
+
+    // Construir modal
     function buildModalCommands() {
         const container = document.getElementById("commandsList");
         if (!container) return;
@@ -574,8 +770,10 @@
             copyBtn.style.cursor = "pointer";
             copyBtn.addEventListener("click", () => {
                 navigator.clipboard.writeText(item.cmd);
-                showToast("✅ Comando copiado!");
-                incrementCommandsToday(); // incrementa contador dinâmico
+                showToast("✅ Comando copiado!", "copy");
+                incrementCommandsToday();
+                addUserFeed("Você copiou o comando: " + item.cmd.substring(0, 20) + "...");
+                if (soundEnabled) playCopySound();
             });
             codeDiv.appendChild(codeSpan);
             codeDiv.appendChild(copyBtn);
@@ -590,12 +788,12 @@
         });
     }
 
-    function showToast(msg) {
+    function showToast(msg, type = 'info') {
         let existing = document.querySelector(".toast");
         if (existing) existing.remove();
         const toast = document.createElement("div");
         toast.className = "toast";
-        toast.innerText = msg;
+        toast.innerHTML = `<i class="fas ${type === 'copy' ? 'fa-copy' : 'fa-check-circle'}"></i> ${msg}`;
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2500);
     }
@@ -609,6 +807,7 @@
     const timerContainer = document.getElementById("timerContainer");
     const timerDisplay = document.getElementById("timerDisplay");
     const progressBar = document.getElementById("progressBar");
+    const circularProgress = document.getElementById("circularProgress");
     const passwordContainer = document.getElementById("passwordContainer");
     const copyPasswordBtn = document.getElementById("copyPasswordBtn");
     const fillPasswordBtn = document.getElementById("fillPasswordBtn");
@@ -619,6 +818,10 @@
     const closeModalBtn = document.getElementById("closeModalBtn");
     const onlineCountSpan = document.getElementById("onlineCount");
     const commandsCountSpan = document.getElementById("commandsCount");
+    const waitingCountSpan = document.getElementById("waitingCount");
+    const activityFeed = document.getElementById("activityFeed");
+    const assistantBubble = document.getElementById("assistantBubble");
+    const assistantGuide = document.getElementById("assistantGuide");
 
     let timerInterval = null;
     let timeLeft = 0;
@@ -627,56 +830,69 @@
     // Simular atividade ao vivo
     let onlineUsers = 23;
     let commandsToday = 158;
+    let waitingUsers = 4;
+    const cities = ["São Paulo", "Rio de Janeiro", "Belo Horizonte", "Brasília", "Porto Alegre", "Curitiba", "Salvador", "Recife", "Fortaleza", "Manaus"];
     const feedMessages = [
-        "Alguém de São Paulo acabou de liberar a senha",
+        "Alguém de {city} acabou de liberar a senha",
         "Novo acesso registrado agora",
-        "+8 pessoas usando os comandos neste momento",
-        "Usuário de Minas Gerais acabou de copiar os comandos",
-        "Mais 3 contribuições recebidas agora",
-        "Última senha gerada há 12 segundos",
+        "+{n} pessoas usando os comandos neste momento",
+        "Usuário de {city} acabou de copiar os comandos",
+        "Mais {n} contribuições recebidas agora",
+        "Última senha gerada há {seconds} segundos",
         "Comandos executados com sucesso nos últimos minutos"
     ];
-    let feedIndex = 0;
 
     function updateOnlineCount() {
-        // Simula variação orgânica
-        let change = Math.floor(Math.random() * 5) - 2; // -2 a +2
+        let change = Math.floor(Math.random() * 5) - 2;
         onlineUsers = Math.max(12, onlineUsers + change);
         onlineCountSpan.innerText = onlineUsers;
     }
-
     function incrementCommandsToday() {
         commandsToday += Math.floor(Math.random() * 3) + 1;
         commandsCountSpan.innerText = commandsToday;
     }
-
-    function addFeedMessage() {
-        const feed = document.getElementById("activityFeed");
-        const newMsg = feedMessages[Math.floor(Math.random() * feedMessages.length)];
+    function updateWaiting() {
+        let change = Math.floor(Math.random() * 3) - 1;
+        waitingUsers = Math.max(2, Math.min(8, waitingUsers + change));
+        waitingCountSpan.innerText = waitingUsers;
+    }
+    function addUserFeed(message) {
+        const feed = activityFeed;
         const item = document.createElement("div");
         item.className = "feed-item";
-        item.innerHTML = `<i class="fas fa-bell"></i> <span>${newMsg}</span>`;
+        item.innerHTML = `<i class="fas fa-user"></i> <span>${message}</span>`;
         feed.insertBefore(item, feed.firstChild);
-        if (feed.children.length > 5) feed.removeChild(feed.lastChild);
+        if (feed.children.length > 6) feed.removeChild(feed.lastChild);
+    }
+    function addRandomFeed() {
+        const msgTemplate = feedMessages[Math.floor(Math.random() * feedMessages.length)];
+        let msg = msgTemplate.replace("{city}", cities[Math.floor(Math.random() * cities.length)]);
+        msg = msg.replace("{n}", Math.floor(Math.random() * 5) + 1);
+        msg = msg.replace("{seconds}", Math.floor(Math.random() * 60) + 5);
+        const item = document.createElement("div");
+        item.className = "feed-item";
+        item.innerHTML = `<i class="fas fa-bell"></i> <span>${msg}</span>`;
+        activityFeed.insertBefore(item, activityFeed.firstChild);
+        if (activityFeed.children.length > 6) activityFeed.removeChild(activityFeed.lastChild);
     }
 
     setInterval(updateOnlineCount, 8000);
-    setInterval(addFeedMessage, 15000);
+    setInterval(addRandomFeed, 15000);
+    setInterval(updateWaiting, 10000);
     setInterval(() => {
-        // Pequeno incremento aleatório nos comandos para simular uso
         if (Math.random() > 0.7) {
             commandsToday += Math.floor(Math.random() * 2) + 1;
             commandsCountSpan.innerText = commandsToday;
         }
     }, 20000);
+    // Initial feeds
+    for (let i=0; i<3; i++) addRandomFeed();
 
-    function stopTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
+    function updateCircularProgress(percent) {
+        if (circularProgress) {
+            const angle = (percent / 100) * 360;
+            circularProgress.style.background = `conic-gradient(#f97316 ${angle}deg, #ffe0b5 ${angle}deg)`;
         }
-        confirmPaymentBtn.disabled = false;
-        confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
     }
 
     function startTimer(seconds = 120) {
@@ -687,8 +903,11 @@
         passwordContainer.style.display = "none";
         timerDisplay.innerText = timeLeft;
         progressBar.style.width = "100%";
+        updateCircularProgress(100);
         confirmPaymentBtn.disabled = true;
         confirmPaymentBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Aguardando...';
+        addUserFeed("Você iniciou o processo de liberação de senha");
+        if (soundEnabled) playBeep('success');
         
         timerInterval = setInterval(() => {
             if (timeLeft <= 1) {
@@ -696,8 +915,18 @@
                 timerInterval = null;
                 timerContainer.style.display = "none";
                 passwordContainer.style.display = "block";
-                showToast("✅ Senha liberada! Utilize para acessar os comandos.");
-                // Aplicar animação de brilho no campo de senha e botão
+                showToast("✅ Senha liberada! Utilize para acessar os comandos.", "success");
+                // Confete
+                canvasConfetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, startVelocity: 20 });
+                // Troféu
+                const trophy = document.createElement('div');
+                trophy.className = 'trophy-badge';
+                trophy.innerHTML = '<i class="fas fa-trophy"></i> Acesso Desbloqueado!';
+                passwordContainer.appendChild(trophy);
+                setTimeout(() => trophy.remove(), 3000);
+                addUserFeed("Você liberou a senha! 🎉");
+                if (soundEnabled) playSuccessSound();
+                // Brilho
                 passwordInput.classList.add("glow-effect");
                 openModalBtn.classList.add("glow-effect");
                 setTimeout(() => {
@@ -711,11 +940,16 @@
                 timerDisplay.innerText = timeLeft;
                 const percent = (timeLeft / totalSeconds) * 100;
                 progressBar.style.width = percent + "%";
+                updateCircularProgress(percent);
+                if (timeLeft <= 30) {
+                    timerDisplay.classList.add("pulse-warning");
+                } else {
+                    timerDisplay.classList.remove("pulse-warning");
+                }
             }
         }, 1000);
     }
 
-    // Clique em "Acessar conteúdo" -> mostra a seção PIX
     getPasswordBtn.addEventListener("click", () => {
         lockedArea.style.display = "none";
         pixSection.style.display = "block";
@@ -723,18 +957,19 @@
         passwordContainer.style.display = "none";
         confirmPaymentBtn.disabled = false;
         confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
+        addUserFeed("Você acessou a área de contribuição");
     });
 
-    // Copiar chave PIX
     copyPixBtn.addEventListener("click", () => {
         navigator.clipboard.writeText("64.383.742/0001-26").then(() => {
-            showToast("🔑 Chave PIX copiada! (contribuição voluntária)");
+            showToast("🔑 Chave PIX copiada! (contribuição voluntária)", "copy");
+            addUserFeed("Você copiou a chave PIX");
+            if (soundEnabled) playCopySound();
         }).catch(() => {
             showToast("Copie manualmente: 64.383.742/0001-26");
         });
     });
 
-    // Botão "Já fiz a contribuição, receber senha" inicia timer
     confirmPaymentBtn.addEventListener("click", () => {
         if (timerInterval) {
             showToast("⏳ O acesso já está sendo liberado. Aguarde.");
@@ -743,26 +978,27 @@
         startTimer(120);
     });
 
-    // Copiar senha
     copyPasswordBtn.addEventListener("click", () => {
         const senha = "38695506";
         navigator.clipboard.writeText(senha);
-        showToast("🔐 Senha copiada: " + senha);
+        showToast("🔐 Senha copiada: " + senha, "copy");
+        addUserFeed("Você copiou a senha de acesso");
+        if (soundEnabled) playCopySound();
     });
 
-    // Preencher campo de senha
     fillPasswordBtn.addEventListener("click", () => {
         passwordInput.value = "38695506";
         showToast("Campo preenchido!");
+        addUserFeed("Você preencheu o campo de senha");
     });
 
-    // Abrir modal com validação de senha
     function openModal() {
         const inputPass = passwordInput.value.trim();
         if (inputPass === "38695506") {
             errorMsg.innerText = "";
             buildModalCommands();
             modal.classList.add("active");
+            if (soundEnabled) playBeep('success');
         } else {
             errorMsg.innerText = "❌ Senha inválida. Clique em 'Já fiz a contribuição' acima e aguarde 120s para obter a senha.";
             setTimeout(() => {
@@ -776,10 +1012,15 @@
         if (e.key === "Enter") openModal();
     });
 
-    // Fechar modal
     closeModalBtn.addEventListener("click", () => modal.classList.remove("active"));
     modal.addEventListener("click", (e) => {
         if (e.target === modal) modal.classList.remove("active");
+    });
+
+    // Assistant
+    assistantBubble.addEventListener("click", () => {
+        assistantGuide.classList.toggle("active");
+        setTimeout(() => { if (assistantGuide.classList.contains('active')) setTimeout(() => assistantGuide.classList.remove('active'), 10000); }, 10000);
     });
 
     // Inicialização
@@ -787,6 +1028,7 @@
     timerContainer.style.display = "none";
     passwordContainer.style.display = "none";
     pixSection.style.display = "none";
+    // Removido o histórico de liberações (lastReleases) conforme solicitado
 </script>
 </body>
 </html>
