@@ -29,6 +29,7 @@
             max-width: 580px;
             width: 100%;
             margin: 0 auto;
+            position: relative;
         }
 
         .card {
@@ -43,6 +44,7 @@
             padding: 2rem 1.8rem;
             text-align: center;
             color: white;
+            position: relative;
         }
         .card-header h1 {
             font-size: 2rem;
@@ -54,9 +56,101 @@
             font-size: 0.9rem;
             opacity: 0.9;
         }
+        /* Badge ao vivo */
+        .live-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ef4444;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 0 8px rgba(239,68,68,0.5);
+            animation: pulseRed 1.5s infinite;
+        }
+        .live-badge i {
+            font-size: 0.6rem;
+        }
+        @keyframes pulseRed {
+            0% { opacity: 0.8; transform: scale(1);}
+            50% { opacity: 1; transform: scale(1.02);}
+            100% { opacity: 0.8; transform: scale(1);}
+        }
 
         .card-body {
             padding: 1.8rem;
+        }
+
+        /* Social proof area */
+        .social-proof {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            border: 1px solid #e2e8f0;
+            font-size: 0.75rem;
+        }
+        .online-counter {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #2563eb;
+            font-weight: 500;
+        }
+        .commands-today {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #16a34a;
+            font-weight: 500;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulseGreen 1.2s infinite;
+        }
+        @keyframes pulseGreen {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Activity feed */
+        .activity-feed {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            margin: 1rem 0;
+            border: 1px solid #e2e8f0;
+            max-height: 90px;
+            overflow-y: auto;
+            font-size: 0.7rem;
+        }
+        .feed-item {
+            padding: 0.3rem 0.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            color: #475569;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .feed-item i {
+            color: #2563eb;
+            font-size: 0.6rem;
+        }
+        .feed-item:last-child {
+            border-bottom: none;
         }
 
         .locked-area {
@@ -226,10 +320,6 @@
             0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
             100% { box-shadow: 0 0 0 8px rgba(37,99,235,0); }
         }
-        .input-group input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
-        }
         .error {
             color: #dc2626;
             font-size: 0.8rem;
@@ -329,6 +419,7 @@
         @media (max-width: 500px) {
             .card-header h1 { font-size: 1.6rem; }
             .card-body { padding: 1.2rem; }
+            .social-proof { flex-direction: column; align-items: flex-start; }
         }
         .donation-note {
             font-size: 0.7rem;
@@ -339,26 +430,44 @@
             padding: 6px;
             border-radius: 1rem;
         }
-        .btn-loading {
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="card">
         <div class="card-header">
+            <div class="live-badge">
+                <i class="fas fa-circle"></i> AO VIVO
+            </div>
             <h1>WinFix PRO</h1>
             <p>Comandos avançados para reparo automático do Windows</p>
         </div>
         <div class="card-body">
+            <!-- Social proof dinâmico -->
+            <div class="social-proof">
+                <div class="online-counter">
+                    <span class="pulse-dot"></span>
+                    <span id="onlineCount">23</span> pessoas online agora
+                </div>
+                <div class="commands-today">
+                    <i class="fas fa-terminal"></i>
+                    <span id="commandsCount">158</span> comandos executados hoje
+                </div>
+            </div>
+
+            <!-- Feed de atividades ao vivo -->
+            <div class="activity-feed" id="activityFeed">
+                <div class="feed-item"><i class="fas fa-user-check"></i> <span>Alguém de São Paulo acabou de liberar a senha</span></div>
+                <div class="feed-item"><i class="fas fa-key"></i> <span>Novo acesso registrado há 2 minutos</span></div>
+                <div class="feed-item"><i class="fas fa-chart-line"></i> <span>+12 pessoas usando os comandos agora</span></div>
+            </div>
+
             <!-- Área bloqueada (inicial) -->
             <div id="lockedArea" class="locked-area">
                 <div class="locked-icon"><i class="fas fa-lock"></i></div>
                 <h3>Conteúdo protegido</h3>
                 <p>Você precisa de uma senha para acessar os comandos de recuperação.</p>
                 <button id="getPasswordBtn" class="btn btn-primary"><i class="fas fa-key"></i> Acessar conteúdo (contribuição sugerida R$5)</button>
-                <!-- Frase removida conforme solicitado -->
             </div>
 
             <!-- Seção PIX (inicialmente oculta) -->
@@ -466,6 +575,7 @@
             copyBtn.addEventListener("click", () => {
                 navigator.clipboard.writeText(item.cmd);
                 showToast("✅ Comando copiado!");
+                incrementCommandsToday(); // incrementa contador dinâmico
             });
             codeDiv.appendChild(codeSpan);
             codeDiv.appendChild(copyBtn);
@@ -507,10 +617,58 @@
     const errorMsg = document.getElementById("errorMsg");
     const modal = document.getElementById("commandsModal");
     const closeModalBtn = document.getElementById("closeModalBtn");
+    const onlineCountSpan = document.getElementById("onlineCount");
+    const commandsCountSpan = document.getElementById("commandsCount");
 
     let timerInterval = null;
     let timeLeft = 0;
     let totalSeconds = 120;
+
+    // Simular atividade ao vivo
+    let onlineUsers = 23;
+    let commandsToday = 158;
+    const feedMessages = [
+        "Alguém de São Paulo acabou de liberar a senha",
+        "Novo acesso registrado agora",
+        "+8 pessoas usando os comandos neste momento",
+        "Usuário de Minas Gerais acabou de copiar os comandos",
+        "Mais 3 contribuições recebidas agora",
+        "Última senha gerada há 12 segundos",
+        "Comandos executados com sucesso nos últimos minutos"
+    ];
+    let feedIndex = 0;
+
+    function updateOnlineCount() {
+        // Simula variação orgânica
+        let change = Math.floor(Math.random() * 5) - 2; // -2 a +2
+        onlineUsers = Math.max(12, onlineUsers + change);
+        onlineCountSpan.innerText = onlineUsers;
+    }
+
+    function incrementCommandsToday() {
+        commandsToday += Math.floor(Math.random() * 3) + 1;
+        commandsCountSpan.innerText = commandsToday;
+    }
+
+    function addFeedMessage() {
+        const feed = document.getElementById("activityFeed");
+        const newMsg = feedMessages[Math.floor(Math.random() * feedMessages.length)];
+        const item = document.createElement("div");
+        item.className = "feed-item";
+        item.innerHTML = `<i class="fas fa-bell"></i> <span>${newMsg}</span>`;
+        feed.insertBefore(item, feed.firstChild);
+        if (feed.children.length > 5) feed.removeChild(feed.lastChild);
+    }
+
+    setInterval(updateOnlineCount, 8000);
+    setInterval(addFeedMessage, 15000);
+    setInterval(() => {
+        // Pequeno incremento aleatório nos comandos para simular uso
+        if (Math.random() > 0.7) {
+            commandsToday += Math.floor(Math.random() * 2) + 1;
+            commandsCountSpan.innerText = commandsToday;
+        }
+    }, 20000);
 
     function stopTimer() {
         if (timerInterval) {
@@ -563,7 +721,6 @@
         pixSection.style.display = "block";
         timerContainer.style.display = "none";
         passwordContainer.style.display = "none";
-        // Reset button state in case it was disabled
         confirmPaymentBtn.disabled = false;
         confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
     });
