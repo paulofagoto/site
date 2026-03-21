@@ -81,15 +81,6 @@
             color: #475569;
             margin-bottom: 1rem;
         }
-        .voluntary-note {
-            font-size: 0.65rem;
-            color: #5b6e8c;
-            margin-top: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-        }
 
         .btn {
             border: none;
@@ -122,6 +113,11 @@
             width: 100%;
             justify-content: center;
         }
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
 
         .pix-section {
             background: #fef9e3;
@@ -146,17 +142,15 @@
             margin: 0.5rem 0;
         }
 
-        .timer-card, .password-area {
+        .timer-card {
             margin: 1rem 0;
             padding: 1rem;
             border-radius: 1rem;
             display: none;
-            animation: fadeSlide 0.3s ease;
-        }
-        .timer-card {
             background: #fff7e0;
             border-left: 5px solid #f97316;
             text-align: center;
+            animation: fadeSlide 0.3s ease;
         }
         .timer-number {
             font-size: 2rem;
@@ -164,10 +158,31 @@
             font-family: monospace;
             color: #f97316;
         }
+        .progress-container {
+            width: 100%;
+            background-color: #ffe0b5;
+            border-radius: 1rem;
+            margin: 0.5rem 0;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #ffb347);
+            border-radius: 1rem;
+            transition: width 1s linear;
+        }
+
         .password-area {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 1rem;
+            display: none;
             background: #e6f7e6;
             border-left: 5px solid #16a34a;
             text-align: center;
+            animation: fadeSlide 0.3s ease;
         }
         .password-display {
             font-size: 1.5rem;
@@ -201,6 +216,15 @@
             background: white;
             font-size: 0.9rem;
             outline: none;
+            transition: box-shadow 0.2s;
+        }
+        .glow-effect {
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.4), 0 0 0 6px rgba(37,99,235,0.2);
+            animation: pulseGlow 0.6s ease-out;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
+            100% { box-shadow: 0 0 0 8px rgba(37,99,235,0); }
         }
         .input-group input:focus {
             border-color: #2563eb;
@@ -315,6 +339,9 @@
             padding: 6px;
             border-radius: 1rem;
         }
+        .btn-loading {
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -331,9 +358,7 @@
                 <h3>Conteúdo protegido</h3>
                 <p>Você precisa de uma senha para acessar os comandos de recuperação.</p>
                 <button id="getPasswordBtn" class="btn btn-primary"><i class="fas fa-key"></i> Acessar conteúdo (contribuição sugerida R$5)</button>
-                <div class="voluntary-note">
-                    <i class="fas fa-heart" style="font-size: 0.6rem;"></i> Você receberá a senha independente da contribuição, a contribuição é voluntária.
-                </div>
+                <!-- Frase removida conforme solicitado -->
             </div>
 
             <!-- Seção PIX (inicialmente oculta) -->
@@ -352,9 +377,12 @@
 
             <!-- Timer (processamento) -->
             <div id="timerContainer" class="timer-card">
-                <div><i class="fas fa-hourglass-half"></i> Liberando acesso...</div>
+                <div><i class="fas fa-hourglass-half"></i> <span id="timerMessage">A senha será liberada em:</span></div>
                 <div class="timer-number" id="timerDisplay">120</div>
-                <div style="font-size:0.7rem;">Aguarde, a senha aparecerá em instantes</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar" style="width: 100%;"></div>
+                </div>
+                <div style="font-size:0.7rem; margin-top: 5px;">Aguarde, a senha aparecerá em instantes</div>
             </div>
 
             <!-- Senha liberada -->
@@ -470,6 +498,7 @@
     const confirmPaymentBtn = document.getElementById("confirmPaymentBtn");
     const timerContainer = document.getElementById("timerContainer");
     const timerDisplay = document.getElementById("timerDisplay");
+    const progressBar = document.getElementById("progressBar");
     const passwordContainer = document.getElementById("passwordContainer");
     const copyPasswordBtn = document.getElementById("copyPasswordBtn");
     const fillPasswordBtn = document.getElementById("fillPasswordBtn");
@@ -481,20 +510,27 @@
 
     let timerInterval = null;
     let timeLeft = 0;
+    let totalSeconds = 120;
 
     function stopTimer() {
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;
         }
+        confirmPaymentBtn.disabled = false;
+        confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
     }
 
     function startTimer(seconds = 120) {
-        stopTimer();
+        if (timerInterval) return;
+        totalSeconds = seconds;
         timeLeft = seconds;
         timerContainer.style.display = "block";
         passwordContainer.style.display = "none";
         timerDisplay.innerText = timeLeft;
+        progressBar.style.width = "100%";
+        confirmPaymentBtn.disabled = true;
+        confirmPaymentBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Aguardando...';
         
         timerInterval = setInterval(() => {
             if (timeLeft <= 1) {
@@ -503,9 +539,20 @@
                 timerContainer.style.display = "none";
                 passwordContainer.style.display = "block";
                 showToast("✅ Senha liberada! Utilize para acessar os comandos.");
+                // Aplicar animação de brilho no campo de senha e botão
+                passwordInput.classList.add("glow-effect");
+                openModalBtn.classList.add("glow-effect");
+                setTimeout(() => {
+                    passwordInput.classList.remove("glow-effect");
+                    openModalBtn.classList.remove("glow-effect");
+                }, 800);
+                confirmPaymentBtn.disabled = false;
+                confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
             } else {
                 timeLeft--;
                 timerDisplay.innerText = timeLeft;
+                const percent = (timeLeft / totalSeconds) * 100;
+                progressBar.style.width = percent + "%";
             }
         }, 1000);
     }
@@ -516,6 +563,9 @@
         pixSection.style.display = "block";
         timerContainer.style.display = "none";
         passwordContainer.style.display = "none";
+        // Reset button state in case it was disabled
+        confirmPaymentBtn.disabled = false;
+        confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
     });
 
     // Copiar chave PIX
