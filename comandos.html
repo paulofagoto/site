@@ -332,7 +332,7 @@
                     <button id="copyPixBtn" class="btn-outline btn" style="padding:0.3rem 0.8rem;"><i class="fas fa-copy"></i> Copiar chave</button>
                 </div>
                 <div style="font-size:0.7rem; margin: 5px 0;">Paulo Henrique Fagoto (NU Pagamentos) • Valor sugerido: R$ 5,00</div>
-                <button id="confirmPaymentBtn" class="btn btn-primary btn-block" style="margin-top: 8px;"><i class="fas fa-hourglass-start"></i> Continuar (aguarde 120s)</button>
+                <button id="confirmPaymentBtn" class="btn btn-primary btn-block" style="margin-top: 8px;"><i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha</button>
                 <div class="donation-note">
                     <i class="fas fa-heart" style="color:#eab308;"></i> A senha será liberada automaticamente após 120 segundos, independente da contribuição. Sua ajuda voluntária mantém o projeto.
                 </div>
@@ -515,7 +515,7 @@
         });
     });
 
-    // Botão "Continuar (aguarde 120s)" inicia timer
+    // Botão "Já fiz a contribuição, receber senha" inicia timer
     confirmPaymentBtn.addEventListener("click", () => {
         if (timerInterval) {
             showToast("⏳ O acesso já está sendo liberado. Aguarde.");
@@ -545,7 +545,7 @@
             buildModalCommands();
             modal.classList.add("active");
         } else {
-            errorMsg.innerText = "❌ Senha inválida. Clique em 'Continuar' acima e aguarde 120s para obter a senha.";
+            errorMsg.innerText = "❌ Senha inválida. Clique em 'Já fiz a contribuição' acima e aguarde 120s para obter a senha.";
             setTimeout(() => {
                 if (errorMsg.innerText !== "") errorMsg.innerText = "";
             }, 5000);
