@@ -2363,16 +2363,16 @@
         const now = new Date();
         const hour = now.getHours();
 
-        const isOnline = hour >= 7 && hour < 18;
+        const isOnline = hour >= 9 && hour < 18;
 
         if (isOnline) {
             statusBar.classList.remove('offline');
             statusBar.classList.add('online');
-            statusMessage.textContent = '🟢 Estou Online (07:00 às 18:00)';
+            statusMessage.textContent = '🟢 Estou Online (09:00 às 18:00)';
         } else {
             statusBar.classList.add('offline');
             statusBar.classList.remove('online');
-            statusMessage.textContent = '🔴 Fora do Horário (atendimento apenas das 07:00 às 18:00)';
+            statusMessage.textContent = '🔴 Fora do Horário (atendimento apenas das 09:00 às 18:00)';
         }
     }
 
