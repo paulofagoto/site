@@ -1875,8 +1875,8 @@
             </div>
             <div class="footer-col">
                 <h4>Horário de Atendimento Presencial</h4>
-                <p>Segunda a Sexta: 9h às 19h</p>
-                <p>Sábado: 9h às 13h</p>
+                <p>Segunda a Sexta: 9h às 18h</p>
+                <p>Sábado: 9h às 14h</p>
                 <p>Domingo: Fechado (sob consulta)</p>
                 <p><strong>Atendimento somente com agendamento prévio</strong></p>
             </div>
@@ -2363,16 +2363,16 @@
         const now = new Date();
         const hour = now.getHours();
 
-        const isOnline = hour >= 7 && hour < 20;
+        const isOnline = hour >= 7 && hour < 18;
 
         if (isOnline) {
             statusBar.classList.remove('offline');
             statusBar.classList.add('online');
-            statusMessage.textContent = '🟢 Estou Online (07:00 às 20:00)';
+            statusMessage.textContent = '🟢 Estou Online (07:00 às 18:00)';
         } else {
             statusBar.classList.add('offline');
             statusBar.classList.remove('online');
-            statusMessage.textContent = '🔴 Fora do Horário (atendimento apenas das 07:00 às 20:00)';
+            statusMessage.textContent = '🔴 Fora do Horário (atendimento apenas das 07:00 às 18:00)';
         }
     }
 
