@@ -27,68 +27,23 @@
             padding: 0 20px;
         }
 
-        /* ADSENSE TOPO - OTIMIZADO PARA VISIBILIDADE */
-        .adsense-top {
-            background: linear-gradient(135deg, #ffffff 0%, #fef9e6 100%);
+        /* Topo com anúncio */
+        .ad-top {
+            background: #ffffff;
             text-align: center;
-            padding: 20px 16px;
+            padding: 16px 12px;
             margin: 0 0 20px 0;
-            border-radius: 0 0 24px 24px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-bottom: 3px solid #ffc107;
-            position: relative;
-            z-index: 10;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e2e8f0;
         }
-        .adsense-top .label {
-            font-size: 0.75rem;
+        .ad-label {
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #ff6b35;
-            margin-bottom: 12px;
-            font-weight: 700;
-            background: #fff3e0;
-            display: inline-block;
-            padding: 4px 16px;
-            border-radius: 20px;
-        }
-        .adsense-wrapper {
-            min-height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #faf9f8;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-        }
-        /* Fallback visual enquanto o anúncio não carrega */
-        .ad-placeholder {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #6c757d;
-            font-size: 0.85rem;
-            gap: 10px;
-            z-index: 1;
-            pointer-events: none;
-        }
-        .ad-placeholder span {
-            background: #ffc10720;
-            padding: 8px 16px;
-            border-radius: 30px;
-        }
-        .adsense-wrapper > ins {
-            position: relative;
-            z-index: 2;
-        }
-        @media (max-width: 768px) {
-            .adsense-top {
-                padding: 16px 12px;
-            }
+            letter-spacing: 1px;
+            color: #5b6e8c;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .hero {
@@ -284,56 +239,35 @@
             font-size: 0.9rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
-        /* Anúncio alternativo - espaço reservado */
+        /* Dica extra */
         .info-box {
             background: #e8f0fe;
             border-left: 4px solid #1e4a76;
-            padding: 12px 16px;
+            padding: 10px 16px;
             margin-top: 12px;
-            font-size: 0.7rem;
-            text-align: left;
+            font-size: 0.8rem;
             border-radius: 8px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-<!-- AD BLOCK SUPERIOR - POSIÇÃO PRINCIPAL PARA MONETIZAÇÃO -->
-<div class="adsense-top">
-    <div class="label">✦ ANÚNCIO | SUPORTE NOSSO TRABALHO ✦</div>
-    <div class="adsense-wrapper" id="adsenseWrapper">
-        <div class="ad-placeholder" id="adPlaceholder">
-            <span>📢 Carregando anúncio... Aguarde</span>
-        </div>
-        <!-- Código AdSense - Posicionamento Estratégico -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
-             crossorigin="anonymous"></script>
-        <!-- Principal_Site -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1953773855788948"
-             data-ad-slot="6766869962"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            // Pequeno delay para garantir que o placeholder seja substituído quando o anúncio carregar
-            setTimeout(function() {
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    // Esconde o placeholder após tentar carregar o anúncio
-                    const placeholder = document.getElementById('adPlaceholder');
-                    if (placeholder) {
-                        setTimeout(() => {
-                            if (placeholder) placeholder.style.opacity = '0';
-                        }, 500);
-                    }
-                } catch(e) {
-                    console.log("AdSense loading:", e);
-                }
-            }, 100);
-        </script>
-    </div>
+<!-- ================= ANÚNCIO TOPO (IGUAL AO SEU SITE FUNCIONAL) ================= -->
+<div class="ad-top">
+    <div class="ad-label">✦ PUBLICIDADE | MANTENHA O CONTEÚDO GRATUITO ✦</div>
+    <!-- Código AdSense exatamente como na sua página que funciona -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+         crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1953773855788948"
+         data-ad-slot="6766869962"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <div class="info-box">
         💰 <strong>Anúncio acima mantém este conteúdo gratuito</strong> — Comandos poderosos para diagnosticar e reparar seu Windows 10/11.
     </div>
@@ -362,23 +296,21 @@
 
     <div class="commands-grid" id="commandsGrid"></div>
 
-    <!-- SEGUNDO PONTO DE ANÚNCIO (OPCIONAL, MAS AUMENTA RECEITA) - POSIÇÃO ESTRATÉGICA -->
+    <!-- SEGUNDO ANÚNCIO (ESTRATÉGICO, IGUAL AO MODELO FUNCIONAL) -->
     <div style="margin: 40px 0 30px; text-align: center;">
         <div style="background: #fef5e7; border-radius: 20px; padding: 16px; border: 1px dashed #ffc107;">
-            <div class="label" style="font-size:0.7rem; color:#ff6b35; margin-bottom:10px;">✦ CONTEÚDO CONTINUA ABAIXO ✦</div>
-            <div style="min-height: 90px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center; padding:10px;">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
-                     crossorigin="anonymous"></script>
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1953773855788948"
-                     data-ad-slot="6766869962"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
+            <div class="ad-label" style="font-size:0.7rem; color:#ff6b35; margin-bottom:10px;">✦ CONTEÚDO CONTINUA ABAIXO ✦</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1953773855788948"
+                 data-ad-slot="6766869962"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 
@@ -394,6 +326,7 @@
 <div id="toastMessage" class="toast-msg">✅ Comando copiado!</div>
 
 <script>
+    // BASE DE COMANDOS (MANTIDA IGUAL À VERSÃO ANTERIOR)
     const commandsData = [
         { id: 1, name: "sfc /scannow", category: "reparo", desc: "Verifica e restaura arquivos protegidos do Windows automaticamente. Corrige inconsistências críticas do sistema.", cmd: "sfc /scannow", tip: "Recomendado executar após falhas ou lentidão." },
         { id: 2, name: "DISM /Online /Cleanup-Image /RestoreHealth", category: "reparo", desc: "Repara a imagem do Windows, corrigindo corrupções que o SFC não consegue resolver. Essencial para integridade total.", cmd: "DISM /Online /Cleanup-Image /RestoreHealth", tip: "Requer conexão com a internet para baixar arquivos limpos." },
@@ -523,19 +456,7 @@
     });
 
     renderCommands();
-    
-    // Remover placeholder após alguns segundos se o anúncio não carregar (apenas estético)
-    setTimeout(() => {
-        const placeholder = document.getElementById('adPlaceholder');
-        if (placeholder && placeholder.style.opacity !== '0') {
-            placeholder.style.opacity = '0';
-            setTimeout(() => {
-                if(placeholder) placeholder.style.display = 'none';
-            }, 500);
-        }
-    }, 3000);
-    
-    console.log("Página otimizada para AdSense - Anúncios posicionados no topo e rodapé de conteúdo");
+    console.log("Página otimizada para AdSense - código igual ao site funcional.");
 </script>
 </body>
 </html>
