@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Monitor AOC com erro "No Signal"? Guia definitivo para resolver</title>
+    <meta name="description" content="Soluções completas para o erro 'No Signal' em monitores AOC. Aprenda a identificar problemas de cabo, placa de vídeo, configurações e muito mais. Passo a passo simples e eficaz.">
+    <meta name="keywords" content="monitor aoc no signal, aoc sem sinal, monitor não detecta sinal, no signal aoc, monitor aoc não liga, tela preta no signal">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, 'BlinkMacSystemFont', sans-serif;
+            line-height: 1.5;
+            color: #1e2a3e;
+            padding: 0 0 3rem 0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .ad-top {
+            background: #ffffff;
+            text-align: center;
+            padding: 16px 12px;
+            margin: 0 0 20px 0;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .ad-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5b6e8c;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 20px 0 30px 0;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #eef2ff;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 40px;
+        }
+        .badge {
+            display: inline-flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .badge span {
+            background: #2a5298;
+            color: white;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: #1e2a3e;
+            border-left: 6px solid #2a5298;
+            padding-left: 18px;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+            margin: 25px 0 40px;
+        }
+        .method-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            transition: all 0.25s ease;
+            border: 1px solid #e9edf2;
+        }
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 32px -14px rgba(0,0,0,0.2);
+            border-color: #cbdde9;
+        }
+        .card-header {
+            background: #f9fbfd;
+            padding: 18px 20px 12px 20px;
+            border-bottom: 2px solid #e2edf2;
+        }
+        .card-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 14px;
+            letter-spacing: -0.3px;
+            color: #2a5298;
+            background: #eef2ff;
+        }
+        .method-level {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: #dee7ef;
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: #2c5a74;
+        }
+        .card-body {
+            padding: 18px 20px 20px;
+        }
+        .method-desc {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+        .code-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: 15px;
+            border-left: 4px solid #2a5298;
+        }
+        .copy-btn {
+            background: #eef2ff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 34px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            color: #1e4a76;
+        }
+        .copy-btn:hover {
+            background: #cbdff2;
+            transform: scale(0.97);
+        }
+        .warning-note {
+            background: #fffbeb;
+            border-left: 4px solid #e67e22;
+            padding: 10px 12px;
+            margin-top: 14px;
+            font-size: 0.75rem;
+            border-radius: 12px;
+            color: #9b4a0b;
+        }
+        .info-box {
+            background: #e8f0fe;
+            border-left: 4px solid #1e4a76;
+            padding: 10px 16px;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #cbd5e1;
+            font-size: 0.8rem;
+            color: #4b6a8b;
+        }
+        .toast-msg {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f2e3a;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 1.6rem; }
+            .methods-grid { grid-template-columns: 1fr; }
+            .code-block { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ANÚNCIO TOPO -->
+<div class="ad-top">
+    <div class="ad-label">✦ PUBLICIDADE | MANTENHA O CONTEÚDO GRATUITO ✦</div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+         crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1953773855788948"
+         data-ad-slot="6766869962"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="info-box">
+        💰 <strong>Anúncio acima mantém este conteúdo gratuito</strong> — Soluções testadas para o erro "No Signal" em monitores AOC.
+    </div>
+</div>
+
+<div class="container">
+    <div class="hero">
+        <h1>🖥️ Monitor AOC com erro "No Signal"?</h1>
+        <p>Guia completo com 7 soluções para recuperar a imagem do seu monitor</p>
+        <div class="badge">
+            <span>🔌 Cabos e conexões</span>
+            <span>🖱️ Placa de vídeo</span>
+            <span>🔄 Reset de fábrica</span>
+            <span>💻 Drivers</span>
+            <span>⚡ BIOS/UEFI</span>
+        </div>
+    </div>
+
+    <h2 class="section-title">🔧 Métodos para resolver "No Signal" no AOC</h2>
+    <div class="methods-grid" id="methodsGrid"></div>
+
+    <!-- SEGUNDO ANÚNCIO -->
+    <div style="margin: 40px 0 30px; text-align: center;">
+        <div style="background: #fef5e7; border-radius: 20px; padding: 16px; border: 1px dashed #ffc107;">
+            <div class="ad-label" style="font-size:0.7rem; color:#ff6b35; margin-bottom:10px;">✦ CONTEÚDO CONTINUA ABAIXO ✦</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1953773855788948"
+                 data-ad-slot="6766869962"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <div style="margin: 30px 0; text-align: center; background: #eaf4ff; border-radius: 32px; padding: 20px;">
+        <p style="font-weight: 500;">💡 <strong>Dica importante:</strong> Se nenhum método funcionar, teste o monitor em outro computador ou dispositivo para confirmar se o problema é no monitor ou na placa de vídeo/fonte.</p>
+    </div>
+    <footer>
+        <p>© 2025 Guia de Soluções para Monitores AOC • Dicas técnicas para eliminar o erro "No Signal".</p>
+        <p style="margin-top: 8px;">⚙️ Métodos testados e recomendados por técnicos especializados.</p>
+    </footer>
+</div>
+
+<div id="toastMessage" class="toast-msg">✅ Texto copiado!</div>
+
+<script>
+    // Dados dos métodos de solução para erro "No Signal" no monitor AOC
+    const methodsData = [
+        {
+            id: 1,
+            name: "1. Verifique cabos e conexões físicas",
+            level: "Fácil",
+            desc: "A causa mais comum é cabo mal conectado, danificado ou entrada errada. Siga os passos abaixo.",
+            steps: [
+                "Desconecte e reconecte firmemente o cabo HDMI, DisplayPort ou VGA em ambas as extremidades (monitor e PC).",
+                "Teste com um cabo diferente (de preferência novo ou que funcione em outro dispositivo).",
+                "Certifique-se de que o monitor está na entrada correta (aperte o botão Source/Input no monitor e selecione HDMI1, HDMI2, DP etc).",
+                "Se estiver usando adaptador (ex: VGA para HDMI), verifique se ele está funcionando."
+            ],
+            tip: "Se o monitor tem múltiplas entradas, troque para outra e veja se o sinal aparece. Às vezes, a entrada pode estar com defeito."
+        },
+        {
+            id: 2,
+            name: "2. Teste com outro dispositivo (notebook, videogame)",
+            level: "Fácil",
+            desc: "Isolar se o problema é no monitor ou na fonte de vídeo (PC/placa de vídeo).",
+            steps: [
+                "Conecte o monitor a um notebook, videogame ou outro PC que você sabe que funciona.",
+                "Se a imagem aparecer, o problema está no seu computador original (placa de vídeo, drivers ou configuração).",
+                "Se o monitor continuar sem sinal, provavelmente é defeito no monitor (entrada queimada, fonte interna, etc)."
+            ],
+            tip: "Use o mesmo cabo e entrada para testar, assim você elimina variáveis."
+        },
+        {
+            id: 3,
+            name: "3. Reinicie o monitor e realize reset de fábrica",
+            level: "Fácil",
+            desc: "Às vezes, configurações internas do monitor podem travar e exibir 'No Signal' mesmo com sinal presente.",
+            steps: [
+                "Desconecte o monitor da tomada por 1 minuto e depois ligue novamente.",
+                "Com o monitor ligado, pressione o botão Menu e navegue até 'Reset' ou 'Restore Factory Settings' (consulte o manual do seu modelo).",
+                "Confirme o reset e aguarde o monitor reiniciar."
+            ],
+            tip: "Para muitos modelos AOC, o reset pode ser feito segurando o botão de menu por 10 segundos após ligar o monitor."
+        },
+        {
+            id: 4,
+            name: "4. Verifique a placa de vídeo do computador",
+            level: "Intermediário",
+            desc: "Se o monitor funciona em outro dispositivo, o problema está no PC. Teste a saída de vídeo.",
+            steps: [
+                "Se você tem placa de vídeo dedicada, conecte o cabo nela e não na saída da placa-mãe.",
+                "Se usar processador com vídeo integrado, remova a placa dedicada e teste na saída da placa-mãe.",
+                "Reinstale os drivers da placa de vídeo (use o modo de segurança se necessário).",
+                "Verifique se a placa de vídeo está bem encaixada no slot PCIe."
+            ],
+            tip: "Se o PC tem dois monitores, teste desconectando um deles. Às vezes, a saída pode estar configurada apenas para uma tela."
+        },
+        {
+            id: 5,
+            name: "5. Atualize ou reverta drivers de vídeo",
+            level: "Intermediário",
+            desc: "Drivers corrompidos ou atualizações recentes podem causar falha de sinal.",
+            steps: [
+                "Acesse o Gerenciador de Dispositivos (Win+X > Gerenciador de Dispositivos).",
+                "Expanda 'Adaptadores de vídeo', clique com botão direito na sua placa e selecione 'Desinstalar dispositivo'.",
+                "Reinicie o PC e o Windows reinstalará o driver básico.",
+                "Baixe o driver mais recente no site do fabricante (NVIDIA, AMD ou Intel) e instale."
+            ],
+            cmd: "Caso não consiga ver a tela, use outro monitor ou entre em modo de segurança (F8 ou Shift+Restart) para executar esses passos.",
+            tip: "Se a atualização causou o problema, use a restauração do sistema para voltar a um ponto anterior."
+        },
+        {
+            id: 6,
+            name: "6. Ajuste a taxa de atualização e resolução",
+            level: "Avançado",
+            desc: "Configurações incompatíveis de resolução ou taxa de atualização podem resultar em 'No Signal'.",
+            steps: [
+                "Inicie o Windows em Modo de Segurança (pressione Shift enquanto reinicia ou force desligamento 3 vezes).",
+                "No Modo de Segurança, vá em Configurações > Sistema > Tela > Configurações avançadas de vídeo.",
+                "Reduza a resolução para 1920x1080 ou 1280x720 e ajuste a taxa de atualização para 60Hz.",
+                "Reinicie normalmente e veja se o sinal retorna."
+            ],
+            tip: "Monitores AOC geralmente suportam 60Hz, mas se você tentou uma taxa mais alta, pode perder o sinal. Reduza gradualmente."
+        },
+        {
+            id: 7,
+            name: "7. Reset da BIOS/CMOS e configuração de vídeo",
+            level: "Avançado",
+            desc: "Configurações incorretas na BIOS podem direcionar o vídeo para saída errada.",
+            steps: [
+                "Desligue o PC e remova a bateria da placa-mãe por 30 segundos (ou use o jumper CLR_CMOS).",
+                "Ligue novamente e acesse a BIOS (tecla Del ou F2).",
+                "Verifique se a prioridade de vídeo está definida como 'PEG' (placa dedicada) ou 'IGD' (integrado) conforme sua configuração.",
+                "Salve as alterações e reinicie."
+            ],
+            tip: "Se você tem placa de vídeo dedicada, desabilite o vídeo integrado na BIOS para evitar conflitos."
+        }
+    ];
+
+    const gridContainer = document.getElementById('methodsGrid');
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function escapeAttr(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function renderMethods() {
+        let html = '';
+        for (let method of methodsData) {
+            let levelClass = '';
+            if (method.level === 'Fácil') levelClass = '🟢 Fácil';
+            else if (method.level === 'Intermediário') levelClass = '🟡 Intermediário';
+            else levelClass = '🔴 Avançado';
+
+            html += `
+                <div class="method-card">
+                    <div class="card-header">
+                        <h3>${escapeHtml(method.name)}</h3>
+                        <div class="method-level">${levelClass}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="method-desc">📌 ${escapeHtml(method.desc)}</div>
+            `;
+
+            if (method.steps) {
+                html += `<div style="margin-bottom: 15px;"><strong>Passos:</strong><ol style="margin-left: 20px; margin-top: 8px;">`;
+                method.steps.forEach(step => {
+                    html += `<li style="margin-bottom: 6px;">${escapeHtml(step)}</li>`;
+                });
+                html += `</ol></div>`;
+            }
+
+            if (method.cmd && !method.cmd.includes("Caso")) {
+                // Para comandos específicos (poucos casos)
+                html += `<div class="code-block" id="code-${method.id}">${escapeHtml(method.cmd)}</div>`;
+                html += `<button class="copy-btn" data-cmd="${escapeAttr(method.cmd)}" data-id="${method.id}">📋 Copiar comando</button>`;
+            } else if (method.cmd && method.cmd.includes("Caso")) {
+                // Instrução especial sem comando de cópia
+                html += `<div style="margin-top: 12px; font-size: 0.85rem; background: #f8fafc; padding: 8px 12px; border-radius: 12px;">${escapeHtml(method.cmd)}</div>`;
+            }
+
+            if (method.tip) {
+                html += `<div class="warning-note">💡 Dica: ${escapeHtml(method.tip)}</div>`;
+            }
+
+            html += `</div></div>`;
+        }
+        gridContainer.innerHTML = html;
+
+        // Reatribuir eventos de cópia (apenas para botões com data-cmd)
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const commandText = btn.getAttribute('data-cmd');
+                if (commandText) {
+                    copyToClipboard(commandText);
+                    showToast(`✅ Texto copiado: ${commandText.substring(0, 45)}${commandText.length > 45 ? '…' : ''}`);
+                }
+            });
+        });
+    }
+
+    async function copyToClipboard(text) {
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (err) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    }
+
+    let toastTimeout;
+    function showToast(message) {
+        const toast = document.getElementById('toastMessage');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        toastTimeout = setTimeout(() => {
+            toast.style.opacity = '0';
+        }, 2200);
+    }
+
+    renderMethods();
+</script>
+</body>
+</html>
