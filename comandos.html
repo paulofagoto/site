@@ -21,50 +21,76 @@
             padding: 0 0 3rem 0;
         }
 
-        /* Container principal */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* === ADSENSE TOPO - MAIS VISÍVEL === */
+        /* ADSENSE TOPO - OTIMIZADO PARA VISIBILIDADE */
         .adsense-top {
-            background: #ffffff;
+            background: linear-gradient(135deg, #ffffff 0%, #fef9e6 100%);
             text-align: center;
-            padding: 16px 12px;
-            margin: 0 0 24px 0;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            border-bottom: 1px solid #e2e8f0;
+            padding: 20px 16px;
+            margin: 0 0 20px 0;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-bottom: 3px solid #ffc107;
             position: relative;
             z-index: 10;
         }
         .adsense-top .label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #5b6e8c;
-            margin-bottom: 8px;
-            font-weight: 500;
+            letter-spacing: 2px;
+            color: #ff6b35;
+            margin-bottom: 12px;
+            font-weight: 700;
+            background: #fff3e0;
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 20px;
         }
         .adsense-wrapper {
-            min-height: 120px;
+            min-height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f8fafc;
-            border-radius: 12px;
+            background: #faf9f8;
+            border-radius: 16px;
             overflow: hidden;
+            position: relative;
         }
-        /* responsividade para o anúncio */
+        /* Fallback visual enquanto o anúncio não carrega */
+        .ad-placeholder {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #6c757d;
+            font-size: 0.85rem;
+            gap: 10px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .ad-placeholder span {
+            background: #ffc10720;
+            padding: 8px 16px;
+            border-radius: 30px;
+        }
+        .adsense-wrapper > ins {
+            position: relative;
+            z-index: 2;
+        }
         @media (max-width: 768px) {
             .adsense-top {
-                padding: 12px 8px;
+                padding: 16px 12px;
             }
         }
 
-        /* cabeçalho */
         .hero {
             text-align: center;
             margin: 20px 0 30px 0;
@@ -105,7 +131,6 @@
             font-weight: 600;
         }
 
-        /* filtros/categorias */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -134,14 +159,12 @@
             transform: translateY(-1px);
         }
 
-        /* Grid de comandos */
         .commands-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 28px;
             margin: 25px 0 40px;
         }
-        /* cartão */
         .command-card {
             background: white;
             border-radius: 28px;
@@ -231,9 +254,6 @@
             border-radius: 12px;
             color: #9b4a0b;
         }
-        hr {
-            margin: 20px 0;
-        }
         footer {
             text-align: center;
             margin-top: 48px;
@@ -264,15 +284,29 @@
             font-size: 0.9rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
+
+        /* Anúncio alternativo - espaço reservado */
+        .info-box {
+            background: #e8f0fe;
+            border-left: 4px solid #1e4a76;
+            padding: 12px 16px;
+            margin-top: 12px;
+            font-size: 0.7rem;
+            text-align: left;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
 
-<!-- AD BLOCK SUPERIOR - MAIOR VISIBILIDADE PARA GANHOS ADSENSE -->
+<!-- AD BLOCK SUPERIOR - POSIÇÃO PRINCIPAL PARA MONETIZAÇÃO -->
 <div class="adsense-top">
-    <div class="label">✦ PUBLIcididade | Apoie nosso conteúdo ✦</div>
-    <div class="adsense-wrapper">
-        <!-- Código AdSense fornecido - posição estratégica topo -->
+    <div class="label">✦ ANÚNCIO | SUPORTE NOSSO TRABALHO ✦</div>
+    <div class="adsense-wrapper" id="adsenseWrapper">
+        <div class="ad-placeholder" id="adPlaceholder">
+            <span>📢 Carregando anúncio... Aguarde</span>
+        </div>
+        <!-- Código AdSense - Posicionamento Estratégico -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
              crossorigin="anonymous"></script>
         <!-- Principal_Site -->
@@ -283,8 +317,25 @@
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+            // Pequeno delay para garantir que o placeholder seja substituído quando o anúncio carregar
+            setTimeout(function() {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    // Esconde o placeholder após tentar carregar o anúncio
+                    const placeholder = document.getElementById('adPlaceholder');
+                    if (placeholder) {
+                        setTimeout(() => {
+                            if (placeholder) placeholder.style.opacity = '0';
+                        }, 500);
+                    }
+                } catch(e) {
+                    console.log("AdSense loading:", e);
+                }
+            }, 100);
         </script>
+    </div>
+    <div class="info-box">
+        💰 <strong>Anúncio acima mantém este conteúdo gratuito</strong> — Comandos poderosos para diagnosticar e reparar seu Windows 10/11.
     </div>
 </div>
 
@@ -301,7 +352,6 @@
         </div>
     </div>
 
-    <!-- Filtros rápidos -->
     <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">📌 Todos os Comandos</button>
         <button class="filter-btn" data-filter="reparo">🩺 Reparo Automático</button>
@@ -310,8 +360,26 @@
         <button class="filter-btn" data-filter="armazenamento">💽 Armazenamento</button>
     </div>
 
-    <div class="commands-grid" id="commandsGrid">
-        <!-- Os comandos serão injetados via JS, mas estruturados para fácil manutenção -->
+    <div class="commands-grid" id="commandsGrid"></div>
+
+    <!-- SEGUNDO PONTO DE ANÚNCIO (OPCIONAL, MAS AUMENTA RECEITA) - POSIÇÃO ESTRATÉGICA -->
+    <div style="margin: 40px 0 30px; text-align: center;">
+        <div style="background: #fef5e7; border-radius: 20px; padding: 16px; border: 1px dashed #ffc107;">
+            <div class="label" style="font-size:0.7rem; color:#ff6b35; margin-bottom:10px;">✦ CONTEÚDO CONTINUA ABAIXO ✦</div>
+            <div style="min-height: 90px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center; padding:10px;">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+                     crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1953773855788948"
+                     data-ad-slot="6766869962"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
     </div>
 
     <div style="margin: 30px 0; text-align: center; background: #eaf4ff; border-radius: 32px; padding: 20px;">
@@ -326,7 +394,6 @@
 <div id="toastMessage" class="toast-msg">✅ Comando copiado!</div>
 
 <script>
-    // BASE DE DADOS DE COMANDOS PODEROSOS (Reparo + Diagnóstico)
     const commandsData = [
         { id: 1, name: "sfc /scannow", category: "reparo", desc: "Verifica e restaura arquivos protegidos do Windows automaticamente. Corrige inconsistências críticas do sistema.", cmd: "sfc /scannow", tip: "Recomendado executar após falhas ou lentidão." },
         { id: 2, name: "DISM /Online /Cleanup-Image /RestoreHealth", category: "reparo", desc: "Repara a imagem do Windows, corrigindo corrupções que o SFC não consegue resolver. Essencial para integridade total.", cmd: "DISM /Online /Cleanup-Image /RestoreHealth", tip: "Requer conexão com a internet para baixar arquivos limpos." },
@@ -346,12 +413,25 @@
         { id: 16, name: "ipconfig /flushdns", category: "diagnostico", desc: "Limpa o cache de DNS, resolvendo erros de acesso a sites e lentidão na navegação.", cmd: "ipconfig /flushdns", tip: "Comando rápido para resolver falhas de DNS." }
     ];
 
-    // Elementos
     const gridContainer = document.getElementById('commandsGrid');
     const filterBtns = document.querySelectorAll('.filter-btn');
     let activeFilter = 'all';
 
-    // Função de renderização dinâmica com filtro
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+    
+    function escapeAttr(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
     function renderCommands() {
         let filtered = commandsData;
         if (activeFilter !== 'all') {
@@ -364,7 +444,6 @@
 
         let html = '';
         for (let cmd of filtered) {
-            // Definir legenda da categoria em PT
             let categoryLabel = '';
             switch (cmd.category) {
                 case 'reparo': categoryLabel = '🛠️ Reparo Automático'; break;
@@ -391,7 +470,6 @@
         }
         gridContainer.innerHTML = html;
 
-        // Reatribuir eventos de cópia após renderização
         document.querySelectorAll('.copy-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const commandText = btn.getAttribute('data-cmd');
@@ -401,29 +479,10 @@
         });
     }
 
-    // Função auxiliar para escapar HTML e atributos
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-            return c;
-        });
-    }
-    function escapeAttr(str) {
-        if (!str) return '';
-        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    }
-
-    // Copiar para clipboard
     async function copyToClipboard(text) {
         try {
             await navigator.clipboard.writeText(text);
         } catch (err) {
-            // fallback
             const textarea = document.createElement('textarea');
             textarea.value = text;
             document.body.appendChild(textarea);
@@ -433,7 +492,6 @@
         }
     }
 
-    // Toast de notificação
     let toastTimeout;
     function showToast(message) {
         const toast = document.getElementById('toastMessage');
@@ -445,7 +503,6 @@
         }, 2200);
     }
 
-    // Eventos dos filtros
     function setActiveFilter(filterValue) {
         activeFilter = filterValue;
         filterBtns.forEach(btn => {
@@ -465,20 +522,20 @@
         });
     });
 
-    // Inicializar comandos + dicas extras de reparo automático
     renderCommands();
-
-    // Adicionar se precisar de um clique no anuncio? apenas manter integridade
-    // Reforçar a visibilidade do adsense: posição já está no topo da página com wrapper
-    // também garantir que o código AdSense seja executado após inserção dinâmica (já está estático no topo)
-    // Página totalmente responsiva e alinhada com objetivo de monetização.
-
-    // Seção bônus: alguns avisos de console para garantir
-    console.log("Página de Comandos Poderosos - Windows 10/11 | Monetização com AdSense ativa no topo.");
     
-    // Para garantir que os anúncios do Google sejam renderizados corretamente em caso de rolagem ou redimensionamento,
-    // o próprio AdSense gerencia, mas o script inicial já foi executado. Caso precise forçar push adicional é raro.
-    // De acordo com a política, não devemos manipular os anúncios indevidamente.
+    // Remover placeholder após alguns segundos se o anúncio não carregar (apenas estético)
+    setTimeout(() => {
+        const placeholder = document.getElementById('adPlaceholder');
+        if (placeholder && placeholder.style.opacity !== '0') {
+            placeholder.style.opacity = '0';
+            setTimeout(() => {
+                if(placeholder) placeholder.style.display = 'none';
+            }, 500);
+        }
+    }, 3000);
+    
+    console.log("Página otimizada para AdSense - Anúncios posicionados no topo e rodapé de conteúdo");
 </script>
 </body>
 </html>
