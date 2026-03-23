@@ -93,6 +93,26 @@
         .btn-compra i {
             margin-left: 8px;
         }
+
+        /* ===== ANÚNCIO ADSENSE NO TOPO ===== */
+        .ad-container {
+            margin: 20px auto;
+            text-align: center;
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            min-height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: auto;
+        }
+        .ad-top {
+            margin: 0 0 20px 0;  /* espaçamento abaixo do anúncio */
+            border: 1px solid rgba(15,42,63,0.1);
+        }
+
         /* Hero */
         .hero {
             background: linear-gradient(135deg, #f0f7fa 0%, #e6f0f5 100%);
@@ -580,6 +600,10 @@
                 font-size: 0.95rem;
                 padding: 8px 16px;
             }
+            .ad-container {
+                margin: 15px auto;
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -587,17 +611,27 @@
     <header class="header">
         <div class="container">
             <a href="#" class="logo">Paulo<span>Fagoto</span></a>
-            <!-- Botão de compra -->
             <a href="https://pay.monetizze.com.br/KRR457494" class="btn-compra" target="_blank" rel="noopener">COMPRAR AGORA <i class="fas fa-arrow-right"></i></a>
         </div>
     </header>
 
     <main>
+        <!-- ===== ANÚNCIO DO GOOGLE ADSENSE NO TOPO ===== -->
+        <div class="container">
+            <div class="ad-container ad-top">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1953773855788948"
+                     data-ad-slot="6766869962"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+
         <!-- HERO – com preço no título, na cor do botão e link de voltar para produtos -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <!-- Link de voltar para produtos.html -->
                     <a href="produtos.html" class="back-link">
                         <i class="fas fa-arrow-left"></i> Produtos do Paulo Fagoto
                     </a>
@@ -611,7 +645,6 @@
                         <span class="badge"><i class="fas fa-check-circle"></i> Navegação por botões</span>
                         <span class="badge"><i class="fas fa-check-circle"></i> Compatível Excel 2013+</span>
                     </div>
-                    <!-- Chamada com preço já embutido na mente -->
                     <a href="https://pay.monetizze.com.br/KRR457494" class="btn-principal" target="_blank" rel="noopener">QUERO ORGANIZAR MINHAS FINANÇAS <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="hero-image">
@@ -620,13 +653,12 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: VÍDEO DE DEMONSTRAÇÃO (AGORA LOGO APÓS O HERO) -->
+        <!-- SEÇÃO: VÍDEO DE DEMONSTRAÇÃO -->
         <section class="demonstracao">
             <div class="container">
                 <h2>VEJA A <span>PLANILHA EM AÇÃO</span></h2>
                 <p class="subtitulo">Assista ao vídeo prático e entenda como é fácil controlar suas finanças com apenas alguns cliques.</p>
                 <div class="video-container">
-                    <!-- Link do YouTube fornecido: https://youtu.be/NntU_4m5Noo -->
                     <iframe src="https://www.youtube.com/embed/NntU_4m5Noo?rel=0&modestbranding=1" 
                         title="Demonstração da Planilha Financeira" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -798,6 +830,13 @@
     <!-- NOTIFICAÇÕES DE COMPRA SIMULADAS (prova social em tempo real) -->
     <div class="notification-container" id="notification-container"></div>
 
+    <!-- SCRIPT DO ADSENSE (carregado após a página) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+         crossorigin="anonymous"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
     <script>
         (function() {
             // Lista de nomes para simular compras
@@ -823,16 +862,13 @@
                     </div>
                 `;
                 container.appendChild(notif);
-                // Remove após 5 segundos
                 setTimeout(() => {
                     if (notif.parentNode) notif.remove();
                 }, 5000);
             }
 
-            // Mostra a primeira notificação após 3 segundos
             setTimeout(() => {
                 criarNotificacao();
-                // Repete a cada 10-18 segundos
                 setInterval(criarNotificacao, Math.random() * 8000 + 10000);
             }, 3000);
         })();
