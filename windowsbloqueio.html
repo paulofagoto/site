@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Windows 10 travado na tela de bloqueio após atualização? Soluções definitivas</title>
+    <meta name="description" content="Guia completo para resolver o problema de Windows 10 travado na tela de bloqueio depois de uma atualização. Métodos com Modo de Segurança, Prompt de Comando, restauração do sistema e muito mais.">
+    <meta name="keywords" content="windows 10 travado tela bloqueio, atualização windows 10 trava, windows 10 não passa da tela de bloqueio, reparar windows 10, safe mode windows, dism, sfc, bootrec">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, 'BlinkMacSystemFont', sans-serif;
+            line-height: 1.5;
+            color: #1e2a3e;
+            padding: 0 0 3rem 0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .ad-top {
+            background: #ffffff;
+            text-align: center;
+            padding: 16px 12px;
+            margin: 0 0 20px 0;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .ad-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5b6e8c;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 20px 0 30px 0;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #c0392b, #e67e22);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff3e0;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 40px;
+        }
+        .badge {
+            display: inline-flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .badge span {
+            background: #c0392b;
+            color: white;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: #1e2a3e;
+            border-left: 6px solid #e67e22;
+            padding-left: 18px;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+            margin: 25px 0 40px;
+        }
+        .method-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            transition: all 0.25s ease;
+            border: 1px solid #e9edf2;
+        }
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 32px -14px rgba(0,0,0,0.2);
+            border-color: #cbdde9;
+        }
+        .card-header {
+            background: #f9fbfd;
+            padding: 18px 20px 12px 20px;
+            border-bottom: 2px solid #e2edf2;
+        }
+        .card-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 14px;
+            letter-spacing: -0.3px;
+            color: #c0392b;
+            background: #fff0e6;
+        }
+        .method-level {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: #dee7ef;
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: #2c5a74;
+        }
+        .card-body {
+            padding: 18px 20px 20px;
+        }
+        .method-desc {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+        .code-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: 15px;
+            border-left: 4px solid #e67e22;
+        }
+        .copy-btn {
+            background: #eef2ff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 34px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            color: #1e4a76;
+        }
+        .copy-btn:hover {
+            background: #cbdff2;
+            transform: scale(0.97);
+        }
+        .warning-note {
+            background: #fffbeb;
+            border-left: 4px solid #e67e22;
+            padding: 10px 12px;
+            margin-top: 14px;
+            font-size: 0.75rem;
+            border-radius: 12px;
+            color: #9b4a0b;
+        }
+        .info-box {
+            background: #e8f0fe;
+            border-left: 4px solid #1e4a76;
+            padding: 10px 16px;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #cbd5e1;
+            font-size: 0.8rem;
+            color: #4b6a8b;
+        }
+        .toast-msg {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f2e3a;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 1.6rem; }
+            .methods-grid { grid-template-columns: 1fr; }
+            .code-block { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ANÚNCIO TOPO (MESMO CÓDIGO QUE FUNCIONA) -->
+<div class="ad-top">
+    <div class="ad-label">✦ PUBLICIDADE | MANTENHA O CONTEÚDO GRATUITO ✦</div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+         crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1953773855788948"
+         data-ad-slot="6766869962"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="info-box">
+        💰 <strong>Anúncio acima mantém este conteúdo gratuito</strong> — Soluções testadas para o problema de tela de bloqueio travada.
+    </div>
+</div>
+
+<div class="container">
+    <div class="hero">
+        <h1>🔄 Windows 10 travado na tela de bloqueio após atualização?</h1>
+        <p>Guia definitivo com 5 métodos para recuperar o acesso ao seu computador</p>
+        <div class="badge">
+            <span>🔧 Modo de Segurança</span>
+            <span>💻 Prompt de Comando</span>
+            <span>🔄 Restauração do Sistema</span>
+            <span>📦 DISM / SFC</span>
+            <span>⚙️ Bootrec</span>
+        </div>
+    </div>
+
+    <h2 class="section-title">⚡ Métodos para desbloquear o Windows</h2>
+    <div class="methods-grid" id="methodsGrid"></div>
+
+    <!-- SEGUNDO ANÚNCIO (ESTRATÉGICO) -->
+    <div style="margin: 40px 0 30px; text-align: center;">
+        <div style="background: #fef5e7; border-radius: 20px; padding: 16px; border: 1px dashed #ffc107;">
+            <div class="ad-label" style="font-size:0.7rem; color:#ff6b35; margin-bottom:10px;">✦ CONTEÚDO CONTINUA ABAIXO ✦</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1953773855788948"
+                 data-ad-slot="6766869962"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <div style="margin: 30px 0; text-align: center; background: #eaf4ff; border-radius: 32px; padding: 20px;">
+        <p style="font-weight: 500;">💡 <strong>Dica importante:</strong> Se nenhum método funcionar, considere usar um pendrive de instalação do Windows para reparar a inicialização ou reinstalar o sistema mantendo seus arquivos.</p>
+    </div>
+    <footer>
+        <p>© 2025 Guia de Recuperação Windows • Conteúdo técnico para solução de travamentos após atualizações.</p>
+        <p style="margin-top: 8px;">⚙️ Métodos testados e recomendados por técnicos especializados.</p>
+    </footer>
+</div>
+
+<div id="toastMessage" class="toast-msg">✅ Comando copiado!</div>
+
+<script>
+    // Dados dos métodos de solução
+    const methodsData = [
+        {
+            id: 1,
+            name: "Método 1: Iniciar em Modo de Segurança",
+            level: "Fácil",
+            desc: "Forçar a entrada no Modo de Segurança para desinstalar a atualização problemática ou realizar reparos.",
+            steps: [
+                "Desligue o computador segurando o botão de energia por 10 segundos.",
+                "Ligue novamente e, assim que a tela da BIOS desaparecer, desligue novamente com o botão de energia. Repita isso 3 vezes.",
+                "Na quarta inicialização, o Windows entrará na tela de Recuperação Automática.",
+                "Clique em 'Opções avançadas' > 'Solucionar problemas' > 'Opções avançadas' > 'Configurações de Inicialização' > 'Reiniciar'.",
+                "Após reiniciar, pressione 4 ou F4 para entrar no Modo de Segurança."
+            ],
+            tip: "Se conseguir acessar o Modo de Segurança, vá em 'Configurações' > 'Atualização e Segurança' > 'Windows Update' > 'Exibir histórico de atualizações' > 'Desinstalar atualizações' e remova a atualização mais recente."
+        },
+        {
+            id: 2,
+            name: "Método 2: Desinstalar atualização via Prompt de Comando",
+            level: "Intermediário",
+            desc: "Use o Prompt de Comando no ambiente de recuperação para remover a última atualização instalada.",
+            cmd: "dism /image:C:\\ /get-packages",
+            cmd2: "dism /image:C:\\ /remove-package /packagename:NOMEDOPACOTE",
+            descCmd: "1. Execute o comando para listar os pacotes instalados.\n2. Identifique o pacote da atualização recente (ex: Package_for_RollupFix).\n3. Substitua NOMEDOPACOTE pelo nome completo e execute o segundo comando.",
+            tip: "Se não souber qual atualização remover, remova a mais recente listada. Reinicie após a remoção."
+        },
+        {
+            id: 3,
+            name: "Método 3: Restauração do Sistema",
+            level: "Médio",
+            desc: "Reverter o Windows para um ponto de restauração anterior à atualização problemática.",
+            steps: [
+                "Acesse as Opções Avançadas (como no Método 1).",
+                "Vá em 'Solucionar problemas' > 'Opções avançadas' > 'Restauração do Sistema'.",
+                "Escolha um ponto de restauração criado antes da atualização e siga as instruções."
+            ],
+            tip: "A restauração não afeta seus arquivos pessoais, apenas configurações e programas instalados após o ponto escolhido."
+        },
+        {
+            id: 4,
+            name: "Método 4: Reparo com SFC e DISM",
+            level: "Avançado",
+            desc: "Executar verificações de integridade do sistema para corrigir arquivos corrompidos que podem estar travando a tela de bloqueio.",
+            cmd: "sfc /scannow /offbootdir=C:\\ /offwindir=C:\\Windows",
+            cmd2: "DISM /Image:C:\\ /Cleanup-Image /RestoreHealth",
+            descCmd: "1. Acesse o Prompt de Comando pelo ambiente de recuperação.\n2. Execute o primeiro comando para verificar e reparar arquivos do sistema.\n3. Em seguida, execute o segundo comando para reparar a imagem do Windows.",
+            tip: "Se o DISM apresentar erro, você pode usar um arquivo de origem com a opção /Source:WIM: (exigirá um pendrive de instalação)."
+        },
+        {
+            id: 5,
+            name: "Método 5: Reparar o Boot (MBR/BCD)",
+            level: "Avançado",
+            desc: "Reconstruir os arquivos de inicialização pode resolver travamentos causados por corrupção no boot.",
+            cmd: "bootrec /fixmbr",
+            cmd2: "bootrec /fixboot",
+            cmd3: "bootrec /rebuildbcd",
+            descCmd: "1. Digite e execute cada comando em sequência.\n2. Após o rebuildbcd, se aparecer uma pergunta, digite S e Enter para adicionar a instalação do Windows ao menu de boot.",
+            tip: "Execute também 'chkdsk C: /f /r' para verificar erros no disco rígido, se necessário."
+        }
+    ];
+
+    const gridContainer = document.getElementById('methodsGrid');
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function escapeAttr(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function renderMethods() {
+        let html = '';
+        for (let method of methodsData) {
+            let levelClass = '';
+            if (method.level === 'Fácil') levelClass = '🟢 Fácil';
+            else if (method.level === 'Intermediário') levelClass = '🟡 Intermediário';
+            else levelClass = '🔴 Avançado';
+
+            html += `
+                <div class="method-card">
+                    <div class="card-header">
+                        <h3>${escapeHtml(method.name)}</h3>
+                        <div class="method-level">${levelClass}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="method-desc">📌 ${escapeHtml(method.desc)}</div>
+            `;
+
+            if (method.steps) {
+                html += `<div style="margin-bottom: 15px;"><strong>Passos:</strong><ol style="margin-left: 20px; margin-top: 8px;">`;
+                method.steps.forEach(step => {
+                    html += `<li style="margin-bottom: 6px;">${escapeHtml(step)}</li>`;
+                });
+                html += `</ol></div>`;
+            }
+
+            if (method.cmd) {
+                html += `<div class="code-block" id="code-${method.id}">${escapeHtml(method.cmd)}</div>`;
+                html += `<button class="copy-btn" data-cmd="${escapeAttr(method.cmd)}" data-id="${method.id}">📋 Copiar comando 1</button>`;
+                if (method.cmd2) {
+                    html += `<div class="code-block" id="code-${method.id}-2" style="margin-top: 12px;">${escapeHtml(method.cmd2)}</div>`;
+                    html += `<button class="copy-btn" data-cmd="${escapeAttr(method.cmd2)}" data-id="${method.id}-2">📋 Copiar comando 2</button>`;
+                }
+                if (method.cmd3) {
+                    html += `<div class="code-block" id="code-${method.id}-3" style="margin-top: 12px;">${escapeHtml(method.cmd3)}</div>`;
+                    html += `<button class="copy-btn" data-cmd="${escapeAttr(method.cmd3)}" data-id="${method.id}-3">📋 Copiar comando 3</button>`;
+                }
+                if (method.descCmd) {
+                    html += `<div style="margin-top: 12px; font-size: 0.85rem; background: #f8fafc; padding: 8px 12px; border-radius: 12px;">${escapeHtml(method.descCmd)}</div>`;
+                }
+            }
+
+            if (method.tip) {
+                html += `<div class="warning-note">💡 Dica: ${escapeHtml(method.tip)}</div>`;
+            }
+
+            html += `</div></div>`;
+        }
+        gridContainer.innerHTML = html;
+
+        // Reatribuir eventos de cópia
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const commandText = btn.getAttribute('data-cmd');
+                copyToClipboard(commandText);
+                showToast(`✅ Comando copiado: ${commandText.substring(0, 45)}${commandText.length > 45 ? '…' : ''}`);
+            });
+        });
+    }
+
+    async function copyToClipboard(text) {
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (err) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    }
+
+    let toastTimeout;
+    function showToast(message) {
+        const toast = document.getElementById('toastMessage');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        toastTimeout = setTimeout(() => {
+            toast.style.opacity = '0';
+        }, 2200);
+    }
+
+    renderMethods();
+</script>
+</body>
+</html>
