@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>WinFix PRO | Acesso aos Comandos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <title>Comandos Poderosos: Reparo Automático e Diagnóstico | Windows 10/11</title>
+    <meta name="description" content="Ferramenta definitiva com comandos avançados para reparo automático, diagnóstico de hardware, SFC, DISM, CHKDSK e muito mais para Windows 10 e 11. Soluções profissionais.">
+    <meta name="keywords" content="reparo automático windows, diagnóstico pc, comandos cmd, sfc scannow, dism, chkdsk, bootrec, windows 10, windows 11">
     <style>
         * {
             margin: 0;
@@ -15,1020 +14,471 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f0f4fa 0%, #e6ecf5 100%);
-            color: #1e293b;
+            background: #f0f4f8;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, 'BlinkMacSystemFont', sans-serif;
             line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
+            color: #1e2a3e;
+            padding: 0 0 3rem 0;
         }
 
+        /* Container principal */
         .container {
-            max-width: 580px;
-            width: 100%;
+            max-width: 1280px;
             margin: 0 auto;
-            position: relative;
+            padding: 0 20px;
         }
 
-        /* Animações de entrada */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .card, .social-proof, .activity-feed, .locked-area, .pix-section, .timer-card, .password-area, .access-area, .tip {
-            animation: fadeUp 0.4s ease-out forwards;
-        }
-
-        .card {
-            background: white;
-            border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12), 0 2px 5px rgba(0,0,0,0.02);
-            overflow: hidden;
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, #0f2b3d 0%, #1e4a76 100%);
-            padding: 2rem 1.8rem;
+        /* === ADSENSE TOPO - MAIS VISÍVEL === */
+        .adsense-top {
+            background: #ffffff;
             text-align: center;
-            color: white;
+            padding: 16px 12px;
+            margin: 0 0 24px 0;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e2e8f0;
             position: relative;
+            z-index: 10;
         }
-        .card-header h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .windows-icon {
-            font-size: 1.5rem;
-        }
-        .card-header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        .live-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: #ef4444;
-            padding: 0.2rem 0.6rem;
-            border-radius: 2rem;
+        .adsense-top .label {
             font-size: 0.7rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            box-shadow: 0 0 8px rgba(239,68,68,0.5);
-            animation: pulseRed 1.5s infinite;
-        }
-        .live-badge i {
-            font-size: 0.6rem;
-        }
-        @keyframes pulseRed {
-            0% { opacity: 0.8; transform: scale(1);}
-            50% { opacity: 1; transform: scale(1.02);}
-            100% { opacity: 0.8; transform: scale(1);}
-        }
-
-        .card-body {
-            padding: 1.8rem;
-        }
-
-        /* Social proof */
-        .social-proof {
-            background: #f8fafc;
-            border-radius: 1rem;
-            padding: 0.8rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            border: 1px solid #e2e8f0;
-            font-size: 0.75rem;
-        }
-        .online-counter, .commands-today, .waiting-counter {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5b6e8c;
+            margin-bottom: 8px;
             font-weight: 500;
         }
-        .online-counter { color: #2563eb; }
-        .commands-today { color: #16a34a; }
-        .waiting-counter { color: #f97316; }
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulseGreen 1.2s infinite;
-        }
-        @keyframes pulseGreen {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 1; }
-        }
-
-        /* Activity feed */
-        .activity-feed {
-            background: #ffffff;
-            border-radius: 1rem;
-            padding: 0.5rem;
-            margin: 1rem 0;
-            border: 1px solid #e2e8f0;
-            max-height: 90px;
-            overflow-y: auto;
-            font-size: 0.7rem;
-        }
-        .feed-item {
-            padding: 0.3rem 0.5rem;
-            border-bottom: 1px solid #f1f5f9;
-            color: #475569;
+        .adsense-wrapper {
+            min-height: 120px;
             display: flex;
-            gap: 6px;
+            justify-content: center;
             align-items: center;
-        }
-        .feed-item i {
-            color: #2563eb;
-            font-size: 0.6rem;
-        }
-
-        .locked-area {
-            text-align: center;
             background: #f8fafc;
-            border-radius: 1.2rem;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
         }
-        .locked-icon {
-            font-size: 3rem;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
+        /* responsividade para o anúncio */
+        @media (max-width: 768px) {
+            .adsense-top {
+                padding: 12px 8px;
+            }
         }
 
-        .btn {
-            border: none;
-            background: #2563eb;
+        /* cabeçalho */
+        .hero {
+            text-align: center;
+            margin: 20px 0 30px 0;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #0f2b3d, #1e4a6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #eef2ff80;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+        .badge {
+            display: inline-flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .badge span {
+            background: #1e3a5f;
             color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 2rem;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
             font-weight: 600;
-            font-size: 0.9rem;
+        }
+
+        /* filtros/categorias */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 28px 0 32px;
+        }
+        .filter-btn {
+            background: #eef2f6;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s;
+            color: #1f3a4b;
+        }
+        .filter-btn.active {
+            background: #0f3b5c;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .filter-btn:hover:not(.active) {
+            background: #dce5ec;
+            transform: translateY(-1px);
+        }
+
+        /* Grid de comandos */
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+            margin: 25px 0 40px;
+        }
+        /* cartão */
+        .command-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            transition: all 0.25s ease;
+            border: 1px solid #e9edf2;
+        }
+        .command-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 32px -14px rgba(0,0,0,0.2);
+            border-color: #cbdde9;
+        }
+        .card-header {
+            background: #f9fbfd;
+            padding: 18px 20px 12px 20px;
+            border-bottom: 2px solid #e2edf2;
+        }
+        .card-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Consolas', 'Courier New', monospace;
+            background: #eef3fc;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 14px;
+            letter-spacing: -0.3px;
+            color: #0a4b6e;
+        }
+        .category-tag {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: #dee7ef;
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: #2c5a74;
+        }
+        .card-body {
+            padding: 18px 20px 20px;
+        }
+        .command-desc {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+        .code-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: 15px;
+            border-left: 4px solid #3b82f6;
+        }
+        .copy-btn {
+            background: #eef2ff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 34px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            position: relative;
-            overflow: hidden;
+            transition: 0.2s;
+            color: #1e4a76;
         }
-        /* Ripple effect */
-        .btn-ripple {
-            position: relative;
-            overflow: hidden;
+        .copy-btn:hover {
+            background: #cbdff2;
+            transform: scale(0.97);
         }
-        .btn-ripple:after {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
-            background-repeat: no-repeat;
-            background-position: 50%;
-            transform: scale(10);
-            opacity: 0;
-            transition: transform .3s, opacity .5s;
+        .warning-note {
+            background: #fffbeb;
+            border-left: 4px solid #e67e22;
+            padding: 10px 12px;
+            margin-top: 14px;
+            font-size: 0.75rem;
+            border-radius: 12px;
+            color: #9b4a0b;
         }
-        .btn-ripple:active:after {
-            transform: scale(0);
-            opacity: 0.3;
-            transition: 0s;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #2563eb;
-            color: #2563eb;
-        }
-        .btn-primary {
-            background: linear-gradient(95deg, #2563eb, #1e40af);
-            box-shadow: 0 4px 10px rgba(37,99,235,0.2);
-        }
-        .btn-block {
-            width: 100%;
-            justify-content: center;
-        }
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .pix-section {
-            background: #fef9e3;
-            border-radius: 1.2rem;
-            padding: 1.2rem;
-            margin: 1.2rem 0;
-            display: none;
-            border-left: 4px solid #f59e0b;
-        }
-        .pix-key {
-            background: white;
-            padding: 0.7rem;
-            border-radius: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-family: monospace;
-            border: 1px solid #e2e8f0;
-            margin: 0.5rem 0;
-        }
-
-        /* Timer */
-        .timer-card {
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 1rem;
-            display: none;
-            background: #fff7e0;
-            border-left: 5px solid #f97316;
-            text-align: center;
-        }
-        .timer-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 0.5rem 0;
-        }
-        .circular-progress {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: conic-gradient(#f97316 0deg, #ffe0b5 0deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .circular-progress-inner {
-            width: 58px;
-            height: 58px;
-            background: #fff7e0;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .timer-number {
-            font-size: 1.6rem;
-            font-weight: 800;
-            font-family: monospace;
-            color: #f97316;
-        }
-        .progress-container {
-            flex: 1;
-            background-color: #ffe0b5;
-            border-radius: 1rem;
-            height: 8px;
-            overflow: hidden;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, #f97316, #ffb347);
-            transition: width 1s linear;
-        }
-        .pulse-warning {
-            animation: pulseText 0.8s infinite;
-        }
-        @keyframes pulseText {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        .password-area {
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 1rem;
-            display: none;
-            background: #e6f7e6;
-            border-left: 5px solid #16a34a;
-            text-align: center;
-            position: relative;
-        }
-        .password-display {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: #0f172a;
-            display: inline-block;
-            padding: 0.2rem 1rem;
-            border-radius: 1rem;
-            color: #facc15;
-            font-family: monospace;
-            margin: 0.5rem 0;
-        }
-        .trophy-badge {
-            position: absolute;
-            top: -12px;
-            right: 10px;
-            background: gold;
-            color: #b45309;
-            border-radius: 2rem;
-            padding: 0.2rem 0.6rem;
-            font-size: 0.7rem;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            animation: bounce 0.5s;
-        }
-        @keyframes bounce {
-            0%,100%{ transform: translateY(0); }
-            50%{ transform: translateY(-5px); }
-        }
-
-        .access-area {
-            margin-top: 1rem;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 1rem;
-        }
-        .input-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-        .input-group input {
-            flex: 2;
-            padding: 0.7rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid #cbd5e1;
-            background: white;
-            font-size: 0.9rem;
-            outline: none;
-        }
-        .glow-effect {
-            box-shadow: 0 0 0 3px rgba(37,99,235,0.4), 0 0 0 6px rgba(37,99,235,0.2);
-            animation: pulseGlow 0.6s ease-out;
-        }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
-            100% { box-shadow: 0 0 0 8px rgba(37,99,235,0); }
-        }
-        .error {
-            color: #dc2626;
-            font-size: 0.8rem;
-        }
-        .tip {
-            background: #f1f5f9;
-            border-radius: 1rem;
-            padding: 1rem;
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
+        hr {
+            margin: 20px 0;
         }
         footer {
             text-align: center;
-            margin-top: 1.5rem;
-            color: #64748b;
-            font-size: 0.75rem;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #cbd5e1;
+            font-size: 0.8rem;
+            color: #4b6a8b;
         }
-
-        /* Modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(6px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.2s;
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 1.6rem; }
+            .commands-grid { grid-template-columns: 1fr; }
+            .code-block { font-size: 0.75rem; }
         }
-        .modal.active {
-            visibility: visible;
-            opacity: 1;
-        }
-        .modal-container {
-            background: white;
-            border-radius: 1.5rem;
-            max-width: 750px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 1.5rem;
-        }
-        .command-card {
-            background: #f8fafc;
-            border-radius: 1rem;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #2563eb;
-        }
-        .command-code {
-            font-family: monospace;
-            background: #eef2ff;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .toast {
+        .toast-msg {
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: #1e293b;
+            background: #1f2e3a;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            z-index: 1100;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .donation-note {
-            font-size: 0.7rem;
-            color: #5b6e8c;
-            text-align: center;
-            margin-top: 8px;
-            background: #f9f9ff;
-            padding: 6px;
-            border-radius: 1rem;
-        }
-        /* Floating assistant */
-        .assistant-bubble {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #2563eb;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            font-size: 0.9rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 100;
-            transition: 0.2s;
-            animation: pulseBlue 1.5s infinite;
-        }
-        @keyframes pulseBlue {
-            0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(37,99,235,0); }
-            100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
-        }
-        .assistant-bubble:hover {
-            transform: scale(1.05);
-        }
-        .assistant-guide {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background: white;
-            border-radius: 1rem;
-            width: 260px;
-            padding: 0.8rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 101;
-            border: 1px solid #e2e8f0;
-            font-size: 0.8rem;
-        }
-        .assistant-guide.active {
-            display: block;
-            animation: fadeSlide 0.2s;
-        }
-        .assistant-guide h4 {
-            margin-bottom: 8px;
-        }
-        /* Sound toggle */
-        .sound-toggle {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #1e293b;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: white;
-            z-index: 100;
-        }
-        @media (max-width: 500px) {
-            .card-header h1 { font-size: 1.6rem; }
-            .card-body { padding: 1.2rem; }
-            .social-proof { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
+
+<!-- AD BLOCK SUPERIOR - MAIOR VISIBILIDADE PARA GANHOS ADSENSE -->
+<div class="adsense-top">
+    <div class="label">✦ PUBLIcididade | Apoie nosso conteúdo ✦</div>
+    <div class="adsense-wrapper">
+        <!-- Código AdSense fornecido - posição estratégica topo -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
+             crossorigin="anonymous"></script>
+        <!-- Principal_Site -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1953773855788948"
+             data-ad-slot="6766869962"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
+
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <div class="live-badge"><i class="fas fa-circle"></i> AO VIVO</div>
-            <h1><i class="fab fa-windows windows-icon"></i> WinFix PRO</h1>
-            <p>Comandos avançados para reparo automático do Windows</p>
-        </div>
-        <div class="card-body">
-            <!-- Social proof dinâmico -->
-            <div class="social-proof">
-                <div class="online-counter"><span class="pulse-dot"></span> <span id="onlineCount">23</span> pessoas online</div>
-                <div class="commands-today"><i class="fas fa-terminal"></i> <span id="commandsCount">158</span> comandos hoje</div>
-                <div class="waiting-counter"><i class="fas fa-hourglass-half"></i> <span id="waitingCount">4</span> aguardando liberação</div>
-            </div>
-
-            <!-- Feed de atividades ao vivo -->
-            <div class="activity-feed" id="activityFeed"></div>
-
-            <!-- Área bloqueada (inicial) -->
-            <div id="lockedArea" class="locked-area">
-                <div class="locked-icon"><i class="fas fa-lock"></i></div>
-                <h3>Conteúdo protegido</h3>
-                <p>Você precisa de uma senha para acessar os comandos de recuperação.</p>
-                <button id="getPasswordBtn" class="btn btn-primary btn-ripple"><i class="fas fa-key"></i> Acessar conteúdo (contribuição sugerida R$5)</button>
-            </div>
-
-            <!-- Seção PIX (inicialmente oculta) -->
-            <div id="pixSection" class="pix-section">
-                <div style="font-weight: 600; margin-bottom: 8px;">💳 Contribuição voluntária via PIX</div>
-                <div class="pix-key">
-                    <span><i class="fas fa-cnpj"></i> <strong>64.383.742/0001-26</strong></span>
-                    <button id="copyPixBtn" class="btn-outline btn btn-ripple" style="padding:0.3rem 0.8rem;"><i class="fas fa-copy"></i> Copiar chave</button>
-                </div>
-                <div style="font-size:0.7rem; margin: 5px 0;">Paulo Henrique Fagoto (NU Pagamentos) • Valor sugerido: R$ 5,00</div>
-                <button id="confirmPaymentBtn" class="btn btn-primary btn-block btn-ripple" style="margin-top: 8px;"><i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha</button>
-                <div class="donation-note">
-                    <i class="fas fa-heart" style="color:#eab308;"></i> A senha será liberada automaticamente após 120 segundos, independente da contribuição. Sua ajuda voluntária mantém o projeto.
-                </div>
-            </div>
-
-            <!-- Timer (processamento) -->
-            <div id="timerContainer" class="timer-card">
-                <div><i class="fas fa-hourglass-half"></i> <span>A senha será liberada em:</span></div>
-                <div class="timer-wrapper">
-                    <div class="circular-progress" id="circularProgress">
-                        <div class="circular-progress-inner">
-                            <div class="timer-number" id="timerDisplay">120</div>
-                        </div>
-                    </div>
-                    <div class="progress-container">
-                        <div class="progress-bar" id="progressBar" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div style="font-size:0.7rem; margin-top: 5px;">Aguarde, a senha aparecerá em instantes</div>
-            </div>
-
-            <!-- Senha liberada -->
-            <div id="passwordContainer" class="password-area">
-                <i class="fas fa-check-circle" style="color:#16a34a;"></i> <strong>Acesso liberado!</strong><br>
-                Sua senha:<br>
-                <div id="passwordValue" class="password-display">38695506</div>
-                <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px;">
-                    <button id="copyPasswordBtn" class="btn-outline btn btn-ripple"><i class="fas fa-copy"></i> Copiar senha</button>
-                    <button id="fillPasswordBtn" class="btn-outline btn btn-ripple"><i class="fas fa-pen"></i> Preencher campo</button>
-                </div>
-            </div>
-
-            <!-- Acesso com senha -->
-            <div class="access-area">
-                <div class="input-group">
-                    <input type="password" id="passwordInput" placeholder="Digite a senha de 8 dígitos">
-                    <button id="openModalBtn" class="btn btn-ripple"><i class="fas fa-lock-open"></i> Ver comandos</button>
-                </div>
-                <div id="errorMsg" class="error"></div>
-            </div>
-
-            <div class="tip">
-                <i class="fas fa-window-restore"></i> <strong>Como acessar o Prompt de Recuperação:</strong><br>
-                Force o desligamento 3x ao iniciar o PC ou use um pendrive de instalação. Vá em <strong>Solução de problemas → Prompt de Comando</strong>.<br>
-                Identifique a unidade correta com <code>diskpart</code> + <code>list volume</code>.
-            </div>
+    <div class="hero">
+        <h1>⚡ PODER DOS COMANDOS ⚡</h1>
+        <p>Reparo Automático + Diagnóstico Profissional — Windows 10 / 11</p>
+        <div class="badge">
+            <span>🛡️ SFC / DISM</span>
+            <span>💾 CHKDSK</span>
+            <span>🔧 BootRec</span>
+            <span>📊 Perfmon</span>
+            <span>🚀 PowerShell Avançado</span>
         </div>
     </div>
+
+    <!-- Filtros rápidos -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">📌 Todos os Comandos</button>
+        <button class="filter-btn" data-filter="reparo">🩺 Reparo Automático</button>
+        <button class="filter-btn" data-filter="diagnostico">📈 Diagnóstico</button>
+        <button class="filter-btn" data-filter="boot">🔑 Boot & Recuperação</button>
+        <button class="filter-btn" data-filter="armazenamento">💽 Armazenamento</button>
+    </div>
+
+    <div class="commands-grid" id="commandsGrid">
+        <!-- Os comandos serão injetados via JS, mas estruturados para fácil manutenção -->
+    </div>
+
+    <div style="margin: 30px 0; text-align: center; background: #eaf4ff; border-radius: 32px; padding: 20px;">
+        <p style="font-weight: 500;">💡 <strong>Dica de ouro:</strong> Execute o Prompt de Comando como Administrador (Win+X, A) para aplicar os comandos de reparo com eficácia total.</p>
+    </div>
     <footer>
-        <i class="fas fa-envelope"></i> Suporte: <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a>
+        <p>© 2025 Ferramentas de Diagnóstico Windows • Utilize com responsabilidade • Os comandos são seguros quando executados com privilégios adequados.</p>
+        <p style="margin-top: 8px;">⚙️ Reparo automático, verificação de integridade do sistema e otimização profunda.</p>
     </footer>
 </div>
 
-<!-- Floating Assistant -->
-<div id="assistantBubble" class="assistant-bubble">
-    <i class="fas fa-question"></i>
-</div>
-<div id="assistantGuide" class="assistant-guide">
-    <h4><i class="fas fa-lightbulb"></i> Dicas rápidas</h4>
-    <p>1. Após clicar em "Acessar conteúdo", copie a chave PIX (contribuição voluntária).</p>
-    <p>2. Clique em "Já fiz a contribuição" e aguarde 120s.</p>
-    <p>3. A senha aparecerá automaticamente. Use-a para acessar os comandos.</p>
-    <p>4. Os comandos devem ser executados no Prompt de Comando do modo de recuperação.</p>
-    <!-- Texto removido conforme solicitado -->
-</div>
-
-<!-- Sound toggle -->
-<div id="soundToggle" class="sound-toggle" title="Ativar/desativar sons">
-    <i class="fas fa-volume-mute"></i>
-</div>
-
-<!-- Modal de comandos -->
-<div id="commandsModal" class="modal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3><i class="fas fa-code"></i> Comandos de reparo</h3>
-            <button class="close-modal" id="closeModalBtn">&times;</button>
-        </div>
-        <div id="commandsList"></div>
-        <div style="background:#f1f5f9; border-radius: 0.8rem; padding: 0.8rem; margin-top: 1rem; font-size: 0.75rem;">
-            <i class="fas fa-info-circle"></i> Substitua "C:" pela letra correta da partição do Windows.
-        </div>
-    </div>
-</div>
+<div id="toastMessage" class="toast-msg">✅ Comando copiado!</div>
 
 <script>
-    // Lista de comandos
-    const commandList = [
-        { cmd: "bootrec /fixmbr", desc: "Reescreve o MBR (Master Boot Record)." },
-        { cmd: "bootrec /fixboot", desc: "Grava um novo setor de inicialização." },
-        { cmd: "bootrec /scanos", desc: "Procura outras instalações do Windows." },
-        { cmd: "bootrec /rebuildbcd", desc: "Reconstrói o BCD." },
-        { cmd: "chkdsk C: /f /r", desc: "Verifica e repara erros no disco." },
-        { cmd: "sfc /scannow /offbootdir=C:\\ /offwindir=C:\\Windows", desc: "Corrige arquivos de sistema offline." },
-        { cmd: "bcdedit /export C:\\BCDBackup", desc: "Cria backup do BCD." },
-        { cmd: "bcdedit /import C:\\BCDBackup", desc: "Restaura backup do BCD." },
-        { cmd: "diskpart", desc: "Ferramenta de partições. Use 'list volume'." }
+    // BASE DE DADOS DE COMANDOS PODEROSOS (Reparo + Diagnóstico)
+    const commandsData = [
+        { id: 1, name: "sfc /scannow", category: "reparo", desc: "Verifica e restaura arquivos protegidos do Windows automaticamente. Corrige inconsistências críticas do sistema.", cmd: "sfc /scannow", tip: "Recomendado executar após falhas ou lentidão." },
+        { id: 2, name: "DISM /Online /Cleanup-Image /RestoreHealth", category: "reparo", desc: "Repara a imagem do Windows, corrigindo corrupções que o SFC não consegue resolver. Essencial para integridade total.", cmd: "DISM /Online /Cleanup-Image /RestoreHealth", tip: "Requer conexão com a internet para baixar arquivos limpos." },
+        { id: 3, name: "chkdsk C: /f /r", category: "armazenamento", desc: "Verifica e repara setores defeituosos no disco rígido, recupera dados e corrige erros no sistema de arquivos.", cmd: "chkdsk C: /f /r", tip: "Pode exigir reinicialização; agendamento automático." },
+        { id: 4, name: "bootrec /fixmbr", category: "boot", desc: "Repara o Master Boot Record (MBR) para problemas de inicialização e bootloader corrompido.", cmd: "bootrec /fixmbr", tip: "Execute após falha de boot, usando mídia de instalação." },
+        { id: 5, name: "bootrec /fixboot", category: "boot", desc: "Escreve um novo setor de boot na partição do sistema, resolvendo erros 'Bootmgr is missing'.", cmd: "bootrec /fixboot", tip: "Use junto com /fixmbr para recuperação avançada." },
+        { id: 6, name: "bootrec /rebuildbcd", category: "boot", desc: "Reconstrói o arquivo de configuração de inicialização (BCD) e adiciona instalações do Windows.", cmd: "bootrec /rebuildbcd", tip: "Ideal quando há múltiplos sistemas ou BCD corrompido." },
+        { id: 7, name: "wmic diskdrive get status", category: "diagnostico", desc: "Verifica rapidamente o status de saúde dos discos (SMART). Retorna OK se estiver saudável.", cmd: "wmic diskdrive get status", tip: "Pode ser executado sem reinicialização." },
+        { id: 8, name: "perfmon /rel", category: "diagnostico", desc: "Abre o Relatório de Confiabilidade do Windows com histórico de falhas, erros de sistema e alertas.", cmd: "perfmon /rel", tip: "Interface gráfica para diagnosticar travamentos recentes." },
+        { id: 9, name: "msdt /id PerformanceDiagnostic", category: "diagnostico", desc: "Ferramenta de diagnóstico de desempenho do Windows, identifica lentidão e gargalos.", cmd: "msdt /id PerformanceDiagnostic", tip: "Assistente guiado para otimização." },
+        { id: 10, name: "DISM /Online /Cleanup-Image /CheckHealth", category: "reparo", desc: "Verifica se há corrupções na imagem do sistema sem executar reparo. Relatório rápido.", cmd: "DISM /Online /Cleanup-Image /CheckHealth", tip: "Ótimo antes de um /RestoreHealth." },
+        { id: 11, name: "sfc /verifyonly", category: "reparo", desc: "Verifica a integridade dos arquivos protegidos sem executar reparo automático.", cmd: "sfc /verifyonly", tip: "Analisa antes de intervir." },
+        { id: 12, name: "chkdsk /f /r /x", category: "armazenamento", desc: "Força a desmontagem do volume e realiza verificação completa com reparo de setores ruins.", cmd: "chkdsk /f /r /x", tip: "Para discos com erros persistentes." },
+        { id: 13, name: "bcdedit /enum", category: "boot", desc: "Lista todas as configurações do Boot Configuration Data (BCD) para diagnosticar entradas.", cmd: "bcdedit /enum", tip: "Analise se há entradas inválidas." },
+        { id: 14, name: "powershell Get-WmiObject -Class Win32_DiskDrive | Select Model,Status", category: "diagnostico", desc: "PowerShell avançado para checar status dos discos e modelo via WMI.", cmd: "powershell \"Get-WmiObject -Class Win32_DiskDrive | Select Model,Status\"", tip: "Poderoso para scripts." },
+        { id: 15, name: "netsh winsock reset", category: "reparo", desc: "Redefine o catálogo Winsock, corrigindo problemas de rede e conexão após malwares ou conflitos.", cmd: "netsh winsock reset", tip: "Reinicialize o PC após executar." },
+        { id: 16, name: "ipconfig /flushdns", category: "diagnostico", desc: "Limpa o cache de DNS, resolvendo erros de acesso a sites e lentidão na navegação.", cmd: "ipconfig /flushdns", tip: "Comando rápido para resolver falhas de DNS." }
     ];
-
-    // Som - usando Web Audio para beeps simples
-    let audioCtx = null;
-    let soundEnabled = false;
-    function initAudio() {
-        if (!audioCtx) {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-    }
-    function playBeep(type = 'success') {
-        if (!soundEnabled || !audioCtx) return;
-        const now = audioCtx.currentTime;
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        let freq = type === 'success' ? 880 : 660;
-        osc.frequency.value = freq;
-        gain.gain.setValueAtTime(0.2, now);
-        gain.gain.exponentialRampToValueAtTime(0.00001, now + 0.3);
-        osc.start();
-        osc.stop(now + 0.3);
-    }
-    function playCopySound() { playBeep('copy'); }
-    function playSuccessSound() { playBeep('success'); }
-
-    // Ativar som por interação
-    function enableSoundOnFirstInteraction() {
-        if (!audioCtx) {
-            initAudio();
-            soundEnabled = true;
-            document.getElementById('soundToggle').innerHTML = '<i class="fas fa-volume-up"></i>';
-            // tocar som de teste
-            playBeep('success');
-        }
-    }
-    // Toggle
-    document.getElementById('soundToggle').addEventListener('click', () => {
-        if (!audioCtx) {
-            initAudio();
-            soundEnabled = true;
-            document.getElementById('soundToggle').innerHTML = '<i class="fas fa-volume-up"></i>';
-            playBeep('success');
-        } else {
-            soundEnabled = !soundEnabled;
-            document.getElementById('soundToggle').innerHTML = soundEnabled ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
-        }
-    });
-    // Adicionar listeners nos botões principais para ativar som na primeira interação
-    const interactiveBtns = ['getPasswordBtn', 'copyPixBtn', 'confirmPaymentBtn', 'copyPasswordBtn', 'fillPasswordBtn', 'openModalBtn'];
-    interactiveBtns.forEach(id => {
-        const btn = document.getElementById(id);
-        if (btn) btn.addEventListener('click', () => { if (!audioCtx) enableSoundOnFirstInteraction(); });
-    });
-
-    // Construir modal
-    function buildModalCommands() {
-        const container = document.getElementById("commandsList");
-        if (!container) return;
-        container.innerHTML = "";
-        commandList.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "command-card";
-            const codeDiv = document.createElement("div");
-            codeDiv.className = "command-code";
-            const codeSpan = document.createElement("code");
-            codeSpan.innerText = item.cmd;
-            const copyBtn = document.createElement("button");
-            copyBtn.innerText = "Copiar";
-            copyBtn.style.background = "#e2e8f0";
-            copyBtn.style.border = "none";
-            copyBtn.style.padding = "0.2rem 0.8rem";
-            copyBtn.style.borderRadius = "1rem";
-            copyBtn.style.cursor = "pointer";
-            copyBtn.addEventListener("click", () => {
-                navigator.clipboard.writeText(item.cmd);
-                showToast("✅ Comando copiado!", "copy");
-                incrementCommandsToday();
-                addUserFeed("Você copiou o comando: " + item.cmd.substring(0, 20) + "...");
-                if (soundEnabled) playCopySound();
-            });
-            codeDiv.appendChild(codeSpan);
-            codeDiv.appendChild(copyBtn);
-            const descP = document.createElement("p");
-            descP.style.marginTop = "8px";
-            descP.style.fontSize = "0.8rem";
-            descP.style.color = "#334155";
-            descP.innerText = item.desc;
-            div.appendChild(codeDiv);
-            div.appendChild(descP);
-            container.appendChild(div);
-        });
-    }
-
-    function showToast(msg, type = 'info') {
-        let existing = document.querySelector(".toast");
-        if (existing) existing.remove();
-        const toast = document.createElement("div");
-        toast.className = "toast";
-        toast.innerHTML = `<i class="fas ${type === 'copy' ? 'fa-copy' : 'fa-check-circle'}"></i> ${msg}`;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 2500);
-    }
 
     // Elementos
-    const lockedArea = document.getElementById("lockedArea");
-    const getPasswordBtn = document.getElementById("getPasswordBtn");
-    const pixSection = document.getElementById("pixSection");
-    const copyPixBtn = document.getElementById("copyPixBtn");
-    const confirmPaymentBtn = document.getElementById("confirmPaymentBtn");
-    const timerContainer = document.getElementById("timerContainer");
-    const timerDisplay = document.getElementById("timerDisplay");
-    const progressBar = document.getElementById("progressBar");
-    const circularProgress = document.getElementById("circularProgress");
-    const passwordContainer = document.getElementById("passwordContainer");
-    const copyPasswordBtn = document.getElementById("copyPasswordBtn");
-    const fillPasswordBtn = document.getElementById("fillPasswordBtn");
-    const passwordInput = document.getElementById("passwordInput");
-    const openModalBtn = document.getElementById("openModalBtn");
-    const errorMsg = document.getElementById("errorMsg");
-    const modal = document.getElementById("commandsModal");
-    const closeModalBtn = document.getElementById("closeModalBtn");
-    const onlineCountSpan = document.getElementById("onlineCount");
-    const commandsCountSpan = document.getElementById("commandsCount");
-    const waitingCountSpan = document.getElementById("waitingCount");
-    const activityFeed = document.getElementById("activityFeed");
-    const assistantBubble = document.getElementById("assistantBubble");
-    const assistantGuide = document.getElementById("assistantGuide");
+    const gridContainer = document.getElementById('commandsGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    let activeFilter = 'all';
 
-    let timerInterval = null;
-    let timeLeft = 0;
-    let totalSeconds = 120;
-
-    // Simular atividade ao vivo
-    let onlineUsers = 23;
-    let commandsToday = 158;
-    let waitingUsers = 4;
-    const cities = ["São Paulo", "Rio de Janeiro", "Belo Horizonte", "Brasília", "Porto Alegre", "Curitiba", "Salvador", "Recife", "Fortaleza", "Manaus"];
-    const feedMessages = [
-        "Alguém de {city} acabou de liberar a senha",
-        "Novo acesso registrado agora",
-        "+{n} pessoas usando os comandos neste momento",
-        "Usuário de {city} acabou de copiar os comandos",
-        "Mais {n} contribuições recebidas agora",
-        "Última senha gerada há {seconds} segundos",
-        "Comandos executados com sucesso nos últimos minutos"
-    ];
-
-    function updateOnlineCount() {
-        let change = Math.floor(Math.random() * 5) - 2;
-        onlineUsers = Math.max(12, onlineUsers + change);
-        onlineCountSpan.innerText = onlineUsers;
-    }
-    function incrementCommandsToday() {
-        commandsToday += Math.floor(Math.random() * 3) + 1;
-        commandsCountSpan.innerText = commandsToday;
-    }
-    function updateWaiting() {
-        let change = Math.floor(Math.random() * 3) - 1;
-        waitingUsers = Math.max(2, Math.min(8, waitingUsers + change));
-        waitingCountSpan.innerText = waitingUsers;
-    }
-    function addUserFeed(message) {
-        const feed = activityFeed;
-        const item = document.createElement("div");
-        item.className = "feed-item";
-        item.innerHTML = `<i class="fas fa-user"></i> <span>${message}</span>`;
-        feed.insertBefore(item, feed.firstChild);
-        if (feed.children.length > 6) feed.removeChild(feed.lastChild);
-    }
-    function addRandomFeed() {
-        const msgTemplate = feedMessages[Math.floor(Math.random() * feedMessages.length)];
-        let msg = msgTemplate.replace("{city}", cities[Math.floor(Math.random() * cities.length)]);
-        msg = msg.replace("{n}", Math.floor(Math.random() * 5) + 1);
-        msg = msg.replace("{seconds}", Math.floor(Math.random() * 60) + 5);
-        const item = document.createElement("div");
-        item.className = "feed-item";
-        item.innerHTML = `<i class="fas fa-bell"></i> <span>${msg}</span>`;
-        activityFeed.insertBefore(item, activityFeed.firstChild);
-        if (activityFeed.children.length > 6) activityFeed.removeChild(activityFeed.lastChild);
-    }
-
-    setInterval(updateOnlineCount, 8000);
-    setInterval(addRandomFeed, 15000);
-    setInterval(updateWaiting, 10000);
-    setInterval(() => {
-        if (Math.random() > 0.7) {
-            commandsToday += Math.floor(Math.random() * 2) + 1;
-            commandsCountSpan.innerText = commandsToday;
+    // Função de renderização dinâmica com filtro
+    function renderCommands() {
+        let filtered = commandsData;
+        if (activeFilter !== 'all') {
+            filtered = commandsData.filter(cmd => cmd.category === activeFilter);
         }
-    }, 20000);
-    // Initial feeds
-    for (let i=0; i<3; i++) addRandomFeed();
-
-    function updateCircularProgress(percent) {
-        if (circularProgress) {
-            const angle = (percent / 100) * 360;
-            circularProgress.style.background = `conic-gradient(#f97316 ${angle}deg, #ffe0b5 ${angle}deg)`;
+        if (filtered.length === 0) {
+            gridContainer.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding: 3rem;">🔍 Nenhum comando encontrado para esta categoria. Explore outras!</div>`;
+            return;
         }
-    }
 
-    function startTimer(seconds = 120) {
-        if (timerInterval) return;
-        totalSeconds = seconds;
-        timeLeft = seconds;
-        timerContainer.style.display = "block";
-        passwordContainer.style.display = "none";
-        timerDisplay.innerText = timeLeft;
-        progressBar.style.width = "100%";
-        updateCircularProgress(100);
-        confirmPaymentBtn.disabled = true;
-        confirmPaymentBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Aguardando...';
-        addUserFeed("Você iniciou o processo de liberação de senha");
-        if (soundEnabled) playBeep('success');
-        
-        timerInterval = setInterval(() => {
-            if (timeLeft <= 1) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                timerContainer.style.display = "none";
-                passwordContainer.style.display = "block";
-                showToast("✅ Senha liberada! Utilize para acessar os comandos.", "success");
-                // Confete
-                canvasConfetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, startVelocity: 20 });
-                // Troféu
-                const trophy = document.createElement('div');
-                trophy.className = 'trophy-badge';
-                trophy.innerHTML = '<i class="fas fa-trophy"></i> Acesso Desbloqueado!';
-                passwordContainer.appendChild(trophy);
-                setTimeout(() => trophy.remove(), 3000);
-                addUserFeed("Você liberou a senha! 🎉");
-                if (soundEnabled) playSuccessSound();
-                // Brilho
-                passwordInput.classList.add("glow-effect");
-                openModalBtn.classList.add("glow-effect");
-                setTimeout(() => {
-                    passwordInput.classList.remove("glow-effect");
-                    openModalBtn.classList.remove("glow-effect");
-                }, 800);
-                confirmPaymentBtn.disabled = false;
-                confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
-            } else {
-                timeLeft--;
-                timerDisplay.innerText = timeLeft;
-                const percent = (timeLeft / totalSeconds) * 100;
-                progressBar.style.width = percent + "%";
-                updateCircularProgress(percent);
-                if (timeLeft <= 30) {
-                    timerDisplay.classList.add("pulse-warning");
-                } else {
-                    timerDisplay.classList.remove("pulse-warning");
-                }
+        let html = '';
+        for (let cmd of filtered) {
+            // Definir legenda da categoria em PT
+            let categoryLabel = '';
+            switch (cmd.category) {
+                case 'reparo': categoryLabel = '🛠️ Reparo Automático'; break;
+                case 'diagnostico': categoryLabel = '📊 Diagnóstico'; break;
+                case 'boot': categoryLabel = '🔁 Boot / Recuperação'; break;
+                case 'armazenamento': categoryLabel = '💾 Disco & Armazenamento'; break;
+                default: categoryLabel = '🔧 Utilitário';
             }
-        }, 1000);
+
+            html += `
+                <div class="command-card" data-category="${cmd.category}">
+                    <div class="card-header">
+                        <h3>${escapeHtml(cmd.name)}</h3>
+                        <div class="category-tag">${categoryLabel}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="command-desc">📌 ${escapeHtml(cmd.desc)}</div>
+                        <div class="code-block" id="code-${cmd.id}">${escapeHtml(cmd.cmd)}</div>
+                        <button class="copy-btn" data-cmd="${escapeAttr(cmd.cmd)}" data-id="${cmd.id}">📋 Copiar comando</button>
+                        ${cmd.tip ? `<div class="warning-note">💡 Dica: ${escapeHtml(cmd.tip)}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+        gridContainer.innerHTML = html;
+
+        // Reatribuir eventos de cópia após renderização
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const commandText = btn.getAttribute('data-cmd');
+                copyToClipboard(commandText);
+                showToast(`✅ Comando copiado: ${commandText.substring(0, 45)}${commandText.length > 45 ? '…' : ''}`);
+            });
+        });
     }
 
-    getPasswordBtn.addEventListener("click", () => {
-        lockedArea.style.display = "none";
-        pixSection.style.display = "block";
-        timerContainer.style.display = "none";
-        passwordContainer.style.display = "none";
-        confirmPaymentBtn.disabled = false;
-        confirmPaymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Já fiz a contribuição, receber senha';
-        addUserFeed("Você acessou a área de contribuição");
-    });
+    // Função auxiliar para escapar HTML e atributos
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+    function escapeAttr(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
 
-    copyPixBtn.addEventListener("click", () => {
-        navigator.clipboard.writeText("64.383.742/0001-26").then(() => {
-            showToast("🔑 Chave PIX copiada! (contribuição voluntária)", "copy");
-            addUserFeed("Você copiou a chave PIX");
-            if (soundEnabled) playCopySound();
-        }).catch(() => {
-            showToast("Copie manualmente: 64.383.742/0001-26");
+    // Copiar para clipboard
+    async function copyToClipboard(text) {
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (err) {
+            // fallback
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    }
+
+    // Toast de notificação
+    let toastTimeout;
+    function showToast(message) {
+        const toast = document.getElementById('toastMessage');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        toastTimeout = setTimeout(() => {
+            toast.style.opacity = '0';
+        }, 2200);
+    }
+
+    // Eventos dos filtros
+    function setActiveFilter(filterValue) {
+        activeFilter = filterValue;
+        filterBtns.forEach(btn => {
+            if (btn.getAttribute('data-filter') === filterValue) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        renderCommands();
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterVal = btn.getAttribute('data-filter');
+            setActiveFilter(filterVal);
         });
     });
 
-    confirmPaymentBtn.addEventListener("click", () => {
-        if (timerInterval) {
-            showToast("⏳ O acesso já está sendo liberado. Aguarde.");
-            return;
-        }
-        startTimer(120);
-    });
+    // Inicializar comandos + dicas extras de reparo automático
+    renderCommands();
 
-    copyPasswordBtn.addEventListener("click", () => {
-        const senha = "38695506";
-        navigator.clipboard.writeText(senha);
-        showToast("🔐 Senha copiada: " + senha, "copy");
-        addUserFeed("Você copiou a senha de acesso");
-        if (soundEnabled) playCopySound();
-    });
+    // Adicionar se precisar de um clique no anuncio? apenas manter integridade
+    // Reforçar a visibilidade do adsense: posição já está no topo da página com wrapper
+    // também garantir que o código AdSense seja executado após inserção dinâmica (já está estático no topo)
+    // Página totalmente responsiva e alinhada com objetivo de monetização.
 
-    fillPasswordBtn.addEventListener("click", () => {
-        passwordInput.value = "38695506";
-        showToast("Campo preenchido!");
-        addUserFeed("Você preencheu o campo de senha");
-    });
-
-    function openModal() {
-        const inputPass = passwordInput.value.trim();
-        if (inputPass === "38695506") {
-            errorMsg.innerText = "";
-            buildModalCommands();
-            modal.classList.add("active");
-            if (soundEnabled) playBeep('success');
-        } else {
-            errorMsg.innerText = "❌ Senha inválida. Clique em 'Já fiz a contribuição' acima e aguarde 120s para obter a senha.";
-            setTimeout(() => {
-                if (errorMsg.innerText !== "") errorMsg.innerText = "";
-            }, 5000);
-        }
-    }
-
-    openModalBtn.addEventListener("click", openModal);
-    passwordInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") openModal();
-    });
-
-    closeModalBtn.addEventListener("click", () => modal.classList.remove("active"));
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) modal.classList.remove("active");
-    });
-
-    // Assistant
-    assistantBubble.addEventListener("click", () => {
-        assistantGuide.classList.toggle("active");
-        setTimeout(() => { if (assistantGuide.classList.contains('active')) setTimeout(() => assistantGuide.classList.remove('active'), 10000); }, 10000);
-    });
-
-    // Inicialização
-    buildModalCommands();
-    timerContainer.style.display = "none";
-    passwordContainer.style.display = "none";
-    pixSection.style.display = "none";
-    // Removido o histórico de liberações (lastReleases) conforme solicitado
+    // Seção bônus: alguns avisos de console para garantir
+    console.log("Página de Comandos Poderosos - Windows 10/11 | Monetização com AdSense ativa no topo.");
+    
+    // Para garantir que os anúncios do Google sejam renderizados corretamente em caso de rolagem ou redimensionamento,
+    // o próprio AdSense gerencia, mas o script inicial já foi executado. Caso precise forçar push adicional é raro.
+    // De acordo com a política, não devemos manipular os anúncios indevidamente.
 </script>
 </body>
 </html>
