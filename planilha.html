@@ -113,7 +113,7 @@
             border: 1px solid rgba(15,42,63,0.1);
         }
 
-        /* Hero */
+        /* Hero e demais seções - mantidos iguais ao original */
         .hero {
             background: linear-gradient(135deg, #f0f7fa 0%, #e6f0f5 100%);
             padding: 60px 0;
@@ -232,7 +232,7 @@
             margin-left: 10px;
         }
 
-        /* Seções (dores, recursos, demonstração, depoimentos, cta) */
+        /* Seções adicionais (dores, recursos, vídeo, depoimentos, cta) - mantidas */
         .dores {
             background: white;
             padding: 80px 0;
@@ -821,17 +821,24 @@
     <!-- NOTIFICAÇÕES SIMULADAS -->
     <div class="notification-container" id="notification-container"></div>
 
-    <!-- SCRIPT DO ADSENSE (com push após DOMContentLoaded) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
-         crossorigin="anonymous"></script>
+    <!-- SCRIPT DO ADSENSE (corrigido: push após o carregamento do script) -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-                console.warn("Erro ao carregar anúncio:", e);
-            }
-        });
+        // Função para carregar o script do AdSense e depois fazer o push
+        function loadAdSense() {
+            var script = document.createElement('script');
+            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948';
+            script.async = true;
+            script.crossOrigin = 'anonymous';
+            script.onload = function() {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch(e) {
+                    console.warn("Erro ao carregar anúncio:", e);
+                }
+            };
+            document.head.appendChild(script);
+        }
+        loadAdSense();
     </script>
 
     <!-- NOTIFICAÇÕES DE COMPRA -->
