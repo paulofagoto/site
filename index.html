@@ -510,18 +510,6 @@
       transform: translateY(-2px);
     }
 
-    .whatsapp-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #25d36610;
-      border: 1px solid #25d36640;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.85rem;
-    }
-
     .form-group {
       margin-bottom: 1rem;
     }
@@ -576,30 +564,6 @@
       padding: 1.8rem;
       font-size: 0.85rem;
       color: #bbd4e2;
-    }
-
-    .float-wpp {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      color: white;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: var(--transition);
-      z-index: 1000;
-      text-decoration: none;
-    }
-
-    .float-wpp:hover {
-      transform: scale(1.08);
-      background: #20b859;
     }
 
     @media (max-width: 768px) {
@@ -694,7 +658,7 @@
       <div class="badge">🔧 Mais de 17 anos de experiência | Técnico em Informática em Valinhos/SP</div>
       <h1>Paulo Fagoto | Técnico em Informática em Valinhos</h1>
       <p>Especialista em manutenção de computadores, notebooks, redes, suporte remoto (AnyDesk), desenvolvimento de sites e planilhas. Atendimento em Valinhos, Jardim dos Manacás e toda a região.</p>
-      <a href="#contato" class="cta-btn">📲 Solicitar orçamento em Valinhos</a>
+      <a href="#contato" class="cta-btn">📲 Solicitar orçamento por e-mail</a>
     </div>
 
     <section>
@@ -841,21 +805,38 @@
         <div class="contact-wrapper">
           <div class="contact-info">
             <div class="contact-methods">
-              <div class="contact-item"><span class="contact-icon">📞</span><div><div class="contact-label">Telefone</div><div class="contact-value"><a href="tel:+5519971014540">(19) 97101-4540</a></div></div></div>
-              <div class="contact-item"><span class="contact-icon">💬</span><div><div class="contact-label">WhatsApp</div><div class="contact-value"><a href="https://wa.me/5519971014540?text=Olá%20Paulo!%20Gostaria%20de%20um%20orçamento%20em%20Valinhos." target="_blank">(19) 97101-4540</a></div><a href="https://wa.me/5519971014540?text=Olá%20Paulo!%20Gostaria%20de%20um%20orçamento%20em%20Valinhos." target="_blank" class="whatsapp-link">💬 Clique e converse agora</a></div></div>
-              <div class="contact-item"><span class="contact-icon">✉️</span><div><div class="contact-label">E-mail</div><div class="contact-value"><a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></div></div></div>
-              <div class="contact-item"><span class="contact-icon">📍</span><div><div class="contact-label">Endereço</div><div class="contact-value">Rua Santo Tordin, 185 - Jardim dos Manacás<br>Valinhos/SP - CEP: 13273-091<br><a href="https://www.google.com/maps/search/Rua+Santo+Tordin,+185,+Jardim+dos+Manacás,+Valinhos,+SP/@-23.0078,-46.9985,17z" target="_blank" class="map-link">🗺️ Ver no Google Maps</a></div></div></div>
+              <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <div>
+                  <div class="contact-label">E-mail</div>
+                  <div class="contact-value"><a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                  <div class="contact-label">Endereço</div>
+                  <div class="contact-value">Rua Santo Tordin, 185 - Jardim dos Manacás<br>Valinhos/SP - CEP: 13273-091<br><a href="https://www.google.com/maps/search/Rua+Santo+Tordin,+185,+Jardim+dos+Manacás,+Valinhos,+SP/@-23.0078,-46.9985,17z" target="_blank" class="map-link">🗺️ Ver no Google Maps</a></div>
+                </div>
+              </div>
             </div>
-            <div><div class="contact-label" style="margin-bottom: 8px;">Redes sociais</div><div class="social-links"><a href="https://www.facebook.com/tecpaulohenrique" target="_blank" rel="noopener" class="social-icon">📘 Facebook</a><a href="https://www.instagram.com/tecpaulohenrique" target="_blank" rel="noopener" class="social-icon">📷 Instagram</a><a href="https://www.linkedin.com/in/paulofagoto" target="_blank" rel="noopener" class="social-icon">🔗 LinkedIn</a></div></div>
+            <div>
+              <div class="contact-label" style="margin-bottom: 8px;">Redes sociais</div>
+              <div class="social-links">
+                <a href="https://www.facebook.com/tecpaulohenrique" target="_blank" rel="noopener" class="social-icon">📘 Facebook</a>
+                <a href="https://www.instagram.com/tecpaulohenrique" target="_blank" rel="noopener" class="social-icon">📷 Instagram</a>
+                <a href="https://www.linkedin.com/in/paulofagoto" target="_blank" rel="noopener" class="social-icon">🔗 LinkedIn</a>
+              </div>
+            </div>
           </div>
           <div class="contact-form">
-            <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">📝 Peça um orçamento rápido em Valinhos</h3>
+            <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">📝 Peça um orçamento rápido por e-mail</h3>
             <form action="https://formsubmit.co/adm@paulofagoto.com.br" method="POST">
               <input type="hidden" name="_subject" value="Novo contato pelo site - Paulo Fagoto (Valinhos)">
               <input type="hidden" name="_captcha" value="false">
               <div class="form-group"><input type="text" name="nome" placeholder="Seu nome" required></div>
               <div class="form-group"><input type="email" name="email" placeholder="Seu e-mail" required></div>
-              <div class="form-group"><input type="tel" name="telefone" placeholder="WhatsApp / Telefone"></div>
+              <div class="form-group"><input type="tel" name="telefone" placeholder="WhatsApp / Telefone (opcional)"></div>
               <div class="form-group"><textarea name="mensagem" rows="3" placeholder="Descreva o problema ou serviço desejado..." required></textarea></div>
               <button type="submit" class="btn-submit">Enviar mensagem ➤</button>
             </form>
@@ -864,7 +845,7 @@
         </div>
         <div class="info-horario">
           🕒 Horário de atendimento: Segunda a Sexta, 8h às 20h | Sábado: 9h às 14h<br>
-          📌 Emergências? Chame no WhatsApp que respondo rapidamente. | 📄 Nota fiscal de serviço emitida mediante solicitação.
+          📌 Emergências? Envie um e-mail que respondo rapidamente. | 📄 Nota fiscal de serviço emitida mediante solicitação.
         </div>
       </div>
     </section>
@@ -875,10 +856,6 @@
     <p style="font-size: 0.7rem; margin-top: 6px;">CNPJ: 64.383.742/0001-26 • Mais de 17 anos cuidando do seu equipamento em Valinhos e região • Nota Fiscal eletrônica</p>
   </div>
 </div>
-
-<a href="https://wa.me/5519971014540?text=Olá%20Paulo!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações%20sobre%20seus%20serviços%20em%20Valinhos." class="float-wpp" target="_blank" rel="noopener" aria-label="WhatsApp">
-  💬
-</a>
 
 </body>
 </html>
