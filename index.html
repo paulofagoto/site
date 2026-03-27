@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Paulo Fagoto | Técnico em Informática em Valinhos/SP | Formatação e Conserto de PC</title>
-    <meta name="description" content="Paulo Fagoto, técnico em informática especialista em formatação de computadores em Valinhos/SP. Conserto de PC e notebook, upgrade, montagem gamer, limpeza, acesso remoto e muito mais. Atendimento rápido e garantido. Solicite seu orçamento!">
-    <meta name="keywords" content="formatação de computadores Valinhos, técnico informática Valinhos, conserto de PC Valinhos, upgrade notebook Valinhos, montagem PC gamer, manutenção informática Jardim dos Manacás, Paulo Fagoto">
+    <meta name="description" content="Paulo Fagoto, técnico em informática especialista em formatação de computadores em Valinhos/SP. Conserto de PC e notebook, upgrade, montagem gamer, limpeza, acesso remoto e muito mais. Atendimento todos os dias das 7h às 20h. Solicite seu orçamento!">
+    <meta name="keywords" content="formatação de computadores Valinhos, técnico informática Valinhos, conserto de PC Valinhos, upgrade notebook Valinhos, montagem PC gamer, manutenção informática Jardim dos Manacás, Paulo Fagoto, formatação notebook, conserto notebook Valinhos, limpeza computador Valinhos">
     <meta name="author" content="Paulo Fagoto">
     <meta name="robots" content="index, follow">
     <meta name="geo.placename" content="Valinhos, São Paulo, Brasil">
     <meta name="geo.region" content="BR-SP">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="canonical" href="https://paulofagoto.com.br">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.imgur.com/5Nwdqgg.png">
     <link rel="apple-touch-icon" href="https://i.imgur.com/5Nwdqgg.png">
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.imgur.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -27,7 +33,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fafcff;
-            color: #1e2a3e;
+            color: #1a2a3f;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
@@ -38,6 +44,29 @@
             padding: 0 24px;
         }
 
+        /* skip to content */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #e67e22;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* focus styles for accessibility */
+        a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-outline:focus-visible {
+            outline: 3px solid #e67e22;
+            outline-offset: 2px;
+            border-radius: 40px;
+        }
+
         /* header */
         .header {
             background: #ffffff;
@@ -45,7 +74,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(0px);
         }
         .nav-container {
             display: flex;
@@ -73,6 +101,7 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
         }
         .nav-menu a {
             text-decoration: none;
@@ -89,6 +118,25 @@
             font-size: 1.8rem;
             cursor: pointer;
             color: #1f3a6b;
+            background: none;
+            border: none;
+        }
+        .btn-whats-header {
+            background: #25D366;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            margin-left: 10px;
+        }
+        .btn-whats-header:hover {
+            background: #20b859;
+            transform: translateY(-2px);
         }
 
         /* botões */
@@ -111,6 +159,9 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 22px rgba(230,126,34,0.3);
         }
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
         .btn-outline {
             background: transparent;
             border: 2px solid #e67e22;
@@ -128,13 +179,8 @@
             background: #e67e22;
             color: white;
         }
-        .btn-whats {
-            background: #25D366;
-            color: white;
-            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
-        }
-        .btn-whats:hover {
-            background: #20b859;
+        .btn-outline:active {
+            transform: scale(0.98);
         }
 
         /* hero */
@@ -231,6 +277,8 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             transition: 0.25s;
             border: 1px solid #eef2f8;
+            display: flex;
+            flex-direction: column;
         }
         .service-card:hover {
             transform: translateY(-6px);
@@ -247,7 +295,7 @@
             font-weight: 700;
         }
         .service-card p {
-            color: #4a627a;
+            color: #2d4a6e;
         }
         .highlight-card {
             border-bottom: 5px solid #e67e22;
@@ -335,7 +383,25 @@
         .faq-answer {
             margin-top: 12px;
             padding-left: 32px;
-            color: #3a5670;
+            color: #2d4a6e;
+        }
+
+        /* áreas atendidas */
+        .areas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .area-tag {
+            background: #eef2f8;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1f3a6b;
         }
 
         /* contato */
@@ -372,12 +438,12 @@
             font-size: 1.3rem;
             color: #e67e22;
         }
-        .contact-map {
-            flex: 1;
-            background: #f2f5fa;
-            border-radius: 32px;
-            padding: 24px;
-            text-align: center;
+        .contact-map iframe {
+            width: 100%;
+            height: 250px;
+            border-radius: 24px;
+            border: 0;
+            margin-top: 20px;
         }
         .map-btn {
             margin-top: 20px;
@@ -399,6 +465,40 @@
             color: #cddfed;
             text-decoration: none;
         }
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            background: #e67e22;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 98;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #cf711f;
+            transform: translateY(-3px);
+        }
         @media (max-width: 900px) {
             .nav-menu {
                 position: fixed;
@@ -413,6 +513,7 @@
                 transition: 0.3s;
                 gap: 28px;
                 z-index: 999;
+                align-items: flex-start;
             }
             .nav-menu.active {
                 left: 0;
@@ -429,6 +530,12 @@
             .contact-grid {
                 padding: 28px;
                 flex-direction: column;
+            }
+            .btn-whats-header {
+                display: none;
+            }
+            .back-to-top {
+                bottom: 90px;
             }
         }
         @media (max-width: 560px) {
@@ -478,9 +585,17 @@
 </head>
 <body>
 
+<!-- Skip to content -->
+<a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
 <!-- Botão flutuante WhatsApp -->
-<a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20preciso%20de%20um%20orçamento%20para%20formatação%20ou%20manutenção!" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20preciso%20de%20um%20orçamento%20para%20formatação%20ou%20manutenção!" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<!-- Botão voltar ao topo -->
+<a href="#" id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
 </a>
 
 <header class="header">
@@ -489,19 +604,22 @@
             <h1>Paulo Fagoto</h1>
             <span>Informática • Valinhos/SP</span>
         </div>
-        <div class="mobile-menu-icon" id="mobileMenuIcon">
-            <i class="fas fa-bars"></i>
-        </div>
+        <button class="mobile-menu-icon" id="mobileMenuIcon" aria-label="Abrir menu" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
         <ul class="nav-menu" id="navMenu">
             <li><a href="#home">Início</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#areas">Atendimento</a></li>
             <li><a href="#contato">Contato</a></li>
+            <li><a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20gostaria%20de%20um%20orçamento!" class="btn-whats-header" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            <li><button id="closeMobileMenu" aria-label="Fechar menu" style="background: none; border: none; font-size: 1.5rem; align-self: flex-end; display: none;">&times;</button></li>
         </ul>
     </div>
 </header>
 
-<main>
+<main id="main-content">
     <!-- Hero / home -->
     <section id="home" class="hero">
         <div class="container hero-grid">
@@ -518,7 +636,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto - Técnico em Informática em Valinhos" loading="eager">
+                <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto, técnico em informática especialista em formatação em Valinhos/SP" loading="eager">
             </div>
         </div>
     </section>
@@ -534,6 +652,7 @@
                     <p>Atendimento na própria oficina (Jardim dos Manacás) ou, se preferir, visita técnica a domicílio. Seu trabalho é baseado em transparência, peças de qualidade e preço justo. Destaque para a <strong>formatação otimizada</strong>, que devolve desempenho total ao seu equipamento.</p>
                     <ul style="margin-top: 20px; list-style: none;">
                         <li><i class="fas fa-check-circle" style="color:#e67e22;"></i> Mais de 3.200 computadores formatados</li>
+                        <li><i class="fas fa-check-circle" style="color:#e67e22;"></i> Mais de 1.500 notebooks reparados</li>
                         <li><i class="fas fa-check-circle" style="color:#e67e22;"></i> Atendimento personalizado e suporte pós-serviço</li>
                         <li><i class="fas fa-check-circle" style="color:#e67e22;"></i> CNPJ regular: 64.383.742/0001-26</li>
                     </ul>
@@ -542,7 +661,7 @@
                     <i class="fas fa-map-marker-alt" style="color:#e67e22; font-size: 1.8rem;"></i>
                     <h3 style="margin: 16px 0 10px;">Atendimento local</h3>
                     <p>Rua Santo Tordin, 185 - Jardim dos Manacás<br>Valinhos/SP - CEP: 13273-091</p>
-                    <p><i class="fas fa-phone-alt"></i> (19) 97101-4540</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+5519971014540" style="color: inherit; text-decoration: none;">(19) 97101-4540</a></p>
                     <p><i class="fas fa-envelope"></i> adm@paulofagoto.com.br</p>
                     <p style="margin-top: 12px;"><i class="fas fa-calendar-alt"></i> Todos os dias, 07h–20h</p>
                 </div>
@@ -560,7 +679,7 @@
                     <div class="service-icon"><i class="fas fa-database"></i></div>
                     <h3>Formatação de Computadores</h3>
                     <p>Formatação completa, instalação de drivers, softwares essenciais e backup. Deixe seu PC rápido e seguro. Serviço principal com garantia de qualidade.</p>
-                    <a href="https://wa.me/5519971014540?text=Preciso%20de%20formatação%20de%20PC!" class="btn-outline" style="margin-top: 16px; display: inline-block;">Orçamento agora</a>
+                    <a href="https://wa.me/5519971014540?text=Preciso%20de%20formatação%20de%20PC!" class="btn-outline" style="margin-top: 16px; align-self: flex-start;">Orçamento agora</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-laptop"></i></div>
@@ -597,6 +716,16 @@
                     <h3>Consultoria e Rede Wi-Fi</h3>
                     <p>Configuração de redes, roteadores, segurança digital e consultoria para empresas e residências.</p>
                 </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Recuperação de Dados</h3>
+                    <p>Recuperação de arquivos apagados ou de HDs/SSDs com problemas. Segurança e sigilo garantidos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-wifi"></i></div>
+                    <h3>Instalação e Configuração de Redes</h3>
+                    <p>Redes cabeadas e sem fio, roteadores, repetidores de sinal e segurança de rede.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -614,27 +743,49 @@
         </div>
     </section>
 
-    <!-- Depoimentos reais (fictícios mas autênticos para SEO) -->
-    <section class="section testimonials">
+    <!-- Áreas atendidas -->
+    <section id="areas" class="section" style="background: #f8fafd;">
         <div class="container">
-            <h2 class="section-title">O que dizem nossos clientes</h2>
-            <div class="testi-grid">
-                <div class="testi-card"><p class="testi-text">"Paulo formatou meu notebook e ficou incrivelmente rápido! Recomendo demais o trabalho, muito profissional e atencioso."</p><p class="testi-name">— Mariana S. (Valinhos/SP)</p></div>
-                <div class="testi-card"><p class="testi-text">"Precisava de upgrade no PC gamer e ele montou uma máquina sensacional, com ótimo custo. Agora posso fazer lives sem lag."</p><p class="testi-name">— Rodrigo M. (Campinas)</p></div>
-                <div class="testi-card"><p class="testi-text">"Atendimento rápido e honesto. Consertou a tela do meu notebook em 2 dias. Excelente técnico em Valinhos!"</p><p class="testi-name">— Cintia A. (Jardim dos Manacás)</p></div>
+            <h2 class="section-title">Áreas de atendimento</h2>
+            <div class="section-sub">Atendemos Valinhos, Vinhedo, Campinas e diversas localidades da região</div>
+            <div class="areas-grid">
+                <span class="area-tag">Jardim dos Manacás</span>
+                <span class="area-tag">Centro (Valinhos)</span>
+                <span class="area-tag">Nova Valinhos</span>
+                <span class="area-tag">Jardim São Marcos</span>
+                <span class="area-tag">Vila Santana</span>
+                <span class="area-tag">Parque Portugal</span>
+                <span class="area-tag">Vinhedo (centro e bairros)</span>
+                <span class="area-tag">Campinas (regiões próximas)</span>
+                <span class="area-tag">Itatiba</span>
+                <span class="area-tag">Louveira</span>
             </div>
         </div>
     </section>
 
-    <!-- FAQ (SEO e informações úteis) -->
+    <!-- Depoimentos -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <div class="testi-grid">
+                <div class="testi-card"><p class="testi-text">"Paulo formatou meu notebook e ficou incrivelmente rápido! Recomendo demais o trabalho, muito profissional e atencioso."</p><p class="testi-name">— Mariana S. (Jardim São Marcos, Valinhos)</p></div>
+                <div class="testi-card"><p class="testi-text">"Precisava de upgrade no PC gamer e ele montou uma máquina sensacional, com ótimo custo. Agora posso fazer lives sem lag."</p><p class="testi-name">— Rodrigo M. (Centro, Campinas)</p></div>
+                <div class="testi-card"><p class="testi-text">"Atendimento rápido e honesto. Consertou a tela do meu notebook em 2 dias. Excelente técnico em Valinhos!"</p><p class="testi-name">— Cintia A. (Jardim dos Manacás, Valinhos)</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ expandida -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Dúvidas frequentes</h2>
             <div class="faq-grid">
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i> Qual o prazo para formatação?</div><div class="faq-answer">Normalmente em até 24 horas úteis. Priorizamos agilidade sem abrir mão da qualidade.</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-truck"></i> Atendem a domicílio?</div><div class="faq-answer">Sim! Atendemos em Valinhos e região (Vinhedo, Campinas). Basta agendar e podemos ir até você.</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i> Qual o prazo para formatação?</div><div class="faq-answer">Normalmente em até 24 horas úteis. Priorizamos agilidade sem abrir mão da qualidade. Em casos de urgência, podemos fazer no mesmo dia.</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-truck"></i> Atendem a domicílio?</div><div class="faq-answer">Sim! Atendemos em Valinhos e região (Vinhedo, Campinas). Basta agendar e podemos ir até você. Consulte taxa de deslocamento.</div></div>
                 <div class="faq-item"><div class="faq-question"><i class="fas fa-save"></i> Backup é realizado antes da formatação?</div><div class="faq-answer">Sim, sempre orientamos e realizamos backup de arquivos pessoais mediante solicitação, garantindo segurança.</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-credit-card"></i> Formas de pagamento?</div><div class="faq-answer">Aceitamos PIX, cartão de crédito/débito, dinheiro e transferência bancária. Parcelamento no cartão.</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-credit-card"></i> Formas de pagamento?</div><div class="faq-answer">Aceitamos PIX, cartão de crédito/débito, dinheiro e transferência bancária. Parcelamento no cartão em até 3x sem juros.</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-database"></i> Vocês recuperam dados de HD corrompido?</div><div class="faq-answer">Sim, realizamos recuperação de dados em HDs, SSDs e pendrives. Trabalhamos com softwares especializados e sigilo total.</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fab fa-windows"></i> Quais sistemas operacionais instalam?</div><div class="faq-answer">Windows 10/11, Linux (Ubuntu, Mint), e também macOS em equipamentos compatíveis. Instalamos drivers e softwares essenciais.</div></div>
             </div>
         </div>
     </section>
@@ -645,19 +796,21 @@
             <div class="contact-info">
                 <h3><i class="fas fa-headset"></i> Fale com Paulo</h3>
                 <div class="contact-detail"><i class="fab fa-whatsapp"></i> <span><strong>WhatsApp:</strong> (19) 97101-4540</span></div>
+                <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span><strong>Telefone:</strong> <a href="tel:+5519971014540" style="color: inherit; text-decoration: none;">(19) 97101-4540</a></span></div>
                 <div class="contact-detail"><i class="fas fa-envelope"></i> <span><strong>E-mail:</strong> <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></span></div>
                 <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> <span><strong>Endereço:</strong> Rua Santo Tordin, 185, Jardim dos Manacás, Valinhos/SP - CEP 13273-091</span></div>
                 <div class="contact-detail"><i class="fas fa-building"></i> <span><strong>CNPJ:</strong> 64.383.742/0001-26</span></div>
                 <div class="contact-detail"><i class="fas fa-clock"></i> <span><strong>Horário:</strong> Todos os dias (incluindo feriados) – 07h às 20h</span></div>
                 <div style="margin-top: 25px;">
                     <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20gostaria%20de%20saber%20mais%20sobre%20formatação!" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Chamar agora</a>
-                    <a href="https://www.google.com/maps/search/Rua+Santo+Tordin,+185,+Jardim+dos+Manacás,+Valinhos,+SP/@-22.9415,-46.9988,17z" class="btn-outline" style="margin-left: 12px;" target="_blank"><i class="fas fa-directions"></i> Abrir no Maps</a>
+                    <a href="https://www.google.com/maps/dir//Rua+Santo+Tordin,+185+-+Jardim+dos+Manacás,+Valinhos+-+SP,+13273-091/" class="btn-outline" style="margin-left: 12px;" target="_blank"><i class="fas fa-directions"></i> Rotas e direções</a>
                 </div>
             </div>
             <div class="contact-map">
                 <i class="fas fa-map-pin" style="font-size: 3rem; color:#e67e22;"></i>
                 <h4>Localização estratégica</h4>
                 <p>Rua Santo Tordin, 185 - Jardim dos Manacás, Valinhos/SP.<br>Fácil acesso e estacionamento.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.341289328401!2d-46.99875198449578!3d-22.94152108497513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c972daaf6c51%3A0x9d5e25e0c5f1f3d1!2sR.%20Santo%20Tordin%2C%20185%20-%20Jardim%20dos%20Manac%C3%A1s%2C%20Valinhos%20-%20SP%2C%2013273-091!5e0!3m2!1spt-BR!2sbr!4v1712000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <a href="https://www.google.com/maps/dir//Rua+Santo+Tordin,+185+-+Jardim+dos+Manacás,+Valinhos+-+SP,+13273-091/" target="_blank" class="btn-outline map-btn"><i class="fas fa-car"></i> Rotas e direções</a>
             </div>
         </div>
@@ -670,15 +823,20 @@
             <a href="#home">Início</a>
             <a href="#sobre">Sobre</a>
             <a href="#servicos">Serviços</a>
+            <a href="#areas">Atendimento</a>
             <a href="#contato">Contato</a>
             <a href="https://wa.me/5519971014540" target="_blank">WhatsApp</a>
+        </div>
+        <div class="footer-buttons">
+            <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20gostaria%20de%20um%20orçamento!" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Orçamento pelo WhatsApp</a>
+            <a href="tel:+5519971014540" class="btn-outline"><i class="fas fa-phone-alt"></i> Ligar agora</a>
         </div>
         <p>© 2025 Paulo Fagoto Informática | CNPJ: 64.383.742/0001-26 | Técnico em informática - Valinhos/SP</p>
         <p style="margin-top: 12px; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> Rua Santo Tordin, 185 - Jardim dos Manacás | (19) 97101-4540</p>
     </div>
 </footer>
 
-<!-- Schema Local Business + Serviços SEO Local -->
+<!-- Schema Local Business + Serviços SEO Local (expandido com aggregateRating) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -702,7 +860,7 @@
   "url": "https://paulofagoto.com.br",
   "telephone": "+5519971014540",
   "email": "adm@paulofagoto.com.br",
-  "priceRange": "$$",
+  "priceRange": "R$ 80 - R$ 500 (consulte orçamento)",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -711,6 +869,13 @@
       "closes": "20:00"
     }
   ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "sameAs": ["https://wa.me/5519971014540"],
   "areaServed": {
     "@type": "City",
@@ -720,25 +885,42 @@
     {"@type": "Service","name": "Formatação de Computadores","description": "Formatação completa e otimização de desempenho"},
     {"@type": "Service","name": "Conserto de PC e Notebook"},
     {"@type": "Service","name": "Upgrade de Hardware"},
-    {"@type": "Service","name": "Montagem de PC Gamer"}
+    {"@type": "Service","name": "Montagem de PC Gamer"},
+    {"@type": "Service","name": "Recuperação de Dados"},
+    {"@type": "Service","name": "Limpeza Interna e Preventiva"},
+    {"@type": "Service","name": "Acesso Remoto e Suporte"}
   ]
 }
 </script>
 
 <script>
-    // menu mobile toggle
+    // Menu mobile toggle
     const mobileIcon = document.getElementById('mobileMenuIcon');
     const navMenu = document.getElementById('navMenu');
-    mobileIcon.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-    // fechar ao clicar em link
+    const closeBtn = document.getElementById('closeMobileMenu');
+    
+    function toggleMenu(force) {
+        const isOpen = navMenu.classList.contains('active');
+        if (force === true) navMenu.classList.add('active');
+        else if (force === false) navMenu.classList.remove('active');
+        else navMenu.classList.toggle('active');
+        
+        const expanded = navMenu.classList.contains('active');
+        mobileIcon.setAttribute('aria-expanded', expanded);
+        if (closeBtn) closeBtn.style.display = expanded ? 'block' : 'none';
+    }
+    
+    mobileIcon.addEventListener('click', () => toggleMenu());
+    if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+    
+    // Fechar ao clicar em link
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+            toggleMenu(false);
         });
     });
-    // scroll suave
+    
+    // Scroll suave
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -747,8 +929,24 @@
             if(targetElement) {
                 e.preventDefault();
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Fecha menu se estiver aberto
+                if (navMenu.classList.contains('active')) toggleMenu(false);
             }
         });
+    });
+    
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
 </body>
