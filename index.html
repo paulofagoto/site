@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Paulo Fagoto | Técnico em Informática em Valinhos/SP | Formatação e Conserto de PC</title>
-    <meta name="description" content="Paulo Fagoto, técnico em informática especialista em formatação de computadores em Valinhos/SP. Conserto de PC e notebook, upgrade, montagem gamer, limpeza, acesso remoto e muito mais. Atendimento todos os dias das 7h às 20h. Solicite seu orçamento!">
-    <meta name="keywords" content="formatação de computadores Valinhos, técnico informática Valinhos, conserto de PC Valinhos, upgrade notebook Valinhos, montagem PC gamer, manutenção informática Jardim dos Manacás, Paulo Fagoto, formatação notebook, conserto notebook Valinhos, limpeza computador Valinhos">
+    <meta name="description" content="Paulo Fagoto, técnico em informática especialista em formatação de computadores em Valinhos/SP. Conserto de PC e notebook, upgrade, montagem gamer, limpeza, acesso remoto e muito mais. Atendimento todos os dias das 7h às 20h em Valinhos e região. Solicite seu orçamento!">
+    <meta name="keywords" content="formatação de computadores Valinhos, técnico informática Valinhos, conserto de PC Valinhos, upgrade notebook Valinhos, montagem PC gamer, manutenção informática Valinhos, Paulo Fagoto, formatação notebook, conserto notebook Valinhos, limpeza computador Valinhos">
     <meta name="author" content="Paulo Fagoto">
     <meta name="robots" content="index, follow">
     <meta name="geo.placename" content="Valinhos, São Paulo, Brasil">
@@ -499,6 +499,8 @@
             background: #cf711f;
             transform: translateY(-3px);
         }
+
+        /* MOBILE RESPONSIVIDADE AVANÇADA - FOTO GRANDE, CENTRALIZADO */
         @media (max-width: 900px) {
             .nav-menu {
                 position: fixed;
@@ -538,6 +540,68 @@
                 bottom: 90px;
             }
         }
+
+        /* MELHORIAS CRÍTICAS PARA CELULAR: FOTO MAIOR, TÍTULO CENTRALIZADO, LAYOUT BONITO */
+        @media (max-width: 768px) {
+            .hero-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .hero-content {
+                order: 1;
+                width: 100%;
+                text-align: center;
+            }
+            .hero-image {
+                order: 2;
+                margin-top: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .hero-image img {
+                max-width: 220px;
+                width: 100%;
+                border: 5px solid white;
+                box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+            }
+            .hero-content h1 {
+                font-size: 1.9rem;
+                text-align: center;
+            }
+            .hero-badge {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                text-align: center;
+            }
+            .hours-badge {
+                justify-content: center;
+                text-align: center;
+                display: flex;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .contact-detail {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .contact-map iframe {
+                height: 220px;
+            }
+            .diff-item {
+                min-width: 160px;
+            }
+        }
+
         @media (max-width: 560px) {
             .hero-buttons {
                 flex-direction: column;
@@ -545,6 +609,12 @@
             }
             .btn-primary, .btn-outline {
                 justify-content: center;
+            }
+            .hero-image img {
+                max-width: 190px;
+            }
+            .hero-content h1 {
+                font-size: 1.7rem;
             }
         }
         .whatsapp-float {
@@ -641,15 +711,15 @@
         </div>
     </section>
 
-    <!-- Sobre -->
+    <!-- Sobre (endereço removido, apenas cidade) -->
     <section id="sobre" class="section">
         <div class="container">
             <h2 class="section-title">Sobre Paulo Fagoto</h2>
-            <div class="section-sub">Técnico em informática confiável, comprometido com resultados reais</div>
+            <div class="section-sub">Técnico em informática confiável, comprometido com resultados reais em Valinhos/SP</div>
             <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
                 <div style="flex: 1.2;">
                     <p style="font-size: 1.1rem; margin-bottom: 20px;"><strong>Paulo Fagoto</strong> é técnico em informática há mais de 17 anos, atendendo Valinhos, Vinhedo, Campinas e região. Com vasta experiência em formatação de computadores, recuperação de dados e manutenção de notebooks, oferece soluções rápidas e com garantia.</p>
-                    <p>Atendimento na própria oficina (Jardim dos Manacás) ou, se preferir, visita técnica a domicílio. Seu trabalho é baseado em transparência, peças de qualidade e preço justo. Destaque para a <strong>formatação otimizada</strong>, que devolve desempenho total ao seu equipamento.</p>
+                    <p>Atendimento na própria oficina localizada em Valinhos/SP ou, se preferir, visita técnica a domicílio. Seu trabalho é baseado em transparência, peças de qualidade e preço justo. Destaque para a <strong>formatação otimizada</strong>, que devolve desempenho total ao seu equipamento.</p>
                     <ul style="margin-top: 20px; list-style: none;">
                         <li><i class="fas fa-check-circle" style="color:#e67e22;"></i> Mais de 3.200 computadores formatados</li>
                         <li><i class="fas fa-check-circle" style="color:#e67e22;"></i> Mais de 1.500 notebooks reparados</li>
@@ -659,8 +729,8 @@
                 </div>
                 <div style="flex: 0.8; background: #eef2f8; border-radius: 32px; padding: 28px;">
                     <i class="fas fa-map-marker-alt" style="color:#e67e22; font-size: 1.8rem;"></i>
-                    <h3 style="margin: 16px 0 10px;">Atendimento local</h3>
-                    <p>Rua Santo Tordin, 185 - Jardim dos Manacás<br>Valinhos/SP - CEP: 13273-091</p>
+                    <h3 style="margin: 16px 0 10px;">Atendimento em Valinhos/SP</h3>
+                    <p>Cidade de Valinhos, São Paulo<br>Região metropolitana de Campinas</p>
                     <p><i class="fas fa-phone-alt"></i> <a href="tel:+5519971014540" style="color: inherit; text-decoration: none;">(19) 97101-4540</a></p>
                     <p><i class="fas fa-envelope"></i> adm@paulofagoto.com.br</p>
                     <p style="margin-top: 12px;"><i class="fas fa-calendar-alt"></i> Todos os dias, 07h–20h</p>
@@ -743,14 +813,13 @@
         </div>
     </section>
 
-    <!-- Áreas atendidas -->
+    <!-- Áreas atendidas (apenas bairros/cidades, sem número/rua) -->
     <section id="areas" class="section" style="background: #f8fafd;">
         <div class="container">
-            <h2 class="section-title">Áreas de atendimento</h2>
-            <div class="section-sub">Atendemos Valinhos, Vinhedo, Campinas e diversas localidades da região</div>
+            <h2 class="section-title">Áreas de atendimento em Valinhos/SP e região</h2>
+            <div class="section-sub">Atendemos em vários bairros de Valinhos, Vinhedo, Campinas e localidades próximas</div>
             <div class="areas-grid">
-                <span class="area-tag">Jardim dos Manacás</span>
-                <span class="area-tag">Centro (Valinhos)</span>
+                <span class="area-tag">Região Central</span>
                 <span class="area-tag">Nova Valinhos</span>
                 <span class="area-tag">Jardim São Marcos</span>
                 <span class="area-tag">Vila Santana</span>
@@ -768,14 +837,14 @@
         <div class="container">
             <h2 class="section-title">O que dizem nossos clientes</h2>
             <div class="testi-grid">
-                <div class="testi-card"><p class="testi-text">"Paulo formatou meu notebook e ficou incrivelmente rápido! Recomendo demais o trabalho, muito profissional e atencioso."</p><p class="testi-name">— Mariana S. (Jardim São Marcos, Valinhos)</p></div>
-                <div class="testi-card"><p class="testi-text">"Precisava de upgrade no PC gamer e ele montou uma máquina sensacional, com ótimo custo. Agora posso fazer lives sem lag."</p><p class="testi-name">— Rodrigo M. (Centro, Campinas)</p></div>
-                <div class="testi-card"><p class="testi-text">"Atendimento rápido e honesto. Consertou a tela do meu notebook em 2 dias. Excelente técnico em Valinhos!"</p><p class="testi-name">— Cintia A. (Jardim dos Manacás, Valinhos)</p></div>
+                <div class="testi-card"><p class="testi-text">"Paulo formatou meu notebook e ficou incrivelmente rápido! Recomendo demais o trabalho, muito profissional e atencioso."</p><p class="testi-name">— Mariana S. (Valinhos/SP)</p></div>
+                <div class="testi-card"><p class="testi-text">"Precisava de upgrade no PC gamer e ele montou uma máquina sensacional, com ótimo custo. Agora posso fazer lives sem lag."</p><p class="testi-name">— Rodrigo M. (Campinas/SP)</p></div>
+                <div class="testi-card"><p class="testi-text">"Atendimento rápido e honesto. Consertou a tela do meu notebook em 2 dias. Excelente técnico em Valinhos!"</p><p class="testi-name">— Cintia A. (Valinhos/SP)</p></div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ expandida -->
+    <!-- FAQ -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Dúvidas frequentes</h2>
@@ -790,7 +859,7 @@
         </div>
     </section>
 
-    <!-- Contato + Mapa funcional -->
+    <!-- Contato + Mapa (somente cidade Valinhos/SP) -->
     <section id="contato" class="section">
         <div class="container contact-grid">
             <div class="contact-info">
@@ -798,20 +867,21 @@
                 <div class="contact-detail"><i class="fab fa-whatsapp"></i> <span><strong>WhatsApp:</strong> (19) 97101-4540</span></div>
                 <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span><strong>Telefone:</strong> <a href="tel:+5519971014540" style="color: inherit; text-decoration: none;">(19) 97101-4540</a></span></div>
                 <div class="contact-detail"><i class="fas fa-envelope"></i> <span><strong>E-mail:</strong> <a href="mailto:adm@paulofagoto.com.br">adm@paulofagoto.com.br</a></span></div>
-                <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> <span><strong>Endereço:</strong> Rua Santo Tordin, 185, Jardim dos Manacás, Valinhos/SP - CEP 13273-091</span></div>
+                <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> <span><strong>Endereço:</strong> Valinhos/SP – Cidade onde atendo presencialmente</span></div>
                 <div class="contact-detail"><i class="fas fa-building"></i> <span><strong>CNPJ:</strong> 64.383.742/0001-26</span></div>
                 <div class="contact-detail"><i class="fas fa-clock"></i> <span><strong>Horário:</strong> Todos os dias (incluindo feriados) – 07h às 20h</span></div>
                 <div style="margin-top: 25px;">
                     <a href="https://wa.me/5519971014540?text=Olá%20Paulo,%20gostaria%20de%20saber%20mais%20sobre%20formatação!" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Chamar agora</a>
-                    <a href="https://www.google.com/maps/dir//Rua+Santo+Tordin,+185+-+Jardim+dos+Manacás,+Valinhos+-+SP,+13273-091/" class="btn-outline" style="margin-left: 12px;" target="_blank"><i class="fas fa-directions"></i> Rotas e direções</a>
+                    <a href="https://www.google.com/maps/search/Valinhos,+SP/@-22.9708,-46.9953,13z" class="btn-outline" style="margin-left: 12px;" target="_blank"><i class="fas fa-directions"></i> Ver cidade no mapa</a>
                 </div>
             </div>
             <div class="contact-map">
                 <i class="fas fa-map-pin" style="font-size: 3rem; color:#e67e22;"></i>
-                <h4>Localização estratégica</h4>
-                <p>Rua Santo Tordin, 185 - Jardim dos Manacás, Valinhos/SP.<br>Fácil acesso e estacionamento.</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.341289328401!2d-46.99875198449578!3d-22.94152108497513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c972daaf6c51%3A0x9d5e25e0c5f1f3d1!2sR.%20Santo%20Tordin%2C%20185%20-%20Jardim%20dos%20Manac%C3%A1s%2C%20Valinhos%20-%20SP%2C%2013273-091!5e0!3m2!1spt-BR!2sbr!4v1712000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <a href="https://www.google.com/maps/dir//Rua+Santo+Tordin,+185+-+Jardim+dos+Manacás,+Valinhos+-+SP,+13273-091/" target="_blank" class="btn-outline map-btn"><i class="fas fa-car"></i> Rotas e direções</a>
+                <h4>Atendimento em Valinhos/SP</h4>
+                <p>Atendimento presencial na cidade de Valinhos, SP, e também via remoto para toda a região.</p>
+                <!-- Mapa focado na cidade de Valinhos/SP, sem número ou rua específica -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117342.2127267168!2d-47.09231201281715!3d-23.00936114629762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8ca7cdc113e33%3A0x25727d38d7bffaa2!2sValinhos%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1712000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a href="https://www.google.com/maps/search/Valinhos,+SP/@-22.9708,-46.9953,13z" target="_blank" class="btn-outline map-btn"><i class="fas fa-car"></i> Rotas para Valinhos/SP</a>
             </div>
         </div>
     </section>
@@ -832,11 +902,11 @@
             <a href="tel:+5519971014540" class="btn-outline"><i class="fas fa-phone-alt"></i> Ligar agora</a>
         </div>
         <p>© 2025 Paulo Fagoto Informática | CNPJ: 64.383.742/0001-26 | Técnico em informática - Valinhos/SP</p>
-        <p style="margin-top: 12px; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> Rua Santo Tordin, 185 - Jardim dos Manacás | (19) 97101-4540</p>
+        <p style="margin-top: 12px; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> Cidade de Valinhos/SP | (19) 97101-4540</p>
     </div>
 </footer>
 
-<!-- Schema Local Business + Serviços SEO Local (expandido com aggregateRating) -->
+<!-- Schema Local Business + SEO Local otimizado, endereço apenas cidade -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -846,16 +916,14 @@
   "description": "Técnico em informática especialista em formatação de computadores em Valinhos/SP. Serviços de conserto, upgrade, montagem de PC gamer e manutenção de notebooks. Atendimento todos os dias, incluindo feriados, das 07h às 20h.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Rua Santo Tordin, 185",
     "addressLocality": "Valinhos",
     "addressRegion": "SP",
-    "postalCode": "13273-091",
     "addressCountry": "BR"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": -22.9415,
-    "longitude": -46.9988
+    "latitude": -22.9708,
+    "longitude": -46.9953
   },
   "url": "https://paulofagoto.com.br",
   "telephone": "+5519971014540",
@@ -929,7 +997,6 @@
             if(targetElement) {
                 e.preventDefault();
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // Fecha menu se estiver aberto
                 if (navMenu.classList.contains('active')) toggleMenu(false);
             }
         });
