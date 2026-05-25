@@ -20,7 +20,7 @@
     <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google AdSense -->
+    <!-- Google AdSense (carregado de forma assíncrona) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948" crossorigin="anonymous"></script>
     <style>
         * {
@@ -420,10 +420,6 @@
             align-items: center;
             justify-content: center;
         }
-        .modal-ad-placeholder {
-            text-align: center;
-            color: #7b8da3;
-        }
         .modal-hint {
             text-align: center;
             font-size: 0.75rem;
@@ -461,17 +457,14 @@
         <div class="modal-title">
             <i class="fas fa-info-circle"></i> PUBLICIDADE | APOIE NOSSO CONTEÚDO <i class="fas fa-info-circle"></i>
         </div>
-        <div class="modal-ad-container">
-            <!-- Principal_Site -->
+        <div class="modal-ad-container" id="modalAdContainer">
+            <!-- Principal_Site (será preenchido via JavaScript para forçar carregamento) -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1953773855788948"
                  data-ad-slot="6766869962"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
         </div>
         <p class="modal-hint">
             <i class="fas fa-times-circle"></i> Clique no <strong>X</strong> acima para fechar este anúncio e continuar
@@ -680,17 +673,41 @@
         const btnDownloadHero = document.getElementById('btnDownloadHero');
         const btnDownloadCta = document.getElementById('btnDownloadCta');
         const downloadUrl = 'https://www.3dpchip.com/3dpchip/3dp/net_down_pt_br.php';
+        const modalAdContainer = document.getElementById('modalAdContainer');
 
-        let modalClosedOnce = false;
         let pendingDownload = false;
+
+        // Função para forçar o carregamento do anúncio no modal
+        function loadModalAd() {
+            // Verifica se o container do anúncio já tem o ins
+            const existingIns = modalAdContainer.querySelector('.adsbygoogle');
+            if (!existingIns) {
+                // Cria novo elemento ins
+                const ins = document.createElement('ins');
+                ins.className = 'adsbygoogle';
+                ins.style.display = 'block';
+                ins.setAttribute('data-ad-client', 'ca-pub-1953773855788948');
+                ins.setAttribute('data-ad-slot', '6766869962');
+                ins.setAttribute('data-ad-format', 'auto');
+                ins.setAttribute('data-full-width-responsive', 'true');
+                modalAdContainer.innerHTML = '';
+                modalAdContainer.appendChild(ins);
+            }
+            // Solicita ao AdSense que processe o anúncio
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch(e) {
+                console.log('AdSense push falhou:', e);
+            }
+        }
 
         // Abrir modal
         function openModal() {
             modal.classList.remove('hidden');
-            // Reinicializar anúncio do AdSense no modal
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch(e) {}
+            // Pequeno delay para garantir que o modal esteja visível antes de carregar o anúncio
+            setTimeout(function() {
+                loadModalAd();
+            }, 100);
         }
 
         // Fechar modal
@@ -701,7 +718,6 @@
                 // Redirecionar para o download oficial
                 window.open(downloadUrl, '_blank');
             }
-            modalClosedOnce = true;
         }
 
         // Ao clicar no X, fecha o modal
