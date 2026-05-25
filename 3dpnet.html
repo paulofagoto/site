@@ -20,7 +20,7 @@
     <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google AdSense (carregado de forma assíncrona) -->
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948" crossorigin="anonymous"></script>
     <style>
         * {
@@ -352,7 +352,7 @@
             text-decoration: none;
         }
 
-        /* ========== MODAL ADSENSE ========== */
+        /* ========== MODAL ADSENSE (somente por clique) ========== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -410,15 +410,14 @@
             margin-bottom: 14px;
             font-weight: 500;
         }
+        /* Container do anúncio CORRIGIDO – sem flex, com largura definida */
         .modal-ad-container {
             background: #f9fafb;
             border-radius: 12px;
             padding: 16px;
             border: 1px solid #eef2f8;
-            min-height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            display: block; /* fundamental para o AdSense calcular a largura */
         }
         .modal-hint {
             text-align: center;
@@ -450,7 +449,7 @@
 </head>
 <body>
 
-<!-- ==================== MODAL ADSENSE ==================== -->
+<!-- ==================== MODAL ADSENSE (só abre com clique) ==================== -->
 <div class="modal-overlay hidden" id="adModal">
     <div class="modal-dialog">
         <button class="modal-close" id="modalCloseBtn" aria-label="Fechar anúncio">&times;</button>
@@ -458,7 +457,7 @@
             <i class="fas fa-info-circle"></i> PUBLICIDADE | APOIE NOSSO CONTEÚDO <i class="fas fa-info-circle"></i>
         </div>
         <div class="modal-ad-container" id="modalAdContainer">
-            <!-- O anúncio será inserido dinamicamente via JavaScript -->
+            <!-- O bloco de anúncio será inserido dinamicamente quando o modal abrir -->
         </div>
         <p class="modal-hint">
             <i class="fas fa-times-circle"></i> Clique no <strong>X</strong> acima para fechar este anúncio e continuar
@@ -493,7 +492,7 @@
         </div>
     </section>
 
-    <!-- ==================== ANÚNCIO TOPO (único anúncio fixo na página) ==================== -->
+    <!-- ==================== ANÚNCIO TOPO ==================== -->
     <div class="ad-wrapper">
         <div class="ad-label">
             <i class="fas fa-info-circle"></i> PUBLICIDADE <i class="fas fa-info-circle"></i>
@@ -621,7 +620,7 @@
     </div>
 </footer>
 
-<!-- ==================== JAVASCRIPT DO MODAL E DOWNLOAD ==================== -->
+<!-- ==================== JAVASCRIPT DO MODAL ==================== -->
 <script>
     (function() {
         const modal = document.getElementById('adModal');
@@ -632,76 +631,61 @@
         const modalAdContainer = document.getElementById('modalAdContainer');
 
         let pendingDownload = false;
-        let modalAdLoaded = false;
 
         // Função para criar e carregar o bloco de anúncio no modal
         function loadModalAd() {
-            // Remove qualquer anúncio anterior (se existir)
+            // Limpa qualquer resquício
             modalAdContainer.innerHTML = '';
             
-            // Cria um novo elemento ins
             const ins = document.createElement('ins');
             ins.className = 'adsbygoogle';
             ins.style.display = 'block';
+            ins.style.width = '100%';
             ins.setAttribute('data-ad-client', 'ca-pub-1953773855788948');
             ins.setAttribute('data-ad-slot', '6766869962');
             ins.setAttribute('data-ad-format', 'auto');
             ins.setAttribute('data-full-width-responsive', 'true');
             modalAdContainer.appendChild(ins);
             
-            // Solicita ao AdSense que processe o novo anúncio
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                modalAdLoaded = true;
-            } catch(e) {
-                console.log('AdSense push falhou:', e);
-            }
-        }
-
-        // Função para remover o anúncio do modal (evita slots ocultos)
-        function destroyModalAd() {
-            modalAdContainer.innerHTML = '';
-            modalAdLoaded = false;
+            // Pequeno delay para garantir que o elemento esteja no DOM visível
+            setTimeout(function() {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch(e) {}
+            }, 200);
         }
 
         // Abrir modal
         function openModal() {
             modal.classList.remove('hidden');
-            // Carrega o anúncio no modal apenas se ainda não foi carregado
-            if (!modalAdLoaded) {
-                setTimeout(function() {
-                    loadModalAd();
-                }, 100);
-            }
+            loadModalAd();
         }
 
         // Fechar modal
         function closeModal() {
             modal.classList.add('hidden');
-            // Remove o anúncio do DOM para não manter slot oculto
-            destroyModalAd();
+            // Remove o bloco para não manter slot oculto
+            modalAdContainer.innerHTML = '';
             
             if (pendingDownload) {
                 pendingDownload = false;
-                // Redirecionar para o download oficial
                 window.open(downloadUrl, '_blank');
             }
         }
 
-        // Ao clicar no X, fecha o modal
+        // Eventos de fechamento
         closeBtn.addEventListener('click', function(e) {
             e.preventDefault();
             closeModal();
         });
 
-        // Ao clicar fora do modal (no overlay), também fecha
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal();
             }
         });
 
-        // Função de clique nos botões de download
+        // Clique nos botões de download → abre modal
         function handleDownloadClick(e) {
             e.preventDefault();
             pendingDownload = true;
@@ -711,14 +695,7 @@
         btnDownloadHero.addEventListener('click', handleDownloadClick);
         btnDownloadCta.addEventListener('click', handleDownloadClick);
 
-        // Mostrar modal ao carregar a página (após 1.5 segundos)
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                openModal();
-            }, 1500);
-        });
-
-        // Fechar modal com tecla ESC
+        // Fechar com ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 closeModal();
