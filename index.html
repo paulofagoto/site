@@ -267,6 +267,7 @@
             background: white;
             object-fit: cover;
             aspect-ratio: 1/1;
+            height: auto; /* garante que altura não force distorção */
         }
 
         /* seções padrão */
@@ -589,6 +590,9 @@
                 width: 100%;
                 border: 5px solid white;
                 box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+                object-fit: cover;       /* mantém o corte sem distorcer */
+                aspect-ratio: 1/1;       /* garante formato quadrado */
+                height: auto;            /* evita altura fixa que deforma */
             }
             .hero-content h1 {
                 font-size: 1.9rem;
@@ -636,6 +640,9 @@
             }
             .hero-image img {
                 max-width: 190px;
+                object-fit: cover;
+                aspect-ratio: 1/1;
+                height: auto;
             }
             .hero-content h1 {
                 font-size: 1.7rem;
@@ -730,7 +737,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto, técnico em informática especialista em formatação em Valinhos/SP" loading="eager" width="560" height="560">
+                <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto, técnico em informática especialista em formatação em Valinhos/SP" loading="eager">
             </div>
         </div>
     </section>
