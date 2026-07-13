@@ -11,21 +11,42 @@
     <meta name="geo.placename" content="Valinhos, São Paulo, Brasil">
     <meta name="geo.region" content="BR-SP">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#1F3A6B">
     <link rel="canonical" href="https://paulofagoto.com.br">
+
+    <!-- Open Graph / Compartilhamento Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Paulo Fagoto | Técnico em Informática em Valinhos/SP | Formatação e Conserto de PC">
+    <meta property="og:description" content="Especialista em formatação de computadores em Valinhos/SP. Conserto de PC e notebook, upgrade, montagem gamer, limpeza e acesso remoto. Atendimento todos os dias das 7h às 20h.">
+    <meta property="og:image" content="https://i.imgur.com/hAGh8dU.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Paulo Fagoto, técnico em informática especialista em formatação em Valinhos/SP">
+    <meta property="og:url" content="https://paulofagoto.com.br">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Paulo Fagoto Informática">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Paulo Fagoto | Técnico em Informática em Valinhos/SP | Formatação e Conserto de PC">
+    <meta name="twitter:description" content="Especialista em formatação de computadores em Valinhos/SP. Conserto de PC e notebook, upgrade, montagem gamer, limpeza e acesso remoto. Atendimento todos os dias das 7h às 20h.">
+    <meta name="twitter:image" content="https://i.imgur.com/hAGh8dU.jpg">
+    <meta name="twitter:image:alt" content="Paulo Fagoto, técnico em informática especialista em formatação em Valinhos/SP">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.imgur.com/5Nwdqgg.png">
     <link rel="apple-touch-icon" href="https://i.imgur.com/5Nwdqgg.png">
+
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://i.imgur.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google AdSense (script carregado de forma assíncrona, igual ao site funcional) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1953773855788948"
-     crossorigin="anonymous"></script>
+
     <style>
         * {
             margin: 0;
@@ -503,52 +524,6 @@
             transform: translateY(-3px);
         }
 
-        /* ========== ESTILOS DO BLOCO DE ANÚNCIO ADSENSE ========== */
-        .ad-wrapper {
-            background: #ffffff;
-            text-align: center;
-            padding: 20px 16px 18px;
-            margin: 0 auto;
-            max-width: 1280px;
-            border-radius: 0 0 24px 24px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-            border-bottom: 1px solid #e2e8f0;
-            position: relative;
-        }
-        .ad-label {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #7b8da3;
-            margin-bottom: 10px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .ad-label i {
-            font-size: 0.75rem;
-            color: #b0c4d9;
-        }
-        .ad-info {
-            background: #f0f4fa;
-            border-left: 3px solid #1e4a76;
-            padding: 8px 14px;
-            margin-top: 12px;
-            font-size: 0.78rem;
-            border-radius: 8px;
-            text-align: center;
-            color: #3b5068;
-            display: inline-block;
-        }
-        .ad-divider {
-            border: none;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #dce3ec, transparent);
-            margin: 6px 0 0;
-        }
-
         /* MOBILE RESPONSIVIDADE AVANÇADA - FOTO GRANDE, CENTRALIZADO */
         @media (max-width: 900px) {
             .nav-menu {
@@ -587,10 +562,6 @@
             }
             .back-to-top {
                 bottom: 90px;
-            }
-            .ad-wrapper {
-                border-radius: 0;
-                padding: 16px 12px;
             }
         }
 
@@ -652,9 +623,6 @@
             }
             .diff-item {
                 min-width: 160px;
-            }
-            .ad-info {
-                font-size: 0.72rem;
             }
         }
 
@@ -726,9 +694,9 @@
 
 <header class="header">
     <div class="container nav-container">
-        <div class="logo">
-            <h1>Paulo Fagoto</h1>
-            <span>Informática • Valinhos/SP</span>
+        <div class="logo" itemscope itemtype="https://schema.org/Organization">
+            <h1 itemprop="name">Paulo Fagoto</h1>
+            <span itemprop="description">Informática • Valinhos/SP</span>
         </div>
         <button class="mobile-menu-icon" id="mobileMenuIcon" aria-label="Abrir menu" aria-expanded="false">
             <i class="fas fa-bars" aria-hidden="true"></i>
@@ -739,7 +707,7 @@
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#areas">Atendimento</a></li>
             <li><a href="#contato">Contato</a></li>
-            <li><a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-whats-header" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            <li><a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-whats-header" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
             <li><button id="closeMobileMenu" aria-label="Fechar menu" style="background: none; border: none; font-size: 1.5rem; align-self: flex-end; display: none;">&times;</button></li>
         </ul>
     </div>
@@ -754,7 +722,7 @@
                 <h1>Formatação de computadores em <span class="hero-highlight">Valinhos/SP</span> com agilidade e segurança</h1>
                 <p>Mais de 17 anos de experiência. Atendimento personalizado, soluções em hardware e software. Seu PC ou notebook como novo!</p>
                 <div class="hero-buttons">
-                    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Fale via WhatsApp</a>
+                    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Fale via WhatsApp</a>
                     <a href="#servicos" class="btn-outline"><i class="fas fa-tools"></i> Conheça os serviços</a>
                 </div>
                 <div class="hours-badge">
@@ -762,34 +730,30 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto, técnico em informática especialista em formatação em Valinhos/SP" loading="eager">
+                <img src="https://i.imgur.com/hAGh8dU.jpg" alt="Paulo Fagoto, técnico em informática especialista em formatação em Valinhos/SP" loading="eager" width="560" height="560">
             </div>
         </div>
     </section>
 
-    <!-- ==================== ANÚNCIO ADSENSE – ALTA VISIBILIDADE APÓS O HERO ==================== -->
-    <div class="ad-wrapper">
-        <div class="ad-label">
-            <i class="fas fa-info-circle"></i> PUBLICIDADE <i class="fas fa-info-circle"></i>
-        </div>
-        <!-- Principal_Site -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1953773855788948"
-             data-ad-slot="6766869962"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        <div class="ad-info">
-            💡 <strong>Anúncio acima</strong> — Obrigado por apoiar o conteúdo gratuito! Conheça também nossos <a href="#servicos" style="color:#e67e22; font-weight:600;">serviços de informática</a>.
-        </div>
-    </div>
-    <hr class="ad-divider">
-
     <!-- Sobre (endereço completo agora) -->
-    <section id="sobre" class="section">
+    <section id="sobre" class="section" itemscope itemtype="https://schema.org/LocalBusiness">
+        <meta itemprop="name" content="Paulo Fagoto Informática">
+        <meta itemprop="image" content="https://i.imgur.com/hAGh8dU.jpg">
+        <meta itemprop="priceRange" content="R$ 80 - R$ 500 (consulte orçamento)">
+        <meta itemprop="telephone" content="+5519971014540">
+        <meta itemprop="email" content="adm@paulofagoto.com.br">
+        <meta itemprop="url" content="https://paulofagoto.com.br">
+        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <meta itemprop="streetAddress" content="Rua Luzia Aparecida Dallanegra Bracalente, N:1 - Loteamento Residêncial Ana Carolina">
+            <meta itemprop="addressLocality" content="Valinhos">
+            <meta itemprop="addressRegion" content="SP">
+            <meta itemprop="postalCode" content="13273-607">
+            <meta itemprop="addressCountry" content="BR">
+        </div>
+        <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+            <meta itemprop="latitude" content="-22.948697">
+            <meta itemprop="longitude" content="-46.9719805">
+        </div>
         <div class="container">
             <h2 class="section-title">Sobre Paulo Fagoto</h2>
             <div class="section-sub">Técnico em informática confiável, comprometido com resultados reais em Valinhos/SP</div>
@@ -827,7 +791,7 @@
                     <div class="service-icon"><i class="fas fa-database"></i></div>
                     <h3>Formatação de Computadores</h3>
                     <p>Formatação completa, instalação de drivers, softwares essenciais e backup. Deixe seu PC rápido e seguro. Serviço principal com garantia de qualidade.</p>
-                    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-outline" style="margin-top: 16px; align-self: flex-start;">Orçamento agora</a>
+                    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-outline" style="margin-top: 16px; align-self: flex-start;" target="_blank" rel="noopener noreferrer">Orçamento agora</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-laptop"></i></div>
@@ -931,7 +895,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 36px;">
-                <a href="https://www.google.com/search?q=paulo+fagoto&amp;shem=epsd1,rimspwouoe&amp;source=sh/x/page/hdr/m1/1&amp;kgs=40ee0625e5a73b9b&amp;utm_source=epsd1,rimspwouoe,sh/x/page/hdr/m1/1#lrd=0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd,1,,,," target="_blank" class="btn-outline" style="gap: 12px;">
+                <a href="https://www.google.com/search?q=paulo+fagoto&amp;shem=epsd1,rimspwouoe&amp;source=sh/x/page/hdr/m1/1&amp;kgs=40ee0625e5a73b9b&amp;utm_source=epsd1,rimspwouoe,sh/x/page/hdr/m1/1#lrd=0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd,1,,,," target="_blank" rel="noopener noreferrer" class="btn-outline" style="gap: 12px;">
                     <i class="fas fa-star"></i> Ver depoimentos reais no Google
                 </a>
                 <p style="font-size: 0.85rem; color: #4b6a9b; margin-top: 10px;">Avaliações genuínas retiradas do nosso perfil no Google Meu Negócio.</p>
@@ -944,12 +908,42 @@
         <div class="container">
             <h2 class="section-title">Dúvidas frequentes</h2>
             <div class="faq-grid">
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i> Qual o prazo para formatação?</div><div class="faq-answer">Normalmente em até 24 horas úteis. Priorizamos agilidade sem abrir mão da qualidade. Em casos de urgência, podemos fazer no mesmo dia.</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-truck"></i> Atendem a domicílio?</div><div class="faq-answer">Sim! Atendemos em Valinhos e região (Vinhedo, Campinas). Basta agendar e podemos ir até você. Consulte taxa de deslocamento.</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-save"></i> Backup é realizado antes da formatação?</div><div class="faq-answer">Sim, sempre orientamos e realizamos backup de arquivos pessoais mediante solicitação, garantindo segurança.</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-credit-card"></i> Formas de pagamento?</div><div class="faq-answer">Aceitamos PIX, cartão de crédito/débito, dinheiro e transferência bancária. Parcelamento no cartão em até 3x sem juros.</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-database"></i> Vocês recuperam dados de HD corrompido?</div><div class="faq-answer">Sim, realizamos recuperação de dados em HDs, SSDs e pendrives. Trabalhamos com softwares especializados e sigilo total.</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fab fa-windows"></i> Quais sistemas operacionais instalam?</div><div class="faq-answer">Windows 10/11, Linux (Ubuntu, Mint), e também macOS em equipamentos compatíveis. Instalamos drivers e softwares essenciais.</div></div>
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name"><i class="fas fa-question-circle"></i> Qual o prazo para formatação?</div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Normalmente em até 24 horas úteis. Priorizamos agilidade sem abrir mão da qualidade. Em casos de urgência, podemos fazer no mesmo dia.</span>
+                    </div>
+                </div>
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name"><i class="fas fa-truck"></i> Atendem a domicílio?</div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Sim! Atendemos em Valinhos e região (Vinhedo, Campinas). Basta agendar e podemos ir até você. Consulte taxa de deslocamento.</span>
+                    </div>
+                </div>
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name"><i class="fas fa-save"></i> Backup é realizado antes da formatação?</div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Sim, sempre orientamos e realizamos backup de arquivos pessoais mediante solicitação, garantindo segurança.</span>
+                    </div>
+                </div>
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name"><i class="fas fa-credit-card"></i> Formas de pagamento?</div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Aceitamos PIX, cartão de crédito/débito, dinheiro e transferência bancária. Parcelamento no cartão em até 3x sem juros.</span>
+                    </div>
+                </div>
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name"><i class="fas fa-database"></i> Vocês recuperam dados de HD corrompido?</div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Sim, realizamos recuperação de dados em HDs, SSDs e pendrives. Trabalhamos com softwares especializados e sigilo total.</span>
+                    </div>
+                </div>
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name"><i class="fab fa-windows"></i> Quais sistemas operacionais instalam?</div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Windows 10/11, Linux (Ubuntu, Mint), e também macOS em equipamentos compatíveis. Instalamos drivers e softwares essenciais.</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -966,8 +960,8 @@
                 <div class="contact-detail"><i class="fas fa-building"></i> <span><strong>CNPJ:</strong> 64.383.742/0001-26</span></div>
                 <div class="contact-detail"><i class="fas fa-clock"></i> <span><strong>Horário:</strong> Todos os dias (incluindo feriados) – 07h às 20h</span></div>
                 <div style="margin-top: 25px;">
-                    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Chamar agora</a>
-                    <a href="https://www.google.com/maps/dir//Suporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto+-+Rua+Luzia+Aparecida+Dallanegra+Bracalente,+N:1+-+Lot.+Res.+Ana+Carolina,+Valinhos+-+SP,+13273-607,+Brasil/@-22.948692,-46.9745554,17z/data=!4m16!1m7!3m6!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2sSuporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto!8m2!3d-22.948697!4d-46.9719805!16s%2Fg%2F11rd9nw81m!4m7!1m0!1m5!1m1!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2m2!1d-46.9719805!2d-22.948697?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" class="btn-outline" style="margin-left: 12px;" target="_blank"><i class="fas fa-directions"></i> Traçar rota</a>
+                    <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chamar agora</a>
+                    <a href="https://www.google.com/maps/dir//Suporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto+-+Rua+Luzia+Aparecida+Dallanegra+Bracalente,+N:1+-+Lot.+Res.+Ana+Carolina,+Valinhos+-+SP,+13273-607,+Brasil/@-22.948692,-46.9745554,17z/data=!4m16!1m7!3m6!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2sSuporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto!8m2!3d-22.948697!4d-46.9719805!16s%2Fg%2F11rd9nw81m!4m7!1m0!1m5!1m1!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2m2!1d-46.9719805!2d-22.948697?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" class="btn-outline" style="margin-left: 12px;" target="_blank" rel="noopener noreferrer"><i class="fas fa-directions"></i> Traçar rota</a>
                 </div>
             </div>
             <div class="contact-map">
@@ -975,8 +969,8 @@
                 <h4>Atendimento em Valinhos/SP</h4>
                 <p>Atendimento presencial na cidade de Valinhos, SP, e também via remoto para toda a região.</p>
                 <!-- Mapa incorporado do perfil oficial do Google Meu Negócio -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5!2d-46.9719805!3d-22.948697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6a2cd8800284efbd%3A0x2b2e7d17dd20a5cd!2sSuporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto!5e0!3m2!1spt-BR!2sbr!4v1712000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <a href="https://www.google.com/maps/dir//Suporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto+-+Rua+Luzia+Aparecida+Dallanegra+Bracalente,+N:1+-+Lot.+Res.+Ana+Carolina,+Valinhos+-+SP,+13273-607,+Brasil/@-22.948692,-46.9745554,17z/data=!4m16!1m7!3m6!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2sSuporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto!8m2!3d-22.948697!4d-46.9719805!16s%2Fg%2F11rd9nw81m!4m7!1m0!1m5!1m1!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2m2!1d-46.9719805!2d-22.948697?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-outline map-btn"><i class="fas fa-car"></i> Como chegar até aqui</a>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5!2d-46.9719805!3d-22.948697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6a2cd8800284efbd%3A0x2b2e7d17dd20a5cd!2sSuporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto!5e0!3m2!1spt-BR!2sbr!4v1712000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização do Suporte Remoto de Informática - Paulo Fagoto em Valinhos/SP"></iframe>
+                <a href="https://www.google.com/maps/dir//Suporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto+-+Rua+Luzia+Aparecida+Dallanegra+Bracalente,+N:1+-+Lot.+Res.+Ana+Carolina,+Valinhos+-+SP,+13273-607,+Brasil/@-22.948692,-46.9745554,17z/data=!4m16!1m7!3m6!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2sSuporte+Remoto+de+Inform%C3%A1tica+-+Paulo+Fagoto!8m2!3d-22.948697!4d-46.9719805!16s%2Fg%2F11rd9nw81m!4m7!1m0!1m5!1m1!1s0x6a2cd8800284efbd:0x2b2e7d17dd20a5cd!2m2!1d-46.9719805!2d-22.948697?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-outline map-btn"><i class="fas fa-car"></i> Como chegar até aqui</a>
             </div>
         </div>
     </section>
@@ -990,10 +984,10 @@
             <a href="#servicos">Serviços</a>
             <a href="#areas">Atendimento</a>
             <a href="#contato">Contato</a>
-            <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
         <div class="footer-buttons">
-            <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Orçamento pelo WhatsApp</a>
+            <a href="https://wa.me/5519971014540?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20como%20t%C3%A9cnico%20em%20inform%C3%A1tica" class="btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Orçamento pelo WhatsApp</a>
             <a href="tel:+5519971014540" class="btn-outline"><i class="fas fa-phone-alt"></i> Ligar agora</a>
         </div>
         <p>© 2026 Paulo Fagoto Informática | CNPJ: 64.383.742/0001-26 | Técnico em informática - Valinhos/SP</p>
@@ -1048,12 +1042,73 @@
   },
   "makesOffer": [
     {"@type": "Service","name": "Formatação de Computadores","description": "Formatação completa e otimização de desempenho"},
-    {"@type": "Service","name": "Conserto de PC e Notebook"},
-    {"@type": "Service","name": "Upgrade de Hardware"},
-    {"@type": "Service","name": "Montagem de PC Gamer"},
-    {"@type": "Service","name": "Recuperação de Dados"},
-    {"@type": "Service","name": "Limpeza Interna e Preventiva"},
-    {"@type": "Service","name": "Acesso Remoto e Suporte"}
+    {"@type": "Service","name": "Conserto de PC e Notebook","description": "Diagnóstico e reparo de placas, telas e teclados"},
+    {"@type": "Service","name": "Upgrade de Hardware","description": "Instalação de SSD, memória RAM, processadores e placas de vídeo"},
+    {"@type": "Service","name": "Montagem de PC Gamer","description": "Computadores sob medida para jogos e workstations de alta performance"},
+    {"@type": "Service","name": "Recuperação de Dados","description": "Recuperação de arquivos apagados de HDs e SSDs com sigilo total"},
+    {"@type": "Service","name": "Limpeza Interna e Preventiva","description": "Remoção de poeira, troca de pasta térmica e prevenção de superaquecimento"},
+    {"@type": "Service","name": "Acesso Remoto e Suporte","description": "Atendimento remoto via AnyDesk/TeamViewer para configurações e otimizações"},
+    {"@type": "Service","name": "Restauração de Carcaça Notebook","description": "Colagem, reparo estrutural e substituição de dobradiças"},
+    {"@type": "Service","name": "Consultoria e Rede Wi-Fi","description": "Configuração de roteadores, redes e segurança digital"},
+    {"@type": "Service","name": "Instalação e Configuração de Redes","description": "Redes cabeadas e sem fio com repetidores e segurança"}
+  ]
+}
+</script>
+
+<!-- Schema FAQPage para rich snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual o prazo para formatação?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normalmente em até 24 horas úteis. Priorizamos agilidade sem abrir mão da qualidade. Em casos de urgência, podemos fazer no mesmo dia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Atendem a domicílio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim! Atendemos em Valinhos e região (Vinhedo, Campinas). Basta agendar e podemos ir até você. Consulte taxa de deslocamento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Backup é realizado antes da formatação?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, sempre orientamos e realizamos backup de arquivos pessoais mediante solicitação, garantindo segurança."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Formas de pagamento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aceitamos PIX, cartão de crédito/débito, dinheiro e transferência bancária. Parcelamento no cartão em até 3x sem juros."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vocês recuperam dados de HD corrompido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, realizamos recuperação de dados em HDs, SSDs e pendrives. Trabalhamos com softwares especializados e sigilo total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais sistemas operacionais instalam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Windows 10/11, Linux (Ubuntu, Mint), e também macOS em equipamentos compatíveis. Instalamos drivers e softwares essenciais."
+      }
+    }
   ]
 }
 </script>
