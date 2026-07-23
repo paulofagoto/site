@@ -1,31 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Depoimentos de Clientes | Paulo Fagoto</title>
-    <meta name="description" content="Veja todos os depoimentos reais de clientes atendidos por Paulo Fagoto, técnico em informática em Valinhos/SP.">
-    
-    <!-- Google Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Depoimentos de Clientes | Técnico em Informática Valinhos | Paulo Fagoto</title>
+    <meta name="description" content="Veja depoimentos reais de clientes atendidos por Paulo Fagoto, técnico em informática em Valinhos/SP. Suporte remoto, conserto de computador, formatação e muito mais.">
+    <meta name="keywords" content="depoimentos, técnico em informática, suporte em informática, assistência remota, Valinhos, SP, Paulo Fagoto, clientes, recomendações">
+    <meta name="author" content="Paulo Fagoto">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.placename" content="Valinhos, São Paulo, Brasil">
+    <meta name="geo.region" content="BR-SP">
+    <meta name="theme-color" content="#0B1E33">
+    <link rel="canonical" href="https://paulofagoto.com.br/depoimentos.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Depoimentos de Clientes | Paulo Fagoto Informática">
+    <meta property="og:description" content="Confira os depoimentos de quem já contratou os serviços de técnico em informática em Valinhos/SP e suporte remoto.">
+    <meta property="og:image" content="https://i.imgur.com/nkP7f2t.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Depoimentos de clientes do técnico Paulo Fagoto">
+    <meta property="og:url" content="https://paulofagoto.com.br/depoimentos.html">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Paulo Fagoto Informática">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Depoimentos de Clientes | Paulo Fagoto Informática">
+    <meta name="twitter:description" content="Depoimentos reais de clientes atendidos em Valinhos/SP e via suporte remoto.">
+    <meta name="twitter:image" content="https://i.imgur.com/nkP7f2t.png">
+    <meta name="twitter:image:alt" content="Depoimentos de clientes do técnico Paulo Fagoto">
+
+    <link rel="icon" type="image/png" href="https://i.imgur.com/5Nwdqgg.png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/5Nwdqgg.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <style>
-        /* ===== VARIÁVEIS E RESET ===== */
         :root {
-            --primary-color: #0a66c2;
-            --secondary-color: #25D366;
-            --dark-color: #1e293b;
-            --light-color: #f8fafc;
-            --gray-color: #64748b;
-            --border-radius: 12px;
-            --box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
-            --transition: all 0.3s ease;
+            --deep-blue: #0B1E33;
+            --electric-blue: #1E3A8A;
+            --vivid-orange: #FF6B35;
+            --sunset-orange: #F7931E;
+            --cyan: #00B4D8;
+            --lime: #A7F432;
+            --white: #ffffff;
+            --gray-light: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-mid: #334155;
+            --youtube-red: #FF0000;
+            --instagram-pink: #E1306C;
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --shadow-neon: 0 0 20px rgba(255, 107, 53, 0.5);
+            --shadow-cyan: 0 0 20px rgba(0, 180, 216, 0.4);
+            --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
         }
 
         * {
@@ -33,154 +65,294 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f1f5f9;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-light);
+            color: var(--text-dark);
+            line-height: 1.45;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--vivid-orange);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        :focus-visible {
+            outline: 3px solid var(--cyan);
+            outline-offset: 3px;
+            border-radius: 40px;
         }
 
-        .container {
+        /* ===== HEADER ===== */
+        .header {
+            background: rgba(11, 30, 51, 0.9);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            width: 100%;
         }
-
-        /* ===== HEADER SIMPLIFICADO ===== */
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
+        .logo-group {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            gap: 8px;
         }
-
-        .logo-img {
-            height: 60px;
-            width: auto;
-            max-width: 100%;
-            display: block;
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--vivid-orange);
+            filter: drop-shadow(0 0 6px rgba(255, 107, 53, 0.7));
+            animation: pulse-icon 2s infinite;
         }
-
-        nav ul {
+        @keyframes pulse-icon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .logo-text .brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.3px;
+            line-height: 1.1;
+        }
+        .nav-links {
             display: flex;
-            gap: 30px;
+            align-items: center;
+            gap: 1.5rem;
             list-style: none;
         }
-
-        nav a {
+        .nav-links a {
             text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* ===== CONTEÚDO PRINCIPAL ===== */
-        main {
-            flex: 1;
-            padding: 40px 0;
-        }
-
-        .page-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: 15px;
+            font-weight: 600;
+            color: #CBD5E1;
+            font-size: 0.9rem;
+            transition: all var(--transition);
             position: relative;
-            padding-bottom: 10px;
         }
-
-        .page-title::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
             left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
+            background: var(--vivid-orange);
+            transition: width var(--transition);
         }
-
-        .testimonial-count {
-            color: var(--gray-color);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
+        .nav-links a:hover {
+            color: white;
         }
-
-        /* ===== GALERIA EM GRID ===== */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: var(--transition);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
-        }
-
-        .gallery-image-container {
+        .nav-links a:hover::after {
             width: 100%;
-            background: #f1f5f9;
+        }
+
+        .social-nav {
             display: flex;
             align-items: center;
+            gap: 10px;
+            margin-left: 4px;
+        }
+        .social-nav a {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            padding: 15px;
-            flex: 1;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #CBD5E1;
+            font-size: 1rem;
+            transition: all var(--transition);
+            text-decoration: none;
+        }
+        .social-nav a:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+        .social-nav .yt-nav:hover {
+            background: #FF0000;
+            box-shadow: 0 0 14px rgba(255, 0, 0, 0.6);
+            color: white;
+        }
+        .social-nav .ig-nav:hover {
+            background: #E1306C;
+            box-shadow: 0 0 14px rgba(225, 48, 108, 0.6);
+            color: white;
         }
 
-        .gallery-image {
+        .btn-whats-nav {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 7px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.85rem;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+            transition: all var(--transition);
+            margin-left: 4px;
+        }
+        .btn-whats-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ===== SEÇÕES ===== */
+        .section {
+            padding: 28px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section-header h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--deep-blue);
+            margin-bottom: 6px;
+        }
+        .section-header p {
+            color: var(--text-mid);
+            max-width: 540px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+        }
+        .bg-white {
+            background: #ffffff;
+        }
+
+        .instruction-text {
+            text-align: center;
+            color: var(--text-mid);
+            margin-bottom: 24px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .instruction-text i {
+            color: var(--vivid-orange);
+            margin-right: 6px;
+        }
+
+        /* Grid de depoimentos */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+            transition: all var(--transition);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+            border-color: var(--vivid-orange);
+        }
+        .testimonial-card:hover::before {
+            width: 110px;
+            height: 110px;
+            top: -30px;
+            right: -30px;
+        }
+        .testimonial-card img {
             width: 100%;
             height: auto;
-            max-height: 350px;
+            max-height: 300px;
             object-fit: contain;
-            border-radius: 6px;
-            transition: opacity 0.3s;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .testimonial-card:hover img {
+            transform: scale(1.02);
+        }
+        .testimonial-caption {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-mid);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .testimonial-caption i {
+            color: #f59e0b;
         }
 
-        .gallery-caption {
-            background: rgba(0,0,0,0.03);
-            padding: 12px 15px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 0.9rem;
-            color: var(--gray-color);
-            text-align: center;
+        /* Efeito de clique visível */
+        .testimonial-card::after {
+            content: "🔍 Clique para ampliar";
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .testimonial-card:hover::after {
+            opacity: 1;
         }
 
-        .gallery-caption i {
-            color: #ffb703;
-            margin-right: 5px;
-        }
-
-        /* ===== MODAL PARA AMPLIAÇÃO (imagens) ===== */
+        /* Modal de imagem */
         .modal {
             display: none;
             position: fixed;
@@ -194,11 +366,9 @@
             justify-content: center;
             cursor: pointer;
         }
-
         .modal.show {
             display: flex;
         }
-
         .modal-content {
             max-width: 90vw;
             max-height: 90vh;
@@ -207,7 +377,6 @@
             box-shadow: 0 0 30px rgba(255,255,255,0.2);
             cursor: default;
         }
-
         .modal-close {
             position: absolute;
             top: 20px;
@@ -217,14 +386,12 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            line-height: 1;
         }
-
         .modal-close:hover {
             color: #ff4444;
         }
 
-        /* ===== MODAL PARA VÍDEO (POP-UP AUTOMÁTICO) ===== */
+        /* Modal de vídeo */
         .video-modal {
             display: none;
             position: fixed;
@@ -233,16 +400,14 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2100; /* maior que o modal de imagem */
+            z-index: 2100;
             align-items: center;
             justify-content: center;
             cursor: pointer;
         }
-
         .video-modal.show {
             display: flex;
         }
-
         .video-modal-content {
             position: relative;
             width: 90%;
@@ -253,14 +418,12 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             cursor: default;
         }
-
         .video-modal-content iframe {
             width: 100%;
             aspect-ratio: 16 / 9;
-            display: block;
             border: none;
+            display: block;
         }
-
         .video-modal-close {
             position: absolute;
             top: 10px;
@@ -270,286 +433,502 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            line-height: 1;
             z-index: 10;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
-
         .video-modal-close:hover {
             color: #ff4444;
         }
 
-        /* ===== BOTÃO VOLTAR ===== */
-        .back-link {
+        /* Footer */
+        .footer {
+            background: var(--deep-blue);
+            color: #CBD5E1;
+            padding: 28px 0 18px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .footer-social a {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 30px;
-            background-color: var(--primary-color);
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: #CBD5E1;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+        .footer-social a:hover {
+            transform: translateY(-3px);
             color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
+        }
+        .footer-social .yt-footer:hover {
+            background: #FF0000;
+            box-shadow: 0 0 18px rgba(255, 0, 0, 0.7);
+        }
+        .footer-social .ig-footer:hover {
+            background: #E1306C;
+            box-shadow: 0 0 18px rgba(225, 48, 108, 0.7);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #94A3B8;
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
+            transition: color var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--vivid-orange);
         }
 
-        .back-link:hover {
-            background-color: #0a4f8a;
-            transform: translateX(-5px);
-        }
-
-        /* ===== RODAPÉ SIMPLIFICADO ===== */
-        footer {
-            background: var(--dark-color);
+        /* Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+            z-index: 99;
+            transition: all var(--transition);
             color: white;
-            padding: 20px 0;
-            margin-top: 40px;
-            text-align: center;
+            font-size: 1.6rem;
+            text-decoration: none;
+            animation: pulse-whats 2s infinite;
+        }
+        @keyframes pulse-whats {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 84px;
+            right: 20px;
+            background: var(--vivid-orange);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.5);
+            z-index: 98;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #F97316;
         }
 
-        footer p {
-            color: #94a3b8;
-            font-size: 0.9rem;
+        /* Animações */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* ===== RESPONSIVIDADE ===== */
-        @media (max-width: 768px) {
-            .header-content {
+        @media (max-width: 900px) {
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                left: -100%;
+                background: rgba(11, 30, 51, 0.98);
+                backdrop-filter: blur(20px);
+                width: 80%;
+                height: 100vh;
                 flex-direction: column;
-                gap: 15px;
+                padding: 28px 20px;
+                transition: left 0.3s;
+                gap: 16px;
+                align-items: flex-start;
             }
-            .logo-img {
-                height: 50px;
+            .nav-links.active {
+                left: 0;
             }
-            nav ul {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .hamburger {
+                display: block;
             }
-            .page-title {
-                font-size: 1.8rem;
+            .btn-whats-nav {
+                display: none;
+            }
+            .social-nav {
+                margin-left: 0;
+                gap: 14px;
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             }
         }
-
-        @media (max-width: 480px) {
-            .gallery-grid {
+        @media (max-width: 560px) {
+            .testimonial-grid {
                 grid-template-columns: 1fr;
             }
-            .modal-close,
-            .video-modal-close {
-                top: 10px;
-                right: 20px;
-                font-size: 30px;
-            }
-        }
-
-        :focus-visible {
-            outline: 3px solid var(--primary-color);
-            outline-offset: 4px;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="container header-content">
-        <div class="logo">
-            <img src="https://i.imgur.com/UWT1VAB.png" alt="Paulo Fagoto Técnico em Informática" class="logo-img">
-        </div>
-        <nav aria-label="Menu principal">
-            <ul>
-                <li><a href="index.html#home">Início</a></li>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+    <a href="https://wa.me/5519971540808?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20de%20suporte%20remoto" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="#" id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo-group" itemscope itemtype="https://schema.org/Organization">
+                <i class="fas fa-microchip logo-icon"></i>
+                <div class="logo-text">
+                    <span class="brand" itemprop="name">Paulo Fagoto</span>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="index.html">Início</a></li>
                 <li><a href="index.html#servicos">Serviços</a></li>
                 <li><a href="index.html#sobre">Sobre</a></li>
-                <li><a href="index.html#depoimentos">Depoimentos</a></li>
-                <li><a href="index.html#localizacao">Localização</a></li>
+                <li><a href="depoimentos.html" style="color:white;">Depoimentos</a></li>
+                <li>
+                    <div class="social-nav">
+                        <a href="https://www.youtube.com/@paulofagoto" class="yt-nav" target="_blank" rel="noopener noreferrer" aria-label="YouTube Paulo Fagoto" title="YouTube · +100k inscritos">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tecpaulohenrique" class="ig-nav" target="_blank" rel="noopener noreferrer" aria-label="Instagram Paulo Fagoto" title="Instagram @tecpaulohenrique">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="https://wa.me/5519971540808?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20de%20suporte%20remoto" class="btn-whats-nav" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
             </ul>
-        </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="section bg-white">
+            <div class="section-header fade-up">
+                <h2>Depoimentos de Clientes</h2>
+                <p>Confira abaixo <strong>35 depoimentos reais</strong> de clientes atendidos por Paulo Fagoto.</p>
+            </div>
+            <div class="instruction-text fade-up">
+                <i class="fas fa-hand-pointer"></i> Clique em qualquer card para ampliar e ler o depoimento completo.
+            </div>
+            <div class="testimonial-grid" id="galleryGrid">
+                <!-- As imagens serão inseridas via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-social">
+            <a href="https://www.youtube.com/@paulofagoto" class="yt-footer" target="_blank" rel="noopener noreferrer" aria-label="YouTube Paulo Fagoto" title="YouTube · +100k inscritos">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/tecpaulohenrique" class="ig-footer" target="_blank" rel="noopener noreferrer" aria-label="Instagram Paulo Fagoto" title="Instagram @tecpaulohenrique">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5519971540808" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Paulo Fagoto" style="background: rgba(37,211,102,0.2);">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="index.html#servicos">Serviços</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="depoimentos.html">Depoimentos</a>
+            <a href="https://wa.me/5519971540808" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://www.youtube.com/@paulofagoto" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://www.instagram.com/tecpaulohenrique" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+        <p style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color: var(--vivid-orange); margin-right: 5px;"></i>Rua Campos Salles - Vila Faustina II, Valinhos - SP, 13272-350</p>
+        <p>© 2026 Paulo Fagoto Informática · CNPJ 64.383.742/0001-26 · Suporte remoto para todo Brasil e presencial em Valinhos/SP</p>
+    </footer>
+
+    <!-- Modal de imagem -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="Depoimento ampliado">
     </div>
-</header>
 
-<main class="container">
-    <h1 class="page-title">Depoimentos de Clientes</h1>
-    <p class="testimonial-count">Confira abaixo <strong>35 depoimentos reais</strong> de clientes atendidos por Paulo Fagoto.</p>
-    
-    <div class="gallery-grid" id="galleryGrid">
-        <!-- As imagens serão inseridas via JavaScript -->
+    <!-- Modal de vídeo -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" id="videoModalClose">&times;</span>
+            <iframe id="youtubeVideo" src="" title="Vídeo de depoimento" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar para a página inicial</a>
-</main>
+    <!-- Dados estruturados -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Paulo Fagoto Informática",
+            "image": "https://i.imgur.com/nkP7f2t.png",
+            "description": "Técnico em informática em Valinhos/SP e região. Assistência técnica de computadores e notebooks: conserto, formatação, instalação de impressora, criação de sites e planilhas. Suporte remoto para todo o Brasil via acesso remoto. Atendimento todos os dias, inclusive feriados, das 07h às 20h. Canal no YouTube com mais de 100 mil inscritos.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Rua Campos Salles",
+                "addressLocality": "Valinhos",
+                "addressRegion": "SP",
+                "postalCode": "13272-350",
+                "addressCountry": "BR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -22.9706,
+                "longitude": -46.9958
+            },
+            "url": "https://paulofagoto.com.br",
+            "telephone": "+5519971540808",
+            "email": "adm@paulofagoto.com.br",
+            "priceRange": "R$ 80 - R$ 500 (consulte orçamento)",
+            "openingHoursSpecification": [{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "07:00",
+                "closes": "20:00"
+            }],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "127",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "sameAs": [
+                "https://wa.me/5519971540808",
+                "https://www.youtube.com/@paulofagoto",
+                "https://www.instagram.com/tecpaulohenrique"
+            ],
+            "areaServed": [
+                { "@type": "City", "name": "Valinhos" },
+                { "@type": "City", "name": "Vinhedo" },
+                { "@type": "City", "name": "Campinas" },
+                { "@type": "City", "name": "Louveira" },
+                { "@type": "City", "name": "Itatiba" },
+                { "@type": "City", "name": "Jundiaí" },
+                { "@type": "Country", "name": "Brasil" }
+            ],
+            "makesOffer": [
+                { "@type": "Service", "name": "Suporte Remoto", "description": "Resolução de problemas online para todo o Brasil via acesso remoto" },
+                { "@type": "Service", "name": "Formatação de Computadores", "description": "Formatação de computador e notebook com instalação do Windows e backup" },
+                { "@type": "Service", "name": "Conserto de PC e Notebook", "description": "Conserto de computador e notebook em Valinhos/SP e região" },
+                { "@type": "Service", "name": "Upgrade de Hardware", "description": "Instalação de SSD, memória RAM, placa de vídeo" },
+                { "@type": "Service", "name": "Montagem de PC Gamer", "description": "Montagem personalizada de computador gamer" },
+                { "@type": "Service", "name": "Instalação de Impressora", "description": "Configuração e instalação de impressora local ou em rede" },
+                { "@type": "Service", "name": "Criação de Site", "description": "Criação de site profissional para empresas e profissionais" },
+                { "@type": "Service", "name": "Criação de Sistema", "description": "Criação de sistema web personalizado" },
+                { "@type": "Service", "name": "Criação de Planilhas", "description": "Criação de planilhas automatizadas no Excel e Google Sheets" }
+            ]
+        }
+    </script>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2026 Paulo Fagoto - Técnico em Informática. Todos os direitos reservados.</p>
-    </div>
-</footer>
-
-<!-- Modal para ampliar imagem -->
-<div id="imageModal" class="modal">
-    <span class="modal-close" id="modalClose">&times;</span>
-    <img class="modal-content" id="modalImage" src="" alt="Depoimento ampliado">
-</div>
-
-<!-- Modal para vídeo (pop-up automático) -->
-<div id="videoModal" class="video-modal">
-    <div class="video-modal-content">
-        <span class="video-modal-close" id="videoModalClose">&times;</span>
-        <iframe id="youtubeVideo" src="" title="Vídeo de depoimento" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-    </div>
-</div>
-
-<script>
-    // Lista completa de imagens (35)
-    const imagens = [
-        "https://i.imgur.com/j37eOjv.png",
-        "https://i.imgur.com/aoa9gt7.png",
-        "https://i.imgur.com/jSPpwT0.png",
-        "https://i.imgur.com/HVzJT02.png",
-        "https://i.imgur.com/1JCIB5s.png",
-        "https://i.imgur.com/tgXLVhY.png",
-        "https://i.imgur.com/NrUR4D3.png",
-        "https://i.imgur.com/yKuz4Sa.png",
-        "https://i.imgur.com/4WeaioA.png",
-        "https://i.imgur.com/UzIhWwj.png",
-        "https://i.imgur.com/RUZ54kY.png",
-        "https://i.imgur.com/w8FoxFS.png",
-        "https://i.imgur.com/u4e1aoX.png",
-        "https://i.imgur.com/3jnqALp.png",
-        "https://i.imgur.com/PwkKPB2.png",
-        "https://i.imgur.com/jyKY34C.png",
-        "https://i.imgur.com/TGB99sd.png",
-        "https://i.imgur.com/2jarCo0.png",
-        "https://i.imgur.com/USjbCVj.png",
-        "https://i.imgur.com/oPyHUqA.png",
-        "https://i.imgur.com/wxiUf4s.png",
-        "https://i.imgur.com/72x1GmP.png",
-        "https://i.imgur.com/tSy6Pm7.png",
-        "https://i.imgur.com/hRxrz6b.png",
-        "https://i.imgur.com/gLkeQ0k.png",
-        "https://i.imgur.com/2tG86FV.png",
-        "https://i.imgur.com/4V8MNFi.png",
-        "https://i.imgur.com/Qe8oPjo.png",
-        "https://i.imgur.com/uCNmTn2.png",
-        "https://i.imgur.com/yXCVmPb.png",
-        "https://i.imgur.com/tP1iNaA.png",
-        "https://i.imgur.com/uNO9j21.png",
-        "https://i.imgur.com/cXsqNvI.png",
-        "https://i.imgur.com/5LezRFm.png",
-        "https://i.imgur.com/oSDpi4l.png"
-    ];
-
-    const galleryGrid = document.getElementById('galleryGrid');
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalClose = document.getElementById('modalClose');
-
-    // Cria os itens da galeria
-    imagens.forEach((src, index) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
-        item.setAttribute('data-index', index);
-        
-        const imgContainer = document.createElement('div');
-        imgContainer.className = 'gallery-image-container';
-        
-        const img = document.createElement('img');
-        img.className = 'gallery-image';
-        img.src = src;
-        img.alt = `Depoimento de cliente ${index + 1}`;
-        img.loading = 'lazy';
-        
-        imgContainer.appendChild(img);
-        
-        const caption = document.createElement('div');
-        caption.className = 'gallery-caption';
-        caption.innerHTML = '<i class="fas fa-star"></i> Depoimento real';
-        
-        item.appendChild(imgContainer);
-        item.appendChild(caption);
-        
-        // Abrir modal ao clicar no item
-        item.addEventListener('click', () => {
-            modalImage.src = src;
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // impede rolagem
+    <script>
+        // Menu mobile
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
         });
-        
-        galleryGrid.appendChild(item);
-    });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
 
-    // Fechar modal de imagem ao clicar no X
-    modalClose.addEventListener('click', () => {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-    });
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-    // Fechar modal de imagem ao clicar fora
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
+        // Intersection Observer para fade-up
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // ===== GALERIA DE DEPOIMENTOS =====
+        const imagens = [
+            "https://i.imgur.com/j37eOjv.png",
+            "https://i.imgur.com/aoa9gt7.png",
+            "https://i.imgur.com/jSPpwT0.png",
+            "https://i.imgur.com/HVzJT02.png",
+            "https://i.imgur.com/1JCIB5s.png",
+            "https://i.imgur.com/tgXLVhY.png",
+            "https://i.imgur.com/NrUR4D3.png",
+            "https://i.imgur.com/yKuz4Sa.png",
+            "https://i.imgur.com/4WeaioA.png",
+            "https://i.imgur.com/UzIhWwj.png",
+            "https://i.imgur.com/RUZ54kY.png",
+            "https://i.imgur.com/w8FoxFS.png",
+            "https://i.imgur.com/u4e1aoX.png",
+            "https://i.imgur.com/3jnqALp.png",
+            "https://i.imgur.com/PwkKPB2.png",
+            "https://i.imgur.com/jyKY34C.png",
+            "https://i.imgur.com/TGB99sd.png",
+            "https://i.imgur.com/2jarCo0.png",
+            "https://i.imgur.com/USjbCVj.png",
+            "https://i.imgur.com/oPyHUqA.png",
+            "https://i.imgur.com/wxiUf4s.png",
+            "https://i.imgur.com/72x1GmP.png",
+            "https://i.imgur.com/tSy6Pm7.png",
+            "https://i.imgur.com/hRxrz6b.png",
+            "https://i.imgur.com/gLkeQ0k.png",
+            "https://i.imgur.com/2tG86FV.png",
+            "https://i.imgur.com/4V8MNFi.png",
+            "https://i.imgur.com/Qe8oPjo.png",
+            "https://i.imgur.com/uCNmTn2.png",
+            "https://i.imgur.com/yXCVmPb.png",
+            "https://i.imgur.com/tP1iNaA.png",
+            "https://i.imgur.com/uNO9j21.png",
+            "https://i.imgur.com/cXsqNvI.png",
+            "https://i.imgur.com/5LezRFm.png",
+            "https://i.imgur.com/oSDpi4l.png"
+        ];
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+
+        imagens.forEach((src, index) => {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card fade-up';
+            card.setAttribute('data-index', index);
+
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Depoimento de cliente ${index + 1} - clique para ampliar`;
+            img.loading = 'lazy';
+
+            const caption = document.createElement('div');
+            caption.className = 'testimonial-caption';
+            caption.innerHTML = '<i class="fas fa-star"></i> Depoimento real';
+
+            card.appendChild(img);
+            card.appendChild(caption);
+
+            card.addEventListener('click', () => {
+                modalImage.src = src;
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+
+            galleryGrid.appendChild(card);
+        });
+
+        // Aplica o observer após todos os cards serem criados
+        document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+        // Fechar modal de imagem
+        modalClose.addEventListener('click', () => {
             modal.classList.remove('show');
             document.body.style.overflow = '';
-        }
-    });
-
-    // Fechar com tecla ESC (para ambos os modais)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            if (modal.classList.contains('show')) {
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
                 modal.classList.remove('show');
                 document.body.style.overflow = '';
             }
-            if (videoModal.classList.contains('show')) {
+        });
+
+        // ===== POP-UP DE VÍDEO =====
+        const videoModal = document.getElementById('videoModal');
+        const videoIframe = document.getElementById('youtubeVideo');
+        const videoClose = document.getElementById('videoModalClose');
+
+        function openVideoModal() {
+            videoIframe.src = 'https://www.youtube.com/embed/fgItGkJp04M?autoplay=1&mute=1&enablejsapi=1';
+            videoModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('show');
+            videoIframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        videoClose.addEventListener('click', closeVideoModal);
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
                 closeVideoModal();
             }
-        }
-    });
+        });
 
-    // ===== LÓGICA DO POP-UP DE VÍDEO =====
-    const videoModal = document.getElementById('videoModal');
-    const videoIframe = document.getElementById('youtubeVideo');
-    const videoClose = document.getElementById('videoModalClose');
+        // Exibir vídeo apenas uma vez por sessão
+        window.addEventListener('load', () => {
+            const popupExibido = sessionStorage.getItem('videoPopupExibido');
+            if (!popupExibido) {
+                openVideoModal();
+                sessionStorage.setItem('videoPopupExibido', 'true');
+            }
+        });
 
-    // Função para abrir o modal de vídeo
-    function openVideoModal() {
-        // Define o src com autoplay e mute para garantir a reprodução automática
-        // O parâmetro mute=1 aumenta a chance de autoplay; o usuário pode ativar o som no player
-        videoIframe.src = 'https://www.youtube.com/embed/fgItGkJp04M?autoplay=1&mute=1&enablejsapi=1';
-        videoModal.classList.add('show');
-        document.body.style.overflow = 'hidden'; // impede rolagem
-    }
-
-    // Função para fechar o modal de vídeo e parar a reprodução
-    function closeVideoModal() {
-        videoModal.classList.remove('show');
-        // Remove o src para parar o vídeo
-        videoIframe.src = '';
-        document.body.style.overflow = '';
-    }
-
-    // Evento para fechar com o X
-    videoClose.addEventListener('click', closeVideoModal);
-
-    // Fechar ao clicar fora do conteúdo (no fundo escuro)
-    videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) {
-            closeVideoModal();
-        }
-    });
-
-    // Abrir o pop-up automaticamente ao carregar a página (somente uma vez por sessão)
-    window.addEventListener('load', () => {
-        // Verifica se já foi exibido nesta sessão
-        const popupExibido = sessionStorage.getItem('videoPopupExibido');
-        if (!popupExibido) {
-            openVideoModal();
-            sessionStorage.setItem('videoPopupExibido', 'true');
-        }
-    });
-</script>
+        // Fechar modais com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (modal.classList.contains('show')) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+                if (videoModal.classList.contains('show')) {
+                    closeVideoModal();
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
