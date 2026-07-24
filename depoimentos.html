@@ -111,6 +111,21 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* Link que envolve a logo */
+        .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.2s;
+            border-radius: 8px;
+        }
+        .logo-link:hover {
+            opacity: 0.85;
+        }
+        .logo-link:focus-visible {
+            outline: 3px solid var(--cyan);
+            outline-offset: 4px;
+        }
         .logo-group {
             display: flex;
             align-items: center;
@@ -615,12 +630,15 @@
 
     <header class="header">
         <div class="nav-container">
-            <div class="logo-group" itemscope itemtype="https://schema.org/Organization">
-                <i class="fas fa-microchip logo-icon"></i>
-                <div class="logo-text">
-                    <span class="brand" itemprop="name">Paulo Fagoto</span>
+            <!-- Logo agora é um link clicável que leva para www.paulofagoto.com.br -->
+            <a href="https://www.paulofagoto.com.br" class="logo-link" aria-label="Ir para a página inicial de Paulo Fagato Informática" title="Página inicial">
+                <div class="logo-group" itemscope itemtype="https://schema.org/Organization">
+                    <i class="fas fa-microchip logo-icon"></i>
+                    <div class="logo-text">
+                        <span class="brand" itemprop="name">Paulo Fagoto</span>
+                    </div>
                 </div>
-            </div>
+            </a>
             <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
