@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Depoimentos de Clientes | Técnico em Informática Valinhos | Paulo Fagoto</title>
-    <meta name="description" content="Veja depoimentos reais de clientes atendidos por Paulo Fagoto, técnico em informática em Valinhos/SP. Suporte remoto, conserto de computador, formatação e muito mais.">
-    <meta name="keywords" content="depoimentos, técnico em informática, suporte em informática, assistência remota, Valinhos, SP, Paulo Fagoto, clientes, recomendações">
+    <title>Depoimentos de Clientes | Suporte Remoto de Informática | Paulo Fagoto</title>
+    <meta name="description" content="Veja depoimentos reais de clientes atendidos por Paulo Fagoto, especialista em suporte remoto de informática para todo o Brasil. Formatação, remoção de vírus, criação de sites e planilhas.">
+    <meta name="keywords" content="depoimentos, suporte remoto, informática online, assistência remota, Paulo Fagoto, clientes, recomendações, formatação remota">
     <meta name="author" content="Paulo Fagoto">
     <meta name="robots" content="index, follow">
-    <meta name="geo.placename" content="Valinhos, São Paulo, Brasil">
-    <meta name="geo.region" content="BR-SP">
     <meta name="theme-color" content="#0B1E33">
     <link rel="canonical" href="https://paulofagoto.com.br/depoimentos.html">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Depoimentos de Clientes | Paulo Fagoto Informática">
-    <meta property="og:description" content="Confira os depoimentos de quem já contratou os serviços de técnico em informática em Valinhos/SP e suporte remoto.">
+    <meta property="og:title" content="Depoimentos de Clientes | Suporte Remoto de Informática | Paulo Fagoto">
+    <meta property="og:description" content="Confira depoimentos de clientes atendidos via suporte remoto de informática em todo o Brasil.">
     <meta property="og:image" content="https://i.imgur.com/nkP7f2t.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Depoimentos de clientes do técnico Paulo Fagoto">
+    <meta property="og:image:alt" content="Depoimentos de clientes do suporte remoto Paulo Fagoto">
     <meta property="og:url" content="https://paulofagoto.com.br/depoimentos.html">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Paulo Fagoto Informática">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Depoimentos de Clientes | Paulo Fagoto Informática">
-    <meta name="twitter:description" content="Depoimentos reais de clientes atendidos em Valinhos/SP e via suporte remoto.">
+    <meta name="twitter:title" content="Depoimentos de Clientes | Suporte Remoto de Informática | Paulo Fagoto">
+    <meta name="twitter:description" content="Depoimentos reais de clientes atendidos via suporte remoto em todo o Brasil.">
     <meta name="twitter:image" content="https://i.imgur.com/nkP7f2t.png">
-    <meta name="twitter:image:alt" content="Depoimentos de clientes do técnico Paulo Fagoto">
+    <meta name="twitter:image:alt" content="Depoimentos de clientes do suporte remoto Paulo Fagoto">
 
     <link rel="icon" type="image/png" href="https://i.imgur.com/5Nwdqgg.png">
     <link rel="apple-touch-icon" href="https://i.imgur.com/5Nwdqgg.png">
@@ -111,7 +109,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* Link que envolve a logo */
         .logo-link {
             text-decoration: none;
             display: flex;
@@ -214,8 +211,8 @@
             color: white;
         }
 
-        .btn-whats-nav {
-            background: linear-gradient(135deg, #25D366, #128C7E);
+        .btn-email-nav {
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
             color: white;
             padding: 7px 18px;
             border-radius: 40px;
@@ -225,13 +222,13 @@
             align-items: center;
             gap: 7px;
             font-size: 0.85rem;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
             transition: all var(--transition);
             margin-left: 4px;
         }
-        .btn-whats-nav:hover {
+        .btn-email-nav:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
         }
         .hamburger {
             display: none;
@@ -278,7 +275,6 @@
             margin-right: 6px;
         }
 
-        /* Grid de depoimentos */
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -348,7 +344,6 @@
             color: #f59e0b;
         }
 
-        /* Efeito de clique visível */
         .testimonial-card::after {
             content: "🔍 Clique para ampliar";
             position: absolute;
@@ -454,6 +449,59 @@
             color: #ff4444;
         }
 
+        /* Seção de contato */
+        .contact-section {
+            background: white;
+        }
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #E2E8F0;
+        }
+        .contact-box .email-display {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        .btn-copy {
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+        .btn-copy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+        }
+        .copy-feedback {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: var(--cyan);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .copy-feedback.show {
+            opacity: 1;
+        }
+
         /* Footer */
         .footer {
             background: var(--deep-blue);
@@ -512,31 +560,31 @@
         }
 
         /* Float */
-        .whatsapp-float {
+        .email-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
             width: 52px;
             height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
             z-index: 99;
             transition: all var(--transition);
             color: white;
             font-size: 1.6rem;
             text-decoration: none;
-            animation: pulse-whats 2s infinite;
+            animation: pulse-email 2s infinite;
         }
-        @keyframes pulse-whats {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        @keyframes pulse-email {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
         }
-        .whatsapp-float:hover {
+        .email-float:hover {
             transform: scale(1.1);
             animation: none;
         }
@@ -567,7 +615,6 @@
             background: #F97316;
         }
 
-        /* Animações */
         .fade-up {
             opacity: 0;
             transform: translateY(20px);
@@ -599,7 +646,7 @@
             .hamburger {
                 display: block;
             }
-            .btn-whats-nav {
+            .btn-email-nav {
                 display: none;
             }
             .social-nav {
@@ -608,6 +655,9 @@
             }
             .testimonial-grid {
                 grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            .contact-box .email-display {
+                font-size: 1rem;
             }
         }
         @media (max-width: 560px) {
@@ -621,8 +671,9 @@
 
     <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
-    <a href="https://wa.me/5519971540808?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20de%20suporte%20remoto" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <!-- Botão flutuante que leva à seção de contato (e-mail visível) -->
+    <a href="#contato" class="email-float" aria-label="Ir para a seção de contato" title="Ver e-mail de contato">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
     </a>
     <a href="#" id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
         <i class="fas fa-arrow-up"></i>
@@ -630,8 +681,7 @@
 
     <header class="header">
         <div class="nav-container">
-            <!-- Logo agora é um link clicável que leva para www.paulofagoto.com.br -->
-            <a href="https://www.paulofagoto.com.br" class="logo-link" aria-label="Ir para a página inicial de Paulo Fagato Informática" title="Página inicial">
+            <a href="https://www.paulofagoto.com.br" class="logo-link" aria-label="Ir para a página inicial de Paulo Fagoto Informática" title="Página inicial">
                 <div class="logo-group" itemscope itemtype="https://schema.org/Organization">
                     <i class="fas fa-microchip logo-icon"></i>
                     <div class="logo-text">
@@ -657,7 +707,7 @@
                         </a>
                     </div>
                 </li>
-                <li><a href="https://wa.me/5519971540808?text=Ol%C3%A1%20Paulo%2C%20gostaria%20do%20seu%20servi%C3%A7o%20de%20suporte%20remoto" class="btn-whats-nav" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                <li><a href="#contato" class="btn-email-nav"><i class="fas fa-envelope"></i> E-mail</a></li>
             </ul>
         </div>
     </header>
@@ -666,13 +716,28 @@
         <section class="section bg-white">
             <div class="section-header fade-up">
                 <h2>Depoimentos de Clientes</h2>
-                <p>Confira abaixo <strong>35 depoimentos reais</strong> de clientes atendidos por Paulo Fagoto.</p>
+                <p>Confira abaixo <strong>35 depoimentos reais</strong> de clientes atendidos via suporte remoto por Paulo Fagoto.</p>
             </div>
             <div class="instruction-text fade-up">
                 <i class="fas fa-hand-pointer"></i> Clique em qualquer card para ampliar e ler o depoimento completo.
             </div>
             <div class="testimonial-grid" id="galleryGrid">
                 <!-- As imagens serão inseridas via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Seção de contato com e-mail visível e botão de copiar -->
+        <section class="section contact-section" id="contato" aria-labelledby="contato-heading">
+            <div class="section-header fade-up">
+                <h2 id="contato-heading">Entre em Contato por E-mail</h2>
+                <p>O atendimento é feito exclusivamente por e-mail. Copie o endereço abaixo e envie sua mensagem.</p>
+            </div>
+            <div class="contact-box fade-up">
+                <div class="email-display" id="emailDisplay">contatopaulofagoto@gmail.com</div>
+                <button class="btn-copy" id="btnCopy" onclick="copyEmail()">
+                    <i class="fas fa-copy"></i> Copiar E-mail
+                </button>
+                <span class="copy-feedback" id="copyFeedback">E-mail copiado!</span>
             </div>
         </section>
     </main>
@@ -685,21 +750,18 @@
             <a href="https://www.instagram.com/tecpaulohenrique" class="ig-footer" target="_blank" rel="noopener noreferrer" aria-label="Instagram Paulo Fagoto" title="Instagram @tecpaulohenrique">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://wa.me/5519971540808" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Paulo Fagoto" style="background: rgba(37,211,102,0.2);">
-                <i class="fab fa-whatsapp"></i>
-            </a>
         </div>
         <div class="footer-links">
             <a href="index.html">Início</a>
             <a href="index.html#servicos">Serviços</a>
             <a href="index.html#sobre">Sobre</a>
             <a href="depoimentos.html">Depoimentos</a>
-            <a href="https://wa.me/5519971540808" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="#contato">Contato</a>
             <a href="https://www.youtube.com/@paulofagoto" target="_blank" rel="noopener noreferrer">YouTube</a>
             <a href="https://www.instagram.com/tecpaulohenrique" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
-        <p style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color: var(--vivid-orange); margin-right: 5px;"></i>Rua Campos Salles - Vila Faustina II, Valinhos - SP, 13272-350</p>
-        <p>© 2026 Paulo Fagoto Informática · CNPJ 64.383.742/0001-26 · Suporte remoto para todo Brasil e presencial em Valinhos/SP</p>
+        <p style="margin-bottom:4px;"><i class="fas fa-envelope" style="color: var(--vivid-orange); margin-right: 5px;"></i>contatopaulofagoto@gmail.com</p>
+        <p>© 2026 Paulo Fagoto Informática · CNPJ 64.383.742/0001-26 · Suporte remoto para todo o Brasil</p>
     </footer>
 
     <!-- Modal de imagem -->
@@ -720,26 +782,12 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
+            "@type": "ProfessionalService",
             "name": "Paulo Fagoto Informática",
             "image": "https://i.imgur.com/nkP7f2t.png",
-            "description": "Técnico em informática em Valinhos/SP e região. Assistência técnica de computadores e notebooks: conserto, formatação, instalação de impressora, criação de sites e planilhas. Suporte remoto para todo o Brasil via acesso remoto. Atendimento todos os dias, inclusive feriados, das 07h às 20h. Canal no YouTube com mais de 100 mil inscritos.",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Rua Campos Salles",
-                "addressLocality": "Valinhos",
-                "addressRegion": "SP",
-                "postalCode": "13272-350",
-                "addressCountry": "BR"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -22.9706,
-                "longitude": -46.9958
-            },
+            "description": "Suporte remoto de informática para todo o Brasil. Formatação remota, criação de sites e planilhas, remoção de vírus, otimização e suporte em informática via acesso remoto. Atendimento online todos os dias. Canal no YouTube com mais de 100 mil inscritos.",
             "url": "https://paulofagoto.com.br",
-            "telephone": "+5519971540808",
-            "email": "adm@paulofagoto.com.br",
+            "email": "contatopaulofagoto@gmail.com",
             "priceRange": "R$ 80 - R$ 500 (consulte orçamento)",
             "openingHoursSpecification": [{
                 "@type": "OpeningHoursSpecification",
@@ -755,29 +803,20 @@
                 "worstRating": "1"
             },
             "sameAs": [
-                "https://wa.me/5519971540808",
                 "https://www.youtube.com/@paulofagoto",
                 "https://www.instagram.com/tecpaulohenrique"
             ],
-            "areaServed": [
-                { "@type": "City", "name": "Valinhos" },
-                { "@type": "City", "name": "Vinhedo" },
-                { "@type": "City", "name": "Campinas" },
-                { "@type": "City", "name": "Louveira" },
-                { "@type": "City", "name": "Itatiba" },
-                { "@type": "City", "name": "Jundiaí" },
-                { "@type": "Country", "name": "Brasil" }
-            ],
+            "areaServed": {
+                "@type": "Country",
+                "name": "Brasil"
+            },
             "makesOffer": [
-                { "@type": "Service", "name": "Suporte Remoto", "description": "Resolução de problemas online para todo o Brasil via acesso remoto" },
-                { "@type": "Service", "name": "Formatação de Computadores", "description": "Formatação de computador e notebook com instalação do Windows e backup" },
-                { "@type": "Service", "name": "Conserto de PC e Notebook", "description": "Conserto de computador e notebook em Valinhos/SP e região" },
-                { "@type": "Service", "name": "Upgrade de Hardware", "description": "Instalação de SSD, memória RAM, placa de vídeo" },
-                { "@type": "Service", "name": "Montagem de PC Gamer", "description": "Montagem personalizada de computador gamer" },
-                { "@type": "Service", "name": "Instalação de Impressora", "description": "Configuração e instalação de impressora local ou em rede" },
+                { "@type": "Service", "name": "Suporte Remoto", "description": "Assistência técnica online para todo o Brasil via acesso remoto" },
+                { "@type": "Service", "name": "Formatação Remota", "description": "Formatação de computador com backup e instalação do Windows via acesso remoto" },
+                { "@type": "Service", "name": "Remoção de Vírus", "description": "Limpeza e remoção de vírus e malware online" },
                 { "@type": "Service", "name": "Criação de Site", "description": "Criação de site profissional para empresas e profissionais" },
-                { "@type": "Service", "name": "Criação de Sistema", "description": "Criação de sistema web personalizado" },
-                { "@type": "Service", "name": "Criação de Planilhas", "description": "Criação de planilhas automatizadas no Excel e Google Sheets" }
+                { "@type": "Service", "name": "Criação de Planilhas", "description": "Criação de planilhas automatizadas no Excel e Google Sheets" },
+                { "@type": "Service", "name": "Instalação de Programas", "description": "Instalação e configuração de softwares e impressoras remotamente" }
             ]
         }
     </script>
@@ -806,6 +845,20 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Copiar e-mail
+        function copyEmail() {
+            const email = document.getElementById('emailDisplay').innerText;
+            navigator.clipboard.writeText(email).then(() => {
+                const feedback = document.getElementById('copyFeedback');
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                alert('Não foi possível copiar automaticamente. Por favor, copie manualmente: ' + email);
+            });
+        }
 
         // Intersection Observer para fade-up
         const fadeObserver = new IntersectionObserver((entries) => {
