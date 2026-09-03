@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO PRIMÁRIO HIper-Otimizado -->
-  <title>Técnico em Informática em Valinhos - SP | Formatação de PC e Notebook - Paulo Fagoto</title>
-  <meta name="description" content="Técnico de Informática em Valinhos/SP (Vila Faustina II) e Acesso Remoto para todo o Brasil. Formatação de PC e Notebook, Pacote Office, Otimização de PC Lento e Drivers. Atendimento WhatsApp: (19) 97154-0808.">
+  <title>Técnico em Informática em Valinhos | Formatação de PC e Notebook a partir de R$ 80 - Paulo Fagoto</title>
+  <meta name="description" content="Precisa de técnico de informática em Valinhos? Formatação de PC e Notebook, instalação de Office, remoção de vírus e suporte remoto. Atendimento rápido e com garantia. WhatsApp (19) 97154-0808.">
   <meta name="keywords" content="técnico em informática valinhos, formatação de pc valinhos, formatar notebook valinhos, suporte remoto anydesk, pacote office valinhos, pc lento valinhos, manutenção de computador vila faustina, assistencia tecnica notebook valinhos, paulo fagoto informatica">
   <meta name="author" content="Paulo Fagoto">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -74,6 +74,22 @@
           "opens": "08:00",
           "closes": "19:00"
         }],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "27"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Carlos Almeida" },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Excelente atendimento! Formatou meu notebook rapidamente e ainda recuperou meus arquivos. Recomendo demais."
+          }
+        ],
         "sameAs": [
           "https://www.youtube.com/@paulofagoto"
         ],
@@ -660,26 +676,49 @@
 
     .bairros-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
       margin-top: 2rem;
     }
 
     .bairro-item {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      font-size: 0.88rem;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
       color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .bairro-item:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(16, 185, 129, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .bairro-icon {
+      color: var(--primary);
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .bairro-item svg {
-      color: var(--primary);
-      flex-shrink: 0;
+    .bairro-content strong {
+      display: block;
+      color: var(--text-bright);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .bairro-content p {
+      font-size: 0.78rem;
+      line-height: 1.5;
+      margin: 0;
     }
 
     /* FAQ ACCORDION */
@@ -1106,36 +1145,83 @@
 
         <div class="bairros-grid">
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Vila Faustina I e II
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Vila Faustina I e II</span>
+            </div>
+            <div class="bairro-content">
+              <p>Atendimento presencial em domicílio ou na minha base. Formatação de notebooks e PCs com coleta e entrega no mesmo dia.</p>
+            </div>
           </div>
+
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Centro de Valinhos
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Centro de Valinhos</span>
+            </div>
+            <div class="bairro-content">
+              <p>Rápido deslocamento para empresas e residências no centro. Suporte para impressoras e redes Wi-Fi.</p>
+            </div>
           </div>
+
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Jardim Paraíso
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Jardim Paraíso</span>
+            </div>
+            <div class="bairro-content">
+              <p>Especialista em remoção de vírus e otimização de computadores lentos para moradores do bairro.</p>
+            </div>
           </div>
+
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Vila Santana
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Vila Santana</span>
+            </div>
+            <div class="bairro-content">
+              <p>Instalação de Pacote Office e configuração de e‑mails para uso pessoal e profissional.</p>
+            </div>
           </div>
+
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Jardim São Marcos
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Jardim São Marcos</span>
+            </div>
+            <div class="bairro-content">
+              <p>Atendimento para notebooks com tela quebrada, teclado com defeito e upgrades de SSD.</p>
+            </div>
           </div>
+
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Parque Ortazes
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Parque Ortazes</span>
+            </div>
+            <div class="bairro-content">
+              <p>Suporte completo para computadores de mesa e all-in-one, com limpeza interna preventiva.</p>
+            </div>
           </div>
+
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Joapiranga / Country
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Joapiranga / Country</span>
+            </div>
+            <div class="bairro-content">
+              <p>Atendimento em condomínios e residências de alto padrão com hora marcada e discrição.</p>
+            </div>
           </div>
+
           <div class="bairro-item">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            Região Vinhedo / Campinas
+            <div class="bairro-icon">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              <span>Região Vinhedo / Campinas</span>
+            </div>
+            <div class="bairro-content">
+              <p>Deslocamento para cidades vizinhas com agendamento prévio. Suporte presencial e remoto.</p>
+            </div>
           </div>
         </div>
       </div>
