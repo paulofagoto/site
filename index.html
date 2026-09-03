@@ -10,7 +10,11 @@
   <meta name="keywords" content="técnico em informática valinhos, formatação de pc valinhos, formatar notebook valinhos, suporte remoto anydesk, pacote office valinhos, pc lento valinhos, manutenção de computador vila faustina, assistencia tecnica notebook valinhos, paulo fagoto informatica">
   <meta name="author" content="Paulo Fagoto">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://paulofagoto.github.io/">
+  <link rel="canonical" href="https://www.paulofagoto.com.br/">
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="theme-color" content="#0b1329">
 
   <!-- GEO TAGS PARA BUSCA LOCAL (VALINHOS / SP) -->
   <meta name="geo.region" content="BR-SP">
@@ -23,7 +27,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Paulo Fagoto | Técnico em Informática em Valinhos/SP e Suporte Remoto">
   <meta property="og:description" content="Precisa formatar PC ou notebook em Valinhos ou Acesso Remoto no Brasil? Atendimento rápido com Paulo Fagoto (100k no YouTube). Fale no WhatsApp!">
-  <meta property="og:url" content="https://paulofagoto.github.io/">
+  <meta property="og:url" content="https://www.paulofagoto.com.br/">
   <meta property="og:site_name" content="Paulo Fagoto Informática">
   <meta property="og:image" content="https://i.imgur.com/JLAuF8G.jpeg">
 
@@ -39,14 +43,18 @@
     "@graph": [
       {
         "@type": "ComputerRepairService",
-        "@id": "https://paulofagoto.github.io/#service",
+        "@id": "https://www.paulofagoto.com.br/#service",
         "name": "Paulo Fagoto - Técnico em Informática",
         "image": "https://i.imgur.com/JLAuF8G.jpeg",
-        "url": "https://paulofagoto.github.io/",
+        "url": "https://www.paulofagoto.com.br/",
         "telephone": "+5519971540808",
         "email": "contatopaulofagoto@gmail.com",
-        "priceRange": "$$",
-        "taxID": "64.383.742/0001-26",
+        "priceRange": "R$ 80 - R$ 300",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "CNPJ",
+          "value": "64.383.742/0001-26"
+        },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Rua Campos Salles - Vila Faustina II",
@@ -60,12 +68,12 @@
           "latitude": -22.9701,
           "longitude": -46.9961
         },
-        "openingHoursSpecification": {
+        "openingHoursSpecification": [{
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           "opens": "08:00",
           "closes": "19:00"
-        },
+        }],
         "sameAs": [
           "https://www.youtube.com/@paulofagoto"
         ],
@@ -79,7 +87,7 @@
       },
       {
         "@type": "FAQPage",
-        "@id": "https://paulofagoto.github.io/#faq",
+        "@id": "https://www.paulofagoto.com.br/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -143,16 +151,38 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-main);
       color: var(--text-bright);
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
+      /* Espaço para o botão flutuante no mobile */
+      padding-bottom: 80px;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
+      }
     }
 
     h1, h2, h3, h4, .font-heading {
       font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Reduz animações para usuários sensíveis */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     /* HEADER & NAVBAR */
@@ -399,6 +429,8 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
+      /* Atributos de dimensão para evitar layout shift */
+      display: block;
     }
 
     .profile-card:hover .profile-img-frame img {
@@ -686,6 +718,8 @@
       justify-content: space-between;
       align-items: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      /* Acessibilidade */
+      aria-expanded: false;
     }
 
     .faq-icon {
@@ -771,6 +805,27 @@
       transform: scale(1.05);
     }
 
+    /* MAPA GOOGLE */
+    .map-section {
+      padding: 3rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .map-container {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .map-container iframe {
+      display: block;
+      width: 100%;
+      height: 350px;
+      border: 0;
+    }
+
     /* FOOTER & ADDRESS CONTACT */
     .footer-info {
       background: #060b17;
@@ -809,6 +864,7 @@
       cursor: pointer;
       margin-top: 8px;
       transition: all 0.3s ease;
+      aria-label: "Copiar endereço completo";
     }
 
     .copy-addr-btn:hover {
@@ -856,6 +912,19 @@
       0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
       70% { box-shadow: 0 0 0 18px rgba(16, 185, 129, 0); }
       100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    /* Responsividade extra para botão flutuante no mobile */
+    @media (max-width: 480px) {
+      .float-wa {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 18px;
+        font-size: 0.9rem;
+      }
+      .float-wa span {
+        display: none; /* esconde texto em telas muito pequenas para economizar espaço */
+      }
     }
   </style>
 </head>
@@ -914,7 +983,7 @@
         <div class="profile-card-glow"></div>
         <div class="profile-card">
           <div class="profile-img-frame">
-            <img src="https://i.imgur.com/JLAuF8G.jpeg" alt="Paulo Fagoto - Técnico em Informática em Valinhos SP">
+            <img src="https://i.imgur.com/JLAuF8G.jpeg" alt="Paulo Fagoto - Técnico em Informática em Valinhos SP" loading="lazy" width="380" height="320">
           </div>
           <div class="profile-name">Paulo Fagoto</div>
           <div class="profile-role">Técnico em Informática Especialista</div>
@@ -1081,11 +1150,11 @@
 
       <div class="faq-list">
         <div class="faq-item active">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="true" aria-controls="faq1">
             <span>Como funciona a formatação de notebook/PC em Valinhos?</span>
             <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq1">
             <div class="faq-answer-inner">
               A formatação inclui o salvamento seguro de todos os seus documentos (fotos, vídeos, planilhas), instalação do Windows 10 ou 11 otimizado do zero, instalação de drivers oficiais da placa mãe/vídeo e programas essenciais como leitor de PDF e Pacote Microsoft Office.
             </div>
@@ -1093,23 +1162,23 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq2">
             <span>Como funciona o suporte remoto via AnyDesk para o Brasil?</span>
             <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq2">
             <div class="faq-answer-inner">
-              Você baixa o programa gratuito AnyDesk no seu computador. Através de um código gerado por você, eu me me me conecto ao seu computador à distância com total segurança. Você acompanha tudo em tempo real na sua tela enquanto resolvo a lentidão ou instalo o programa necessário.
+              Você baixa o programa gratuito AnyDesk no seu computador. Através de um código gerado por você, eu me conecto ao seu computador à distância com total segurança. Você acompanha tudo em tempo real na sua tela enquanto resolvo a lentidão ou instalo o programa necessário.
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq3">
             <span>Você instala o Pacote Office (Word, Excel, PowerPoint)?</span>
             <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq3">
             <div class="faq-answer-inner">
               Sim! Faço a instalação e configuração completa do Pacote Microsoft Office pronto para uso, seja presencialmente ou via acesso remoto em poucos minutos.
             </div>
@@ -1117,11 +1186,11 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq4">
             <span>Onde fica localizada a assistência técnica em Valinhos?</span>
             <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq4">
             <div class="faq-answer-inner">
               Estou localizado na <strong>Rua Campos Salles - Vila Faustina II, Valinhos - SP (CEP: 13272-350)</strong>. Atendo com agendamento rápido via WhatsApp.
             </div>
@@ -1147,6 +1216,17 @@
         </div>
       </div>
     </section>
+
+    <!-- MAPA GOOGLE -->
+    <section class="map-section">
+      <div class="section-head" style="margin-bottom:2rem;">
+        <h2>Localização em Valinhos - SP</h2>
+        <p>Veja no mapa onde estou localizado na Vila Faustina II.</p>
+      </div>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps?q=Rua+Campos+Salles+-+Vila+Faustina+II,+Valinhos+-+SP,+13272-350&output=embed" loading="lazy" title="Mapa de localização - Paulo Fagoto Informática"></iframe>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER INFORMAÇÕES DE CONTATO -->
@@ -1162,7 +1242,7 @@
         <h4>Endereço Local (Valinhos/SP)</h4>
         <p>Rua Campos Salles - Vila Faustina II</p>
         <p>Valinhos - SP | CEP: 13272-350</p>
-        <button id="btn-copy-address" class="copy-addr-btn">📋 Copiar Endereço Completo</button>
+        <button id="btn-copy-address" class="copy-addr-btn" aria-label="Copiar endereço completo">📋 Copiar Endereço Completo</button>
       </div>
 
       <div class="footer-col">
@@ -1193,9 +1273,18 @@
         const questionBtn = item.querySelector('.faq-question');
         questionBtn.addEventListener('click', () => {
           const isOpen = item.classList.contains('active');
-          faqItems.forEach(i => i.classList.remove('active'));
+          
+          // Fecha todos os itens
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            const btn = i.querySelector('.faq-question');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+          
+          // Abre o item clicado se não estava aberto
           if (!isOpen) {
             item.classList.add('active');
+            questionBtn.setAttribute('aria-expanded', 'true');
           }
         });
       });
