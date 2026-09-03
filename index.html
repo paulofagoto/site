@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO PRIMÁRIO HIper-Otimizado -->
-  <title>Técnico em Informática em Valinhos | Formatação de PC e Notebook a partir de R$ 80 - Paulo Fagoto</title>
+  <title>Técnico em Informática em Valinhos/SP | Formatação R$ 80 - Paulo Fagoto</title>
   <meta name="description" content="Precisa de técnico de informática em Valinhos? Formatação de PC e Notebook, instalação de Office, remoção de vírus e suporte remoto. Atendimento rápido e com garantia. WhatsApp (19) 97154-0808.">
   <meta name="keywords" content="técnico em informática valinhos, formatação de pc valinhos, formatar notebook valinhos, suporte remoto anydesk, pacote office valinhos, pc lento valinhos, manutenção de computador vila faustina, assistencia tecnica notebook valinhos, paulo fagoto informatica">
   <meta name="author" content="Paulo Fagoto">
@@ -177,7 +177,6 @@
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
-      /* Espaço para o botão flutuante no mobile */
       padding-bottom: 80px;
     }
 
@@ -191,7 +190,12 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* Reduz animações para usuários sensíveis */
+    /* Acessibilidade – foco visível */
+    *:focus-visible {
+      outline: 2px solid #10b981;
+      outline-offset: 2px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -335,6 +339,14 @@
       -webkit-text-fill-color: transparent;
     }
 
+    .hero-title .price-highlight {
+      background: linear-gradient(135deg, var(--accent-gold), #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      text-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+    }
+
     .hero-subtitle {
       font-size: 1.1rem;
       color: var(--text-muted);
@@ -445,7 +457,6 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
-      /* Atributos de dimensão para evitar layout shift */
       display: block;
     }
 
@@ -478,7 +489,7 @@
       gap: 6px;
     }
 
-    /* INTERACTIVE CALCULATOR / SIMULATOR */
+    /* SIMULADOR */
     .simulator-section {
       padding: 4rem 5%;
       background: linear-gradient(180deg, var(--bg-main), #080f21);
@@ -594,7 +605,7 @@
       color: #fff;
     }
 
-    /* SERVICES GRID */
+    /* SERVIÇOS */
     .services-section {
       padding: 5rem 5%;
       max-width: 1200px;
@@ -661,7 +672,63 @@
       line-height: 1.6;
     }
 
-    /* BAIRROS VALINHOS (LOCAL SEO POWERHOUSE) */
+    /* NOVA SEÇÃO PASSO A PASSO */
+    .steps-section {
+      padding: 4rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .step-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-6px);
+      border-color: var(--primary);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: #04241a;
+      font-weight: 900;
+      font-size: 1.3rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .step-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* BAIRROS VALINHOS */
     .local-seo-section {
       background: rgba(255, 255, 255, 0.02);
       border-top: 1px solid var(--border-color);
@@ -757,8 +824,6 @@
       justify-content: space-between;
       align-items: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      /* Acessibilidade */
-      aria-expanded: false;
     }
 
     .faq-icon {
@@ -785,10 +850,10 @@
     }
 
     .faq-item.active .faq-answer {
-      max-height: 300px;
+      max-height: 600px;  /* <-- AUMENTADO PARA 600px */
     }
 
-    /* YOUTUBE BANNER SHOWCASE */
+    /* YOUTUBE BANNER */
     .yt-section {
       padding: 4rem 5%;
       max-width: 1200px;
@@ -844,7 +909,7 @@
       transform: scale(1.05);
     }
 
-    /* MAPA GOOGLE */
+    /* MAPA */
     .map-section {
       padding: 3rem 5%;
       max-width: 1200px;
@@ -865,7 +930,7 @@
       border: 0;
     }
 
-    /* FOOTER & ADDRESS CONTACT */
+    /* FOOTER */
     .footer-info {
       background: #060b17;
       border-top: 1px solid var(--border-color);
@@ -903,7 +968,6 @@
       cursor: pointer;
       margin-top: 8px;
       transition: all 0.3s ease;
-      aria-label: "Copiar endereço completo";
     }
 
     .copy-addr-btn:hover {
@@ -953,7 +1017,6 @@
       100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
-    /* Responsividade extra para botão flutuante no mobile */
     @media (max-width: 480px) {
       .float-wa {
         bottom: 15px;
@@ -962,7 +1025,7 @@
         font-size: 0.9rem;
       }
       .float-wa span {
-        display: none; /* esconde texto em telas muito pequenas para economizar espaço */
+        display: none;
       }
     }
   </style>
@@ -972,7 +1035,7 @@
   <!-- HEADER NAV -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand-logo">
+      <a href="/" class="brand-logo">  <!-- CORRIGIDO: href="/" -->
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         Paulo Fagoto <span>Tech</span>
       </a>
@@ -999,7 +1062,7 @@
         </a>
 
         <h1 class="hero-title">
-          Técnico em Informática em <span class="highlight-local">Valinhos / SP</span> e Acesso Remoto no Brasil
+          Técnico em Informática em <span class="highlight-local">Valinhos / SP</span> — Formatação a partir de <span class="price-highlight">R$ 80</span>
         </h1>
 
         <p class="hero-subtitle">
@@ -1132,6 +1195,36 @@
           <h3>Manutenção Preventiva</h3>
           <p>Diagnóstico de erros de disco, verificação de integridade do sistema e limpeza física/lógica contra superaquecimento.</p>
         </article>
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: PASSO A PASSO DO ATENDIMENTO -->
+    <section class="steps-section">
+      <div class="section-head">
+        <h2>Como funciona o atendimento?</h2>
+        <p>Rápido, seguro e transparente. Veja o passo a passo do nosso serviço.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Diagnóstico gratuito</h3>
+          <p>Converse comigo pelo WhatsApp e descreva o problema. Faço uma análise inicial sem compromisso.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Orçamento transparente</h3>
+          <p>Receba um valor fixo e claro, sem surpresas. Você aprova antes de qualquer serviço.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Execução ágil</h3>
+          <p>Presencial ou remoto, resolvo o problema no mesmo dia — normalmente em até 2 horas.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Entrega e garantia</h3>
+          <p>Testamos tudo juntos e você fica com a garantia de 30 dias no serviço prestado.</p>
+        </div>
       </div>
     </section>
 
